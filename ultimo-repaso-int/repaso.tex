@@ -1,0 +1,388 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+  \section{Punto 1}
+    Sea $K\subseteq \mathbb{R}$ compacto no vacío y sea $(f_n)_n$ una sucesión de 
+    funciones continuas uniformemente convergentes en $K$. Demostrar que $(f_n)_n$ 
+    es equicontinua.
+
+    Como cada $f_n$ es continua y $K$ es un compacto, entonces, $f_n$ es uniformemente continua,
+    por lo tanto, para cada $n$, y dado $\epsilon>0$ existe $\delta_n > 0$ tal que 
+      \[
+        \left| f_n(x) - f_n(y)\right| < \epsilon \text{ si } \left|x - y\right| < \delta_n
+      \]
+
+    Para $\epsilon > 0$, debe existir un natural $N$ tal que si $n \ge N$, 
+      \[
+        \left| f_n(x) - f_N(x) \right| < \epsilon
+      \]
+
+    Luego,
+      \begin{equation}
+        \begin{aligned}
+          \left|f_n(x) - f_n(y)\right| &\le \left|f_n(x) - f_N(x)\right| + \left|f_N(x) - f_n(y)\right| \\
+          &\le \left|f_n(x) - f_N(x)\right| + \left|f_N(x) - f_N(y)\right| + \left|f_N(y) - f_n(y)\right|
+        \end{aligned}
+      \end{equation}
+
+      A partir de ahora, consideramos $\delta = \min \delta_i, i = 1, ..., N-1$, 
+      entonces la condición de equicontinuidad se verfica para las $N-1$ primeras funciones, y para 
+      $n\ge N$, retomamos la inecuación demostrada anteriormente, entonces, si $|x-y| < \delta$, 
+      entonces $\left|f_N(x) - f_N(y)\right|<\epsilon$, luego,
+
+      \[
+        \left|f_n(x) - f_N(x)\right| + \left|f_N(x) - f_N(y)\right| + \left|f_N(y) - f_n(y)\right| < 3\epsilon
+      \]
+    Concluyendo así que $(f_n)_n$ es equicontinua.
+
+  \section{Punto 2}
+    Considerar la sucesión $(f_n)_n$ de funciones Riemann integrables y uniformemente acotadas en 
+    $[a, b]$ y sea
+      \[F_n(x) = \int_a^x f_n(t)\, dt, x\in[a, b]\]
+    Demuestre que existe una subsucesión de esta sucesión que converge uniformemente en $[a, b]$.
+
+    Primero vemos que $\left|F_n(x)\right| \le \int_a^x \left|f_n(t)\right| dt \le M(b-a)$, es decir,
+    la sucesión es acotada puntualmente. Ahora consideramos lo siguiente:
+      \[
+        \left|F_n(x) - F_n(y)\right| = \left|\int_y^x f(t) dt\right| \le M|x-y|
+      \]
+
+    Es decir, cada $F_n$ es de tipo Lipchitz, y como el $M$ vale para toda la sucesión $(f_n)_n$, 
+    concluimos que para $\epsilon > 0$ basta tomar $\delta = \frac{\epsilon}{M}$.
+
+
+    Con lo anterior, sabemos que la sucesión es equicontinua y acotada, de modo que por el teorema 
+    de completitud de funciones visto en clase, concluimos que existe una subsucesión de $F_n$ que 
+    converge uniformemente en $[a, b]$.
+
+  \section{Punto 3}
+    Sea $(f_n)_n$ una sucesión equicontinua y puntualmente convergente en un compacto $K\subseteq \mathbb{R}$
+    no vacío. Entonces $(f_n)_n$ converge uniformemente.
+
+
+    Sea $\epsilon > 0$, entonces existe $\delta > 0$ que cumple la condición de equicontinuidad, además
+    de que para cada $x$ existe un $N_x$ que satisface la condición de convergencia puntual. 
+    Tomamos la familia $B_x = (x - \delta, x + \delta)$ es un cubrimiento por abiertos de $K$, por 
+    lo tanto existe una cantidad finita de elementos $x_i, i = 1, ..., n$ tal que $B_{x_i}$ sigue 
+    cubriendo a $K$.
+
+    Elegimos $N= \max N_{x_i}, i = 1, ..., n$, entonces, para $m\ge N$ tenemos que
+
+      \begin{equation}
+        \begin{aligned}
+          |f_m(x) - f(x)| &\le |f_m(x) - f_m(x_i)| + |f_m(x_i) - f(x)|       
+        \end{aligned}
+      \end{equation}
+
+    Siempre que $|x - x_i| < \delta, \, |f_m(x) - f_m(x_i)| < \epsilon$ y como $N > N_{x_i}$, entonces
+    $|f_m(x_i) - f(x)| < \epsilon$, luego, 
+
+    \[
+        |f_m(x) - f(x)| < 2\epsilon
+    \]
+
+
+  \section{Punto 4}
+    Determinar completamente las series de Fourier de las siguientes funciones y dado el caso explicar
+    en qué sentido se tiene la convergencia hacia $f(x)$. Verificar la identidad de Parseval.
+    \subsection{Punto a}
+      \[f(x) = 3\cos^3(x), \, |x| \le \pi\]
+
+      Primero que todo, $\cos^3(x) = \frac{1}{2}\cos(x)(1 + \cos(2x)) = \frac{1}{2}(\cos(x)+\cos(x)\cos(2x))$,
+      y recordando que $\cos(x)\cos(y) = \frac{1}{2}(\cos(x+y) + \cos(x-y))$, llegamos a 
+
+      \begin{equation}
+        \begin{aligned}
+          \frac{1}{2}(\cos(x)+\cos(x)\cos(2x)) &= 
+          \frac{1}{2}(\cos(x) + \frac{1}{2}(\cos(3x) + \cos(x))) \\
+          &= \frac{1}{4}(3\cos(x) + \cos(3x)) \\
+          &= \frac{3}{4}\cos(x) + \frac{1}{4}\cos(3x)
+        \end{aligned}
+      \end{equation}
+
+      Es decir, $f(x) = \frac{9}{4}\cos(x) + \frac{3}{4}\cos(3x)$. Por la paridad de la función
+      $\cos(\cdot)$, concluimos que $f$ es una función par, por lo tanto los coeficientes $b_n$ son nulos.
+      
+
+      Ahora determinemos una forma para $f(x)\cos(nx)$.
+
+      \begin{equation}
+        \begin{aligned}
+          \frac{9}{4}\cos(x)\cos(nx) + \frac{1}{4}\cos(3x)\cos(nx) &=\\
+          \frac{9}{8}\cos((n+1)x) + \frac{9}{8}\cos((n-1)x) + \frac{1}{8}\cos((n-3)x) + \frac{1}{8}\cos((n+3)x)
+        \end{aligned}
+      \end{equation}
+
+      Analizando los valores cuando $n = 1$ y cuando $n = 3$ se obtine un resultado concluyente, ya
+      que el segundo y tercer término no resultan en $0$ cuando se efectua la integral, entonces 
+      los hayamos explícitamente: 
+
+      \[
+        a_1 = \frac{1}{\pi}\int_{-\pi}^{\pi} 
+        \left(\frac{9}{8}\cos(2x) + \frac{9}{8} + \frac{1}{8}\cos(2x) + \frac{1}{8}\cos(4x)\right)\, dx 
+        = \frac{9}{8\pi}\cdot 2\pi = \frac{9}{4}
+      \]
+
+      \[
+        a_3 = \frac{1}{\pi}\int_{-\pi}^{\pi} \frac{1}{8}\, dx = \frac{1}{4}
+      \]
+
+      Por inspección, los demás términos son nulos. La serie de Fourier resulta en 
+      \[
+        f(x) \sim \frac{9}{4}\cos(x) + \frac{3}{4}\cos(3x)
+      \]
+      Que resulta siendo una de las formas que dimos arriba.
+
+
+      Sabemos que la función $f$ es continua y periodica, con periodo de $2\pi$, y además su 
+      derivada, $f'(x) = -9\cos^2(x)\sin(x)$ es una función Riemann integrable, entonces
+      su serie de Fourier converge uniforme y absolutamente a $f$ (caso trivial).
+      
+
+      Ahora vemos que $\sum_{n= 0}^\infty |c_n|^2 = \frac{81}{16} + \frac{9}{16} = \frac{45}{8}$, 
+      y por otro lado $||f||^2 = \int_{-\pi}^{\pi} |f(x)|^2\, dx$  que resulta en 
+
+      \begin{equation}
+        \frac{1}{\pi}\int_{-\pi}^{\pi} \left(\frac{81}{16}\cos^2(x) + \frac{27}{8}\cos(x)\cos(3x)+ \frac{9}{16}\cos^2(3x)\right)\, dx
+      \end{equation}
+
+      el primer sumando es $\frac{81}{16}$, el segundo es $0$ y el tercero $\frac{9}{16}$, que son los
+      mismos coeficientes presentados antes, por lo tanto sus sumas coinciden.
+    \subsection{Punto b}
+      \[f(x) = \sqrt{\pi}, \text{ si } |x|\le \frac{1}{2},\, 0 \text{ si } \frac{1}{2}< |x|\le \pi\]
+
+
+      Esta función es una función par, entonces los coeficientes  $b_n$ son nulos.
+
+
+      Hallamos los coeficientes $a_n$: 
+
+      \[
+        a_n = \frac{1}{\pi} \int_{-\frac{1}{2}}^{\frac{1}{2}} \sqrt{\pi}\cos(nx)\, dx  
+           = \frac{1}{\sqrt{\pi}n} \sin(nx)|_{-\frac{1}{2}}^{\frac{1}{2}}
+           = \frac{2}{\sqrt{\pi}n} \sin\left(\frac{n}{2}\right)
+      \]
+
+      Y es fácil ver que $a_0 = \frac{1}{\sqrt{\pi}}$
+
+      Entonces 
+
+      \[
+        f(x) \sim \frac{1}{2\sqrt{\pi}}  + \sum_{n=1}^\infty \frac{2}{\sqrt{\pi}n}\sin\left(\frac{n}{2}\right)\cos(nx)
+      \]
+
+      Por el criterio de Jordan, como $f$ es variación acotada sobre todo intervalo de la forma
+      $[x - \delta, x + \delta],\,  0< \delta < \pi$, entonces la serie de Fourier converge hacia 
+      $s(x) = \lim_{t\to 0^+}\frac{1}{2}(f(x+t) + f(x-t))$, entonces veamos qué apariencia tiene $s(x)$
+      
+
+      Si $|x| < \frac{1}{2}$, entonces $s(x) = \sqrt{\pi}$, y si $\frac{1}{2} < |x| < \pi$, $s(x)= 0$.
+      Por último, si $x = \frac{1}{2}$, $s(x) = \lim_{t\to 0^+} \frac{1}{2}(\sqrt{\pi} + 0) = \frac{\sqrt{\pi}}{2}$,
+      si $x = -\frac{1}{2}$, tenemos un caso análogo, entonces
+
+      \begin{equation}
+        s(x) = 
+        \begin{cases}
+          \sqrt{\pi}, &\text{ si } |x| < \frac{1}{2} \\
+          0, &\text{ si } \frac{1}{2} < |x| \le \pi \\
+          \frac{\sqrt{\pi}}{2}, &\text{ si } |x| = \frac{1}{2}
+        \end{cases}
+      \end{equation}
+
+      Ahora verifiquemos la identidad de Parseval. Para ello verifiquemos el valor de $||f||^2$:
+
+      \[
+        ||f||^2 = \frac{1}{\pi}\int_{-\pi}^{\pi} f^2(x)\, dx = \int_{-\frac{1}{2}}^{\frac{1}{2}} dx = 1
+      \]
+
+      Y como $||f||^2 < \infty$, entonces 
+
+      \[
+        \frac{1}{2\pi} + \frac{4}{\pi^2}\sum_{n=1}^\infty \frac{1}{n^2}\sin^2\left(\frac{n}{2}\right) = 1
+      \]
+
+    \subsection{Punto c}
+      \[f(x) = x^2, \text{ si } |x| \le \pi\]
+
+      De nuevo, esta es una función par, entonces los coeficientes $b_n$ son $0$. Los coeficientes 
+      $a_n$ vienen dados por:
+        \begin{equation}
+          \begin{aligned}
+            a_n &= \frac{1}{\pi}\int_{-\pi}^{\pi} x^2\cos(nx)\, dx \\
+               &= -\frac{2}{n\pi} \int_{-\pi}^{\pi} \sin(nx)x\, dx \\
+               &= -\frac{2}{n\pi} (-\frac{2}{n}\cos(n\pi)\pi) \\
+               &= \frac{4}{n^2} (-1)^n
+          \end{aligned}
+        \end{equation}
+
+      y es sencillo verificar que $a_0 = \frac{2}{3}\pi^2$, concluyendo que 
+      \[
+        f(x) \sim \frac{\pi^2}{3} + 4\sum_{n=1}^\infty \frac{(-1)^n}{n^2} \cos(nx)
+      \]  
+
+      De nuevo usamos el lema de Jordan, como $x^2$ es de variación acotada en el intervalo 
+      $[x-\delta, x+\delta], 0 < \delta < \pi$, para todo $x$, entonces la serie converge hacia
+      $s(x) = \lim_{t\to 0} \frac{f(x+t) + f(x-t)}{2} = x^2$ ya que $f$ es continua. 
+
+      De nuevo, como $||f||^2 < \infty$ entonces se cumple la identidad de Parseval, y como 
+      \[
+        \int_{-\pi}^{\pi} x^4\, dx = \frac{2}{5}\pi^5
+      \]
+
+      Entonces 
+        \[
+          \frac{2}{5}\pi^4 = \frac{2\pi^4}{9} + \sum_{n=1}^\infty \frac{16}{n^4}
+        \]
+
+  \section{Punto 5}
+    Sea $f(x) = \pi - x, 0 < x \le \pi$. Determine los coeficientes de Fourier de la extención
+    impar a $[-\pi, \pi]$.
+
+    $f$ estaría determinada como 
+    \[
+      f(x) =
+      \begin{cases}
+        \pi - x, \text{ si } 0 < x\le \pi \\
+        0, \text{ si } x= 0 \\
+        -(x+\pi), \text{ si } -\pi \le x < 0
+      \end{cases}
+    \]
+    Como extendimos a $f$ en su forma impar, entonces los coeficientes $a_n$ son $0$. Para determinar 
+    los coeficientes $b_n$ resolvermos:
+
+    \[
+      b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)\sin(nx) \, dx = 
+          \frac{-1}{\pi}\int_{-\pi}^0 (x+\pi)\sin(nx)\, dx + \frac{1}{\pi}\int_0^\pi (\pi - x)\sin(nx)\,dx
+    \]
+    
+    Empezamos resolviendo la primera integral:
+      \[
+        -\frac{1}{\pi}\int_{-\pi}^0 (x+\pi)\sin(nx)\, dx = 
+        -\frac{1}{\pi}\left(-\frac{\pi}{n} + \frac{1}{n}\int_{-\pi}^0 \cos(nx)\, dx\right) = \frac{1}{n}
+      \]
+
+    Y la segunda resulta en:
+    \[
+      \frac{1}{\pi} \int_0^\pi (\pi-x)\sin(nx)\,dx = 
+      \frac{1}{\pi}\left(\frac{\pi}{n} + \frac{1}{n}\int_0^\pi \cos(nx)\,dx\right) =
+      \frac{1}{n}
+    \]
+
+    Es decir, $b_n = \frac{2}{n}$ y su serie de Fourier asociada es:
+      \[
+        f(x) \sim 2\sum_{n=1}^\infty \frac{\sin(nx)}{n}
+      \]
+
+    Ahora análizamos la convergencia de esta serie hacia la función original. De nuevo, usamos el 
+    lema de Jordan; como $f$ es de variación acotada en cada intervalo de la forma $[x - \delta, x+\delta]$,
+    para $\delta < \pi$, entonces la serie coverge a $s(x) = \lim_{t\to0^+} \frac{1}{2}(f(x+t)+f(x-t))$.
+    Vemos que cuando $x > 0$ o $x < 0$, $s(x) = f(x)$ y cuando $x = 0$, $s(x) = 0$, es decir,
+    $s(x) = f(x)$. Ahora determinemos el valor de $\frac{1}{\pi}\int_{-\pi}^\pi f(x)\, dx$.
+
+    \begin{equation}
+      \begin{aligned}
+        \frac{1}{\pi}\int_{-\pi}^\pi f^2(x)\, dx &= \frac{1}{\pi}\int_{-\pi}^0 (\pi+x)^2\,dx + \frac{1}{\pi}\int_0^\pi (\pi -x)^2\, dx \\
+        &= \frac{1}{\pi} \frac{(\pi + x)^3}{3}\left|_{-\pi}^0\right. - \frac{1}{\pi} \frac{(\pi -x)^3}{3} |_0^\pi \\
+        &= \frac{2}{3}\pi^2
+      \end{aligned}
+    \end{equation}
+
+    Entonces $\frac{2}{3}\pi^2 = \sum_{n=1}^\infty \frac{4}{n^2}$, siendo esta la identidad de 
+    Parseval. De esto último se concluye el problema de Basilea
+    \[\frac{\pi^2}{6} = \sum_{n=1}^\infty \frac{1}{n^2}\]
+
+  \section{Punto 6}
+    Sea $f(x) = \sin(x), \text{ si } x\in[0, \pi]$
+    \subsection{Punto a}
+      Determine una serie de cosenos de $f$ en $[-\pi, \pi]$ y describir los tipos de convergencia
+      hacia $f$ en $[0, \pi]$.
+
+      Extendemos a $f$ como una función par en el intervalo $[-\pi, \pi]$ para que los coeficientes 
+      $a_n$ no se anulen. 
+
+      \[
+        a_n = \frac{1}{\pi} \int_{-\pi}^\pi f(x)\cos(nx)\, dx =
+        -\frac{1}{\pi}\int_{-\pi}^0 \sin(x)\cos(nx)\, dx + \frac{1}{\pi}\int_0^\pi \sin(x)\cos(nx)\,dx
+      \]
+
+      Determinemos el valor de $\int \sin(x) \cos(nx)\, dx$. Si $n\ge 2$, entonces
+      
+      \begin{equation}
+        \begin{aligned}
+          \int \sin(x)\cos(nx)\, dx &= -\cos(x)\cos(nx) - n\int \cos(x)\sin(nx)\,dx \\
+          &= -\cos(x)\cos(nx) - n\left(\sin(x)\sin(nx) - n\int \sin(x)\cos(nx)\, dx\right) \\
+          \int \sin(x)\cos(nx)\, dx &= \frac{1}{n^2 - 1}\left(\cos(x)\cos(nx) + n\sin(x)\sin(nx)\right) 
+        \end{aligned}
+      \end{equation}
+      
+      Con esto podemos determinar los siguientes valores cuando $n > 1$
+      \[
+        \int_{-\pi}^0 \sin(x)\cos(nx)\, dx = \frac{1}{n^2 - 1}(1 + (-1)^n)
+      \]
+      \[
+        \int_0^\pi \sin(x)\cos(nx)\, dx = \frac{1}{n^2 - 1}((-1)^{n+1} - 1)
+      \]
+
+      Entonces $a_n = \frac{2}{\pi(n^2 - 1)}((-1)^{n+1} - 1)$, si $n>1$. Si $n = 1$,
+      $\int \sin(x)\cos(x)\, dx = \frac{1}{2}\sin^2(x)$, entonces $a_1 = 0$, y 
+      $a_0 = \frac{1}{\pi}\left(-\int_{-\pi}^0 \sin(x)\, dx + \int_0^\pi \sin(x)\, dx\right)$, por lo
+      tanto, $a_0 = \frac{4}{\pi}$, con todo esto en mente, determinamos 
+      \[
+        f(x)\sim \frac{2}{\pi} + \frac{2}{\pi}\sum_{n=2}^\infty \frac{(-1)^{n+1} - 1}{n^2 - 1} \cos(nx)
+      \]
+
+      Analizando el término $((-1)^{n+1} - 1)$, es $0$ cuando $n$ es impar y $-2$ cuando es par, entonces
+      el término $a_n = \frac{-4}{\pi(2n-1)(2n+1)}, n>1$, luego, la serie se puede escribir como
+      \[
+        f(x) \sim \frac{2}{\pi} - \frac{4}{\pi}\sum_{n = 1}^\infty \frac{\cos(2nx)}{(2n-1)(2n+1)}
+      \]
+    \subsection{Punto b}
+      Ahora determinemos la identidad de Parseval, para ello, hallemos el valor de 
+      $\frac{1}{\pi}\int_{-\pi}^\pi f^2(x)\, dx$
+
+      \[
+        \frac{1}{\pi}\int_{-\pi}^\pi f^2(x)\, dx = \frac{2}{\pi} \int_0^\pi \sin^2(x)\, dx =
+        \frac{1}{\pi}\left(\pi - \int_0^\pi \cos(2x) \right) = 1
+      \]
+
+      Es decir que 
+      \[
+        1 = \frac{8}{\pi^2} + \frac{16}{\pi^2}\sum_{n=1}^\infty \frac{1}{(2n-1)^2 (2n+1)^2}
+      \]
+
+      Despejando la serie se concluye que 
+        \[
+        \sum_{n=1}^\infty \frac{1}{(2n-1)^2 (2n+1)^2} = \frac{\pi^2}{16} - \frac{1}{2}
+      \]
+
+  \section{Punto 7}
+    Sea $f$ una función Riemann integrable $T$-periódica, $T>0$. Muestre que $F(x) = \int_0^x f(t)\, dt$
+    es $T$-periódica sii $\int_0^T f(t)\, dt = 0$.
+
+    $F(x+T) = F(x) \iff \int_0^{x+T} f(t)\, dt = \int_0^x f(t)\, dt \iff \int_0^x f(t)\, dt + \int_x^{x+T} f(t)\, dt = \int_0^x f(t)\, dt
+    \iff \int_x^{x+T} f(t)\, dt = 0 \iff \int_0^T f(t)\, dt = 0$ 
+
+  \section{Punto 8}
+    Muestre que $\sum_{n=1}^\infty \frac{1}{\sqrt{n}}\sin(nx)$ no puede ser la serie de Fourier 
+    de ninguna función.
+
+    Si fuera la serie de Fourier de alguna función, se cumple que $\sum_{n=1}^\infty a_n^2 +b_n^2 < \infty$,
+    en esa serie se hace notar que $a_n = 0$ y $b_n = \frac{1}{\sqrt{n}}$, pero esto es una contradición
+    porque sabemos que $\sum_{n = 1}^\infty \frac{1}{n}$ diverge.
+
+  \section{Punto 9}
+    Muestre que $\sum_{n=1}^\infty \frac{b_n}{n} = \infty$, entonces $\sum_{n=1}^\infty b_n \cos(nx)$
+    no puede ser la serie de Fourier de de una función continua y periodica.
+
+    Por la desigualdad de Cauchy-Schwarz sabemos que
+    \[
+      \left|\sum_{n=1}^\infty \frac{b_n}{n}\right| \le \left(\sum_{n=1}^\infty b_n^2\right)^{\frac{1}{2}}
+      \left(\sum_{n=1}^\infty \frac{1}{n^2}\right)^{\frac{1}{2}}
+    \]
+
+    Si $\sum_{n=1}^\infty b_n \cos(nx)$ fuera la serie de Fourier de alguna función, sabemos que 
+    $\sum_{n=1}^\infty b_n^2 < \infty$, lo que contradice que $\sum_{n=1}^\infty \frac{b_n}{n} = \infty$.
+\end{document}

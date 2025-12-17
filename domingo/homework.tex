@@ -1,0 +1,303 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2.54cm]{geometry}
+\usepackage{setspace}
+\doublespacing
+\usepackage{times}
+
+
+\begin{document}
+    \begin{titlepage}
+        {}
+        \begin{center}
+            % Título principal
+          {\Huge \textbf{\fontsize{30}{28}\selectfont ACA Final}}\\[8cm]
+
+            % Nombres de los estudiantes
+            {\Large \textbf{\fontsize{23}{28} \selectfont Estudiante}}\\[0.5cm]
+            \large
+            Brandon Esleider Galicia Escarraga\\[10cm]
+
+
+            % Información institucional
+            {\large Análisis Avanzado de Cálculo Diferencial\\
+                    Robinson F. Verano P }
+        \end{center}
+    \end{titlepage}
+
+    \tableofcontents
+    \newpage
+
+    \section{Ejercicio 1}
+      Derivabilidad de una función a trozos y análisis de concavidad
+
+      Sea $f$ la función definida poe tramos como sigue:
+        \begin{equation}
+        f(x) =
+        \begin{cases}
+            a \sin\!\left(\dfrac{\pi x}{2}\right) + b, & \text{si } x \leq 1,\\[4pt]
+            \dfrac{x^2 - 1}{1 - \sqrt{x}},            & \text{si } x > 1.
+          \end{cases}
+        \end{equation}
+
+    \subsection{Punto a)}
+      Determine los valores de $a$ y de $b$ para que $f$ sea continua y derivable en $x = 1$.
+
+      Determinamos las derivadas laterales al rededor de $x = 1$, empezamos con la derivada 
+      por derecha
+
+    \begin{equation}
+      \begin{aligned}
+        f'_+(x) &= \frac{2x(1-\sqrt{x}) - (x^2 - 1)\left(\frac{-1}{2\sqrt{x}}\right)}{(1-\sqrt{x})^2} \\[4pt]
+          &= \frac{1}{2\sqrt{x}} \cdot \frac{4x^{\frac{3}{2}} (1-\sqrt{x}) + x^2 - 1}{(1-\sqrt{x})^2} \\[4pt]
+          &= \frac{1}{2\sqrt{x}} \frac{4x^{\frac{3}{2}} -4x^2 + x^2 - 1}{(1-\sqrt{x})^2} \\[4pt]
+          &= \frac{1}{2\sqrt{x}} \frac{4x^{\frac{3}{2}} - 3x^2 - 1}{(1-\sqrt{x})^2}
+      \end{aligned}
+    \end{equation}
+      Ahora hallamos la derivada por izquierda
+    \begin{equation}
+      \begin{aligned}
+        f'_-(x) &= a\cos(\frac{\pi x}{2}) \frac{\pi}{2}
+      \end{aligned}
+    \end{equation}
+
+    Independientemente del valor de $a$ o de $b$, $f'_-(1) = 0$ y para el valor de $f'_+(1)$ debemos tener en cuenta
+    $\lim_{x\to 1^+} f'_+(x) = \lim_{x\to 1^+} \frac{1}{2\sqrt{x}} \frac{4x^{\frac{3}{2}} - 3x^2 - 1}{(1-\sqrt{x})^2} = 
+    \frac{1}{2}\lim_{x\to 1^+} \frac{4x^{\frac{3}{2}} - 3x^2 - 1}{(1-\sqrt{x})^2} $. Como tanto numerdor y denominador, van para $0$,
+    por lo tanto podemos aplicar la regla de L'Hopital, por lo tanto, obtenemos que 
+
+    \begin{equation}
+      \begin{aligned}
+      \frac{1}{2}\lim_{x\to 1^+} \frac{4x^{\frac{3}{2}} - 3x^2 - 1}{(1-\sqrt{x})^2} = 
+      \frac{1}{2}\lim_{x\to 1^+} \frac{6 x^{\frac{1}{2}} - 6x}{2(1-\sqrt{x})\frac{-1}{2\sqrt{x}}} \\[4pt] = 
+      \frac{1}{2}\lim_{x\to 1^+} -\sqrt{x} \frac{6 x^{\frac{1}{2}} - 6x}{1-\sqrt{x}} = \frac{-1}{2}\lim_{x\to 1^+} \frac{6 x^{\frac{1}{2}} - 6x}{1-\sqrt{x}}
+      \end{aligned}
+    \end{equation}
+
+    De nuevo, en este límite podemos ver que tanto numerador como denominador van para $0$, concluyendo así que podemos aplicar
+    la regla de L'Hopital de nuevo, obteniendo el límite 
+    \begin{equation}
+      \begin{aligned}
+      \frac{-1}{2}\lim_{x\to 1^+} \frac{6 x^{\frac{1}{2}} - 6x}{1-\sqrt{x}} = \frac{-1}{2}\lim_{x\to 1^+} \frac{\frac{3}{\sqrt{x}} - 6}{\frac{-1}{2\sqrt{x}}} 
+      = \frac{-1}{2}(3 - 6)(-2) = \frac{-1}{2}6 = -3
+      \end{aligned}
+    \end{equation}
+
+    Con esto en mente, como las derivadas laterales no coinciden, la función no es derivable para ningún $a, b \in \mathbb{R}$
+
+
+    Para analizar la continuidad, vemos que $f(1) = a \sin(\frac{\pi}{2}) + b = a + b$, pero, $\lim_{x\to 1^+} f(x) = \lim_{x\to 1^+} \frac{x^2 - 1}{1-\sqrt{x}}$,
+    y como tanto  numerador y denominador van para 0 cuando $x \to 1^+$, entonces podemos aplicar de nuevo la regla de L'Hopital y así 
+    \begin{equation}
+      \begin{aligned}
+      \lim_{x\to 1^+} \frac{x^2 - 1}{1-\sqrt{x}} = \lim_{x\to 1^+} \frac{2x}{\frac{-1}{2\sqrt{x}}} = -4
+      \end{aligned}
+    \end{equation}
+
+    Por lo tanto, $a + b = -4$ para que $f$ sea continua en $x = 1$.
+
+
+    \subsection{Punto b)}
+      Con los valores encontrados, analice la concavidad de $f$ en el intervalo $(1, \infty)$, calcule $f'(x), f''(x)$, identifique puntos de 
+      inflexión y describa la concavidad por intervalos.
+
+      En el intervalo dado, 
+      \begin{equation}
+        \begin{aligned}
+          f(x) &= \frac{x^2 - 1}{1 - \sqrt{x}} = \frac{(x-1)(x+1)}{1 - \sqrt(x)} \\[4pt]
+            &=- \frac{(1 - x)(1+x)}{1 - \sqrt{x}} \\[4pt]
+            &= - \frac{(1-\sqrt{x})(1+\sqrt{x})(1+x)}{1-\sqrt{x}} \\[4pt] 
+            &= -(1 + \sqrt{x})(1+x) = -(1 + x + \sqrt{x} + x^{\frac{3}{2}})
+        \end{aligned}
+      \end{equation}
+      esta es una 
+      expresión mucho más fácil de trabajar de ahora en adelante. Hallemos las dos primeras derivadas
+    
+      \begin{equation}
+        \begin{aligned}
+          f'(x) = -(1 + \frac{1}{2\sqrt{x}} + \frac{3}{2} \sqrt{x}) \\[4pt]
+          f''(x) = -(\frac{-1}{4x^{\frac{3}{2}}} + \frac{3}{4\sqrt{x}})
+        \end{aligned}
+      \end{equation}
+      
+
+      Hallemos los puntos de inflexión, para ello, resolvemos $f''(x) = 0$, es decir, $\frac{-1}{4x^{\frac{3}{2}}} + \frac{3}{4\sqrt{x}} = 0$, entonces
+      $\frac{3}{4\sqrt{x}} = \frac{1}{4x^{\frac{3}{2}}}$, es decir, $3x^{\frac{3}{2}} = \sqrt{x}$, por lo tanto $x = \frac{1}{3}$, pero no está en el 
+      intervalo que estamos análizando, conclimos que no hay puntos de inflexión en el intervalo $(1, \infty)$. 
+
+      Ahora, para análizar la concavidad de $f$, determinamos los signos de $f''$, pero del anterior párrafo, la segunda derivada no cambia de 
+      signo. Fijemonos en la siguiente desigualdad, como $1 < x$, entonces $\frac{1}{3} < x$, luego
+      \begin{equation}
+        \begin{aligned}
+          1 &< 3x, \\[4pt]
+          \sqrt{x} &< 3x^{\frac{3}{2}}, \\[4pt]
+          \frac{1}{4} \sqrt{x} &< \frac{1}{4}\, 3x^{\frac{3}{2}}, \\[4pt]
+          \frac{1}{4x^{\frac{3}{2}}} &< \frac{3}{4\sqrt{x}}
+          \;\Longrightarrow\;
+          0 < -\frac{1}{4x^{\frac{3}{2}}} + \frac{3}{4\sqrt{x}}.
+        \end{aligned}
+      \end{equation}
+
+      Esto último nos permite concluir que para todo $x > 1$, $f''(x) < 0$, es decir, que $f$ es concava hacia abajo en el intervalo $(1, \infty)$.
+
+    \subsection{Punto c)}
+      Basqueje la gráfica de $f$ mostrando el comportamiento de $f$ al rededor de $x \ge 1$. Indique los valores de continuidad y 
+      derivabilidad encontrados.
+      
+
+      Del punto a sabemos que $a + b = -4$, es decir, $b = -4 -a$, y así $f$ quedaría definida como 
+      \begin{equation}
+        f(x) = 
+        \begin{cases}
+          a (\sin(\frac{\pi x}{2}) - 1) - 4, \text{ si } x \leq 1, \\[4pt]
+          \frac{x^2 - 1}{1-\sqrt{x}}, \text{ si } x>1
+        \end{cases}
+      \end{equation}
+
+      A continuación mostramos el bosquejo de la gráfica con un valor particular de $a$:
+      \begin{figure}[h!]
+        \begin{center}
+          \includegraphics[width=0.75\textwidth]{images/geogebra-export.png}
+        \end{center}
+        \caption{Gráfica de la función $f$ definida con $a = 1$}\label{fig:}
+      \end{figure}
+      
+      Para este valor de $a$, es fácil ver que $f$ es continua en $x = 1$, pero la forma en punta de la gráfica es la que 
+      daña el hecho de que $f$ sea derivable porque no es suficientemente "suave". Además, se observa el hecho de que
+      sea concava en el intervalo $(1, \infty)$.
+
+
+  \section{Ejercicio 2}
+      Considere la curva 
+      \begin{equation}
+        y^4 + x^3 = 2xy^2
+      \end{equation}
+      Derivamos implicitamente considerando $y := y(x)$
+
+      \begin{equation}
+        \begin{aligned}
+          4y^3 y' + 3x^2 &= 2(y^2 + 2xy y') \\[4pt]
+          4y^3 y' - 4xyy' &= 2y^2 - 3x^2 \\[4pt]
+          y' &= \frac{2y^2 - 3x^2}{4y^3 - 4xy}
+        \end{aligned}
+      \end{equation}
+
+      \subsection{Puntos de recta tangente horizontal}
+      Hacemos $y' = 0$, es decir $\frac{2y^2 - 3x^2}{4y^3 - 4xy} = 0 \iff 2y^2 - 3x^2=0$, concluyendo así que $y^2 = \frac{3}{2}x^2$, luego,
+      reemplazando en la ecuación de la curva, por un lado obtenemos
+
+      \begin{equation}
+        \begin{aligned}
+          (\frac{3}{2}x^2)^2 + x^3 &= 2x(\frac{3}{2}x^2) \\[4pt]
+          \frac{9}{4} x^4 + x^3 &= 3x^3 \\[4pt]
+          \frac{9}{4} x^4 &= 2x^3 \\[4pt]
+          9x = 8 &\iff x = \frac{8}{9}
+        \end{aligned}
+      \end{equation}
+
+      Ahora, para hallar $y$ usamos la identidad hallada, $y^2 = \frac{3}{2} \cdot\frac{64}{81} = \frac{32}{27}$, luego 
+      $y = \pm \frac{4\sqrt{2}}{3\sqrt{3}} = \pm\frac{4}{9} \sqrt{6}$. Falta hacer el análisi de que $4y^3 - 4xy \neq 0$, 
+      pero $4y(y^2 - x) = 4y(\frac{32}{27} - \frac{8}{9}) \neq 0$, para ambos valores de $y$.
+
+      Los puntos de rectas horizontales no triviales son $(\frac{8}{9}, \frac{4}{9} \sqrt{6})$ y $(\frac{8}{9}, -\frac{4}{9} \sqrt{6})$.
+
+      \subsection{Puntos con recta tangente vertical}
+          Análizamos $x' = 1/y' = 0$, es decir, $\frac{4y^3 - 4xy}{2y^2 - 3x^2} = 0$, es decir, $4y^3 = 4xy$ y $2y^2 \neq 3x^2$.
+          De la primera ecuación $y^2 = x$, reemplazando en la ecuación de la curva, $x^2 + x^3 = 2x^2 \rightarrow x^3 = x^2$, entonces
+          $x = 0$ o $x = 1$. Si $x = 0$, $y = 0$, y no se cumple que  $2y^2 \neq 3x^2$ y si $x = 1$, $y = \pm 1$, si $y = -1$, 
+          $4(-1)^3 = 4(1)(-1)$ y si $y = 1$, $4(1)^3 = 4(1)(1)$, y para cualquier valor de $y$ que sea de los anteriormente
+          mencionados, $2 \neq 3$, es decir, en los puntos $(1, \pm 1)$ hay una tangente vertical. El enunciado tiene un error.
+
+  \section{Ejercicio 5}
+    Use la definición de derivada para hallar la derivada de $f(x) = x^{\frac{-1}{3}}$ en $x = 8$.
+
+    Empezamos usando la definición, y recordando que $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$:
+
+    \begin{equation}
+      \begin{aligned}
+        \lim_{x \to 8} \frac{x^\frac{-1}{3} - \frac{1}{2}}{x - 8} 
+        &= \lim_{x\to 8}  x^\frac{-1}{3}\frac{1}{2} \cdot\frac{2 - x^\frac{1}{3}}{x-8} \\
+        &= \frac{-1}{2}\lim_{x\to 8}  x^\frac{-1}{3} \lim_{x\to 8} \frac{x^\frac{1}{3}-2}{x-8} \\
+        &= \frac{-1}{4} \lim_{x\to 8} \frac{x^\frac{1}{3}-2}{(x^\frac{1}{3}-2)(x^\frac{2}{3} + 2x^\frac{1}{3} + 4)} \\
+        &= \frac{-1}{4} \lim_{x\to 8} \frac{1}{x^\frac{2}{3} + 2x^\frac{1}{3} + 4} \\
+        &= \frac{-1}{4} \cdot\frac{1}{12} = \frac{-1}{48}
+      \end{aligned} 
+    \end{equation}
+
+
+  \section{Ejercicio 6}
+    Un contenedor cerrado está formado por un cilindro con tapas semiesféricas. El volumen total del contenedor es $V_0$ (constante). Determine el radio r y la altura
+    h de la parte cilíndrica que minimizan el costo total del material, si el material de las tapas semiesféricas cuesta el doble que el material de los lados
+    cilíndricos.
+
+
+    Primero que todo, el volumen de este sólido viene dado por $V_0 = \pi r^2 h + \frac{4}{3} \pi r^3$, y el precio es proporcial a 
+    $P(r, h) = 2\pi r h + 8\pi r^2$, ya que $2\pi r h$ determina el área superficial de el cilindro y $8\pi r^2 = 2\cdot 4\pi r^2$ es dos veces 
+    el área superficial de las dos tapas, que unidas resultan en una esfera. 
+
+    De la primera ecuación vamos a depejar un término similar a $2\pi h r$, vemos el proceso:
+
+    \begin{equation}
+      \begin{aligned}
+        V_0 &= \pi r^2 h + \frac{4}{3} \pi r^3 \\
+        V_0 - \frac{4}{3} \pi r^3  &= \pi r^2 h \\
+        \frac{V_0}{r} - \frac{4}{3} \pi r^2  &= \pi r h \\
+        \frac{2V_0}{r} - \frac{8}{3} \pi r^2  &= 2\pi r h 
+      \end{aligned}
+    \end{equation}
+
+    Remmplazando esto en la ecuación $P$:
+
+    \begin{equation}
+      \begin{aligned}
+        2\pi r h + 8\pi r^2 &= \frac{2V_0}{r} - \frac{8}{3} \pi r^2 + 8\pi r^2 \\
+        &= \frac{2V_0}{r} + \frac{16}{3}\pi r^2 = H(r)
+      \end{aligned}
+    \end{equation}
+
+    Ahora optimicemos $H$, primero hallando la derivada, que es lo que hacemos en lo que sigue 
+    \begin{equation}
+      \begin{aligned}
+        H'(r) = - \frac{2V_0}{r^2} + \frac{32}{3} \pi r
+      \end{aligned}
+    \end{equation}
+     
+     Y como debemos minizar, reolvemos  $H'(r) = 0$:
+
+    \begin{equation}
+      \begin{aligned}
+        - \frac{2V_0}{r^2} + \frac{32}{3} \pi r &= 0 \\
+          \frac{32}{3} \pi r &= \frac{2V_0}{r^2} \\
+          r^3 &= \frac{3V_0}{16\pi} \\
+          r &= \sqrt[3]{\frac{3V_0}{16\pi}}
+      \end{aligned}
+    \end{equation}
+
+    Hallamos $H''(r)$:
+    \begin{equation}
+      H''(r) = \frac{4V_0}{r^3} + \frac{32}{3} \pi
+    \end{equation}
+
+    Y como $H''(\sqrt[3]{\frac{3V_0}{16\pi}}) > 0$, porque es suma de positivos, entonces $r = \sqrt[3]{\frac{3V_0}{16\pi}}$ es un mínimo.
+    
+
+    De la ecuación $V_0 = \pi r^2 h + \frac{4}{3} \pi r^3$, dividimos por $\pi r^3$ y obtenemos $\frac{V_0}{\pi r^3} = \frac{h}{r} + \frac{4}{3}$,
+    pero como $r^3 = \frac{3V_0}{16\pi}$, entonces queda $\frac{16}{3} = \frac{h}{r} + \frac{4}{3}$, entonces 
+    $\frac{12}{3} = \frac{h}{r}$, luego $h = 4r = 4 \sqrt[3]{\frac{3V_0}{16\pi}}$.
+
+  \section{Ejercicio 10}
+    Demuestre que la función $f(x) = x^5 + 3x - 1$ tiene una raíz única en el intervalo $[0, 1]$.
+
+    Primero que todo, sabemos que todo polinomio es una función continua, por lo tanto, se asumen todos los valores
+    entre las imagenes de los extremos. Como $f(0) = -1$ y $f(1) = 3$, entonces todo valor $f(x) \in [-1, 3]$ si 
+    $x \in [0, 1]$. Por ello, podemos afirmar que existe $x_0$ tal que $f(x_0) = 0$. 
+
+    Supongamos que existe otro $x_1 \in [0, 1]$ tal que $f(x_1) = 0$. Sin pérdida de generalidad, asumamos que $x_1 > x_0$.
+    Como $f$ es continua y diferenciable en $[x_0, x_1]$, por el teorema de Rolle, existe $x_2\in (x_0, x_1)$ tal que
+    $f'(x_2) = 0$, es decir, $5x_2^4 + 3 = 0$, por lo tanto $x_2^4 = \frac{-3}{5}$, la cual es una clara contradiccón
+    porque está diciendo que un número positivo es igual que uno negativo, esto no tiene solución en $\mathbb{R}$, concluyendo
+    así que la única raíz es $x_0$.
+\end{document}

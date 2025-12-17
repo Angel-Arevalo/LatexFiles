@@ -1,0 +1,480 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2.54cm]{geometry}
+\usepackage{setspace}
+\doublespacing
+\usepackage{times}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{float}
+
+\newcommand{\varcolor}[1]{\textcolor{blue}{#1}}
+\newcommand{\constcolor}[1]{\textcolor{red}{#1}}
+\newcommand{\derivcolor}[1]{\textcolor{green!50!black}{#1}}
+
+\newenvironment{procedimiento}{
+  \begin{center}
+  \begin{longtable}{p{0.6\textwidth} p{0.35\textwidth}}
+  \textbf{Procedimiento} & \textbf{Justificación} \\
+  \hline
+}{
+  \end{longtable}
+  \end{center}
+}
+
+\begin{document}
+
+\begin{titlepage}
+  {}
+  \begin{center}
+    {\fontsize{30}{32}\selectfont\bfseries ACA Final}\\[8cm]
+
+    {\fontsize{23}{26}\selectfont\bfseries Estudiante}\\[0.5cm]
+    \large
+    Brandon Esleider Galicia Escarraga\\[10cm]
+
+    {\large Análisis Avanzado de Cálculo Diferencial\\
+            Robinson F. Verano P}
+  \end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section*{Listado de figuras}
+\addcontentsline{toc}{section}{Listado de figuras}
+\listoffigures
+\newpage
+
+\section*{Esquema de colores}
+\addcontentsline{toc}{section}{Esquema de colores}
+
+En este documento se usa el siguiente esquema de colores en las expresiones matemáticas:
+\begin{itemize}
+  \item Variables (por ejemplo, $\varcolor{x}$, $\varcolor{y}$, $\varcolor{r}$, $\varcolor{h}$) se escriben en color azul.
+  \item Constantes (por ejemplo, $\constcolor{\pi}$, $\constcolor{V_0}$) se escriben en color rojo.
+  \item Derivadas (por ejemplo, $\derivcolor{f'(x)}$, $\derivcolor{y'}$) se escriben en verde.
+\end{itemize}
+
+\newpage
+
+\section*{Introducción}
+\addcontentsline{toc}{section}{Introducción}
+
+En este trabajo se resuelven distintos ejercicios de análisis avanzado de cálculo diferencial. En cada ejercicio se presentan los procedimientos de manera detallada, organizados en dos columnas: una para el desarrollo algebraico y otra para la justificación de cada paso. Se utilizan herramientas como derivación por definición, derivación implícita, estudio de continuidad y derivabilidad de funciones definidas por tramos, análisis de concavidad y optimización con restricciones geométricas. Además, se incluye un esquema de colores para distinguir variables, constantes y derivadas, y se incorporan gráficos para ilustrar el comportamiento de algunas funciones.
+
+\newpage
+
+\section{Ejercicio 1}
+Derivabilidad de una función a trozos y análisis de concavidad.
+
+Sea $f$ la función definida por tramos como sigue:
+\begin{equation}
+  f(\varcolor{x}) =
+  \begin{cases}
+    a \sin\!\left(\dfrac{\constcolor{\pi} \varcolor{x}}{2}\right) + b, & \text{si } \varcolor{x} \leq 1,\\[4pt]
+    \dfrac{\varcolor{x}^2 - 1}{1 - \sqrt{\varcolor{x}}},            & \text{si } \varcolor{x} > 1.
+  \end{cases}
+\end{equation}
+
+\subsection{Punto a)}
+Determine los valores de $a$ y de $b$ para que $f$ sea continua y derivable en $\varcolor{x} = 1$.
+
+\subsubsection*{Procedimiento y justificación}
+
+\begin{procedimiento}
+$\displaystyle f'_+(\varcolor{x}) = \frac{2\varcolor{x}(1-\sqrt{\varcolor{x}}) - (\varcolor{x}^2 - 1)\left(\frac{-1}{2\sqrt{\varcolor{x}}}\right)}{(1-\sqrt{\varcolor{x}})^2}$ 
+  & Derivada por la derecha usando la regla del cociente y la regla de la cadena. \\[4pt]
+
+$\displaystyle f'_+(\varcolor{x}) = \frac{1}{2\sqrt{\varcolor{x}}} \cdot \frac{4\varcolor{x}^{\frac{3}{2}} (1-\sqrt{\varcolor{x}}) + \varcolor{x}^2 - 1}{(1-\sqrt{\varcolor{x}})^2}$
+  & Se factoriza $\frac{1}{2\sqrt{\varcolor{x}}}$ y se simplifica el numerador. \\[4pt]
+
+$\displaystyle f'_+(\varcolor{x}) = \frac{1}{2\sqrt{\varcolor{x}}} \cdot \frac{4\varcolor{x}^{\frac{3}{2}} - 3\varcolor{x}^2 - 1}{(1-\sqrt{\varcolor{x}})^2}$
+  & Se agrupan términos semejantes en el numerador. \\[4pt]
+
+$\displaystyle f'_-(\varcolor{x}) = a\cos\!\left(\frac{\constcolor{\pi} \varcolor{x}}{2}\right) \frac{\constcolor{\pi}}{2}$
+  & Derivada por la izquierda de $a\sin\!\left(\dfrac{\constcolor{\pi} \varcolor{x}}{2}\right)+b$. \\[4pt]
+
+$\displaystyle f'_-(1) = a\cos\!\left(\frac{\constcolor{\pi}}{2}\right)\frac{\constcolor{\pi}}{2} = 0$
+  & Se usa que $\cos\!\left(\frac{\constcolor{\pi}}{2}\right) = 0$. \\[4pt]
+
+$\displaystyle \lim_{\varcolor{x}\to 1^+} f'_+(\varcolor{x}) = \frac{1}{2}\lim_{\varcolor{x}\to 1^+} \frac{4\varcolor{x}^{\frac{3}{2}} - 3\varcolor{x}^2 - 1}{(1-\sqrt{\varcolor{x}})^2}$
+  & Se evalúa el límite y se identifica la forma indeterminada $\tfrac{0}{0}$. \\[4pt]
+
+$\displaystyle \frac{1}{2}\lim_{\varcolor{x}\to 1^+} \frac{4\varcolor{x}^{\frac{3}{2}} - 3\varcolor{x}^2 - 1}{(1-\sqrt{\varcolor{x}})^2}
+= \frac{1}{2}\lim_{\varcolor{x}\to 1^+} \frac{6\varcolor{x}^{\frac{1}{2}} - 6\varcolor{x}}{2(1-\sqrt{\varcolor{x}})\frac{-1}{2\sqrt{\varcolor{x}}}}$
+  & Primera aplicación de la regla de L'Hôpital. \\[4pt]
+
+$\displaystyle \frac{1}{2}\lim_{\varcolor{x}\to 1^+} \left(-\sqrt{\varcolor{x}}\,\frac{6\varcolor{x}^{\frac{1}{2}} - 6\varcolor{x}}{1-\sqrt{\varcolor{x}}}\right)
+= -\frac{1}{2}\lim_{\varcolor{x}\to 1^+} \frac{6\varcolor{x}^{\frac{1}{2}} - 6\varcolor{x}}{1-\sqrt{\varcolor{x}}}$
+  & Se simplifica el factor $\sqrt{\varcolor{x}}$ y se reescribe el límite. \\[4pt]
+
+$\displaystyle -\frac{1}{2}\lim_{\varcolor{x}\to 1^+} \frac{6\varcolor{x}^{\frac{1}{2}} - 6\varcolor{x}}{1-\sqrt{\varcolor{x}}}
+= -\frac{1}{2}\lim_{\varcolor{x}\to 1^+} \frac{\frac{3}{\sqrt{\varcolor{x}}} - 6}{\frac{-1}{2\sqrt{\varcolor{x}}}} = -3$
+  & Segunda aplicación de la regla de L'Hôpital y evaluación en $\varcolor{x}=1$. \\[4pt]
+
+$f'_-(1) = 0,\quad \lim_{\varcolor{x}\to 1^+} f'_+(\varcolor{x}) = -3$
+  & Las derivadas laterales no coinciden, por lo que $f$ no es derivable en $1$ para ningún $a,b\in\mathbb{R}$. \\[4pt]
+
+$\displaystyle f(1) = a\sin\!\left(\frac{\constcolor{\pi}}{2}\right) + b = a + b$
+  & Se evalúa $f$ en $\varcolor{x}=1$ usando la rama izquierda. \\[4pt]
+
+$\displaystyle \lim_{\varcolor{x}\to 1^+} f(\varcolor{x}) = \lim_{\varcolor{x}\to 1^+} \frac{\varcolor{x}^2 - 1}{1-\sqrt{\varcolor{x}}}
+= \lim_{\varcolor{x}\to 1^+} \frac{2\varcolor{x}}{\frac{-1}{2\sqrt{\varcolor{x}}}} = -4$
+  & Se usa L'Hôpital para el límite de la rama derecha. \\[4pt]
+
+$a + b = -4$
+  & Condición de continuidad en $\varcolor{x}=1$. \\[4pt]
+\end{procedimiento}
+
+\subsection{Punto b)}
+Con los valores encontrados, analice la concavidad de $f$ en el intervalo $(1, \infty)$, calcule $\derivcolor{f'(\varcolor{x})}$, $\derivcolor{f''(\varcolor{x})}$, identifique puntos de inflexión y describa la concavidad por intervalos.
+
+Para $\varcolor{x} > 1$ se tiene:
+\begin{equation}
+  \begin{aligned}
+    f(\varcolor{x}) &= \frac{\varcolor{x}^2 - 1}{1 - \sqrt{\varcolor{x}}}
+    = \frac{(\varcolor{x}-1)(\varcolor{x}+1)}{1 - \sqrt{\varcolor{x}}} \\[4pt]
+    &= - \frac{(1 - \varcolor{x})(1+\varcolor{x})}{1 - \sqrt{\varcolor{x}}} \\[4pt]
+    &= - \frac{(1-\sqrt{\varcolor{x}})(1+\sqrt{\varcolor{x}})(1+\varcolor{x})}{1-\sqrt{\varcolor{x}}} \\[4pt] 
+    &= -(1 + \sqrt{\varcolor{x}})(1+\varcolor{x}) \\
+    &= -(1 + \varcolor{x} + \sqrt{\varcolor{x}} + \varcolor{x}^{\frac{3}{2}}).
+  \end{aligned}
+\end{equation}
+
+De aquí:
+\begin{equation}
+  \begin{aligned}
+    \derivcolor{f'(\varcolor{x})} &= -\left(1 + \frac{1}{2\sqrt{\varcolor{x}}} + \frac{3}{2} \sqrt{\varcolor{x}}\right), \\[4pt]
+    \derivcolor{f''(\varcolor{x})} &= -\left(\frac{-1}{4\varcolor{x}^{\frac{3}{2}}} + \frac{3}{4\sqrt{\varcolor{x}}}\right)
+    = \frac{1 - 3\varcolor{x}}{4\varcolor{x}^{\frac{3}{2}}}.
+  \end{aligned}
+\end{equation}
+
+\subsubsection*{Procedimiento y justificación}
+
+\begin{procedimiento}
+$\displaystyle f(\varcolor{x}) = -(1 + \varcolor{x} + \sqrt{\varcolor{x}} + \varcolor{x}^{\frac{3}{2}})$
+  & Se simplifica la fracción factorizando $(1-\sqrt{\varcolor{x}})$ en numerador y denominador. \\[4pt]
+
+$\displaystyle \derivcolor{f'(\varcolor{x})} = -\left(1 + \frac{1}{2\sqrt{\varcolor{x}}} + \frac{3}{2} \sqrt{\varcolor{x}}\right)$
+  & Derivada término a término usando potencias y regla de la cadena. \\[4pt]
+
+$\displaystyle \derivcolor{f''(\varcolor{x})} = -\left(\frac{-1}{4\varcolor{x}^{\frac{3}{2}}} + \frac{3}{4\sqrt{\varcolor{x}}}\right)$
+  & Se deriva de nuevo cada término de $\derivcolor{f'(\varcolor{x})}$. \\[4pt]
+
+$\displaystyle \derivcolor{f''(\varcolor{x})} = \frac{1 - 3\varcolor{x}}{4\varcolor{x}^{\frac{3}{2}}}$
+  & Se factoriza $\tfrac{1}{4\varcolor{x}^{3/2}}$ y se simplifica. \\[4pt]
+
+$\displaystyle \derivcolor{f''(\varcolor{x})} = 0 \;\Longrightarrow\; 1 - 3\varcolor{x} = 0 \;\Longrightarrow\; \varcolor{x} = \frac{1}{3}$
+  & Se buscan posibles puntos de inflexión resolviendo $\derivcolor{f''(\varcolor{x})}=0$. \\[4pt]
+
+$\displaystyle \frac{1}{3} \notin (1,\infty)$
+  & El valor crítico no pertenece al intervalo de estudio. \\[4pt]
+
+Para $\varcolor{x} > 1$ se cumple $1 - 3\varcolor{x} < 0$ y $\varcolor{x}^{\frac{3}{2}} > 0$
+  & El numerador de $\derivcolor{f''(\varcolor{x})}$ es negativo y el denominador positivo. \\[4pt]
+
+$\displaystyle \derivcolor{f''(\varcolor{x})} < 0$ para todo $\varcolor{x} > 1$
+  & Se concluye que $f$ es cóncava hacia abajo en $(1,\infty)$. \\[4pt]
+\end{procedimiento}
+
+\subsection{Punto c)}
+Bosqueje la gráfica de $f$ mostrando el comportamiento de $f$ alrededor de $\varcolor{x} \ge 1$. Indique los valores de continuidad y derivabilidad encontrados.
+
+Del punto a) sabemos que $a + b = -4$, es decir, $b = -4 -a$, y así $f$ queda definida como 
+\begin{equation}
+  f(\varcolor{x}) = 
+  \begin{cases}
+    a \left(\sin\!\left(\dfrac{\constcolor{\pi} \varcolor{x}}{2}\right) - 1\right) - 4, & \text{si } \varcolor{x} \leq 1, \\[4pt]
+    \dfrac{\varcolor{x}^2 - 1}{1-\sqrt{\varcolor{x}}}, & \text{si } \varcolor{x}>1.
+  \end{cases}
+\end{equation}
+
+A continuación se muestra el bosquejo de la gráfica con un valor particular de $a$:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{images/geogebra-export.png}
+  \end{center}
+  \caption{Gráfica de la función $f$ definida con $a = 1$.}
+  \label{fig:ej1}
+\end{figure}
+
+Para este valor de $a$, se ve que $f$ es continua en $\varcolor{x} = 1$, pero la forma en punta de la gráfica impide que $f$ sea derivable en ese punto, pues la función no es suficientemente suave. Además, se observa que es cóncava hacia abajo en el intervalo $(1, \infty)$.
+
+\section{Ejercicio 2}
+Considere la curva 
+\begin{equation}
+  \varcolor{y}^4 + \varcolor{x}^3 = 2\varcolor{x}\varcolor{y}^2.
+\end{equation}
+Derivamos implícitamente considerando $\varcolor{y} := \varcolor{y}(\varcolor{x})$.
+
+\begin{equation}
+  \begin{aligned}
+    4\varcolor{y}^3 \derivcolor{y'} + 3\varcolor{x}^2 &= 2(\varcolor{y}^2 + 2\varcolor{x}\varcolor{y} \derivcolor{y'}) \\[4pt]
+    4\varcolor{y}^3 \derivcolor{y'} - 4\varcolor{x}\varcolor{y}\derivcolor{y'} &= 2\varcolor{y}^2 - 3\varcolor{x}^2 \\[4pt]
+    \derivcolor{y'} &= \frac{2\varcolor{y}^2 - 3\varcolor{x}^2}{4\varcolor{y}^3 - 4\varcolor{x}\varcolor{y}}.
+  \end{aligned}
+\end{equation}
+
+\subsection{Puntos de recta tangente horizontal}
+
+\subsubsection*{Procedimiento y justificación}
+
+\begin{procedimiento}
+$\displaystyle \derivcolor{y'} = \frac{2\varcolor{y}^2 - 3\varcolor{x}^2}{4\varcolor{y}(\varcolor{y}^2 - \varcolor{x})}$
+  & Se factoriza $4\varcolor{y}$ en el denominador. \\[4pt]
+
+$\displaystyle \derivcolor{y'} = 0 \;\Longrightarrow\; 2\varcolor{y}^2 - 3\varcolor{x}^2 = 0$
+  & Para recta tangente horizontal, el numerador debe ser cero. \\[4pt]
+
+$\displaystyle \varcolor{y}^2 = \frac{3}{2}\varcolor{x}^2$
+  & Se despeja $\varcolor{y}^2$ en términos de $\varcolor{x}^2$. \\[4pt]
+
+$\displaystyle \left(\frac{3}{2}\varcolor{x}^2\right)^2 + \varcolor{x}^3 = 2\varcolor{x}\left(\frac{3}{2}\varcolor{x}^2\right)$
+  & Se reemplaza en la ecuación de la curva. \\[4pt]
+
+$\displaystyle \frac{9}{4}\varcolor{x}^4 + \varcolor{x}^3 = 3\varcolor{x}^3 \;\Longrightarrow\; \frac{9}{4}\varcolor{x}^4 = 2\varcolor{x}^3$
+  & Se simplifica y se agrupan términos. \\[4pt]
+
+$\displaystyle 9\varcolor{x} = 8 \;\Longrightarrow\; \varcolor{x} = \frac{8}{9}$
+  & Se resuelve para $\varcolor{x}$. \\[4pt]
+
+$\displaystyle \varcolor{y}^2 = \frac{3}{2}\cdot\frac{64}{81} = \frac{32}{27}
+\;\Longrightarrow\; \varcolor{y} = \pm\frac{4}{9}\sqrt{6}$
+  & Se halla $\varcolor{y}$ a partir de $\varcolor{y}^2$. \\[4pt]
+
+$\displaystyle 4\varcolor{y}(\varcolor{y}^2 - \varcolor{x}) = 4\varcolor{y}\left(\frac{32}{27} - \frac{8}{9}\right) \neq 0$
+  & Se verifica que el denominador no se anula en estos puntos. \\[4pt]
+
+Puntos: $\left(\frac{8}{9}, \frac{4}{9}\sqrt{6}\right)$ y $\left(\frac{8}{9}, -\frac{4}{9}\sqrt{6}\right)$
+  & En estos puntos la recta tangente es horizontal. \\[4pt]
+\end{procedimiento}
+
+\subsection{Puntos con recta tangente vertical}
+
+\subsubsection*{Procedimiento y justificación}
+
+\begin{procedimiento}
+$\displaystyle \derivcolor{y'} = \frac{2\varcolor{y}^2 - 3\varcolor{x}^2}{4\varcolor{y}(\varcolor{y}^2 - \varcolor{x})}$
+  & Se usa la expresión de la derivada implícita. \\[4pt]
+
+Para recta tangente vertical se requiere $4\varcolor{y}(\varcolor{y}^2 - \varcolor{x}) = 0$ y $2\varcolor{y}^2 - 3\varcolor{x}^2 \neq 0$
+  & Condición de pendiente infinita: denominador cero y numerador distinto de cero. \\[4pt]
+
+$4\varcolor{y}(\varcolor{y}^2 - \varcolor{x}) = 0 \;\Longrightarrow\; \varcolor{y} = 0 \text{ o } \varcolor{y}^2 = \varcolor{x}$
+  & Se resuelven las condiciones del denominador. \\[4pt]
+
+Caso $\varcolor{y}=0$: $\varcolor{x}^3 = 0 \;\Longrightarrow\; \varcolor{x}=0$
+  & Se sustituye en la ecuación de la curva. \\[4pt]
+
+En $(0,0)$ se tiene $2\varcolor{y}^2 - 3\varcolor{x}^2 = 0$
+  & El punto es singular, no produce recta tangente vertical bien definida. \\[4pt]
+
+Caso $\varcolor{y}^2 = \varcolor{x}$: sustituimos en la curva
+  & Se considera la segunda posibilidad del denominador. \\[4pt]
+
+$\displaystyle \varcolor{y}^4 + \varcolor{x}^3 = 2\varcolor{x}\varcolor{y}^2 \;\Longrightarrow\; \varcolor{y}^4 + \varcolor{y}^6 = 2\varcolor{y}^4$
+  & Se reemplaza $\varcolor{x}=\varcolor{y}^2$. \\[4pt]
+
+$\displaystyle \varcolor{y}^6 - \varcolor{y}^4 = 0 \;\Longrightarrow\; \varcolor{y}^4(\varcolor{y}^2 - 1) = 0$
+  & Factorización para hallar soluciones. \\[4pt]
+
+$\displaystyle \varcolor{y} = 0$ o $\varcolor{y} = \pm 1$
+  & Valores posibles de $\varcolor{y}$. \\[4pt]
+
+Para $\varcolor{y} = \pm 1$ se tiene $\varcolor{x} = \varcolor{y}^2 = 1$
+  & Se obtiene $(1,1)$ y $(1,-1)$. \\[4pt]
+
+En $(1,\pm 1)$: $2\varcolor{y}^2 - 3\varcolor{x}^2 = 2\cdot 1 - 3\cdot 1 = -1 \neq 0$
+  & El numerador no se anula en estos puntos. \\[4pt]
+
+En $(1,\pm 1)$ el denominador es cero y el numerador es distinto de cero
+  & La pendiente es infinita y la recta tangente es vertical; las rectas tangentes son $\varcolor{x}=1$. \\[4pt]
+
+El enunciado afirma que no existen tangentes verticales, pero para esta curva sí las hay
+  & Se concluye que el enunciado contiene un error respecto a las tangentes verticales. \\[4pt]
+\end{procedimiento}
+
+\section{Ejercicio 5}
+Use la definición de derivada para hallar la derivada de $f(\varcolor{x}) = \varcolor{x}^{-\frac{1}{3}}$ en $\varcolor{x} = 8$.
+
+\subsubsection*{Procedimiento y justificación}
+
+\begin{procedimiento}
+$\displaystyle \derivcolor{f'(8)} = \lim_{\varcolor{x} \to 8} \frac{\varcolor{x}^{-\frac{1}{3}} - 8^{-\frac{1}{3}}}{\varcolor{x} - 8}$
+  & Definición de derivada en el punto $\varcolor{x}=8$. \\[4pt]
+
+$\displaystyle 8^{-\frac{1}{3}} = \frac{1}{2}$
+  & Se usa que $8^{1/3} = 2$. \\[4pt]
+
+$\displaystyle \derivcolor{f'(8)} = \lim_{\varcolor{x} \to 8} \frac{\varcolor{x}^{-\frac{1}{3}} - \frac{1}{2}}{\varcolor{x} - 8}$
+  & Se reemplaza el valor de $f(8)$. \\[4pt]
+
+$\displaystyle \varcolor{x}^{-\frac{1}{3}} - \frac{1}{2} = \frac{1}{2}\left(2\varcolor{x}^{-\frac{1}{3}} - 1\right)
+= \frac{1}{2}\varcolor{x}^{-\frac{1}{3}}(2 - \varcolor{x}^{\frac{1}{3}})$
+  & Se factoriza $\frac{1}{2}\varcolor{x}^{-\frac{1}{3}}$. \\[4pt]
+
+$\displaystyle \derivcolor{f'(8)} = \frac{1}{2}\lim_{\varcolor{x}\to 8} \varcolor{x}^{-\frac{1}{3}} \cdot \frac{2 - \varcolor{x}^{\frac{1}{3}}}{\varcolor{x}-8}$
+  & Se reescribe la fracción separando factores. \\[4pt]
+
+$\displaystyle \frac{2 - \varcolor{x}^{\frac{1}{3}}}{\varcolor{x}-8} = -\frac{\varcolor{x}^{\frac{1}{3}} - 2}{\varcolor{x}-8}
+= -\frac{\varcolor{x}^{\frac{1}{3}} - 2}{(\varcolor{x}^{\frac{1}{3}}-2)(\varcolor{x}^{\frac{2}{3}} + 2\varcolor{x}^{\frac{1}{3}} + 4)}$
+  & Se usa la identidad $a^3 - b^3 = (a-b)(a^2+ab+b^2)$ con $a=\varcolor{x}^{1/3}$, $b=2$. \\[4pt]
+
+$\displaystyle \derivcolor{f'(8)} = -\frac{1}{2}\lim_{\varcolor{x}\to 8} \varcolor{x}^{-\frac{1}{3}} \cdot \frac{\varcolor{x}^{\frac{1}{3}} - 2}{(\varcolor{x}^{\frac{1}{3}}-2)(\varcolor{x}^{\frac{2}{3}} + 2\varcolor{x}^{\frac{1}{3}} + 4)}$
+  & Se combina el signo menos con el factor $\tfrac{1}{2}$. \\[4pt]
+
+$\displaystyle \derivcolor{f'(8)} = -\frac{1}{4}\lim_{\varcolor{x}\to 8} \frac{1}{\varcolor{x}^{\frac{2}{3}} + 2\varcolor{x}^{\frac{1}{3}} + 4}$
+  & Se simplifica cancelando el factor $(\varcolor{x}^{1/3}-2)$ en numerador y denominador. \\[4pt]
+
+En $\varcolor{x}=8$: $\varcolor{x}^{\frac{1}{3}} = 2$, $\varcolor{x}^{\frac{2}{3}} = 4$, luego $\varcolor{x}^{\frac{2}{3}} + 2\varcolor{x}^{\frac{1}{3}} + 4 = 4 + 4 + 4 = 12$
+  & Se evalúa el denominador en el límite. \\[4pt]
+
+$\displaystyle \derivcolor{f'(8)} = -\frac{1}{4}\cdot\frac{1}{12} = -\frac{1}{48}$
+  & Resultado final de la derivada en $\varcolor{x}=8$. \\[4pt]
+\end{procedimiento}
+
+\section{Ejercicio 6}
+Un contenedor cerrado está formado por un cilindro con tapas semiesféricas. El volumen total del contenedor es $\constcolor{V_0}$ (constante). Determine el radio $\varcolor{r}$ y la altura
+$\varcolor{h}$ de la parte cilíndrica que minimizan el costo total del material, si el material de las tapas semiesféricas cuesta el doble que el material de los lados
+cilíndricos.
+
+\subsubsection*{Procedimiento y justificación}
+
+\begin{procedimiento}
+$\displaystyle \constcolor{V_0} = \constcolor{\pi} \varcolor{r}^2 \varcolor{h} + \frac{4}{3} \constcolor{\pi} \varcolor{r}^3$
+  & Volumen total: cilindro más volumen de una esfera de radio $\varcolor{r}$. \\[4pt]
+
+$\displaystyle P(\varcolor{r}, \varcolor{h}) = 2\constcolor{\pi} \varcolor{r} \varcolor{h} + 8\constcolor{\pi} \varcolor{r}^2$
+  & Costo proporcional al área lateral del cilindro más el doble del área de las tapas. \\[4pt]
+
+$\displaystyle \constcolor{V_0} - \frac{4}{3}\constcolor{\pi} \varcolor{r}^3 = \constcolor{\pi} \varcolor{r}^2 \varcolor{h}$
+  & Se despeja el término con $\varcolor{h}$ en la ecuación del volumen. \\[4pt]
+
+$\displaystyle \frac{\constcolor{V_0}}{\varcolor{r}} - \frac{4}{3}\constcolor{\pi} \varcolor{r}^2 = \constcolor{\pi} \varcolor{r} \varcolor{h}$
+  & Se divide entre $\varcolor{r}$ para obtener $\constcolor{\pi}\varcolor{r}\varcolor{h}$. \\[4pt]
+
+$\displaystyle \frac{2\constcolor{V_0}}{\varcolor{r}} - \frac{8}{3}\constcolor{\pi} \varcolor{r}^2 = 2\constcolor{\pi} \varcolor{r} \varcolor{h}$
+  & Se multiplica por $2$ para obtener $2\constcolor{\pi}\varcolor{r}\varcolor{h}$. \\[4pt]
+
+$\displaystyle P(\varcolor{r},\varcolor{h}) = 2\constcolor{\pi} \varcolor{r} \varcolor{h} + 8\constcolor{\pi} \varcolor{r}^2
+= \frac{2\constcolor{V_0}}{\varcolor{r}} - \frac{8}{3}\constcolor{\pi} \varcolor{r}^2 + 8\constcolor{\pi} \varcolor{r}^2$
+  & Se sustituye $2\constcolor{\pi}\varcolor{r}\varcolor{h}$ en la expresión de $P$. \\[4pt]
+
+$\displaystyle H(\varcolor{r}) = \frac{2\constcolor{V_0}}{\varcolor{r}} + \frac{16}{3}\constcolor{\pi} \varcolor{r}^2$
+  & Se obtiene una función de una sola variable para el costo. \\[4pt]
+
+$\displaystyle H'(\varcolor{r}) = -\frac{2\constcolor{V_0}}{\varcolor{r}^2} + \frac{32}{3}\constcolor{\pi} \varcolor{r}$
+  & Se deriva $H(\varcolor{r})$ respecto a $\varcolor{r}$. \\[4pt]
+
+$\displaystyle H'(\varcolor{r}) = 0 \;\Longrightarrow\; -\frac{2\constcolor{V_0}}{\varcolor{r}^2} + \frac{32}{3}\constcolor{\pi} \varcolor{r} = 0$
+  & Condición de punto crítico. \\[4pt]
+
+$\displaystyle \frac{32}{3}\constcolor{\pi} \varcolor{r} = \frac{2\constcolor{V_0}}{\varcolor{r}^2}
+\;\Longrightarrow\; \varcolor{r}^3 = \frac{3\constcolor{V_0}}{16\constcolor{\pi}}$
+  & Se resuelve la ecuación para $\varcolor{r}^3$. \\[4pt]
+
+$\displaystyle \varcolor{r} = \sqrt[3]{\frac{3\constcolor{V_0}}{16\constcolor{\pi}}}$
+  & Radio óptimo que minimiza el costo. \\[4pt]
+
+$\displaystyle H''(\varcolor{r}) = \frac{4\constcolor{V_0}}{\varcolor{r}^3} + \frac{32}{3}\constcolor{\pi} > 0$
+  & Segunda derivada positiva para $\varcolor{r}>0$, por lo que es un mínimo. \\[4pt]
+
+$\displaystyle \frac{\constcolor{V_0}}{\constcolor{\pi}\varcolor{r}^3} = \frac{\varcolor{h}}{\varcolor{r}} + \frac{4}{3}$
+  & Se divide la ecuación del volumen entre $\constcolor{\pi}\varcolor{r}^3$. \\[4pt]
+
+$\displaystyle \varcolor{r}^3 = \frac{3\constcolor{V_0}}{16\constcolor{\pi}} \;\Longrightarrow\; \frac{\constcolor{V_0}}{\constcolor{\pi}\varcolor{r}^3} = \frac{16}{3}$
+  & Se reemplaza el valor de $\varcolor{r}^3$ en la igualdad. \\[4pt]
+
+$\displaystyle \frac{16}{3} = \frac{\varcolor{h}}{\varcolor{r}} + \frac{4}{3}
+\;\Longrightarrow\; \frac{\varcolor{h}}{\varcolor{r}} = 4 \;\Longrightarrow\; \varcolor{h} = 4\varcolor{r}$
+  & Se despeja la altura $\varcolor{h}$ en términos de $\varcolor{r}$. \\[4pt]
+
+$\displaystyle \varcolor{h} = 4 \sqrt[3]{\frac{3\constcolor{V_0}}{16\constcolor{\pi}}}$
+  & Altura óptima de la parte cilíndrica. \\[4pt]
+\end{procedimiento}
+
+\section{Ejercicio 10}
+Demuestre que la función $\varcolor{f}(\varcolor{x}) = \varcolor{x}^5 + 3\varcolor{x} - 1$ tiene una raíz única en el intervalo $[0, 1]$.
+
+\subsubsection*{Procedimiento y justificación}
+
+\begin{procedimiento}
+$\displaystyle \varcolor{f}(\varcolor{x}) = \varcolor{x}^5 + 3\varcolor{x} - 1$
+  & Se define la función polinómica a estudiar. \\[4pt]
+
+$\displaystyle \varcolor{f}$ es continua en $[0,1]$
+  & Todo polinomio es continuo en $\mathbb{R}$. \\[4pt]
+
+$\displaystyle \varcolor{f}(0) = -1,\quad \varcolor{f}(1) = 1 + 3 - 1 = 3$
+  & Se evalúa la función en los extremos del intervalo. \\[4pt]
+
+$\displaystyle \varcolor{f}(0) < 0 < \varcolor{f}(1)$
+  & La función cambia de signo en $[0,1]$. \\[4pt]
+
+Por el Teorema del Valor Intermedio, existe $\varcolor{x_0} \in (0,1)$ tal que $\varcolor{f(x_0)} = 0$
+  & Se concluye la existencia de al menos una raíz en $(0,1)$. \\[4pt]
+
+Supongamos que existe otra raíz $\varcolor{x_1} \in [0,1]$ con $\varcolor{x_1} \neq \varcolor{x_0}$
+  & Se procede por contradicción. \\[4pt]
+
+Sin pérdida de generalidad, asumimos $\varcolor{x_1} > \varcolor{x_0}$
+  & Se ordenan las raíces para aplicar el Teorema de Rolle. \\[4pt]
+
+$\varcolor{f}$ es continua en $[\varcolor{x_0},\varcolor{x_1}]$ y derivable en $(\varcolor{x_0},\varcolor{x_1})$
+  & Propiedad de los polinomios. \\[4pt]
+
+Por el Teorema de Rolle, existe $\varcolor{x_2} \in (\varcolor{x_0},\varcolor{x_1})$ tal que $\varcolor{f'(x_2)} = 0$
+  & Aplicación del Teorema de Rolle a $\varcolor{f}$. \\[4pt]
+
+$\displaystyle \derivcolor{f'(\varcolor{x})} = 5\varcolor{x}^4 + 3$
+  & Derivada de $\varcolor{f}(\varcolor{x})$. \\[4pt]
+
+$\displaystyle \derivcolor{f'(x_2)} = 5\varcolor{x_2}^4 + 3 = 0 \;\Longrightarrow\; 5\varcolor{x_2}^4 = -3$
+  & Ecuación que debería cumplir $\varcolor{x_2}$ según Rolle. \\[4pt]
+
+$\displaystyle \varcolor{x_2}^4 = -\frac{3}{5}$ es imposible en $\mathbb{R}$
+  & Una potencia cuarta no puede ser negativa en los reales. \\[4pt]
+
+La suposición de dos raíces distintas lleva a contradicción
+  & Se concluye que no puede haber dos raíces reales diferentes. \\[4pt]
+
+Existe exactamente una raíz real en $[0,1]$
+  & Se combina la existencia (TVI) con la unicidad (Rolle). \\[4pt]
+\end{procedimiento}
+
+\section*{Conclusiones}
+\addcontentsline{toc}{section}{Conclusiones}
+
+En este trabajo se aplicaron de manera sistemática herramientas fundamentales del cálculo diferencial avanzado. En el Ejercicio 1 se analizó una función definida por tramos, estudiando su continuidad, derivabilidad y concavidad, y relacionando estos resultados con el comportamiento gráfico. En el Ejercicio 2 se empleó derivación implícita para obtener la pendiente de la curva y se identificaron rectas tangentes horizontales y verticales, detectando además un error en el enunciado original. En el Ejercicio 5 se usó la definición de derivada para un caso no trivial, reforzando la técnica de límites y factorizaciones. En el Ejercicio 6 se resolvió un problema de optimización geométrica con restricción de volumen, encontrando las dimensiones que minimizan el costo de construcción. Finalmente, en el Ejercicio 10 se combinó el Teorema del Valor Intermedio con el Teorema de Rolle para demostrar la existencia y unicidad de una raíz real de un polinomio en un intervalo dado.
+
+La organización en formato de dos columnas (procedimiento y justificación) permitió hacer explícito el razonamiento detrás de cada paso algebraico, mientras que el esquema de colores facilitó distinguir entre variables, constantes y derivadas. En conjunto, estos ejercicios muestran cómo las técnicas de derivación, análisis de funciones y teoremas centrales del cálculo se integran para resolver problemas teóricos y aplicados de manera rigurosa y clara.
+
+\section*{Referencias}
+\addcontentsline{toc}{section}{Referencias}
+
+\begin{thebibliography}{9}
+
+\bibitem{stewart}
+James Stewart,
+\textit{Cálculo de una variable},
+Cengage Learning.
+
+\bibitem{larson}
+Ron Larson y Bruce H. Edwards,
+\textit{Cálculo},
+McGraw-Hill.
+
+\bibitem{geogebra}
+GeoGebra,
+\textit{Software de matemáticas dinámicas},
+Disponible en \texttt{https://www.geogebra.org}.
+
+\end{thebibliography}
+
+\end{document}
+
