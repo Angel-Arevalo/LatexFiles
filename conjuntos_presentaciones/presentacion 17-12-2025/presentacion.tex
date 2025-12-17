@@ -1,0 +1,196 @@
+\documentclass{beamer}
+
+\begin{document}
+
+  \begin{frame}{Definiciones básicas}
+    \begin{center}
+      {\Large ¿Qué es lo más básico de la teoría?}
+    \end{center}
+
+    La lógica hace parte de la conciencia humana.
+    
+    \begin{center}
+      {\Large Ejemplos de proposiciones}
+    \end{center}
+
+    \begin{itemize}
+      \item En Bogotá llueve todos los días.
+      \item Las vacas vuelan.
+      \item Todo natural es par.
+    \end{itemize}
+
+     \begin{center}
+      {\Large Ejemplos de frases que no son proposiciones}
+    \end{center}
+
+    \begin{itemize}
+      \item ¿Cómo está la situación de la unal?
+      \item !Que semestre tan complicado¡.
+      \item ¿Todo ordinal es un cardinal?
+    \end{itemize}
+    
+    De esta motivación vemos que toda proposición debe terner un valor de verdad único e invariante.
+  \end{frame}
+
+  \begin{frame}{Operaciones entre proposiciones}
+    Es completamente natural querer unir frases y obtener nuevas a partir de frases ya existentes.
+
+    Esto motiva que toda próxima operación definida se fundamenta única y exclusivamente en las ideas lógicas.
+
+    Si tenemos dos proposiciones $p$ y $q$ definimos la oración $p \land q$ que en lenguaje natural se refiere a unir 
+    dos oraciones con una "y", es llamada conjunción.
+
+    Similarmente se define la oración $p \lor q$ que en lenguaje natural se refiere a unir dos frases con una "o".
+
+    Por último, se define la negación, $\neg p$.
+
+    El valor de verdad de la proposión depende de los valores de verdad de las proposiciones iniciales.
+  \end{frame} 
+  
+  \begin{frame}{Tablas de verdad}
+    \begin{columns}[t]
+
+        \begin{column}{0.32\textwidth}
+           \begin{tabular}{c|c|c}
+              $p$ & $q$ & $p \land q$ \\ \hline
+              V   &  V  & V \\ \hline
+              V   &  F  & F \\ \hline 
+              F   & V   & F \\ \hline 
+              F   & F   & F \\ \hline
+          \end{tabular}
+        \end{column}
+
+        \begin{column}{0.32\textwidth}
+           \begin{tabular}{c|c|c}
+              $p$ & $q$ & $p \lor q$ \\ \hline
+              V   &  V  & V \\ \hline
+              V   &  F  & V \\ \hline 
+              F   & V   & V \\ \hline 
+              F   & F   & F \\ \hline
+          \end{tabular}
+        \end{column}
+        
+         \begin{column}{0.32\textwidth}
+           \begin{tabular}{c|c}
+              $p$ & $\neg p$ \\ \hline
+              V  & F \\ \hline
+              F  & V \\ \hline
+          \end{tabular}
+        \end{column}
+
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}{Proposiciones complejas usadas en la teoría}
+    Tomemos dos proposiciones $t, p$ y $q$, definimos las siguientes proposiciones complejas 
+    \begin{itemize}
+      \item $p$ entonces $q$, $p \rightarrow q := \neg p \lor q$.
+      \item $p$ si y sólo si $q$, $p \iff q := (p \rightarrow q) \land (q \rightarrow p)$.
+      \item $p$ xor $q$, $p \oplus q := \neg (p \iff q)$.
+
+      Mas adelante se harán análogias sobre contenencia de conjuntos basados en las dos primeras 
+      proposiciones complejas. Una proposición compleja es una tautologia siempre que sin importar
+      el valor de verdad de sus proposiciones mas simples, se llega a una conclusión verdadera.
+    \end{itemize}
+
+    {\large Leyes de Morgan}
+
+    \begin{itemize}
+      \item $\neg (p\land q) = \neg p \lor \neg q$.
+      \item $\neg (p\lor q) = \neg p \land \neg q$.
+      \item $t\land (p\lor q) = (t\land p) \lor (t\land q)$.
+      \item $t\lor (p\land q) = (t\lor p) \land (t\lor q)$.
+    \end{itemize}
+    La equivalencia de las leyes de Morgan se hace por medio de tablas de verdad.
+    \end{frame}
+
+    \begin{frame}{Sección 1 de ejercicios}
+      \begin{itemize}
+        \item Haga la tabla de verdad de cada proposición compleja, identificando aspectos
+              claves que tiene una con respecto a las demás.
+
+        \item Establesca la equivalencia de las leyes de Morgan.
+
+        \item Realice la tabla de verdad de la proposición $(p \land q) \lor ((p \iff q) \land (p \oplus q))$. Proposiciones como 
+              esta son llamadas contradicciones. ¿Qué proposiciones básicas deben ser removidas para que no sea una contradicción?
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Álgebra booleana}
+      \begin{center}
+        {\Large Propiedades básicas de las operaciones básicas}
+      \end{center}
+      \begin{itemize}
+        \item $p\land p = p\lor p = p$.
+        \item $\neg (\neg p) = p$.
+        \item $p \land q = q \land p$.
+        \item $p \lor q = q \lor p$.
+        \item $p \land (q \land t) = (p\land q) \land t$.
+        \item $p \lor (q \lor t) = (p\lor q) \lor t$.
+      \end{itemize}
+        Cualquier operación lógica puede ser disminuida a operaciones con $\land, \lor$ y $\neg$, pero una herramienta mas
+        útil es, cuando se pueda, escribirlas en términos de proposiciones complejas, ya que son herramientas de simplificación.
+
+      {\large Ejemplo}
+
+        $p \rightarrow q \equiv \neg p \lor q \equiv \neg p \lor \neg (\neg q) \equiv \neg (\neg q) \lor \neg p \equiv \neg q \rightarrow \neg p$.
+
+        Esta propiedad recibe el nombre de contraposición.
+    \end{frame}
+
+    \begin{frame}{Reglas de inferencia}
+      A partir de ahora se quiere concluir proposiciones a partir de otras que ya sabemos que son verdad,
+      a continuación detallo el proceso. Las proposiciones inciales reciben el nombre de premisas y se consideran verdaderas.
+
+      {\large Ejemplos}
+        
+        \((p \rightarrow q) \land p \Rightarrow q\)
+
+        Para esto, podemos que ver que $p \rightarrow q$ es verdad y que $p$ es verdad. Como $p$ es verdad, si $q$ fuera falso
+        entonces se llega a que $p \rightarrow q$ es falso, lo cual es una contradicción, llegando a que $q$ es verdad.
+        
+
+        \((p \rightarrow q) \land \neg q \Rightarrow \neg p\)
+
+        De nuevo, como $\neg q$ es verdad, entonces $q$ es falso, entonces $p$ no puede ser verdad, por lo tanto $\neg p$ es verdad.
+
+        \(p\land q \Rightarrow p\)
+
+        Esta ya la usamos antes, ya que es demasiado lógica, se llama simplificación.
+    \end{frame}
+
+    \begin{frame}
+        \(q \Rightarrow p\lor q\)
+
+        \((p\lor q)\land \neg p \Rightarrow q\)
+
+        Como $p$ es falso, concluimos que $q$ es verdad.
+
+        \(p \iff q \Rightarrow p\rightarrow q\)
+
+        \((p\rightarrow q) \land (q \rightarrow t) \Rightarrow p\rightarrow t \)
+          
+          Esta es una prueba por casos. Si $p$ es falso, entonces se concluye inmediatamente. Si $p$ es verdadero,
+          entonces $q$ debe ser verdadero, porque de lo contrario se llega a una contradicción, y por el mismo argumento,
+          concluimos que $t$ debe ser verdadero, llegando a que $p\rightarrow t$ es verdad.
+
+
+        Otra forma de establecer estas implicaciones es hacer la tabla de verdad de la proposición $[premisas] \rightarrow consecuente$
+        y verificar que es una tautología.
+    \end{frame}
+
+    
+    \begin{frame}{Cuantificadores universales}
+      La lógica pretenden envolver una propiedad que cumple ciertos objetos. La forma más fácil de clasificar los elementos es por existencia
+      o por totalidad. Por ejemplo, podemos decir que TODAS las personas tienen una madre o que EXISTEN personas que no han ido a Ecuador. Para 
+      el desarrollo matemático es necesario detallar lo que vamos a llamar conjunto y una propiedad. 
+
+      Un conjunto es una colección de objetos. Dado un conjunto $A$, decimos que $a$ es un elemento de $A$ y lo simbolizamos con 
+      $a\in A$. Notese que $a$ también es un conjunto. Mas adelante veremos que esto no es ninguna contradicción con ayuda del axioma 
+      de regularidad o de buena fundación.
+
+      Una propiedad $P(x)$ es una proposición una vez fijada otra proposición. Por ejemplo, tomemos la oración $P(x) = x es falso$,
+      y vemos que $P(2 = 3)$ es verdad.
+
+      \end{frame}
+\end{document}
