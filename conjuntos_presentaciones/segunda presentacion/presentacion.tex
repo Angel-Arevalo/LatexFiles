@@ -8,7 +8,7 @@
 
     Un propiedades es una "proposición" para las que ciertas variables cumplen una propiedad.
     Dado un propiedad que usa una variable se simboliza de la siguiente manera
-      \[P(x) = \text{ oración que involucra} x\]
+      \[P(x) = \text{ oración que involucra } x\]
 
     Ejemplos de propiedades:
     \begin{itemize}
@@ -59,6 +59,17 @@
     $\equiv$ para todo elemento del universo, no se cumple la propiedad".
   \end{frame}
 
+  \begin{frame}{Ejemplo de negación con varios cuantificadores}
+    
+    \begin{equation*}
+      \begin{aligned}
+        \neg (\forall x \, \exists y \,\exists z \,P(x, y, z)) &\equiv \exists x \,\neg (\exists y \,\exists z \,P(x, y, z)) \\
+        &\equiv \exists x \,\forall y \,(\neg \exists z \,P(x, y, z)) \\
+        &\equiv \exists x \,\forall y \,\forall z \,(\neg P(x,y,z))
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
   \begin{frame}{Primeras equivalencias de los cuantificadores}
     \begin{itemize}
       \item $\exists x \, \exists y\, P(x, y) \equiv \exists y \, \exists x\, P(x, y)$
@@ -94,9 +105,82 @@
     \begin{equation*}
       \begin{aligned}
         \exists x\, \forall y\, P(x, y) &\iff \forall y\, P(a, y), \text{ para algún } a \\
-        
+        &\Rightarrow \forall y, \, P(a, y), \text{ para algún } a \\
+        &\Rightarrow \forall y\, \exists x\, P(x, y)
       \end{aligned}
     \end{equation*}
+
+
+    Un simple contra ejemplo demuestra que la implicación es unilateral.
   \end{frame}
 
+  \begin{frame}{Distribución de cuantificadores en operaciones lógicas básicas}
+    \begin{itemize}
+      \item $\exists x\, P(x) \lor \exists x\, Q(x) \iff \exists x\, (P(x) \lor Q(x))$
+      \item $\forall x\, P(x) \land \forall x\, Q(x) \iff \forall x\, (P(x) \land Q(x))$
+      \item $\exists x\, (P(x) \land Q(x)) \Rightarrow \exists x\, P(x) \land \exists x\, Q(x)$
+      \item $\forall x\, P(x) \lor \forall x\, Q(x) \Rightarrow \forall x\, (P(x) \lor Q(x))$
+    \end{itemize}
+
+    \begin{center}
+      $\exists x\, P(x) \lor \exists x\, Q(x) \iff \exists x\, (P(x) \lor Q(x))$
+    \end{center}
+
+    Existe $x$, tal que $P(x)$ o existe $x$ tal que $P(x)$, si y sólo si, existe $x$ tal que 
+    $P(x)$ o $Q(x)$.
+  \end{frame}
+
+  \begin{frame}{Distribución de cuantificadores en operaciones lógicas básicas}
+    \begin{itemize}
+      \item $\exists x\, P(x) \lor \exists x\, Q(x) \iff \exists x\, (P(x) \lor Q(x))$
+      \item $\forall x\, P(x) \land \forall x\, Q(x) \iff \forall x\, (P(x) \land Q(x))$
+      \item $\exists x\, (P(x) \land Q(x)) \Rightarrow \exists x\, P(x) \land \exists x\, Q(x)$
+      \item $\forall x\, P(x) \lor \forall x\, Q(x) \Rightarrow \forall x\, (P(x) \lor Q(x))$
+    \end{itemize}
+
+    \begin{center}
+      $\forall x\, P(x) \land \forall x\, Q(x) \iff \forall x\, (P(x) \land Q(x))$
+    \end{center}
+
+    Como para todo $x$ se cumple $P(x)$ y para todo $y$ se cumple $Q(y)$, tomando 
+    $x = y$, llegamos a que para todo $x$, $P(x)\land Q(x)$.
+    
+    En el otro sentido, ya que para todo $x$, se tiene que $P(x) \land Q(x)$, si no se tuviera que 
+    $\forall x\, P(x) \land \forall x\, Q(x)$, entonces $\exists x\, \neg P(x) \lor \exists x\,\neg Q(x)$, por la primera propiedad 
+    y leyes de Morgan sabemos que esto último es equivalente a $\exists x\, \neg (P(x) \land Q(x \land Q(x)))$, lo 
+    cual es la negación de la hipótesis tomada.
+  \end{frame}
+
+  \begin{frame}{Distribución de cuantificadores en operaciones lógicas básicas}
+    \begin{itemize}    
+      \item $\exists x\, P(x) \lor \exists x\, Q(x) \iff \exists x\, (P(x) \lor Q(x))$
+      \item $\forall x\, P(x) \land \forall x\, Q(x) \iff \forall x\, (P(x) \land Q(x))$
+      \item $\exists x\, (P(x) \land Q(x)) \Rightarrow \exists x\, P(x) \land \exists x\, Q(x)$
+      \item $\forall x\, P(x) \lor \forall x\, Q(x) \Rightarrow \forall x\, (P(x) \lor Q(x))$
+    \end{itemize}
+
+    \begin{center}
+      $\exists x\, (P(x) \land Q(x)) \Rightarrow \exists x\, P(x) \land \exists x\, Q(x)$
+    \end{center}
+
+    De nuevo, la idea se centra en que al existir un $x$ tal que $P(x) \land Q(x)$, se toma el mismo $x$ en la parte 
+    de la derecha, concluyendo el resultado.
+
+    El contra argumento es similar al de la diapositiva anterior.
+  \end{frame}
+
+  \begin{frame}{Distribución de cuantificadores en operaciones lógicas básicas}
+    \begin{itemize}    
+      \item $\exists x\, P(x) \lor \exists x\, Q(x) \iff \exists x\, (P(x) \lor Q(x))$
+      \item $\forall x\, P(x) \land \forall x\, Q(x) \iff \forall x\, (P(x) \land Q(x))$
+      \item $\exists x\, (P(x) \land Q(x)) \Rightarrow \exists x\, P(x) \land \exists x\, Q(x)$
+      \item $\forall x\, P(x) \lor \forall x\, Q(x) \Rightarrow \forall x\, (P(x) \lor Q(x))$
+    \end{itemize}
+
+    \begin{center}
+      $\forall x\, P(x) \lor \forall x\, Q(x) \Rightarrow \forall x\, (P(x) \lor Q(x))$
+    \end{center}
+
+    La idea es similar a la de $\forall x\, P(x) \land \forall x\, Q(x) \Rightarrow \forall x\, (P(x) \land Q(x))$.
+  \end{frame}
 \end{document}
