@@ -1,0 +1,102 @@
+\documentclass{beamer}
+
+\begin{document}
+  \begin{frame}{Propiedades y cuantificadores}
+    En matemáticas, un concepto importante es el de variable, por eso mismo se quiere trabajar 
+    con frases que las involucren y una vez fijada una frase, determinar el valor de verdad de la frase 
+    obtenida.
+
+    Un propiedades es una "proposición" para las que ciertas variables cumplen una propiedad.
+    Dado un propiedad que usa una variable se simboliza de la siguiente manera
+      \[P(x) = \text{ oración que involucra} x\]
+
+    Ejemplos de propiedades:
+    \begin{itemize}
+      \item $P(x) = x$ es un número par.
+      \item $P(x) = x$ es divisible por $3$.
+    \end{itemize}
+
+    Claramente los ejemplos dependen de un universo predefinido.
+  \end{frame}
+
+  \begin{frame}
+    Se definimos el universo como el de todas las personas, vemos que los siguientes propiedades tienen sentido:
+    \begin{itemize}
+      \item $P(x, y) = x$ es el hijo de $y$.
+      \item $P(x) = x$ es Cubano.
+    \end{itemize}
+
+
+    Una vez definimos un universo y una propiedad $P(x)$, lo natural es preguntar si todos los elementos del 
+    universo cumplen dicha propiedad o de que almenos uno lo haga. En el primero de estos casos, lo simbolizamos 
+    $\forall x \, P(x)$ y en el segundo $\exists x \,P(x)$.
+
+    Cuando una variable $x$ aparece en una propiedad $P(x)$ se dice que $x$ está ligada cuando se usa en 
+    cuantificadores de la forma $\exists x \,P(x)$ y $\forall x \,P(x)$. Cuando una variable no está ligada 
+    se dice que es una variable libre.
+
+      \[\forall x\,(P(x) \rightarrow y)\]
+
+    También existe un simbolo para decir que existe un único elemento del universo que cumple cierta propiedad.
+      \[\exists! x \, P(x)\]
+  \end{frame}
+  
+  \begin{frame}{Negación de cuantificadores}
+    Es posible aplicar la negación a los cuantificadores, se presentan sus formas y una representación gramática.
+
+    \begin{center}
+      {\Large Negación de para todo}
+    \end{center}
+
+    $\neg \forall x\, P(x) \equiv \exists x\, \neg P(x)$; "No es cierto que para todo x en el universo P(x) sea verdad
+    $\equiv$ existe almenos un elemento del universo que no cumple la propiedad".
+
+    \begin{center}
+      {\Large Negación del cuantificador existencial}
+    \end{center}
+
+    $\neg \exists x\, P(x) \equiv \forall x\, \neg P(x)$; "No existe un elemento en el universo que cumpla la propiedad
+    $\equiv$ para todo elemento del universo, no se cumple la propiedad".
+  \end{frame}
+
+  \begin{frame}{Primeras equivalencias de los cuantificadores}
+    \begin{itemize}
+      \item $\exists x \, \exists y\, P(x, y) \equiv \exists y \, \exists x\, P(x, y)$
+      \item $\forall x \, \forall y\, P(x, y) \equiv \forall y \, \forall x\, P(x, y)$
+    \end{itemize}
+
+    Para probar la primera propiedad lo hacemos de esta manera: "Como $\exists x \, \exists y\, P(x, y)$, entonces existe 
+    $a$ tal que $\exists y\, P(a, y)$ y de nuevo, existe $b$ de matera que $P(a, b)$. Si $P(a, b)$ podemos afirmar que 
+    $\exists y\, P(a, y)$ y asi mismo  podemos deducir que $\exists y\, \exists x \,P(x, y)$".
+    
+    Se presenta un esquema mucho más simple
+    \begin{equation*}
+      \begin{aligned}
+        \exists x\, \exists y\, P(x, y) &\iff \exists y\, P(a, y), \text{ para algún } a \\
+        &\iff P(a, b), \text{ para algún par } a,b \\
+        &\iff \exists y, \, P(a, y), \text{ para algún } a \\
+        &\iff \exists y\, \exists x\, P(x,y)
+      \end{aligned}
+    \end{equation*}
+    Estas dos propiedad nos dice que no importa el orden en que se afirme existencia o universalidad.
+  \end{frame}
+
+  \begin{frame}{Equivalencias e implicaciones entre cuantificadores}
+    $\forall x\, P(x) \rightarrow \exists x\, P(x)$: Si para todo elmento del universo se cumple $P(x)$, tomando cualquiera
+    se conluye lo requerido.
+
+    $\exists! x\, P(x) \equiv \exists x\, P(x) \land \forall x\forall y ([P(x) \land P(y)] \rightarrow x = y)$, esto tiene 
+    un sentido gramático: "La propiedad debe ser cumplida por almenos un elemento del universo y además, si hay dos elementos 
+    que la cumplen, estos deben ser iguales".
+
+    $\exists x\, \forall y\, P(x, y) \rightarrow \forall y\, \exists x \,P(x,y)$ 
+
+    \begin{equation*}
+      \begin{aligned}
+        \exists x\, \forall y\, P(x, y) &\iff \forall y\, P(a, y), \text{ para algún } a \\
+        
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+\end{document}
