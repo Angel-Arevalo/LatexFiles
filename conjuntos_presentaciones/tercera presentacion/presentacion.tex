@@ -1,0 +1,75 @@
+\documentclass{beamer}
+\usepackage{mathrsfs}
+
+\begin{document}
+  \begin{frame}{Axiomas y teorías coherentes}
+    
+    \begin{center}
+      {\Large ¿Qué es un axioma?}
+    \end{center}
+
+    Es un enunciado que se toma como válido sin la necesidad de demostrarlo.
+
+    Son las semillas de las teorías, ya que a partir de esos supuestos se deducen proposiciones.
+    Esto último nos indica que toda teoría axiomática es tautologica. 
+
+
+    Una teoría coherente es una cantidad de axiomas que no se contradicen entre si y que además
+    son independientes, es decir, un axioma no se puede deducir de otros.
+
+
+    Cantor fué el precursor de la teoría de hoy en día, pero los axiomas que usó (que eran intuitivos)
+    no formaban una teoría coherente, a continuación recalcamos por qué.
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Principio de comprensión:} Dada una propiedad $P(x)$, un conjunto es el formado por todos
+    los elementos (de algún universo) que cumplen dicha propiedad.
+    
+    Esta fué la definición de conjunto usada en los principios. Tomemosla como cierta, es decir, consideremosla
+    un axioma.
+
+    En 1901, Russell considero el siguiente conjunto $\mathscr{R} = \{x: x\notin \mathscr{R}\}$. 
+
+    Como consideramos el principio de comprensión verdadero, entonces $\mathscr{R}$ es un conjunto. Veamos que la existencia de 
+    este conjunto es una contradicción. 
+    \newline\newline
+
+    Si $\mathscr{R}\in \mathscr{R}$, por la definición del conjunto de Russell, $\mathscr{R} \notin \mathscr{R}$, que 
+    claramente es una contradicción lógica.
+    \newline
+    Como el primer caso es falso, analizamos cuando $\mathscr{R} \notin \mathscr{R}$, de lo que se deduce que 
+    $\mathscr{R} \in \mathscr{R}$, llevando de nuevo a una contradicción.
+    \newline
+    
+    Con esto último se atacó esta teoría, pues si se toma el principio de comprensión como verdadero, implica una proposición
+    falsa.
+  \end{frame}
+
+  \begin{frame}{Axiomática de Zermelo-Fraenkel}
+    Zermelo fue el que continuó con la formalización de las matemáticas y Fraenkel continuó su trabajo.
+    \newline\newline
+    Con el trabajo de muchos matemáticos se determinaron que con 9 axiomas se puede deducir toda la matemática
+    trabajada hasta el momento. Antes que nada, cabe recalcar que la noción de conjunto es libre en la teoría, 
+    es decir, que no se hace una definición de lo que es un conjunto ni mucho menos de $\in$, ya que es clave que 
+    en la teoría de conjuntos todo es un conjunto, y ya que intuitivamente sabemos que los conjuntos son colecciones de objetos,
+    los conjuntos coleccionan cojuntos, por eso mismo no se hace una definición precisa.
+  \end{frame}
+
+  \begin{frame}{Axiomática de Zermelo-Fraenkel}
+    \begin{itemize}
+      \item $\forall A \,\forall B\, (A = B \iff \forall x\, (x\in A \iff x \in B))$
+      \item $\exists \emptyset \,\forall x\, (x\notin \emptyset)$
+      \item $\forall  A\, \exists S \,\forall x\,(x\in S \iff (x\in A \land P(x))$
+      \item $\forall u\, \forall v\, \exists A \,\forall x\, (x\in A \iff (x = u \lor x = v))$
+      \item $\forall F\, \exists U\, \forall x (x \in U \iff \exists C (x \in C \land C\in F))$
+      \item $\forall F \,\exists Q\, \forall x\, (x \in Q \iff \forall y\, (y\in x \rightarrow y\in F))$
+      \item $\exists N\, (\emptyset \in N \land \forall x\,(x\in I \rightarrow x\cup \{x\} \in N))$
+      \item Axioma de remplazo
+      \item Axioma de regularidad
+    \end{itemize}
+
+    Dentro de esta axiomática se puede incluir el axioma de elección pero al ser tan controversial su uso, se le dedica 
+    una discución mucho mas larga.
+  \end{frame}
+\end{document}
