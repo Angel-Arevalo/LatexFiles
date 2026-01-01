@@ -1,5 +1,6 @@
 \documentclass{beamer}
 \usepackage{mathrsfs}
+\usepackage{amssymb}
 
 \begin{document}
   \begin{frame}{Axiomas y teorías coherentes}
@@ -71,5 +72,91 @@
 
     Dentro de esta axiomática se puede incluir el axioma de elección pero al ser tan controversial su uso, se le dedica 
     una discución mucho mas larga.
+  \end{frame}
+
+  \begin{frame}{Axioma de extensión}
+    \[\forall A \,\forall B\, (A = B \iff \forall x\, (x\in A \iff x \in B))\]
+    En nuestro lenguaje, se dice que dos conjuntos son iguales si todos los elementos de un conjunto son elementos también del otro.
+
+    Seguimos la notación $A \subseteq B \iff \forall x\, (x\in A \rightarrow x\in B)$ y se lee "$A$ es un subconjunto de $B$".
+
+    Bajo esta última notación, el primer axioma, o axioma de extensión dice que $A = B \iff (A\subseteq B \land B\subseteq A)$.
+  \end{frame}
+
+  \begin{frame}{Axioma del conjunto vacío}
+    \[\exists \emptyset \,\forall x\, (x\notin \emptyset)\]
+
+    Vacicamente se nos dice que exite un conjunto sin elementos. El axioma no dice que sea único, entonces probemoslo, pero antes, un 
+    hecho muy importante.
+
+    \textbf{Teorema 1:} Sea $A$ un conjunto, entonces $\emptyset \subseteq A$.
+    
+    \textbf{Teorema 2:} Si existe un conjunto $A$ tal que para todo conjunto $x$, $x\notin A$, entonces $A = \emptyset$
+    
+    Las demostraciones de estos dos hechos se denominan vacuidad.
+  \end{frame}
+
+  \begin{frame}{Axioma del subconjunto}
+    \[\forall  A\, \exists S \,\forall x\,(x\in S \iff (x\in A \land P(x))\]
+    
+    Si tenemos una propiedad $P(x)$, se dice que  el conjunto formado por los elementos de $A$ que cumplen la propiedad
+    existe.
+    
+    La notación más corta y util a la vez resulta ser $S = \{x\in A: P(x)\} := x\in A \land P(x)$.
+
+    De nuevo, el axioma no garantiza igualdad.
+
+    \textbf{Teorema 3:} Sea $\varphi(x)$ una propiedad. Si existen $S_1, S_2$ tales que para todo conjunto $x$, 
+    $(x\in S_1 \iff (x\in A \land \varphi(x)))$ y $(x\in S_2 \iff (x\in A \land \varphi(x)))$, entonces $S_1 = S_2$.
+
+    \begin{equation*}
+      \begin{aligned}
+        x\in S_1 &\iff x\in A \land \varphi(x) \\
+        &\iff x \in S_2
+      \end{aligned}
+    \end{equation*}
+
+    Podemos definir dos operaciones conjuntistas con ayuda de este axioma, sean $A$ y $B$ conjuntos. Sea $\varphi(x) = x \in B$,
+    Entonces existe el conjunto $A\cap B = \{x\in A: \varphi(x)\}$ y $A\setminus B = \{x\in A: \neg\varphi(x)\}$.
+  \end{frame}
+
+  \begin{frame}
+    El primero conjunto es llamado intersección de $A$ con $B$ y el segundo, diferencia de $A$ con $B$.
+
+    La forma en que se deinió la intersección en la presentación anterior tiene bastantes propiedades para mostrar, una de ellas, 
+    la conmutatividad, además de que si $x \in A\cap B$, entonces $x\in A \land x\in B$. 
+    
+    Esto último nos permite usar las reglas lógicas demostradas en la primera presentación.
+
+    \textbf{Ejercicio} Demuestre que $A \cap (B \setminus C) = (A \cap B)\setminus C$.
+
+    \begin{equation*}
+      \begin{aligned}
+        x \in A \cap (B \setminus C) &\iff x\in A \land x\in(B\setminus C) \\
+        &\iff x\in A \land (x \in B \land x \notin C) \\
+        &\iff (x\in A \land x\in B) \land x\notin C \\
+        &\iff x \in (A\cap B) \land x\notin C \\
+        &\iff x\in (A \cap B)\setminus C
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Conjunto de todos los conjuntos}
+    Como iremos viendo durante el curso, los axiomas no garantizan que existan conjuntos muy grandes, es más, no se garantiza 
+    que se pueda hacer el principio de comprensión libremente. Al tratar de generalizar surge la duda sobre el conjunto de todos los 
+    conjuntos, y aún más importante, ¿Es un conjunto?
+
+    Supongamos que existe tal conjunto y llamemoslo $\mathscr{O}$, es decir, $\forall x\, (x\in \mathscr{O})$. Por el axioma del subconjunto 
+    existe $\mathscr{R} = \{x\in\mathscr{O}: x\notin x\}$, ahora apliquemos un argumento similar al de Russell.
+    
+    \begin{itemize}
+      \item $\mathscr{R} \in \mathscr{R} \iff \mathscr{R} \in \mathscr{O} \land \mathscr{R} \notin \mathscr{R}$
+    \end{itemize}
+
+    Sabemos que $\mathscr{R}\in \mathscr{O}$ es una tautología, entonces $\mathscr{R} \in \mathscr{O} \land \mathscr{R} \notin \mathscr{R} \iff \mathscr{R} \notin \mathscr{R}$,
+    luego, $\mathscr{R} \in \mathscr{R} \iff \mathscr{R} \notin \mathscr{R}$, lo que claramente es una contradicción.
+
+    Como la hipótesis de que $\mathscr{R} \in \mathscr{R}$ lleva a un absurdo, se concluye que $\mathscr{R} \notin \mathscr{R}$, si y sólo si 
+    $\mathscr{R} \notin \mathscr{O} \lor \mathscr{R} \in \mathscr{R}$.
   \end{frame}
 \end{document}
