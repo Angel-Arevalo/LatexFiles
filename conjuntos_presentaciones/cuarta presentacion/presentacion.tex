@@ -1,0 +1,379 @@
+\documentclass{beamer}
+
+
+\begin{document}
+  \begin{frame}{Intersección  arbitraría de conjuntos}
+    Como vimos en lo anterior, con el axioma 3 podemos garantizar la existencia de las operaciones
+    conjuntistas $A\cap B$ y $A\setminus B$, para todo par de conjuntos $A$ y $B$, ahora garatizamos la 
+    existencia de la intersección de una familia arbitraría de conjuntos.
+
+    \textbf{Teorema 4:} Sea $A\neq \emptyset$, entonces existe un único conjunto $C$ tal que 
+    $x\in C \iff \forall B\, (B\in A \rightarrow x\in B)$.
+  \end{frame}
+
+  \begin{frame}{Intersección  arbitraría de conjuntos}
+    \textbf{Teorema 4:} Sea $A\neq \emptyset$, entonces existe un único conjunto $C$ tal que 
+    $x\in C \iff \forall B\, (B\in A \rightarrow x\in B)$.
+
+    Como $A$ es no vacío, entonces existe $D\in A$, definimos el conjunto $C = \{x\in D: \forall B\, (B\in A \rightarrow x\in B)\}$,
+    garatizado por el axioma 3. Ahora probemos que este conjunto cumple que 
+    $x\in C \iff \forall B\, (B\in A \rightarrow x\in B)$:
+  \end{frame}
+
+  \begin{frame}{Intersección  arbitraría de conjuntos}
+        \textbf{Teorema 4:} Sea $A\neq \emptyset$, entonces existe un único conjunto $C$ tal que 
+    $x\in C \iff \forall B\, (B\in A \rightarrow x\in B)$.
+
+    Como $A$ es no vacío, entonces existe $D\in A$, definimos el conjunto $C = \{x\in D: \forall B\, (B\in A \rightarrow x\in B)\}$,
+    garatizado por el axioma 3. Ahora probemos que este conjunto cumple que 
+    $x\in C \iff \forall B\, (B\in A \rightarrow x\in B)$:
+
+    \begin{itemize}
+      \item $\Longrightarrow)$ 
+
+        Si $x \in C$, cumple la propiedad con la que se le definió el conjunto arriba, luego
+        $\forall B\, (B\in A \rightarrow x\in B)$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Intersección  arbitraría de conjuntos}
+    \textbf{Teorema 4:} Sea $A\neq \emptyset$, entonces existe un único conjunto $C$ tal que 
+    $x\in C \iff \forall B\, (B\in A \rightarrow x\in B)$.
+
+    Como $A$ es no vacío, entonces existe $D\in A$, definimos el conjunto $C = \{x\in D: \forall B\, (B\in A \rightarrow x\in B)\}$,
+    garatizado por el axioma 3. Ahora probemos que este conjunto cumple que 
+    $x\in C \iff \forall B\, (B\in A \rightarrow x\in B)$:
+
+    \begin{itemize}
+      \item $\Longrightarrow)$ 
+
+        Si $x \in C$, cumple la propiedad con la que se le definió el conjunto arriba, luego
+        $\forall B\, (B\in A \rightarrow x\in B)$
+      \item $\Longleftarrow)$
+
+        Como $\forall B\, (B\in A \rightarrow x\in B)$, y como $D\in A$, entonces $x\in D$, luego,
+        $x\in D \land \forall B\, (B\in A \rightarrow x\in B)$, por lo tanto $x\in C$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Intersección  arbitraría de conjuntos}
+    \textbf{Teorema 4:} Sea $A\neq \emptyset$, entonces existe un único conjunto $C$ tal que 
+    $x\in C \iff \forall B\, (B\in A \rightarrow x\in B)$.
+
+    Ya probamos la existencia del conjunto $C$, pero en el argumento hecho no se garaiza la unicidad, 
+    porque el conjunto $C$ podría ser distinto al tomar un $D$ diferente.
+  \end{frame}
+
+  \begin{frame}{Intersección arbitraría de conjuntos}
+    \textbf{Teorema 4:} Sea $A\neq \emptyset$, entonces existe un único conjunto $C$ tal que 
+    $x\in C \iff \forall B\, (B\in A \rightarrow x\in B)$.
+
+    Si existen dos conjuntos, $C_1$ y $C_2$ que cumplen dichas condiciones, entonces 
+
+    \begin{equation*}
+      \begin{aligned}
+        x \in C_1 &\iff \forall B\, (B\in A \rightarrow x\in B) \\
+        &\iff x\in C_2
+      \end{aligned}
+    \end{equation*}
+
+    Con esto queda culminada la prueba del teorema 4. Como se garatiza existencia y unicidad, podemos denotar con
+    un nombre propio al conjunto $C$, que es $\bigcap A$, para $A\neq \emptyset$ y se dice que $x\in \bigcap A$ si y solamente si 
+    $x\in D$, para todo $D\in A$.
+  \end{frame}
+
+  \begin{frame}{Algo de notación}
+    En la demostración anterior se usó bastante la notación $\forall B\, (B\in A \rightarrow x\in B)$, esto es bastante 
+    complejo tanto para leerlo como para escribirlo, en ese sentido, se hace la simplificación 
+    $(\forall B\in A)\, (x\in B)$ que se lee exactamente igual.
+
+    Asi mismo, para la notación $\exists B\, (\varphi_1(B, A) \land \varphi_2(x, B))$, se denota como 
+    $\exists \varphi_1(B, A) (\varphi_2(x, B))$.
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Ejercicio:} Sea $A\neq \emptyset$. $\forall C$, $C\subseteq \bigcap A \Leftrightarrow (\forall B\in A)\, (C\subseteq B)$
+
+    \begin{itemize}
+      \item $\Longrightarrow)$
+
+            Como $C \subseteq \bigcap A$, entonces, si $x\in C$, luego $x\in \bigcap A$, por
+            la nota hecha anteriormente, sabemos que $x\in D$, para todo $D\in A$, es decir,
+            $C \subseteq D$, para todo $D\in A$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Ejercicio:} Sea $A\neq \emptyset$. $\forall C$, $C\subseteq \bigcap A \Leftrightarrow (\forall B\in A)\, (C\subseteq B)$
+
+    \begin{itemize}
+      \item $\Longrightarrow)$
+
+            Como $C \subseteq \bigcap A$, entonces, si $x\in C$, luego $x\in \bigcap A$, por
+            la nota hecha anteriormente, sabemos que $x\in D$, para todo $D\in A$, es decir,
+            $C \subseteq D$, para todo $D\in A$.
+
+      \item $\Longleftarrow)$
+
+            Ahora, si $x\in C$, sabemos que para todo $B\in A$, $x\in B$, entonces $x\in \bigcap A$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Axioma del par}
+    \[\forall u\, \forall v\, \exists A \,\forall x\, (x\in A \iff (x = u \lor x = v))\]
+
+    En pocas palabras, se garatiza que dados dos conjuntos $u$ y $v$, existe el conjunto 
+    $\{u, v\}$.
+    
+    \textbf{Teorema 5:} El conjunto garantizado por el axioma 4 es único.
+  \end{frame}
+
+  \begin{frame}{Axioma del par}
+    \[\forall u\, \forall v\, \exists A \,\forall x\, (x\in A \iff (x = u \lor x = v))\]
+
+    En pocas palabras, se garatiza que dados dos conjuntos $u$ y $v$, existe el conjunto 
+    $\{u, v\}$.
+    
+    \textbf{Teorema 5:} El conjunto garantizado por el axioma 4 es único.
+    \textbf{Teorema 6} (referente a la redundancia): Sea $A$ un conjunto, entonces $\{A, A\} = \{A\}$.
+  \end{frame}
+
+  \begin{frame}{Axioma del par}
+    \[\forall u\, \forall v\, \exists A \,\forall x\, (x\in A \iff (x = u \lor x = v))\]
+
+    En pocas palabras, se garatiza que dados dos conjuntos $u$ y $v$, existe el conjunto 
+    $\{u, v\}$.
+    
+    \textbf{Teorema 5:} El conjunto garantizado por el axioma 4 es único.
+    \textbf{Teorema 6} (referente a la redundancia): Sea $A$ un conjunto, entonces $\{A, A\} = \{A\}$.
+
+    Ahora si se puede garantizar la existencia de conjuntos distintos al vacío.
+
+    \[\{\emptyset\}, \{\{\emptyset\}\}, \{\{\{\emptyset\}\}\}, \cdots\]
+  \end{frame}
+
+  \begin{frame}{Axioma de la unión}
+    \[\forall F\, \exists U\, \forall x (x \in U \iff (\exists C\in F)(x \in C))\]
+
+    \textbf{Teorema 7:} El conjunto garatizado por el axioma 5 es único.
+  \end{frame}
+
+  \begin{frame}{Axioma de la unión}
+    \[\forall F\, \exists U\, \forall x (x \in U \iff (\exists C\in F)(x \in C))\]
+
+    \textbf{Teorema 7:} El conjunto garatizado por el axioma 5 es único.
+
+    Si existen dos conjuntos, $U_1$ y $U_2$ que cumplen las condiciones del axioma, entonces 
+    
+    \begin{equation*}
+      \begin{aligned}
+        x \in U_1 &\iff (\exists C\in F)(x\in C) \\
+        &\iff x \in U_2
+      \end{aligned}
+    \end{equation*}
+
+    Al ser un conjunto que siempre existe y es único se denota como $\bigcup F$ y se dice que 
+    $x\in \bigcup F \iff (\exists C\in F)(x\in C)$
+  \end{frame}
+
+  \begin{frame}{Unión de conjuntos}
+    En las diapositivas anteriores se empezó a hablar de operaciones con conjuntos, la intersección y 
+    diferencia. Para la tería también es importante construir conjuntos de manera menos restricitva, por eso 
+    se usa el axioma 5, que garatiza el siguiente teorema.
+
+    \textbf{Teorema 8:} Dados dos conjuntos $A$ y $B$ existe un único conjunto $C$ tal que 
+    $x\in C \iff (x\in A \lor x\in B)$.
+  \end{frame}
+
+  \begin{frame}{Unión de conjuntos}
+    \textbf{Teorema 8:} Dados dos conjuntos $A$ y $B$ existe un único conjunto $C$ tal que 
+    $x\in C \iff (x\in A \lor x\in B)$.
+
+    Dados $A, B$ conjuntos, entonces por el axioma del par, existe el conjunto $\{A,\, B\}$ y por el axioma de 
+    la unión existe $\bigcup \{A,\, B\} := A \cup B$ (notación). Veamos que este conjunto cumple la condición
+    del teorema.
+  \end{frame}
+
+  \begin{frame}{Unión de conjuntos}
+    \textbf{Teorema 8:} Dados dos conjuntos $A$ y $B$ existe un único conjunto $C$ tal que 
+    $x\in C \iff (x\in A \lor x\in B)$.
+
+    Dados $A, B$ conjuntos, entonces por el axioma del par, existe el conjunto $\{A,\, B\}$ y por el axioma de 
+    la unión existe $\bigcup \{A,\, B\} := A \cup B$ (notación). Veamos que este conjunto cumple la condición
+    del teorema.
+
+    \begin{itemize}
+      \item $\Longrightarrow)$ 
+
+            Si $x\in A\cup B$ entonces $x\in A \lor x\in B$, esto por el axioma de la unión.
+    \end{itemize}
+  \end{frame}
+  
+
+  \begin{frame}{Unión de conjuntos}
+    \textbf{Teorema 8:} Dados dos conjuntos $A$ y $B$ existe un único conjunto $C$ tal que 
+    $x\in C \iff (x\in A \lor x\in B)$.
+
+    Dados $A, B$ conjuntos, entonces por el axioma del par, existe el conjunto $\{A,\, B\}$ y por el axioma de 
+    la unión existe $\bigcup \{A,\, B\} := A \cup B$ (notación). Veamos que este conjunto cumple la condición
+    del teorema.
+
+    \begin{itemize}
+      \item $\Longrightarrow)$ 
+
+            Si $x\in A\cup B$ entonces $x\in A \lor x\in B$, esto por el axioma de la unión.
+
+      \item $\Longleftarrow)$
+
+            Si $x\in A \lor x\in B$, entonces $x \in \bigcup  \{A,\, B\} := A\cup B$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Unión de conjuntos}
+    \textbf{Teorema 8:} Dados dos conjuntos $A$ y $B$ existe un único conjunto $C$ tal que 
+    $x\in C \iff (x\in A \lor x\in B)$.
+
+    Dados $A, B$ conjuntos, entonces por el axioma del par, existe el conjunto $\{A,\, B\}$ y por el axioma de 
+    la unión existe $\bigcup \{A,\, B\} := A \cup B$ (notación). Veamos que este conjunto cumple la condición
+    del teorema.
+
+    \begin{itemize}
+      \item $\Longrightarrow)$ 
+
+            Si $x\in A\cup B$ entonces $x\in A \lor x\in B$, esto por el axioma de la unión.
+
+      \item $\Longleftarrow)$
+
+            Si $x\in A \lor x\in B$, entonces $x \in \bigcup  \{A,\, B\} := A\cup B$.
+    \end{itemize}
+
+    En la misma demostración denotamos este conjunto único (¿?) como $A \cup B$.
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Teorema 9:} Sea $A\neq \emptyset$ y $A\subseteq B$. entonces $\bigcup A \subseteq \bigcup B$ y 
+    $\bigcap B \subseteq \bigcap A$.
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Teorema 9:} Sea $A\neq \emptyset$ y $A\subseteq B$. entonces $\bigcup A \subseteq \bigcup B$ y 
+    $\bigcap B \subseteq \bigcap A$.
+
+    \begin{equation*}
+      \begin{aligned}
+        x \in \bigcup A &\iff (\exists D\in A)(x\in D) 
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Teorema 9:} Sea $A\neq \emptyset$ y $A\subseteq B$. entonces $\bigcup A \subseteq \bigcup B$ y 
+    $\bigcap B \subseteq \bigcap A$.
+
+    \begin{equation*}
+      \begin{aligned}
+        x \in \bigcup A &\iff (\exists D\in A)(x\in D) \\
+        &\Rightarrow (\exists D\in B)(x\in D) 
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Teorema 9:} Sea $A\neq \emptyset$ y $A\subseteq B$. entonces $\bigcup A \subseteq \bigcup B$ y 
+    $\bigcap B \subseteq \bigcap A$.
+
+    \begin{equation*}
+      \begin{aligned}
+        x \in \bigcup A &\iff (\exists D\in A)(x\in D) \\
+        &\Rightarrow (\exists D\in B)(x\in D) \\
+        &\iff x \in \bigcup B
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Teorema 9:} Sea $A\neq \emptyset$ y $A\subseteq B$. entonces $\bigcup A \subseteq \bigcup B$ y 
+    $\bigcap B \subseteq \bigcap A$.
+
+    \begin{equation*}
+      \begin{aligned}
+        x \in \bigcap B &\iff (\forall D\in B)\,(x\in D)
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Teorema 9:} Sea $A\neq \emptyset$ y $A\subseteq B$. entonces $\bigcup A \subseteq \bigcup B$ y 
+    $\bigcap B \subseteq \bigcap A$.
+
+    \begin{equation*}
+      \begin{aligned}
+        x \in \bigcap B &\iff (\forall D\in B)\,(x\in D) \\
+        &\Rightarrow (\forall D\in A)(x\in A)
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Teorema 9:} Sea $A\neq \emptyset$ y $A\subseteq B$. entonces $\bigcup A \subseteq \bigcup B$ y 
+    $\bigcap B \subseteq \bigcap A$.
+
+    \begin{equation*}
+      \begin{aligned}
+        x \in \bigcap B &\iff (\forall D\in B)\,(x\in D) \\
+        &\Rightarrow (\forall D\in A)(x\in A) \\
+        &\iff x\in \bigcap A
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Axioma de partes}
+    \[\forall A\, \exists P\, \forall x\, (x\in P \iff x\subseteq A)\]
+
+    \textbf{Teorema 10:} El conjunto garantizado por el axioma de partes es único.
+  \end{frame}
+
+  \begin{frame}{Axioma de partes}
+    \[\forall A\, \exists P\, \forall x\, (x\in P \iff x\subseteq A)\]
+
+    \textbf{Teorema 10:} El conjunto garantizado por el axioma de partes es único. 
+    
+    Si existen $P_1$ y $P_2$ que cumplen las condiciones del axioma, entonces
+    \begin{equation*}
+      \begin{aligned}
+        x\in P_1 &\iff x\subseteq A
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Axioma de partes}
+    \[\forall A\, \exists P\, \forall x\, (x\in P \iff x\subseteq A)\]
+
+    \textbf{Teorema 10:} El conjunto garantizado por el axioma de partes es único. 
+    
+    Si existen $P_1$ y $P_2$ que cumplen las condiciones del axioma, entonces
+    \begin{equation*}
+      \begin{aligned}
+        x\in P_1 &\iff x\subseteq A \\
+        &\iff x\in P_2
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Axioma de partes}
+    \[\forall A\, \exists P\, \forall x\, (x\in P \iff x\subseteq A)\]
+
+    \textbf{Teorema 10:} El conjunto garantizado por el axioma de partes es único. 
+    
+    Si existen $P_1$ y $P_2$ que cumplen las condiciones del axioma, entonces
+    \begin{equation*}
+      \begin{aligned}
+        x\in P_1 &\iff x\subseteq A \\
+        &\iff x\in P_2
+      \end{aligned}
+    \end{equation*}
+
+    De nuevo, por la existencia y la unicidad podemos darle un nombre, dado un conjunto $A$, 
+    denotamos por $P(A)$.
+  \end{frame}
+\end{document}
