@@ -1,0 +1,414 @@
+\documentclass{beamer}
+\newcommand{\pair}[2]{(#1,\, #2)}
+
+\begin{document}
+  \begin{frame}{Parejas ordenadas}
+    \textbf{Definicion:} Se dice que un conjunto $A$ es una pareja ordenada si existen conjuntos 
+    $B,\, C$ tales que $A = \{\{B\},\, \{B,\, C\}\}$, en cuyo caso se denota $A = (B,\, C)$.
+  \end{frame}
+
+  \begin{frame}{Parejas ordenadas}
+    \textbf{Definicion:} Se dice que un conjunto $A$ es una pareja ordenada si existen conjuntos 
+    $B,\, C$ tales que $A = \{\{B\},\, \{B,\, C\}\}$, en cuyo caso se denota $A = (B,\, C)$.
+    
+    \textbf{Teorema 11:} Dados $a,\, b$ conjuntos, existe la pareja ordenada $(a,\, b)$.
+  \end{frame}
+
+  \begin{frame}{Parejas ordenadas}
+    \textbf{Definición:} Se dice que un conjunto $A$ es una pareja ordenada si existen conjuntos 
+    $B,\, C$ tales que $A = \{\{B\},\, \{B,\, C\}\}$, en cuyo caso se denota $A = (B,\, C)$.
+    
+    \textbf{Teorema 11:} Dados $a,\, b$ conjuntos, existe la pareja ordenada $(a,\, b)$.
+
+    Por el axioma 4, existen $\{a\}$ y $\{a,\, b\}$, y de nuevo por este axioma, existe 
+    $\{\{a\},\, \{a,\, b\}\}$.
+  \end{frame}
+
+  \begin{frame}{Parejas ordenadas}
+    \textbf{Definicion:} Se dice que un conjunto $A$ es una pareja ordenada si existen conjuntos 
+    $B,\, C$ tales que $A = \{\{B\},\, \{B,\, C\}\}$, en cuyo caso se denota $A = (B,\, C)$.
+    
+    \textbf{Teorema 11:} Dados $a,\, b$ conjuntos, existe la pareja ordenada $(a,\, b)$.
+
+    Por el axioma 4, existen $\{a\}$ y $\{a,\, b\}$, y de nuevo por este axioma, existe 
+    $\{\{a\},\, \{a,\, b\}\}$.    
+
+    \textbf{Teorema 12:} Sean $a,\, b$ conjuntos, entonces $(a,\, b) \neq (b,\, a)$.
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c = d$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c = d$.
+            
+            Como $\{a\} \in \pair{c}{d} = \{\{c\}\}$, entonces $\{a\} = \{c\}$, luego $a = c$.
+            Ahora, como $\{a, b\} \in \pair{c}{d} = \{\{a\}\}$, entonces $\{a, b\} = \{a\}$, luego,
+            $b = a = c = d$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+
+        \begin{itemize}
+          \item Si $\{a\} = \{c, d\}$.
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+
+        \begin{itemize}
+          \item Si $\{a\} = \{c, d\}$.
+
+                Podemos ver que $d \in \{a\}$ y $c \in \{a\}$, luego $d = a = c$, lo cual es contradictorio.
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+
+        \begin{itemize}
+          \item Si $\{a\} = \{c, d\}$.
+
+                Podemos ver que $d \in \{a\}$ y $c \in \{a\}$, luego $d = a = c$, lo cual es contradictorio.
+        \end{itemize}
+
+        De esto último, vemos que $\{a\} = \{c\}$, luego $a = c$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+
+        \begin{itemize}
+          \item Si $\{a, b\} = \{c\}$
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+
+        \begin{itemize}
+          \item Si $\{a, b\} = \{c\}$.
+      
+                De lo anterior, viemos que $c = a$, y como $b \in \{c\}$, concluimos que $b = c$.
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+
+        \begin{itemize}
+          \item Si $\{a, b\} = \{c\}$.
+      
+                De lo anterior, viemos que $c = a$, y como $b \in \{c\}$, concluimos que $b = c$. 
+                Una lectura mas detallada sugiere que $b \neq d$. Con esto último tenemos que 
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+
+        \begin{itemize}
+          \item Si $\{a, b\} = \{c\}$.
+      
+                De lo anterior, viemos que $c = a$, y como $b \in \{c\}$, concluimos que $b = c$. 
+                Una lectura mas detallada sugiere que $b \neq d$. Con esto último tenemos que 
+
+                \begin{equation*}
+                  \begin{aligned}
+                      \{a,\,b\} \neq \{c,\,d\}
+                  \end{aligned}
+                \end{equation*}
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+
+        \begin{itemize}
+          \item Si $\{a, b\} = \{c\}$.
+      
+                De lo anterior, viemos que $c = a$, y como $b \in \{c\}$, concluimos que $b = c$. 
+                Una lectura mas detallada sugiere que $b \neq d$. Con esto último tenemos que 
+
+                \begin{equation*}
+                  \begin{aligned}
+                    \{a,\,b\} &\neq \{c,\,d\} \\
+                    \{\{a\},\, \{a,\, b\}\} &\neq \{\{c\},\, \{c,\, d\}\}
+                  \end{aligned}
+                \end{equation*}
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+
+        \begin{itemize}
+          \item Si $\{a, b\} = \{c\}$.
+      
+                De lo anterior, viemos que $c = a$, y como $b \in \{c\}$, concluimos que $b = c$. 
+                Una lectura mas detallada sugiere que $b \neq d$. Con esto último tenemos que 
+
+                \begin{equation*}
+                  \begin{aligned}
+                    \{a,\,b\} &\neq \{c,\,d\} \\
+                    \{\{a\},\, \{a,\, b\}\} &\neq \{\{c\},\, \{c,\, d\}\} \\
+                    \pair{a}{b} &\neq \pair{c}{d}
+                  \end{aligned}
+                \end{equation*}
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longrightarrow)$
+
+    Consideremos que $\pair{a}{b} = \pair{c}{d} $. 
+    \begin{itemize}
+      \item Si $c \neq d$.
+            
+        De nuevo, como $\{a\} \in \pair{c}{d}$, entonces $\{a\} = \{c\}$ o $\{a\} = \{c, d\}$
+        y, $\{a, b\} = \{c\}$ o $\{a, b\} = \{c, d\}$.
+
+        \begin{itemize}
+          \item Si $\{a, b\} = \{c\}$.
+      
+                De lo anterior, viemos que $c = a$, y como $b \in \{c\}$, concluimos que $b = c$. 
+                Una lectura mas detallada sugiere que $b \neq d$. Con esto último tenemos que 
+
+                \begin{equation*}
+                  \begin{aligned}
+                    \{a,\,b\} &\neq \{c,\,d\} \\
+                    \{\{a\},\, \{a,\, b\}\} &\neq \{\{c\},\, \{c,\, d\}\} \\
+                    \pair{a}{b} &\neq \pair{c}{d}
+                  \end{aligned}
+                \end{equation*}
+        \end{itemize}
+
+        Con esto último se concluye que $\{a, b\} = \{c, d\}$ y como $b \neq c$, entonces $b = c$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 13:} Sean $a,\, b,\, c$ y $d$ conjuntos. $(a,\, b) = (c,\, d)$
+    si y sólo si, $a = c$ y $b = d$.
+
+    $\Longleftarrow)$
+
+    Como $a = c$ y $b = d$, entonces $\{a\} = \{c\}$ y $\{a, b\} = \{c, d\}$, luego 
+    $\pair{a}{b} = \pair{c}{d}$.
+  \end{frame}
+
+  \begin{frame}{Producto cartesiano}
+    \textbf{Teorema 14:} Sean $A$ y $B$ conjuntos, entonces para todo $a\in A$ y para todo $b\in B$,
+    $(a, b) \in P(P(A\cup B))$.
+  \end{frame}
+
+  \begin{frame}{Producto cartesiano}
+    \textbf{Teorema 14:} Sean $A$ y $B$ conjuntos, entonces para todo $a\in A$ y para todo $b\in B$,
+    $(a, b) \in P(P(A\cup B))$.
+
+    Como $\{a\}, \{a, b\}\subseteq A\cup B$, entonces $\{a\} \in P(A\cup B)$ y $\{a, b\}\in P(A\cup B)$.
+  \end{frame}
+
+  \begin{frame}{Producto cartesiano}
+    \textbf{Teorema 14:} Sean $A$ y $B$ conjuntos, entonces para todo $a\in A$ y para todo $b\in B$,
+    $(a, b) \in P(P(A\cup B))$.
+
+    Como $\{a\}, \{a, b\}\subseteq A\cup B$, entonces $\{a\} \in P(A\cup B)$ y $\{a, b\}\in P(A\cup B)$.
+
+    De eso último, $\{\{a\}, \{a, b\}\} \subseteq P(A \cup B)$, es decir, $\pair{a}{b} \in P(P(A \cup B))$.
+  \end{frame}
+
+  \begin{frame}{Producto cartesiano}
+    \textbf{Teorema 15:} Dados dos conjuntos $A$ y $B$, existe un único conjunto $C$ tal que 
+    $x \in C$ si y sólo si $x = \pair{a}{b}$, para algún $a\in A$ y $b\in B$.
+  \end{frame}
+
+  \begin{frame}{Producto cartesiano}
+    \textbf{Teorema 15:} Dados dos conjuntos $A$ y $B$, existe un único conjunto $C$ tal que 
+    $x \in C$ si y sólo si $x = \pair{a}{b}$, para algún $a\in A$ y $b\in B$.
+
+    Tomando el conjunto (¿?) 
+      \[C=\{x: (\exists a\in A)(\exists b\in B)(x = \pair{a}{b})\}\]
+
+    Se concluye el resultado inmediatamente.
+  \end{frame}
+
+  \begin{frame}{Producto cartesiano}
+    \textbf{Teorema 15:} Dados dos conjuntos $A$ y $B$, existe un único conjunto $C$ tal que 
+    $x \in C$ si y sólo si $x = \pair{a}{b}$, para algún $a\in A$ y $b\in B$.
+
+    Tomando el conjunto (¿?) 
+      \[C=\{x: (\exists a\in A)(\exists b\in B)(x = \pair{a}{b})\}\]
+
+    Se concluye el resultado inmediatamente.
+
+    Como se tiene existencia y unicidad, al conjunto $C$ se le denota $A \times B$ y se dice 
+    que $\pair{a}{b} \in A\times B$ si y sólo si, $a\in A$ y $b\in B$.
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Ejercicio:} Dados dos conjuntos, $A$ y $C$, ¿es $\{B\times C: B\in A\}$ un conjunto?
+  \end{frame}
+\end{document}
