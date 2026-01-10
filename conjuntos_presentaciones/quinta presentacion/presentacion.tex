@@ -1,5 +1,7 @@
 \documentclass{beamer}
 \newcommand{\pair}[2]{(#1,\, #2)}
+\newcommand{\ran}[1]{\text{Rango}(#1)}
+\newcommand{\dom}[1]{\text{Dom}(#1)}
 
 \begin{document}
   \begin{frame}{Parejas ordenadas}
@@ -410,5 +412,251 @@
 
   \begin{frame}{Ejercicio}
     \textbf{Ejercicio:} Dados dos conjuntos, $A$ y $C$, ¿es $\{B\times C: B\in A\}$ un conjunto?
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Ejercicio:} Dados dos conjuntos, $A$ y $C$, ¿es $\{B\times C: B\in A\}$ un conjunto?
+
+    \begin{equation*}
+      \begin{aligned}
+        B \in A &\Longrightarrow B \subseteq \bigcup A
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Ejercicio:} Dados dos conjuntos, $A$ y $C$, ¿es $\{B\times C: B\in A\}$ un conjunto?
+
+    \begin{equation*}
+      \begin{aligned}
+        B \in A &\Longrightarrow B \subseteq \bigcup A \\
+        &\Longrightarrow B \times C \subseteq (\bigcup A) \times C
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Ejercicio:} Dados dos conjuntos, $A$ y $C$, ¿es $\{B\times C: B\in A\}$ un conjunto?
+
+    \begin{equation*}
+      \begin{aligned}
+        B \in A &\Longrightarrow B \subseteq \bigcup A \\
+        &\Longrightarrow B \times C \subseteq (\bigcup A) \times C \\
+        &\Longrightarrow B \times C \in P((\bigcup A) \times C)
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Ejercicio:} Dados dos conjuntos, $A$ y $C$, ¿es $\{B\times C: B\in A\}$ un conjunto?
+
+    \begin{equation*}
+      \begin{aligned}
+        B \in A &\Longrightarrow B \subseteq \bigcup A \\
+        &\Longrightarrow B \times C \subseteq (\bigcup A) \times C \\
+        &\Longrightarrow B \times C \in P((\bigcup A) \times C)
+      \end{aligned}
+    \end{equation*}
+
+    Con esto último, tomemos la propiedad 
+      \[\varphi(x) = (\exists B\in A)\, (x = B \times C)\]
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Ejercicio:} Dados dos conjuntos, $A$ y $C$, ¿es $\{B\times C: B\in A\}$ un conjunto?
+
+    \begin{equation*}
+      \begin{aligned}
+        B \in A &\Longrightarrow B \subseteq \bigcup A \\
+        &\Longrightarrow B \times C \subseteq (\bigcup A) \times C \\
+        &\Longrightarrow B \times C \in P((\bigcup A) \times C)
+      \end{aligned}
+    \end{equation*}
+
+    Con esto último, tomemos la propiedad 
+      \[\varphi(x) = (\exists B\in A)\, (x = B \times C)\]
+
+    y un vistazo rápido sugiere que 
+    \[\{B \times C: B \in A\} = \{x: (\exists B\in A)\, (x = B \times C)\}\]
+  \end{frame}
+
+  \begin{frame}{Ejercicio}
+    \textbf{Ejercicio:} Dados dos conjuntos, $A$ y $C$, ¿es $\{B\times C: B\in A\}$ un conjunto?
+
+    \begin{equation*}
+      \begin{aligned}
+        B \in A &\Longrightarrow B \subseteq \bigcup A \\
+        &\Longrightarrow B \times C \subseteq (\bigcup A) \times C \\
+        &\Longrightarrow B \times C \in P((\bigcup A) \times C)
+      \end{aligned}
+    \end{equation*}
+
+    Con esto último, tomemos la propiedad 
+      \[\varphi(x) = (\exists B\in A)\, (x = B \times C)\]
+
+    y un vistazo rápido sugiere que 
+    \[\{B \times C: B \in A\} = \{x: (\exists B\in A)\, (x = B \times C)\}\]
+
+    que sería un conjunto bien definido gracias al axioma 3.
+  \end{frame}
+
+  \begin{frame}{Relaciones}
+    \textbf{Definición:} Dados conjuntos $A$ y $B$, decimos que $R$ es un relación 
+    de $A$ en $B$ si y sólo si $R \subseteq A \times B$.
+  \end{frame}
+
+  \begin{frame}{Relaciones}
+    \textbf{Definición:} Dados conjuntos $A$ y $B$, decimos que $R$ es un relación 
+    de $A$ en $B$ si y sólo si $R \subseteq A \times B$.
+
+    \textbf{Teorema 16:} Si $\pair{x}{y} \in A$ entonces $x, y \in \bigcup\bigcup A$.
+  \end{frame}
+
+  \begin{frame}{Relaciones}
+    \textbf{Definición:} Dados conjuntos $A$ y $B$, decimos que $R$ es un relación 
+    de $A$ en $B$ si y sólo si $R \subseteq A \times B$.
+
+    \textbf{Teorema 16:} Si $\pair{x}{y} \in A$ entonces $x, y \in \bigcup\bigcup A$.
+
+    Como $\{x, y\} \in \pair{x}{y}$, $\{x, y\} \in \bigcup A$.
+  \end{frame}
+
+  \begin{frame}{Relaciones}
+    \textbf{Definición:} Dados conjuntos $A$ y $B$, decimos que $R$ es un relación 
+    de $A$ en $B$ si y sólo si $R \subseteq A \times B$.
+
+    \textbf{Teorema 16:} Si $\pair{x}{y} \in A$ entonces $x, y \in \bigcup\bigcup A$.
+
+    Como $\{x, y\} \in \pair{x}{y}$, $\{x, y\} \in \bigcup A$.
+
+    Similarmente, como $x, y \in \{x, y\}$, $x, y \in \bigcup\bigcup A$.
+  \end{frame}
+
+  \begin{frame}{Relaciones}
+    \textbf{Definición:} Dados conjuntos $A$ y $B$, decimos que $R$ es un relación 
+    de $A$ en $B$ si y sólo si $R \subseteq A \times B$.
+
+    \textbf{Teorema 16:} Si $\pair{x}{y} \in A$ entonces $x, y \in \bigcup\bigcup A$.
+
+    Como $\{x, y\} \in \pair{x}{y}$, $\{x, y\} \in \bigcup A$.
+
+    Similarmente, como $x, y \in \{x, y\}$, $x, y \in \bigcup\bigcup A$.
+    \newline
+
+    Con esto podemos demostrar el siguiente resultado de una manera sencilla.
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 17:} Todo conjunto $A$ en el que todos sus elementos son parejas ordenadas,
+    resulta ser una relación de $\bigcup\bigcup A$ en $\bigcup\bigcup A$. 
+  \end{frame}
+
+  \begin{frame}
+    \textbf{Teorema 17:} Todo conjunto $A$ en el que todos sus elementos son parejas ordenadas,
+    resulta ser una relación de $\bigcup\bigcup A$ en $\bigcup\bigcup A$. 
+
+    Con esto en mente, se puede decir que todo conjunto que almacene parjas ordenadas, es una relación.
+  \end{frame}
+
+  \begin{frame}{Partes importantes de una relación}
+    \textbf{Definición:} Sea $R$ una relación. Se identifican los siguientes conjuntos.
+  \end{frame}
+
+  \begin{frame}{Partes importantes de una relación}
+    \textbf{Definición:} Sea $R$ una relación. Se identifican los siguientes conjuntos.
+    
+    \begin{center}
+      Dom$(R) = \{x: (\exists y)(\pair{x}{y} \in R)\}$
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Partes importantes de una relación}
+    \textbf{Definición:} Sea $R$ una relación. Se identifican los siguientes conjuntos.
+    
+    \begin{center}
+      Dom$(R) = \{x: (\exists y)(\pair{x}{y} \in R)\}$
+      Rango$(R) = \{y: (\exists x)(\pair{x}{y} \in R)\}$
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Partes importantes de una relación}
+    \textbf{Definición:} Sea $R$ una relación. Se identifican los siguientes conjuntos.
+    
+    \begin{center}
+      Dom$(R) = \{x: (\exists y)(\pair{x}{y} \in R)\}$
+      Rango$(R) = \{y: (\exists x)(\pair{x}{y} \in R)\}$
+      Campo$(R) = \text{Dom}(R) \cup \text{Rango}(R)$
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Partes importantes de una relación}
+    \textbf{Definición:} Sea $R$ una relación. Se identifican los siguientes conjuntos.
+    
+    \begin{center}
+      Dom$(R) = \{x: (\exists y)(\pair{x}{y} \in R)\}$
+      Rango$(R) = \{y: (\exists x)(\pair{x}{y} \in R)\}$
+      Campo$(R) = \text{Dom}(R) \cup \text{Rango}(R)$
+    \end{center}
+
+    Como ejercicio, verifique que estos conjuntos están bien definidos.
+  \end{frame}
+
+  \begin{frame}{Operaciones con relaciones}
+    Sean $R$ y $S$ relaciones, se definen los siguientes conjuntos:
+  \end{frame}
+
+  \begin{frame}{Operaciones con relaciones}
+    Sean $R$ y $S$ relaciones, se definen los siguientes conjuntos:
+    \begin{center}
+      $R^{-1} = \{\pair{y}{x} \in \ran{R} \times \dom{R}: \pair{x}{y} \in R\}$
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Operaciones con relaciones}
+    Sean $R$ y $S$ relaciones, se definen los siguientes conjuntos:
+    \begin{center}
+      $R^{-1} = \{\pair{y}{x} \in \ran{R} \times \dom{R}: \pair{x}{y} \in R\}$
+
+      $R \circ S =\{\pair{x}{z} \in \dom{R} \times \ran{S}:\newline (\exists y)(\pair{x}{y} \in R \land \pair{y}{z} \in S)\}$
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Operaciones con relaciones}
+    Sean $R$ y $S$ relaciones, se definen los siguientes conjuntos:
+    \begin{center}
+      $R^{-1} = \{\pair{y}{x} \in \ran{R} \times \dom{R}: \pair{x}{y} \in R\}$
+
+      $R \circ S =\{\pair{x}{z} \in \dom{R} \times \ran{S}:\newline (\exists y)(\pair{x}{y} \in R \land \pair{y}{z} \in S)\}$
+
+      $R|_A = \{\pair{x}{y} \in R: x \in A\}$
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Operaciones con relaciones}
+    Sean $R$ y $S$ relaciones, se definen los siguientes conjuntos:
+    \begin{center}
+      $R^{-1} = \{\pair{y}{x} \in \ran{R} \times \dom{R}: \pair{x}{y} \in R\}$
+
+      $R \circ S =\{\pair{x}{z} \in \dom{R} \times \ran{S}:\newline (\exists y)(\pair{x}{y} \in R \land \pair{y}{z} \in S)\}$
+
+      $R|_A = \{\pair{x}{y} \in R: x \in A\}$
+
+      $R[A] = \{y \in \ran{R}: (\exists x\in A)(\pair{x}{y} \in R)\}$
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Operaciones con relaciones}
+    Sean $R$ y $S$ relaciones, se definen los siguientes conjuntos:
+    \begin{center}
+      $R^{-1} = \{\pair{y}{x} \in \ran{R} \times \dom{R}: \pair{x}{y} \in R\}$
+
+      $R \circ S =\{\pair{x}{z} \in \dom{R} \times \ran{S}:\newline (\exists y)(\pair{x}{y} \in R \land \pair{y}{z} \in S)\}$
+
+      $R|_A = \{\pair{x}{y} \in R: x \in A\}$
+
+      $R[A] = \{y \in \ran{R}: (\exists x\in A)(\pair{x}{y} \in R)\}$
+
+      $R^{-1}[A] = \{x \in \dom{R}: (\exists y \in A)(\pair{x}{y} \in (\pair{x}{y} \in R))\}$
+    \end{center}
   \end{frame}
 \end{document}
