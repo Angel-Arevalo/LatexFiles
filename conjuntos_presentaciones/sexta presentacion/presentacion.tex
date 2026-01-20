@@ -1,0 +1,167 @@
+\documentclass{beamer}
+\newcommand{\pair}[2]{(#1,\, #2)}
+\newcommand{\dom}[1]{\text{Dom}(#1)}
+\newcommand{\ran}[1]{\text{Ran}(#1)}
+
+\begin{document}
+
+  \begin{frame}
+    Sea $R$ una relación de $A$ en $A$. Se identifican las siguientes propiedades.
+
+    \begin{itemize}
+      \item $(\forall x \in A)\, \pair{x}{y} \in R$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    Sea $R$ una relación de $A$ en $A$. Se identifican las siguientes propiedades.
+
+    \begin{itemize}
+      \item $(\forall x \in A)\, \pair{x}{y} \in R$.
+      \item $(\forall x \in A)\, (\forall y \in A)\, (\pair{x}{y} \in R \Rightarrow \pair{y}{x} \in R)$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    Sea $R$ una relación de $A$ en $A$. Se identifican las siguientes propiedades.
+
+    \begin{itemize}
+      \item $(\forall x \in A)\, \pair{x}{y} \in R$.
+      \item $(\forall x \in A)\, (\forall y \in A)\, (\pair{x}{y} \in R \Rightarrow \pair{y}{x} \in R)$
+      \item $(\forall x \in A)\, (\forall y \in A)\, (\forall z \in A)\, (\pair{x}{y} \in R \land \pair{y}{z} \in R)
+            \Rightarrow \pair{x}{z} \in R$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    Sea $R$ una relación de $A$ en $A$. Se identifican las siguientes propiedades.
+
+    \begin{itemize}
+      \item $(\forall x \in A)\, \pair{x}{y} \in R$.
+      \item $(\forall x \in A)\, (\forall y \in A)\, (\pair{x}{y} \in R \Rightarrow \pair{y}{x} \in R)$
+      \item $(\forall x \in A)\, (\forall y \in A)\, (\forall z \in A)\, (\pair{x}{y} \in R \land \pair{y}{z} \in R)
+            \Rightarrow \pair{x}{z} \in R$.
+      \item $(\forall x \in A)\, (\forall y \in A)\, (\pair{x}{y} \in R \land \pair{y}{x} \Rightarrow y = x)$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Relaciones de equivalencia}
+    Sea $R$ una relación en $A$. Se dice que $R$ es una relación de equivalencia si es simétricas, transitiva 
+    y reflexiva.
+  \end{frame}
+
+  \begin{frame}{Relaciones de equivalencia}
+    Sea $R$ una relación en $A$. Se dice que $R$ es una relación de equivalencia si es simétricas, transitiva 
+    y reflexiva.
+
+    Dado $a \in A$, se denota como $[a]_R = \{x \in A: \pair{x}{a} \in A\}$.
+  \end{frame}
+
+  \begin{frame}{Particiones de un conjunto}
+    Dado un conjunto $A$ se dice que $Q \subseteq P(A)$ es una partición de $A$ si:
+    
+    \begin{itemize}
+      \item $(\forall x \in A)\, (\exists t \in Q)\, (x \in t)$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Particiones de un conjunto}
+    Dado un conjunto $A$ se dice que $Q \subseteq P(A)$ es una partición de $A$ si:
+    
+    \begin{itemize}
+      \item $(\forall x \in A)\, (\exists t \in Q)\, (x \in t)$
+      \item $(\forall t, s \in Q)\, (t \neq s \Rightarrow t \cap s = \emptyset)$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema ??:} Sea $R$ una relación de equivalencia en $A$. Entonces $\pair{x}{y} \in R$ si 
+    y sólo si $[a]_R = [b]_R$.
+
+    En algún sentido, $P = \{[a]: a\in A\}$ es una partición.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $R$ una relación. Decimos que $R$ es una función si para cada 
+    $x \in \dom{R}$ existe un único $y$ tal que $\pair{x}{y} \in R$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $R$ una relación. Decimos que $R$ es una función si para cada 
+    $x \in \dom{R}$ existe un único $y$ tal que $\pair{x}{y} \in R$.
+    \newline\newline\newline
+    \textit{Definición:} Decimos que $F$ es una función de $A$ en $B$ y si es una relación de $A$
+    en $B$ si para cada $x \in A$ existe un único $y \in B$ tal que $\pair{x}{y} \in F$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema ??:} Sea $g$ una función de $A$ en $B$ y $f$ una función de $C$ en 
+    $D$ tal que $B \subseteq C$, entonces $f \circ g$ es una función.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Decimos que $f$ es uno a uno o inyectiva si para todo $x$ y $y$
+    $f(x) = f(y)$ entonces $x = y$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Decimos que $f$ es uno a uno o inyectiva si para todo $x$ y $y$
+    $f(x) = f(y)$ entonces $x = y$.
+
+    \textit{Teorema ??:} Si $f$ es una función inyectiva de $A$ en $B$ entonces $f^{-1}$
+    es una función y además es inyectiva.
+  \end{frame}
+
+  \begin{frame}
+    Sea $f$ una función inyectiva, entonces 
+    \begin{itemize}
+      \item Si $x \in \dom{f}$ entonces $f^{-1}(f(x))$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    Sea $f$ una función inyectiva, entonces 
+    \begin{itemize}
+      \item Si $x \in \dom{f}$ entonces $f^{-1}(f(x)) = x$.
+      \item Si $y \in \ran{f}$ entonces $f(f^{-1}(y)) = y$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $f$ una función de $A$ en $B$. Decimos que $f$ es sobreyectiva si 
+    $\ran{f} = B$, es decir:
+      \[(\forall y \in B)\,(\exists x \in A)\, (f(x) = y)\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $f$ una función de $A$ en $B$. Decimos que $f$ es sobreyectiva si 
+    $\ran{f} = B$, es decir:
+      \[(\forall y \in B)\,(\exists x \in A)\, (f(x) = y)\]
+
+    Decimos que $f$ es biyectiva de $A$ en $B$ si $f$ es inyectiva y sobreyectiva.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema ??}: Sea $f$ una biyección de $A$ en $B$, entonces $f^{-1}$ es una biyección
+    de $B$ en $A$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema ??}: Sea $f$ una biyección de $A$ en $B$, entonces $f^{-1}$ es una biyección
+    de $B$ en $A$.
+
+    \textit{Teorema ??:} Sea $g: A \rightarrow B$ y $f: B \rightarrow C$ funciones inyectivas,
+    entonces $f \circ g : A \rightarrow C$ es una función inyectiva.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema ??}: Sea $f$ una biyección de $A$ en $B$, entonces $f^{-1}$ es una biyección
+    de $B$ en $A$.
+
+    \textit{Teorema ??:} Sea $g: A \rightarrow B$ y $f: B \rightarrow C$ funciones inyectivas,
+    entonces $f \circ g : A \rightarrow C$ es una función inyectiva.
+
+    \textit{Teorema ??:} Sea $g: A \rightarrow B$ y $f: B \rightarrow C$ funciones sobreyectivas,
+    entonces $f \circ g : A \rightarrow C$ es una función sobreyectiva.
+  \end{frame}
+\end{document}
