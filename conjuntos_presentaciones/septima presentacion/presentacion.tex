@@ -1,0 +1,314 @@
+\documentclass{beamer}
+\newcommand{\dom}[1]{\text{Dom}(#1)}
+\newcommand{\ran}[1]{\text{Ran}(#1)}
+\newcommand{\pair}[2]{(#1, #2)}
+\begin{document}
+  
+  \begin{frame}{Otras propiedades de las funciones}
+    \textit{Prop. } Sea $A$ un conjunto de funciones no vacío. $\{\dom{f}: f \in A\}$ es un conjunto 
+    y a su vez, $\bigcap A$ es una función.
+  \end{frame}
+
+  \begin{frame}{Otras propiedades de las funciones}
+    \textit{Prop. } Sea $A$ un conjunto de funciones no vacío. $\{\dom{f}: f \in A\}$ es un conjunto 
+    y a su vez, $\bigcap A$ es una función. 
+     \newline\newline
+    Se nota que $\bigcup A$ es una relación, pues es un conjunto de parejas ordenadas.
+  \end{frame}
+
+  \begin{frame}{Otras propiedades de las funciones}
+    \textit{Prop. } Sea $A$ un conjunto de funciones no vacío. $\{\dom{f}: f \in A\}$ es un conjunto 
+    y a su vez, $\bigcap A$ es una función. 
+     \newline\newline
+    Se nota que $\bigcup A$ es una relación, pues es un conjunto de parejas ordenadas.
+     \newline\newline
+    De la propia definición, es concluyente que $f \subseteq \bigcup A$;
+  \end{frame}
+
+  \begin{frame}{Otras propiedades de las funciones}
+    \textit{Prop. } Sea $A$ un conjunto de funciones no vacío. $\{\dom{f}: f \in A\}$ es un conjunto 
+    y a su vez, $\bigcap A$ es una función. 
+     \newline\newline
+    Se nota que $\bigcup A$ es una relación, pues es un conjunto de parejas ordenadas.
+     \newline\newline
+    De la propia definición, es concluyente que $f \subseteq \bigcup A$; $\dom{f} \subseteq \dom{\bigcup A}$;
+  \end{frame}
+
+  \begin{frame}{Otras propiedades de las funciones}
+    \textit{Prop. } Sea $A$ un conjunto de funciones no vacío. $\{\dom{f}: f \in A\}$ es un conjunto 
+    y a su vez, $\bigcap A$ es una función. 
+     \newline\newline
+    Se nota que $\bigcup A$ es una relación, pues es un conjunto de parejas ordenadas.
+     \newline\newline
+    De la propia definición, es concluyente que $f \subseteq \bigcup A$; $\dom{f} \subseteq \dom{\bigcup A}$
+     \newline\newline
+    $\dom{f} \in P(\dom{\bigcup A})$.
+  \end{frame}
+
+  \begin{frame}{Otras propiedades de las funciones}
+    \textit{Prop. } Sea $A$ un conjunto de funciones no vacío. $\{\dom{f}: f \in A\}$ es un conjunto 
+    y a su vez, $\bigcap A$ es una función.
+     \newline\newline
+    Si $\pair{x}{y},\, \pair{x}{z} \in \bigcap A$.
+  \end{frame}
+
+  \begin{frame}{Otras propiedades de las funciones}
+    \textit{Prop. } Sea $A$ un conjunto de funciones no vacío. $\{\dom{f}: f \in A\}$ es un conjunto 
+    y a su vez, $\bigcap A$ es una función.
+     \newline\newline
+    Si $\pair{x}{y},\, \pair{x}{z} \in \bigcap A$. 
+     \newline\newline
+    Para todo $f \in A$, $\pair{x}{y}, \pair{x}{z} \in f$, y como cada $f$ es una función, $x = z$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Decimos que $f$ y $g$ son funciones compatibles si 
+      \[f[\dom{f}\cap\dom{g}] = g[\dom{f}\cap\dom{g}]\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto de funciones compatibles dos a dos, entonces $\bigcup A$ es una 
+    función y $\dom{\bigcup A} = \bigcup\{\dom{f}: f \in A\}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto de funciones compatibles dos a dos, entonces $\bigcup A$ es una 
+    función y $\dom{\bigcup A} = \bigcup\{\dom{f}: f \in A\}$.
+
+    Si $\pair{x}{y}, \pair{x}{z} \in \bigcup A$;
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto de funciones compatibles dos a dos, entonces $\bigcup A$ es una 
+    función y $\dom{\bigcup A} = \bigcup\{\dom{f}: f \in A\}$.
+     \newline\newline
+    Si $\pair{x}{y}, \pair{x}{z} \in \bigcup A$; 
+     \newline\newline
+    existen $f$ y $g$ en $A$ tal que $\pair{x}{y}\in f$ y $\pair{x}{z} \in g$;
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto de funciones compatibles dos a dos, entonces $\bigcup A$ es una 
+    función y $\dom{\bigcup A} = \bigcup\{\dom{f}: f \in A\}$.
+     \newline\newline
+    Si $\pair{x}{y}, \pair{x}{z} \in \bigcup A$; 
+     \newline\newline
+    existen $f$ y $g$ en $A$ tal que $\pair{x}{y}\in f$ y $\pair{x}{z} \in g$; 
+     \newline\newline
+    como $f$ y $g$ son compatibles dos a dos, entonces 
+    $f[\dom{f}\cap\dom{g}] = g[\dom{f}\cap\dom{g}]$ y como $x \in \dom{f}\cap\dom{g}$ se 
+    concluye que $y = z$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto de funciones compatibles dos a dos, entonces $\bigcup A$ es una 
+    función y $\dom{\bigcup A} = \bigcup \{\dom{f}: f \in A\}$.
+     \newline\newline
+    Si $x \in \dom{\bigcup A}$ es porque existe un $y$ tal que $\pair{x}{y} \in \bigcup A$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto de funciones compatibles dos a dos, entonces $\bigcup A$ es una 
+    función y $\dom{\bigcup A} = \bigcup \{\dom{f}: f \in A\}$.
+     \newline\newline
+    Si $x \in \dom{\bigcup A}$ es porque existe un $y$ tal que $\pair{x}{y} \in \bigcup A$.
+     \newline\newline
+    Como $A$ es un conjunto de funciones, existe una función $f \in A$ tal que 
+    $\pair{x}{y} \in f$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto de funciones compatibles dos a dos, entonces $\bigcup A$ es una 
+    función y $\dom{\bigcup A} = \bigcup \{\dom{f}: f \in A\}$.
+     \newline\newline
+    Si $x \in \dom{\bigcup A}$ es porque existe un $y$ tal que $\pair{x}{y} \in \bigcup A$.
+     \newline\newline
+    Como $A$ es un conjunto de funciones, existe una función $f \in A$ tal que 
+    $\pair{x}{y} \in f$.
+     \newline\newline
+    De la misma definición, vemos que $x \in \dom{f}$ y por el axioma de la unión, 
+    $x \in \bigcup \{\dom{f}: f \in A\}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto de funciones compatibles dos a dos, entonces $\bigcup A$ es una 
+    función y $\dom{\bigcup A} = \bigcup \{\dom{f}: f \in A\}$.
+     \newline\newline
+    Si $x \in \dom{\bigcup A}$ es porque existe un $y$ tal que $\pair{x}{y} \in \bigcup A$.
+     \newline\newline
+    Como $A$ es un conjunto de funciones, existe una función $f \in A$ tal que 
+    $\pair{x}{y} \in f$.
+     \newline\newline
+    De la misma definición, vemos que $x \in \dom{f}$ y por el axioma de la unión, 
+    $x \in \bigcup \{\dom{f}: f \in A\}$.
+     \newline\newline
+    De este modo se prueba $\subseteq$, pero los argumentos son bicondicionales, ¿por qué?
+  \end{frame}
+
+  \begin{frame}{Funciones inversas}
+    \textit{Definición}: Sea $f: A \to B$ una función, 
+
+    \begin{itemize}
+      \item Se dice que $f$ tiene una inversa a derecha $g: B \to A$ tal que
+            \[f \circ g = I_B\]
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Funciones inversas}
+    \textit{Definición}: Sea $f: A \to B$ una función, 
+
+    \begin{itemize}
+      \item Se dice que $f$ tiene una inversa a derecha $g: B \to A$ tal que
+            \[f \circ g = I_B\]
+
+      \item Se dice que $f$ tiene una inversa a izquierda $h: B \to A$ tal que
+            \[h \circ f = I_A\]
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Funciones inversas}
+    \textit{Definición}: Sea $f: A \to B$ una función, 
+
+    \begin{itemize}
+      \item Se dice que $f$ tiene una inversa a derecha $g: B \to A$ tal que
+            \[f \circ g = I_B\]
+
+      \item Se dice que $f$ tiene una inversa a izquierda $h: B \to A$ tal que
+            \[h \circ f = I_A\]
+
+      \item $f$ tiene inversa si tiene inversa a izquierda y a derecha.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $f: A \to B$.
+
+    \begin{itemize}
+      \item $f$ tiene inversa a izquierda si y solo si $f$ es inyectiva.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $f: A \to B$.
+
+    \begin{itemize}
+      \item $f$ tiene inversa a izquierda si y solo si $f$ es inyectiva.
+      \item Si $f$ tiene inversa a derecha entonces $f$ es sobre.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $f: A \to B$.
+
+    \begin{itemize}
+      \item $f$ tiene inversa a izquierda si y solo si $f$ es inyectiva.
+      \item Si $f$ tiene inversa a derecha entonces $f$ es sobre.
+      \item $f$ tiene inversa si y solo si $f$ es biyectiva.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Notación:} Todas las posibles funciones de $A$ a $B$ se denota como ${}^{A}B$, ¿es un conjunto?
+  \end{frame}
+
+  \begin{frame}{Conjuntos indexados}
+    Tomemos dos conjuntos, $I$ y $B$, y una función de $f: I \to B$.
+  \end{frame}
+
+  \begin{frame}{Conjuntos indexados}
+    Tomemos dos conjuntos, $I$ y $B$, y una función de $f: I \to B$.
+    
+    \begin{equation*}
+      \begin{aligned}
+        \ran{f} &= \{b \in B: (\exists i \in I)(f(i) = b) = b\} \\
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Conjuntos indexados}
+    Tomemos dos conjuntos, $I$ y $B$, y una función de $f: I \to B$.
+    
+    \begin{equation*}
+      \begin{aligned}
+        \ran{f} &= \{b \in B: (\exists i \in I)(f(i) = b) = b\} \\
+                &= \{f(i): i \in I\} 
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Conjuntos indexados}
+    Tomemos dos conjuntos, $I$ y $B$, y una función de $f: I \to B$.
+    
+    \begin{equation*}
+      \begin{aligned}
+        \ran{f} &= \{b \in B: (\exists i \in I)(f(i) = b) = b\} \\
+                &= \{f(i): i \in I\} \\
+                &= \{f_i : i\in I\} = \{f_i\}_{i \in I}
+      \end{aligned}
+    \end{equation*}
+
+    Siempre que introduzcamos la notación $f_i := f(i)$.
+  \end{frame}
+
+  \begin{frame}{Conjuntos indexados}
+    Con la nueva notación podemos introducir nuevas notaciones:
+  \end{frame}
+
+  \begin{frame}{Conjuntos indexados}
+    Con la nueva notación podemos introducir nuevas notaciones:
+
+    \begin{equation*}
+      \begin{aligned}
+        \bigcup \{f_i\}_{i \in I} := \bigcup_{i \in I} f_i 
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Conjuntos indexados}
+    Con la nueva notación podemos introducir nuevas notaciones:
+
+    \begin{equation*}
+      \begin{aligned}
+        \bigcup \{f_i\}_{i \in I} := \bigcup_{i \in I} f_i \\
+        \bigcap \{f_i\}_{i \in I} := \bigcap_{i \in I} f_i 
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Conjuntos indexados con varias variables}
+    Tomamos una función $h: I \times J \to M$.
+
+    \begin{equation*}
+      \begin{aligned}
+        \ran{h} &= \{h\pair{i}{j}: \pair{i}{j} \in I \times J\}
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Conjuntos indexados con varias variables}
+    Tomamos una función $h: I \times J \to M$.
+
+    \begin{equation*}
+      \begin{aligned}
+        \ran{h} &= \{h\pair{i}{j}: \pair{i}{j} \in I \times J\} \\
+                &= \{h_{i, j}: \pair{i}{j} \in I \times J\}
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Conjuntos indexados con varias variables}
+    Tomamos una función $h: I \times J \to M$.
+
+    \begin{equation*}
+      \begin{aligned}
+        \ran{h} &= \{h\pair{i}{j}: \pair{i}{j} \in I \times J\} \\
+                &= \{h_{i, j}: \pair{i}{j} \in I \times J\} \\
+                &= \{h_{i, j}\}_{i\in I, j\in J}
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    Con esta notación, vemos que dado $i \in I$, $\{h_{i, j}\}_{j \in J} = \{h_{i, j}: j \in J\}$
+  \end{frame}
+\end{document}
