@@ -1,0 +1,313 @@
+\documentclass{beamer}
+\newcommand{\pair}[2]{(#1,\, #2)}
+
+
+\begin{document}
+  
+  \begin{frame}{Ordenes}
+    \textit{Definición}: Sea $\preceq$ una relación en un conjunto $A$. Decimos que 
+    $\preceq$ es una relación de orden si es reflexiva, antisimétrica y transitiva.
+  \end{frame}
+
+  \begin{frame}{Ordenes}
+    \textit{Definición}: Sea $\preceq$ una relación en un conjunto $A$. Decimos que 
+    $\preceq$ es una relación de orden si es reflexiva, antisimétrica y transitiva.
+    \newline\newline
+
+    \textit{Teorema}: Si $\preceq$ es una relación de orden en $A$, $\preceq^{-1}$ es una relación de orden en $A$. 
+  \end{frame}
+
+  \begin{frame}{Orden estricto}
+    \textit{Definición}: Decimos que una relación $\prec$ es un orden estricto en $A$ si es 
+    una relación asimétrica y transitiva.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Dado un conjunto $A$, denominamos el par $(A, \preceq)$ conjunto ordenado
+    siempre que $\preceq$ sea un relación en $A$ y una relación de orden.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $(A, \preceq)$ un conjunto ordenado. Para todo $B \subseteq A$, 
+    $(B, \preceq_1)$ es un conjunto ordenado, donde $\preceq_1 = \{(x, y) \in \preceq: x \in B \land y \in B\}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $(A, \preceq)$ un conjunto ordenado. Para todo $B \subseteq A$, 
+    $(B, \preceq_1)$ es un conjunto ordenado, donde $\preceq_1 = \{(x, y) \in \preceq: x \in B \land y \in B\}$.
+    \newline\newline
+
+    \textit{antisimetría}: Si $\pair{x}{y}, \pair{y}{x} \in \preceq_1$, es porque 
+    $x, y \in B$ y $\pair{x}{y}, \pair{y}{x} \in \preceq$, es decir, $x = y$ y $x \in B$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $(A, \preceq)$ un conjunto ordenado. Para todo $B \subseteq A$, 
+    $(B, \preceq_1)$ es un conjunto ordenado, donde $\preceq_1 = \{(x, y) \in \preceq: x \in B \land y \in B\}$.
+    \newline\newline
+
+    \textit{antisimetría}: Si $\pair{x}{y}, \pair{y}{x} \in \preceq_1$, es porque 
+    $x, y \in B$ y $\pair{x}{y}, \pair{y}{x} \in \preceq$, es decir, $x = y$ y $x \in B$.
+    \newline\newline
+
+    \textit{Transitividad}: Si $\pair{x}{y}, \pair{y}{z} \in \preceq_1$, de nuevo, $x, y, z \in B$ y 
+    $\pair{x}{y}, \pair{y}{z} \in \preceq$, luego $x, z \in B$ y $\pair{x}{z} \in B$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $(A, \preceq)$ un conjunto ordenado. Para todo $B \subseteq A$, 
+    $(B, \preceq_1)$ es un conjunto ordenado, donde $\preceq_1 = \{(x, y) \in \preceq: x \in B \land y \in B\}$.
+    \newline\newline
+
+    \textit{antisimetría}: Si $\pair{x}{y}, \pair{y}{x} \in \preceq_1$, es porque 
+    $x, y \in B$ y $\pair{x}{y}, \pair{y}{x} \in \preceq$, es decir, $x = y$ y $x \in B$.
+    \newline\newline
+
+    \textit{Transitividad}: Si $\pair{x}{y}, \pair{y}{z} \in \preceq_1$, de nuevo, $x, y, z \in B$ y 
+    $\pair{x}{y}, \pair{y}{z} \in \preceq$, luego $x, z \in B$ y $\pair{x}{z} \in B$.
+    \newline\newline
+
+    \textit{Reflexividad}: Inmediata.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sean $\pair{A}{\preceq_1}$ y $\pair{B}{\preceq_2}$ conjuntos ordenados, entonces 
+    $\preceq := \{\pair{\pair{a}{b}}{\pair{c}{d}} \in (A \times B)\times (A \times B): (a \prec_1 c) \lor (a = c \land b \preceq_2 d)\}$
+    es un orden sobre $A\times B$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $\pair{A}{\preceq}$ un orden, $B \subseteq A$, $z \in A$ y $x \in B$
+
+    \begin{itemize}
+      \item $x$ es el mínimo de $B$ si $(\forall y \in B)(x \preceq y)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $\pair{A}{\preceq}$ un orden, $B \subseteq A$, $z \in A$ y $x \in B$
+
+    \begin{itemize}
+      \item $x$ es el mínimo de $B$ si $(\forall y \in B)(x \preceq y)$.
+      \item $x$ es el máximo de $B$ si $(\forall y \in B)(y \preceq x)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $\pair{A}{\preceq}$ un orden, $B \subseteq A$, $z \in A$ y $x \in B$
+
+    \begin{itemize}
+      \item $x$ es el mínimo de $B$ si $(\forall y \in B)(x \preceq y)$.
+      \item $x$ es el máximo de $B$ si $(\forall y \in B)(y \preceq x)$.
+      \item $x$ es mínimal de $B$ si $(\forall y \in B)(\neg (y \prec x))$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $\pair{A}{\preceq}$ un orden, $B \subseteq A$, $z \in A$ y $x \in B$
+
+    \begin{itemize}
+      \item $x$ es el mínimo de $B$ si $(\forall y \in B)(x \preceq y)$.
+      \item $x$ es el máximo de $B$ si $(\forall y \in B)(y \preceq x)$.
+      \item $x$ es mínimal de $B$ si $(\forall y \in B)(\neg (y \prec x))$.
+      \item $x$ es máximal de $B$ si $(\forall y \in B)(\neg (x \prec y))$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $\pair{A}{\preceq}$ un orden, $B \subseteq A$, $z \in A$ y $x \in B$
+
+    \begin{itemize}
+      \item $x$ es el mínimo de $B$ si $(\forall y \in B)(x \preceq y)$.
+      \item $x$ es el máximo de $B$ si $(\forall y \in B)(y \preceq x)$.
+      \item $x$ es mínimal de $B$ si $(\forall y \in B)(\neg (y \prec x))$.
+      \item $x$ es máximal de $B$ si $(\forall y \in B)(\neg (x \prec y))$.
+      \item $z$ es cota inferior de $B$ si $(\forall y \in B)(z \preceq y)$.        
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $\pair{A}{\preceq}$ un orden, $B \subseteq A$, $z \in A$ y $x \in B$
+
+    \begin{itemize}
+      \item $x$ es el mínimo de $B$ si $(\forall y \in B)(x \preceq y)$.
+      \item $x$ es el máximo de $B$ si $(\forall y \in B)(y \preceq x)$.
+      \item $x$ es mínimal de $B$ si $(\forall y \in B)(\neg (y \prec x))$.
+      \item $x$ es máximal de $B$ si $(\forall y \in B)(\neg (x \prec y))$.
+      \item $z$ es cota inferior de $B$ si $(\forall y \in B)(z \preceq y)$.        
+      \item $z$ es cota superior de $B$ si $(\forall y \in B)(y \preceq z)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $\pair{A}{\preceq}$ un orden, $B \subseteq A$, $z \in A$ y $x \in B$
+
+    \begin{itemize}
+      \item $x$ es el mínimo de $B$ si $(\forall y \in B)(x \preceq y)$.
+      \item $x$ es el máximo de $B$ si $(\forall y \in B)(y \preceq x)$.
+      \item $x$ es mínimal de $B$ si $(\forall y \in B)(\neg (y \prec x))$.
+      \item $x$ es máximal de $B$ si $(\forall y \in B)(\neg (x \prec y))$.
+      \item $z$ es cota inferior de $B$ si $(\forall y \in B)(z \preceq y)$.        
+      \item $z$ es cota superior de $B$ si $(\forall y \in B)(y \preceq z)$.
+      \item $z$ es el supremo de $B$ si la menor de las cotas superiores.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $\pair{A}{\preceq}$ un orden, $B \subseteq A$, $z \in A$ y $x \in B$
+
+    \begin{itemize}
+      \item $x$ es el mínimo de $B$ si $(\forall y \in B)(x \preceq y)$.
+      \item $x$ es el máximo de $B$ si $(\forall y \in B)(y \preceq x)$.
+      \item $x$ es mínimal de $B$ si $(\forall y \in B)(\neg (y \prec x))$.
+      \item $x$ es máximal de $B$ si $(\forall y \in B)(\neg (x \prec y))$.
+      \item $z$ es cota inferior de $B$ si $(\forall y \in B)(z \preceq y)$.        
+      \item $z$ es cota superior de $B$ si $(\forall y \in B)(y \preceq z)$.
+      \item $z$ es el supremo de $B$ si la menor de las cotas superiores.
+      \item $z$ es el ínfimo de $B$ si es la mayor de las cotas superiores.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    Sea $\pair{A}{\preceq}$ un conjunto ordenado y $B \subseteq A$.
+  \end{frame}
+
+  \begin{frame}
+    Sea $\pair{A}{\preceq}$ un conjunto ordenado y $B \subseteq A$.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene mínimo, este es único.
+  \end{frame}
+
+  \begin{frame}
+    Sea $\pair{A}{\preceq}$ un conjunto ordenado y $B \subseteq A$.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene mínimo, este es único.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene máximo, este es único.
+  \end{frame}
+
+  \begin{frame}
+    Sea $\pair{A}{\preceq}$ un conjunto ordenado y $B \subseteq A$.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene mínimo, este es único.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene máximo, este es único.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene supremo, este es único.
+  \end{frame}
+
+  \begin{frame}
+    Sea $\pair{A}{\preceq}$ un conjunto ordenado y $B \subseteq A$.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene mínimo, este es único.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene máximo, este es único.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene supremo, este es único.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene ínfimo, este es único.
+  \end{frame}
+
+  \begin{frame}
+    Sea $\pair{A}{\preceq}$ un conjunto ordenado y $B \subseteq A$.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene mínimo, este es único.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene máximo, este es único.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene supremo, este es único.
+    \newline\newline
+    \textit{Teorema}: Si $B$ tiene ínfimo, este es único.
+    \newline\newline
+
+    \textit{Notación}: Se denotan $\text{min}(B)$, máx$(B)$, sup$(B)$ e inf$(B)$, respectivamente.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(A, \preceq)$ un orden. Decimos que el orden es completo superiormente si 
+    todo subconjunto de $A$ acotado superiormente tiene supremo. Decimos que es completo inferiormente 
+    si $\pair{A}{\preceq^{-1}}$ es completo superiormente.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(A, \preceq)$ un orden. Decimos que el orden es completo superiormente si 
+    todo subconjunto de $A$ acotado superiormente tiene supremo. Decimos que es completo inferiormente 
+    si $\pair{A}{\preceq^{-1}}$ es completo superiormente.
+    \newline\newline
+
+    \textit{Teorema}: $\pair{A}{\preceq}$ es completo inferiormente si y sólo si todo subconjunto 
+    acotado inferiormente de $A$ tiene ínfimo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $\pair{A}{\preceq}$ un conjunto ordenado, decimos que $B$ es una cadena
+    en $A$ si
+    \[(\forall x, y \in B)(x \preceq y \lor y \preceq x)\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $\pair{A}{\preceq}$ un orden. Si existe una cadena $\subseteq$-máximal y toda
+    cadena de $\pair{A}{\preceq}$ está acotada superiormente, entonces existe un 
+    elemento máximal en $\pair{A}{\preceq}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $\pair{A}{\preceq}$ un orden. Si existe una cadena $\subseteq$-máximal y toda
+    cadena de $\pair{A}{\preceq}$ está acotada superiormente, entonces existe un 
+    elemento máximal en $\pair{A}{\preceq}$.
+    \newline\newline
+
+    Sea $B$ la cadena $\subseteq$-máximal. Probaremos que B tiene máximo. Supongamos que contrario
+    $B$ no tenga máximo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $\pair{A}{\preceq}$ un orden. Si existe una cadena $\subseteq$-máximal y toda
+    cadena de $\pair{A}{\preceq}$ está acotada superiormente, entonces existe un 
+    elemento máximal en $\pair{A}{\preceq}$.
+    \newline\newline
+
+    Sea $B$ la cadena $\subseteq$-máximal. Probaremos que B tiene máximo. Supongamos que contrario
+    $B$ no tenga máximo.
+    \newline\newline
+
+    Como $B$ es una cadena, entonces es acotada superiormente, luego existe un elemento
+    $z \in A$ tal que para todo $y \in B$, $y \preceq z$. Como se asume que no tiene máximo
+    entonces para cada $y \in B$ existe $x \in B$ tal que $y \prec x$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $\pair{A}{\preceq}$ un orden. Si existe una cadena $\subseteq$-máximal y toda
+    cadena de $\pair{A}{\preceq}$ está acotada superiormente, entonces existe un 
+    elemento máximal en $\pair{A}{\preceq}$.
+    \newline\newline
+
+    Sea $B$ la cadena $\subseteq$-máximal. Probaremos que B tiene máximo. Supongamos que contrario
+    $B$ no tenga máximo.
+    \newline\newline
+
+    Como $B$ es una cadena, entonces es acotada superiormente, luego existe un elemento
+    $z \in A$ tal que para todo $y \in B$, $y \preceq z$, de esto, podemos ver que 
+    $z \notin B$ y como $B \subseteq B \cup \{z\} := C$, $C$ es una cadena, pero esto contradice
+    que $B$ sea $\subseteq$-máximal.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $\pair{A}{\preceq}$ un orden. Si existe una cadena $\subseteq$-máximal y toda
+    cadena de $\pair{A}{\preceq}$ está acotada superiormente, entonces existe un 
+    elemento máximal en $\pair{A}{\preceq}$.
+    \newline\newline
+
+    Sea $B$ la cadena $\subseteq$-máximal. Probaremos que B tiene máximo. Supongamos que contrario
+    $B$ no tenga máximo.
+    \newline\newline
+
+    Como $B$ es una cadena, entonces es acotada superiormente, luego existe un elemento
+    $z \in A$ tal que para todo $y \in B$, $y \preceq z$, de esto, podemos ver que 
+    $z \notin B$ y como $B \subseteq B \cup \{z\} := C$, $C$ es una cadena, pero esto contradice
+    que $B$ sea $\subseteq$-máximal.
+    \newline\newline
+
+    Tomando $x = \max(B)$, veamos que es elemento máximal.
+  \end{frame}
+\end{document}
