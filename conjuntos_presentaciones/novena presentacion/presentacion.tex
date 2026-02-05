@@ -1,0 +1,180 @@
+\documentclass{beamer}
+\newcommand{\pair}[2]{(#1, \, #2)}
+\usepackage{amssymb}
+
+\begin{document}
+  
+  \begin{frame}
+    \textit{Prop.} La pareja $(P(A), \subseteq)$ es un conjunto ordenado completo superior e inferiormente.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Prop.} La pareja $(P(A), \subseteq)$ es un conjunto ordenado completo superior e inferiormente.
+    \newline\newline
+
+    \textit{Prop.} Si las parejas $(A, \preceq_1)$ y $(A, \preceq_2)$ son totalmente ordenado, el orden lexográfico
+    es un orden total.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto no vacío. El conjunto $\widehat{A} = \{\pair{B}{\preceq_B}: B \subseteq A \land \preceq_B$ es un orden en $B\}$
+    está bien definido y la relación $\pair{B}{\preceq_B} \sqsubseteq \pair{C}{\preceq_C}$ sii:
+
+    \begin{itemize}
+      \item $B \subseteq C$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto no vacío. El conjunto $\widehat{A} = \{\pair{B}{\preceq_B}: B \subseteq A \land \preceq_B$ es un orden en $B\}$
+    está bien definido y la relación $\pair{B}{\preceq_B} \sqsubseteq \pair{C}{\preceq_C}$ sii:
+
+    \begin{itemize}
+      \item $B \subseteq C$.
+      \item $\preceq_B \subseteq \preceq_C$ ($(\forall x, y \in B) (x \preceq_B y \rightarrow x \preceq_C y)$).
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto no vacío. El conjunto $\widehat{A} = \{\pair{B}{\preceq_B}: B \subseteq A \land \preceq_B$ es un orden en $B\}$
+    está bien definido y la relación $\pair{B}{\preceq_B} \sqsubseteq \pair{C}{\preceq_C}$ sii:
+
+    \begin{itemize}
+      \item $B \subseteq C$.
+      \item $\preceq_B \subseteq \preceq_C$ ($(\forall x, y \in B) (x \preceq_B y \rightarrow x \preceq_C y)$).
+      \item $(\forall x \in B)\, (\forall y \in C \setminus B)\, (x \preceq_C y)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto y $\widehat{A}$ como en la diapositiva anterior, $J = \{\pair{B_i}{\preceq_{B_i}}\}_{i \in I}$
+    una cadena en $\pair{\widehat{A}}{\sqsubseteq}$, entonces $\pair{B}{\preceq_B}$ es una cota superior, 
+    donde 
+    \[B = \bigcup_{i \in J} B_i; \quad\quad \preceq_B = \bigcup_{i \in J} \preceq_{B_i}\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto y $\widehat{A}$ como en la diapositiva anterior, $J = \{\pair{B_i}{\preceq_{B_i}}\}_{i \in I}$
+    una cadena en $\pair{\widehat{A}}{\sqsubseteq}$, entonces $\pair{B}{\preceq_B}$ es una cota superior, 
+    donde 
+    \[B = \bigcup_{i \in J} B_i; \quad\quad \preceq_B = \bigcup_{i \in J} \preceq_{B_i}\]
+    \newline\newline
+
+    \textit{Nota:} Pruebe que ese elemento es el supremo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $\pair{A}{\preceq_A}$ un orden y $a \in A$, definimos
+    
+    \begin{itemize}
+      \item $S^\prec (a) = \{x \in A: x \prec a\}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $\pair{A}{\preceq_A}$ un orden y $a \in A$, definimos
+    
+    \begin{itemize}
+      \item $S^\prec (a) = \{x \in A: x \prec a\}$.
+      \item $S^\preceq (a) = \{x \in A: x \preceq a\}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $\pair{A}{\preceq_A}$ un orden y $a \in A$, definimos
+    
+    \begin{itemize}
+      \item $S^\prec (a) = \{x \in A: x \prec a\}$.
+      \item $S^\preceq (a) = \{x \in A: x \preceq a\}$.
+      \item $S^\succ (a) = \{x \in A: x \succ a\}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $\pair{A}{\preceq_A}$ un orden y $a \in A$, definimos
+    
+    \begin{itemize}
+      \item $S^\prec (a) = \{x \in A: x \prec a\}$.
+      \item $S^\preceq (a) = \{x \in A: x \preceq a\}$.
+      \item $S^\succ (a) = \{x \in A: x \succ a\}$.
+      \item $S^\succeq (a) = \{x \in A: x \succeq a\}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $(A, \preceq_A)$ un orden. Si $a, b \in A$ y $S^{\succeq}(a) = S^{\succeq}(b)$ entonces $a = b$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $(A, \preceq_A)$ un orden. Si $a, b \in A$ y $S^{\succeq}(a) = S^{\succeq}(b)$ entonces $a = b$.
+    \newline\newline
+
+    \textit{Teorema:} Sea $(A, \preceq_A)$ un orden total. Si $a, b \in A$ y $S^{\succ}(a) = S^{\succ}(b)$ entonces $a = b$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $\pair{A}{\preceq_A}$ un orden, entonces
+    \[A = \bigcup_{a \in A} S^\prec (a) \iff A \text{ no tiene maximales}\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sean $\pair{A}{\preceq_A}$ y $\pair{B}{\preceq_B}$ ordenes y $\preceq$ el orden 
+    lexicográfico, entonces 
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sean $\pair{A}{\preceq_A}$ y $\pair{B}{\preceq_B}$ ordenes y $\preceq$ el orden 
+    lexicográfico, entonces 
+    \newline\newline
+
+    Si $a\in A$ y $b \in B$ entonces 
+    \[S^\prec(\pair{a}{b}) = (A \times S^\prec (b)) \cup (S^\prec (a) \times \{b\})\]
+  \end{frame}
+
+
+  \begin{frame}
+    \textit{Teorema:} Sean $\pair{A}{\preceq_A}$ y $\pair{B}{\preceq_B}$ ordenes y $\preceq$ el orden 
+    lexicográfico, entonces 
+    \newline\newline
+
+    Si $a\in A$ y $b \in B$ entonces 
+    \[S^\prec(\pair{a}{b}) = (A \times S^\prec (b)) \cup (S^\prec (a) \times \{b\})\]
+    \newline\newline
+
+    $A \times B$ tiene elemento maximal si y sólo si $A$ y $B$ tienen elmentos maximales.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $\pair{A}{\preceq}$ un orden. Decimos que es un buen orden si 
+    todo subconjunto de $A$ tiene elmento mínimo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $\pair{A}{\preceq}$ un orden. Decimos que es un buen orden si 
+    todo subconjunto de $A$ tiene elmento mínimo.
+    \newline\newline
+
+    \textit{Teorema:} Todo buen orden es un orden total.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición:} Sea $\pair{A}{\preceq}$ un orden. Decimos que es un buen orden si 
+    todo subconjunto de $A$ tiene elmento mínimo.
+    \newline\newline
+
+    \textit{Teorema:} Todo buen orden es un orden total.
+    \newline\newline
+
+    \textit{Teorema:} Dados $\pair{A}{\preceq_A}$ y $\pair{B}{\preceq_B}$ conjuntos bien ordenados,
+    entonces el orden lexicográfico es un buen orden.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema:} Sea $A$ un conjunto y $\widehat{A}$ como en los teoremas anteriores y sea 
+    \[\bigstar = \{\pair{B}{\preceq_B} \in \widehat{A}: \pair{B}{\preceq_B} \text{ es un buen orden}\}\]
+    e $J = \{\pair{B_i}{\preceq_{B_i}}\}_{i \in I}$ una cadena en $\bigstar$ entonces 
+    $\pair{B}{\preceq_B} \in \bigstar$ es el supremo de la cadena, donde 
+    \[B = \bigcup_{i \in J} B_i; \quad\quad \preceq_B = \bigcup_{i \in J} \preceq_{B_i}\]
+  \end{frame}
+
+\end{document}
