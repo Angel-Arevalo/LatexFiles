@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{amsmath}
+\newcommand{\enc}[2]{\text{Enc}_{#1}(#2)}
+\begin{document}
+  
+  \section{Punto 1)}
+    Demuestre o refute la siguiente afirmación:
+
+
+    Para todo esquema perfectamente secreto, para toda distribución sobre el espacio de mensajes $M$,
+    para todo par $m, m'\in M$ y para todo $c \in C$ (con $P[C = c] > 0$), se cumple que 
+    \[P[M =m| C = c] = P[M = m'| C = c]\]
+
+
+    Consideremos el conjunto de mensajes $M = \{A, B\}$, el conjunto de llaves $K = \{0, 1\}$ y 
+    el conjunto de cifrados $C = \{D, E\}$, con $P[K = 0] = P[K = 1] = \frac{1}{2}$ y 
+      \[P[M = A] = \frac{2}{5} \quad \quad P[M = B] = \frac{3}{5}\]
+    
+    Consideremos la función de encriptado Enc:
+      \begin{equation*}
+        \begin{aligned}
+          \enc{0}{A} = D \quad\quad \enc{1}{A} = E \\
+          \enc{0}{B} = E \quad\quad \enc{1}{B} = D
+        \end{aligned}
+     \end{equation*}
+
+
+    entonces $C$ se distribuye de la siguiente manera:
+
+    \begin{equation*}
+      \begin{aligned}
+        P[C = D] &= P[C = D | M = A] P[M = A] + P[C = D| M =B]P[M = B] \\
+                 &= P[K = 0] P[M = A] + P[K = 1] P[M = B] \\
+                 &= \frac{1}{2} \cdot \frac{2}{5} + \frac{1}{2}\cdot \frac{3}{5}
+                 = \frac{1}{2}\\
+        P[C = E] &= P[C = E| M = A] P[M = A] + P[C = E | M = B] P[M = B] \\
+                 &= P[K = 1] P[M = A] + P[K = 0] P[M = B] \\
+                 &= \frac{1}{2} \cdot \frac{2}{5} + \frac{1}{2}\cdot \frac{3}{5} 
+                 = \frac{1}{2}
+      \end{aligned}
+    \end{equation*}
+
+    Veamos que este sistema es seguro, comprobando que $P[\enc{K}{A} = c] = P[\enc{K}{B} = c]$, para $c \in C$,
+    lo haremos recordando que $P[\enc{K}{m} = c] = P[C = c| M = m]$.
+
+    \begin{equation*}
+      \begin{aligned}
+        P[\enc{K}{A} = E] = P[C = E| M = A] = P[K = 1] = \frac{1}{2} \\
+        P[\enc{K}{A} = D] = P[C = D| M = A] = P[K = 0] = \frac{1}{2} \\
+        P[\enc{K}{B} = E] = P[C = E| M = B] = P[K = 0] = \frac{1}{2} \\
+        P[\enc{K}{B} = D] = P[C = D| M = B] = P[K = 1] = \frac{1}{2}
+      \end{aligned}
+    \end{equation*}
+
+    De esto último se concluye que es un sistema seguro.
+
+    Ahora verifiquemos $P[M = B | C=E]$ y $P[M = A| C=E]$:
+
+    \begin{equation*}
+      \begin{aligned}
+        P[M = B| C=E] &= P[C = E| M=B] \frac{P[M=B]}{P[C=E]} \\
+                      &= \frac{1}{2} \frac{\frac{3}{5}}{\frac{1}{2}}= \frac{3}{5}\\
+        P[M = A| C=E] &= P[C = E| M=A] \frac{P[M=A]}{P[C=E]} \\
+                      &= \frac{1}{2} \frac{\frac{2}{5}}{\frac{1}{2}}= \frac{2}{5}
+      \end{aligned}
+    \end{equation*}
+
+    De ahí se concluye que $P[\enc{K}{A} = c] \neq P[\enc{K}{B} = c]$.
+\end{document}
