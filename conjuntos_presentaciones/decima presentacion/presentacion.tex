@@ -1,0 +1,161 @@
+\documentclass{beamer}
+\newcommand{\pair}[2]{(#1, \, #2)}
+
+\begin{document}
+  \begin{frame}
+    \textit{Teorema}: Sea $\pair{A}{\leq}$ un orden y $a, b \in A$ tal que $a < b$, entonces
+    \[S^<(a) \subseteq S^\leq(a) \subseteq S^<(b) \subseteq S^\leq(b)\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definicion}: Sea $\pair{A}{\leq_A}$ y $\pair{B}{\leq_B}$ ordenes. Decimos que son ordenes isomorfos si existe
+    una función $f: A \to B$ biyectiva tal que para todo $x, y \in A$
+      \[f(x) \leq_B f(y) \iff x \leq_A y\]
+
+    Se denota  $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B}$ 
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B}$ entonces $\pair{A}{\leq_A}$ es un orden total 
+    si y sólo si $\pair{B}{\leq_B}$ es orden total.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B}$ entonces $\pair{A}{\leq_A}$ es un orden total 
+    si y sólo si $\pair{B}{\leq_B}$ es orden total.
+    \newline\newline
+    \textit{Teorema}: Si $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B}$ entonces $\pair{A}{\leq_A}$ es buen orden
+    si y sólo si $\pair{B}{\leq_B}$ es buen orden.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: 
+    \begin{itemize}
+      \item $\pair{A}{\leq_A} \equiv \pair{A}{\leq_A}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: 
+    \begin{itemize}
+      \item $\pair{A}{\leq_A} \equiv \pair{A}{\leq_A}$.
+      \item $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B} \land \pair{B}{\leq_B} \equiv \pair{C}{\leq_C}$ entonces 
+            $\pair{A}{\leq_A} \equiv \pair{C}{\leq_C}$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: 
+    \begin{itemize}
+      \item $\pair{A}{\leq_A} \equiv \pair{A}{\leq_A}$.
+      \item $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B} \land \pair{B}{\leq_B} \equiv \pair{C}{\leq_C}$ entonces 
+            $\pair{A}{\leq_A} \equiv \pair{C}{\leq_C}$
+
+      \item $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B}$ entonces $\pair{B}{\leq_B} \equiv \pair{A}{\leq_A}$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $A$ un conjunto y $\widehat{A}$ y $\bigstar$ los conjuntos definidos en la novena 
+    presentacion. La relación de orden isomorfismo es una relación de equivalencia sobre $\widehat{A}$ y $\bigstar$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B}$ y $\pair{C}{\leq_C} \equiv \pair{D}{\leq_D}$
+    entonces 
+      \[\pair{A\times C}{\leq_1} \equiv \pair{B \times D}{\leq_2}\]
+    donde $\leq_1$ es el orden lexicográfico sobre $A \times C$ y $\leq_2$ es el orden lexicográfico 
+    sobre $B \times D$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B}$ entonces 
+    \begin{itemize}
+      \item $\pair{S^{<_A}(a)}{\leq_A} \equiv \pair{S^{<_B}(f(a))}{\leq_B}$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B}$ entonces 
+    \begin{itemize}
+      \item $\pair{S^{<_A}(a)}{\leq_A} \equiv \pair{S^{<_B}(f(a))}{\leq_B}$
+      \item $\pair{S^{\leq_A}(a)}{\leq_A} \equiv \pair{S^{\leq_B}(f(a))}{\leq_B}$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $f: A \to B$, $\pair{A}{\leq_A}$ y $\pair{B}{\leq_B}$ conjuntos ordenados,
+    decimos que 
+
+    \begin{itemize}
+      \item $f$ es creciente si $(\forall x,y \in A)(x \leq_A y \rightarrow f(x) \leq_B f(y)$.
+    \end{itemize}
+  \end{frame}
+
+
+  \begin{frame}
+    \textit{Teorema}: Sea $f: A \to B$, $\pair{A}{\leq_A}$ y $\pair{B}{\leq_B}$ conjuntos ordenados,
+    decimos que 
+
+    \begin{itemize}
+      \item $f$ es creciente si $(\forall x,y \in A)(x \leq_A y \rightarrow f(x) \leq_B f(y)$.
+      \item $f$ es decreciente si $(\forall x,y \in A)(x \leq_A y \rightarrow f(y) \leq_B f(x)$.
+    \end{itemize}
+  \end{frame}
+
+
+  \begin{frame}
+    \textit{Teorema}: Sea $f: A \to B$, $\pair{A}{\leq_A}$ y $\pair{B}{\leq_B}$ conjuntos ordenados,
+    decimos que 
+
+    \begin{itemize}
+      \item $f$ es creciente si $(\forall x,y \in A)(x \leq_A y \rightarrow f(x) \leq_B f(y)$.
+      \item $f$ es decreciente si $(\forall x,y \in A)(x \leq_A y \rightarrow f(y) \leq_B f(x)$.
+      \item $f$ es estrictamente creciente si $(\forall x,y \in A)(x <_A y \rightarrow f(y) <_B f(x)$.
+    \end{itemize}
+  \end{frame}
+
+
+  \begin{frame}
+    \textit{Teorema}: Sea $f: A \to B$, $\pair{A}{\leq_A}$ y $\pair{B}{\leq_B}$ conjuntos ordenados,
+    decimos que 
+
+    \begin{itemize}
+      \item $f$ es creciente si $(\forall x,y \in A)(x \leq_A y \rightarrow f(x) \leq_B f(y)$.
+      \item $f$ es decreciente si $(\forall x,y \in A)(x \leq_A y \rightarrow f(y) \leq_B f(x)$.
+      \item $f$ es estrictamente creciente si $(\forall x,y \in A)(x <_A y \rightarrow f(y) <_B f(x)$.
+      \item $f$ es estrictamente decreciente si $(\forall x,y \in A)(x <_A y \rightarrow f(y) >_B f(x)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $f: A \to B$ es creciente e inyectiva, entonces es estrictamente creciente.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $\pair{A}{\leq_A}$ y $\pair{B}{\leq}$ son conjuntos ordenados, $\leq_A$ es total y 
+    $f$ estrictamente creciente, entonces $f$ es inyectiva.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $\pair{A}{\leq_A}$ y $\pair{B}{\leq_B}$ son ordenes, $\leq_A$ es total y $f: A \to B$
+    es inyectiva y creciente, entonces $f$ es isomorfismo sobre su imagen.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (del diablo)}: Sean $\pair{A}{\leq_A}$ y $\pair{B}{\leq_B}$ conjuntos ordenados tales que 
+    \begin{equation*}
+      \begin{aligned}
+        (\forall x, w \in A)(x \neq w \rightarrow \pair{S^{<_A}(x)}{\leq_A} \not\equiv \pair{S^{<_A}(w)}{\leq_A}) \\
+        (\forall z, y \in A)(z \neq y \rightarrow \pair{S^{<_B}(z)}{\leq_B} \not\equiv \pair{S^{<_B}(y)}{\leq_B})
+      \end{aligned}
+    \end{equation*}
+
+    entonces se cumple una de las siguientes afirmaciones 
+    \begin{itemize}
+      \item $\pair{A}{\leq_A} \equiv \pair{B}{\leq_B}$.
+      \item $\pair{A}{\leq_A} \equiv \pair{S^{<_B}(b)}{\leq_B}$ para algún $b \in B$.
+      \item $\pair{S^{<_A}(a)}{\leq_A} \equiv \pair{B}{\leq_B}$ para algún $a \in A$.
+    \end{itemize}
+  \end{frame}
+\end{document}
