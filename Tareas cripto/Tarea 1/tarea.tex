@@ -1,9 +1,32 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{graphicx}
 \newcommand{\enc}[2]{\text{Enc}_{#1}(#2)}
 \begin{document}
   
+  \begin{titlepage}
+    \begin{center}
+        % Título principal
+        {\Huge \textbf{Taller 1}\\[2cm]
+
+        % Nombres de los estudiantes
+        {\Large \textbf{Estudiante}}\\[0.5cm]
+        \large
+        Ángel Salomón Arévalo Forero\\
+
+
+        \includegraphics[width=5.5cm]{Imagenes/escudoUnal_letras_negras_fondo_blanco.jpg} \\[7cm]
+
+        % Información institucional
+        {\Large \textbf{Universidad Nacional de Colombia}}\\[0.2cm]
+        \large Criptografía}\\
+        Facultad de Ciencias\\
+        Departamento de Matemáticas\\
+    \end{center}
+\end{titlepage}
+
+
   \section{Punto 1)}
     Demuestre o refute la siguiente afirmación:
 
@@ -66,7 +89,7 @@
       \end{aligned}
     \end{equation*}
 
-    De ahí se concluye que $P[\enc{K}{A} = c] \neq P[\enc{K}{B} = c]$.
+    De ahí se concluye que $P[M = A| C=E] \neq P[M = B | C=E]$.
   
   \section{Punto 2)}
     Considere los siguientes cifrados sobre un alfabeto finito $\Sigma$:
@@ -89,6 +112,8 @@
       Consideremos un cifrado con desplazamiento sobre un alfabeto finito $\Sigma = \{\sigma_1, \cdots, \sigma_n\}$,
       seleccionamos la palabra $\sigma_1$ y al aplicar la encriptación obtenemos un $\sigma_l$, la clave corresponde 
       al único natural $k$ tal que $1 + k = l$.
+
+       De todo esto, se concluye que solo se necesita una palabra con un simbolo de texto claro para conocer la clave.
     \subsection{Cifrado por sustitución}
       Ahora vamos a elejir una palabra especial para conocer la permutación usada y es que si conocemos 
       a dónde se permuta cada caracter entonces conocemos la clave, es decir, vamos a usar solo una palabra,
@@ -106,7 +131,8 @@
           \sigma_j &\to \sigma_{i_j}
         \end{aligned}
       \end{equation*}
-
+      
+      Al final, se ve que se necesita una palabra con $n$ simbolos para conocer la clave.
     \subsection{Cifrado de Vigenère}
       La idea para este tipo de cifrado es bastante algoritmica, y es que vamos a fijar un caracter 
       del alfabeto y concatemos ese caracter $n-veces$ hasta que en el texto devuelto por el oraculo, 
@@ -123,9 +149,15 @@
               $\sigma_1\cdots\sigma_p = t\cdot t$ para alguna palabra $t$ hacemos el paso 3, y si no, repetimos 
               el paso 1.
 
-            \item Paso 3) Una vez tenemos la palabra $t := \sigma_{j_1}\cdots\sigma_{j_{p/2}}$, 
+        \item Paso 3) Una vez tenemos la palabra $t := \sigma_{j_1}\cdots\sigma_{j_{k}}$, donde $2k = p$,
+              para conocer la clave debemos hacer una sustitución hacia atrás, para ello,
+              vemos que la primera letra corresponde a $\sigma_{l_1}$, donde $l_1$ corresponde
+              al único natural que cumple que $1 + l_1 = j_1$. Procediendo de esta forma, la letra número $m$ de 
+              la clave corresponde a $\sigma_{l_m}$, donde $l_m$ es el único entero tal que $1+l_m = j_m$.
+              Aplicando $k$ veces esto, conocemos la clave.
       \end{itemize}
       
+      Se concluye que si la clave tiene longitud $k$, se usan $2k$ palabras.
   \section{Punto 3)}
     Sean $f, g: \mathbb{N} \to \mathbb{R}_{\ge 0}$ dos funciones negligibles tales que $f(n) \ge g(n)$ para todo $n \in \mathbb{N}$.
     Para cada una de las definiciones de $f'(n)$ determine si necesariamente $f'$ es negligible bajo las 
