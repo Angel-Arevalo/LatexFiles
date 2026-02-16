@@ -67,7 +67,65 @@
     \end{equation*}
 
     De ahí se concluye que $P[\enc{K}{A} = c] \neq P[\enc{K}{B} = c]$.
+  
+  \section{Punto 2)}
+    Considere los siguientes cifrados sobre un alfabeto finito $\Sigma$:
 
+    \begin{itemize}
+      \item Cifrado por desplazamiento.
+      \item Cifrado por sustitución.
+      \item Cifrado Vigenère.
+    \end{itemize}
+
+    a) Describa un ataque de texto en claro elegido que recupere la clave de cada uno de los tres cifrado.
+
+    b) Cuantifique cuánto texto en claro elegido se necesita para recuperar la clave en cada caso.
+
+    \subsection{Cifrado por desplazamiento}
+      Elejimos el primer caracter del alfabeto porque inmediatamente se conoce la clave ya que el desplazamiento
+      es fijo para todos los caracteres, a continuación se describe a detalle.
+
+
+      Consideremos un cifrado con desplazamiento sobre un alfabeto finito $\Sigma = \{\sigma_1, \cdots, \sigma_n\}$,
+      seleccionamos la palabra $\sigma_1$ y al aplicar la encriptación obtenemos un $\sigma_l$, la clave corresponde 
+      al único natural $k$ tal que $1 + k = l$.
+    \subsection{Cifrado por sustitución}
+      Ahora vamos a elejir una palabra especial para conocer la permutación usada y es que si conocemos 
+      a dónde se permuta cada caracter entonces conocemos la clave, es decir, vamos a usar solo una palabra,
+      a continuación se describe a detalle el procedimiento.
+
+
+      Sea $\Sigma = \{\sigma_1, \cdots, \sigma_n\}$ un alfabeto y consideremos un cifrado por sustitución en este 
+      alfabeto. Tomemos la palabra $\sigma_1\sigma_2\cdots\sigma_n$, es decir, cocatenamos todos 
+      los caracteres del alfabeto. Al recibir el mensaje encriptado, recibimos una palabra $\sigma_{i_1}\sigma_{i_2}\cdots\sigma_{i_n}$,
+      de donde se deduce inmediatamente que la permutación corresponde a 
+
+      \begin{equation*}
+        \begin{aligned}
+          \sigma: \Sigma &\to \Sigma \\
+          \sigma_j &\to \sigma_{i_j}
+        \end{aligned}
+      \end{equation*}
+
+    \subsection{Cifrado de Vigenère}
+      La idea para este tipo de cifrado es bastante algoritmica, y es que vamos a fijar un caracter 
+      del alfabeto y concatemos ese caracter $n-veces$ hasta que en el texto devuelto por el oraculo, 
+      apararezca una palabra duplicada, es decir, si el tamaño de la clave es $k$, el proceso se 
+      ejecutará $2k$ veces.
+
+
+      Sea $\Sigma =\{\sigma_1, \cdots, \sigma_n\}$ un alfabeto y consideremos el cifrado de Vigenère. 
+      A continuación describimos el algoritmo en el siguiente conjunto de pasos.
+
+      \begin{itemize}
+        \item Paso 1) Tomamos la palabra anterior $\sigma_1 ^p := \sigma_1\cdots \sigma_{1}$ y lo mandamos cifrar y obtenemos $\sigma_{i_1}\cdots\sigma_{i_p}$.
+        \item Paso 2) Si el cifrado obteniedo en el paso anterior es la concatenación de dos palabras, es decir,
+              $\sigma_1\cdots\sigma_p = t\cdot t$ para alguna palabra $t$ hacemos el paso 3, y si no, repetimos 
+              el paso 1.
+
+            \item Paso 3) Una vez tenemos la palabra $t := \sigma_{j_1}\cdots\sigma_{j_{p/2}}$, 
+      \end{itemize}
+      
   \section{Punto 3)}
     Sean $f, g: \mathbb{N} \to \mathbb{R}_{\ge 0}$ dos funciones negligibles tales que $f(n) \ge g(n)$ para todo $n \in \mathbb{N}$.
     Para cada una de las definiciones de $f'(n)$ determine si necesariamente $f'$ es negligible bajo las 
@@ -114,7 +172,7 @@
       \[f'(n) := \frac{g(n)}{f(n)}\]
       
       Sea $f(n) = \frac{1}{2^n}$ y $g(n) = \frac{1}{2^{n+1}}$, con estas funciones se cumplen las 
-      condiciones, es decir, $f(n) > g(n)$ y son negligibles, es decir, 
+      condiciones, es decir, $f(n) > g(n)$ y son negligibles (probado en clase), es decir, 
       \[\lim_{n \to \infty} f(n)n^c = \lim_{n \to \infty} g(n)n^c = 0 \text{ para todo } c\in \mathbb{N}\]
 
       Con esto en mente, vemos que 
