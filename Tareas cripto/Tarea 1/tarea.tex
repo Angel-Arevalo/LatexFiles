@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \newcommand{\enc}[2]{\text{Enc}_{#1}(#2)}
 \begin{document}
   
@@ -66,4 +67,59 @@
     \end{equation*}
 
     De ahí se concluye que $P[\enc{K}{A} = c] \neq P[\enc{K}{B} = c]$.
+
+  \section{Punto 3)}
+    Sean $f, g: \mathbb{N} \to \mathbb{R}_{\ge 0}$ dos funciones negligibles tales que $f(n) \ge g(n)$ para todo $n \in \mathbb{N}$.
+    Para cada una de las definiciones de $f'(n)$ determine si necesariamente $f'$ es negligible bajo las 
+    hipótesis dadas. En cada caso, pruebe su afirmación o proporcione un contraejemplo que respeste las 
+    condiciones sobre $f$ y $g$.
+
+    \subsection{Punto a)}
+      \[f'(n) := \frac{1}{2^{\log^2 n}}\]
+
+      Sea $c \in \mathbb{N}$ y $n > N$ donde $N$ es el menor natural tal que $\log N > c$ y como 
+      el $\log$ es una función creciente, entonces 
+      \[\log n > c\]
+      Entonces se cumplen las siguientes desigualdades
+
+      \begin{equation*}
+        \begin{aligned}
+          c < \log n \\
+          c \log n < \log^2 n \\
+          \log n^c < \log^2 n \\
+          2^{\log n^c} < 2^{\log^2 n} \\
+          n^c < 2^{\log^2 n} \\
+          \frac{1}{2^{\log^2 n}} < \frac{1}{n^c}
+        \end{aligned}
+      \end{equation*}
+
+    \subsection{Punto b)}
+      \[f'(n) := f(n) + g(n)\]
+
+      Sea $c>0$ y consideremos $f'(n) := f(n) + g(n)$. Por hipótesis, $f$ y $g$ son negligibles, es decir
+      \[\lim_{n \to \infty} f(n)n^c = \lim_{n \to \infty} g(n)n^c =0\]
+      Entonces 
+      
+      \begin{equation*}
+        \begin{aligned}
+          \lim_{n \to \infty} f'(n)n^c &= \lim_{n \to \infty} (f(n) + g(n))n^c \\
+          &= \lim_{n \to \infty} f(n)n^c + \lim_{n \to \infty} g(n)n^c \\
+          &= 0 + 0 = 0
+        \end{aligned}
+      \end{equation*}
+
+      Por lo tanto, se concluye que $f'$ es una función negigible.
+
+    \subsection{Punto c)}
+      \[f'(n) := \frac{g(n)}{f(n)}\]
+      
+      Sea $f(n) = \frac{1}{2^n}$ y $g(n) = \frac{1}{2^{n+1}}$, con estas funciones se cumplen las 
+      condiciones, es decir, $f(n) > g(n)$ y son negligibles, es decir, 
+      \[\lim_{n \to \infty} f(n)n^c = \lim_{n \to \infty} g(n)n^c = 0 \text{ para todo } c\in \mathbb{N}\]
+
+      Con esto en mente, vemos que 
+      \[f'(n) = \frac{\frac{1}{2^{n+1}}}{\frac{1}{2^n}} = \frac{2^n}{2^{n+1}} = \frac{1}{2}\]
+
+      y como $\lim_{n \to \infty} f'(n) \neq 0$, entonces $f'$ no es negligible, concluyendo así que el cociente bajo 
+      esas condiciones no es necesariamente negligible.
 \end{document}
