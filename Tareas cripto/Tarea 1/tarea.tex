@@ -134,30 +134,25 @@
       
       Al final, se ve que se necesita una palabra con $n$ simbolos para conocer la clave.
     \subsection{Cifrado de Vigenère}
-      La idea para este tipo de cifrado es bastante algoritmica, y es que vamos a fijar un caracter 
-      del alfabeto y concatemos ese caracter $n-veces$ hasta que en el texto devuelto por el oraculo, 
-      apararezca una palabra duplicada, es decir, si el tamaño de la clave es $k$, el proceso se 
-      ejecutará $2k$ veces.
+      La idea para este, es que conocemos la longitud de la clave ($l$). Con esta información 
+      podemos saber el desplazamiento del primer caracter del abecedario para cada caracter de 
+      la clave.
+      \newline\newline
+      Sea $\Sigma = \{\sigma_1, \cdots, \sigma_n\}$ un alfabeto y consideremos el cifrado de Vigenère. 
+      Se ha filtrado que la clave tiene longitud $l$, entonces se envía al oraculo de 
+      encriptación la palabra $\sigma_1^l$, es decir, la palabra de longitud $l$ con todos 
+      los caracteres siendo la primer letra del abecedario. 
+      \newline\newline
 
+      El texto recibido por el oraculo es de la forma $\sigma_{i_1}\sigma_{i_2}\cdots\sigma_{i_l}$, de 
+      donde podemos extraer información de la clave. El primer dígito de la clave 
+      es $\sigma_{k_1}$, donde $k_1$ es el único natural tal que $1 + k_1 = i_1$. Procediendo 
+      de esta forma, el símbolo $j$ de la clave $\sigma_{k_j}$, donde $k_j$ es el único 
+      natural que cumple que $k_j + 1 = i_j$.
+      \newline\newline
 
-      Sea $\Sigma =\{\sigma_1, \cdots, \sigma_n\}$ un alfabeto y consideremos el cifrado de Vigenère. 
-      A continuación describimos el algoritmo en el siguiente conjunto de pasos.
-
-      \begin{itemize}
-        \item Paso 1) Tomamos la palabra anterior $\sigma_1 ^p := \sigma_1\cdots \sigma_{1}$ y lo mandamos cifrar y obtenemos $\sigma_{i_1}\cdots\sigma_{i_p}$.
-        \item Paso 2) Si el cifrado obteniedo en el paso anterior es la concatenación de dos palabras, es decir,
-              $\sigma_1\cdots\sigma_p = t\cdot t$ para alguna palabra $t$ hacemos el paso 3, y si no, repetimos 
-              el paso 1.
-
-        \item Paso 3) Una vez tenemos la palabra $t := \sigma_{j_1}\cdots\sigma_{j_{k}}$, donde $2k = p$,
-              para conocer la clave debemos hacer una sustitución hacia atrás, para ello,
-              vemos que la primera letra corresponde a $\sigma_{l_1}$, donde $l_1$ corresponde
-              al único natural que cumple que $1 + l_1 = j_1$. Procediendo de esta forma, la letra número $m$ de 
-              la clave corresponde a $\sigma_{l_m}$, donde $l_m$ es el único entero tal que $1+l_m = j_m$.
-              Aplicando $k$ veces esto, conocemos la clave.
-      \end{itemize}
-      
-      Se concluye que si la clave tiene longitud $k$, se usan $2k$ palabras.
+      De esta forma conseguimos que la clave resulta en $\sigma_{k_1} \sigma_{k_2}\cdots \sigma_{k_l}$, 
+      en el que solo usamos una palabra con $l$ caracteres.
   \section{Punto 3)}
     Sean $f, g: \mathbb{N} \to \mathbb{R}_{\ge 0}$ dos funciones negligibles tales que $f(n) \ge g(n)$ para todo $n \in \mathbb{N}$.
     Para cada una de las definiciones de $f'(n)$ determine si necesariamente $f'$ es negligible bajo las 
