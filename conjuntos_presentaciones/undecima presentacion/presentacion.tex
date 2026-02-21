@@ -1,0 +1,358 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\newcommand{\ineq}{%
+  \mathrel{\ooalign{%
+    $\in$\cr
+    \hidewidth\raisebox{-0.6ex}{\rule{0.7em}{0.6pt}}\hidewidth\cr
+  }}}
+
+\begin{document}
+    \begin{frame}{Axiomas de Peano}
+      Dado un conjunto $N$ y  una función $S: N\to N$, decimos que
+      $(N, i, S)$ es el conjunto de los números naturales 
+      si se cumplen los siguientes axiomas:
+      \begin{itemize}
+        \item $\exists i \in N$.
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Axiomas de Peano}
+      Dado un conjunto $N$ y  una función $S: N\to N$, decimos que
+      $(N, i, S)$ es el conjunto de los números naturales 
+      si se cumplen los siguientes axiomas:
+      \begin{itemize}
+        \item $\exists i \in N$.
+        \item Si $n \in N$ entonces $S(n) \in N$.
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Axiomas de Peano}
+      Dado un conjunto $N$ y  una función $S: N\to N$, decimos que
+      $(N, i, S)$ es el conjunto de los números naturales 
+      si se cumplen los siguientes axiomas:
+      \begin{itemize}
+        \item $\exists i \in N$.
+        \item Si $n \in N$ entonces $S(n) \in N$.
+        \item para todo $n \in N$, $S(n) \neq i$.
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Axiomas de Peano}
+      Dado un conjunto $N$ y  una función $S: N\to N$, decimos que
+      $(N, i, S)$ es el conjunto de los números naturales 
+      si se cumplen los siguientes axiomas:
+      \begin{itemize}
+        \item $\exists i \in N$.
+        \item Si $n \in N$ entonces $S(n) \in N$.
+        \item para todo $n \in N$, $S(n) \neq i$.
+        \item Si $n, m \in N$ y $S(n) = S(m)$ entonces $n = m$.
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Axiomas de Peano}
+      Dado un conjunto $N$ y  una función $S: N\to N$, decimos que
+      $(N, i, S)$ es el conjunto de los números naturales 
+      si se cumplen los siguientes axiomas:
+      \begin{itemize}
+        \item $\exists i \in N$.
+        \item Si $n \in N$ entonces $S(n) \in N$.
+        \item para todo $n \in N$, $S(n) \neq i$.
+        \item Si $n, m \in N$ y $S(n) = S(m)$ entonces $n = m$.
+        \item Si $T \subseteq N$ tal que\newline
+              1) $i \in T$
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Axiomas de Peano}
+      Dado un conjunto $N$ y  una función $S: N\to N$, decimos que
+      $(N, i, S)$ es el conjunto de los números naturales 
+      si se cumplen los siguientes axiomas:
+      \begin{itemize}
+        \item $\exists i \in N$.
+        \item Si $n \in N$ entonces $S(n) \in N$.
+        \item para todo $n \in N$, $S(n) \neq i$.
+        \item Si $n, m \in N$ y $S(n) = S(m)$ entonces $n = m$.
+        \item Si $T \subseteq N$ tal que\newline
+              1) $i \in T$\newline
+              2) Si $n \in T$ entonces $S(n) \in T$\newline
+
+              Se concluye que $T = N$.
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Axiomas de Peano}
+      Dado un conjunto $N$ y  una función $S: N\to N$, decimos que
+      $(N, i, S)$ es el conjunto de los números naturales 
+      si se cumplen los siguientes axiomas:
+      \begin{itemize}
+        \item $\exists i \in N$.
+        \item Si $n \in N$ entonces $S(n) \in N$.
+        \item para todo $n \in N$, $S(n) \neq i$.
+        \item Si $n, m \in N$ y $S(n) = S(m)$ entonces $n = m$.
+        \item Si $T \subseteq N$ tal que\newline
+              1) $i \in T$\newline
+              2) Si $n \in T$ entonces $S(n) \in T$\newline
+
+              Se concluye que $T = N$.
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+        \textit{Definición}: Dado un conjunto $A$ denotamos el sucesor como
+        \[A^+ := A \cup \{A\}\]
+    \end{frame}
+
+    \begin{frame}
+        \textit{Definición}: Dado un conjunto $A$ denotamos el sucesor como
+        \[A^+ := A \cup \{A\}\]
+
+        \textit{Teorema}: Para todo conjunto $A$, $A \subset A^+$ y $A \in A^+$.
+    \end{frame}
+
+    \begin{frame}
+        \textit{Definición}: Dado un conjunto $A$ denotamos el sucesor como
+        \[A^+ := A \cup \{A\}\]
+
+        \textit{Teorema}: Para todo conjunto $A$, $A \subset A^+$ y $A \in A^+$.
+
+        \textit{Teorema}: Para todo conjunto $A$, $A^+ \neq \emptyset$.
+    \end{frame}
+
+    \begin{frame}
+        \textit{Teorema}: Sean $A$ y $B$ conjuntos. $B \subseteq A$ entonces
+        $B \subseteq A^+$.
+    \end{frame}
+
+    \begin{frame}
+        \textit{Teorema}: Sean $A$ y $B$ conjuntos. $B \subseteq A$ entonces
+        $B \subseteq A^+$.
+        \newline\newline\newline\newline\newline\newline\newline\newline
+        \textit{Nota}: El resultado es válido también para pertenencia.
+    \end{frame}
+
+    \begin{frame}
+        \textit{Definición}: Dado un conjunto $A$ decimos que es inductivo si
+        \begin{equation*}
+            \begin{aligned}
+                &\text{1)} \emptyset \in A \\
+                &\text{2) Si } x \in A \text{ entonces } x^+ \in A
+            \end{aligned}
+        \end{equation*}
+    \end{frame}
+
+    \begin{frame}
+        \textit{Teorema}: Dado un conjunto $B$ en el que sus elementos
+        son conjuntos inductivos, entonces $\bigcap B$ es inductivo.
+    \end{frame}
+
+    \begin{frame}
+        \textit{Teorema}: Dado un conjunto $B$ en el que sus elementos
+        son conjuntos inductivos, entonces $\bigcap B$ es inductivo.
+
+
+        \textit{Teorema}: Sea $A$ un conjunto. Si el conjunto 
+            \[I_A = \{x \in P(A): x \text{ es inductivo}\}\]
+
+        es diferente de vacío, entonces $\bigcap I_A$ es el mínimo de 
+        $(I_A, \subseteq)$
+    \end{frame}
+
+    \begin{frame}
+        \textit{Definición}: Si $A$ es un conjunto cualquiera, llamamos
+        $\bigcap I_A$ al mínimo conjunto inductivo de $A$.
+    \end{frame}
+    
+    \begin{frame}
+        \textit{Definición}: Si $A$ es un conjunto cualquiera, llamamos
+        $\bigcap I_A$ al mínimo conjunto inductivo de $A$.
+        \newline\newline\newline
+        \textit{Teorema}: Si $A$ y $B$ son conjuntos inductivos tales que 
+        $I_A \neq \emptyset \neq I_B$, entonces sus mínimos conjuntos inductivos
+        son iguales.
+    \end{frame}
+
+    \begin{frame}
+        Hasta el momento hemos definido los conjuntos inductivos pero no sabemos que 
+        existe.
+    \end{frame}
+
+    \begin{frame}
+        Hasta el momento hemos definido los conjuntos inductivos pero no sabemos que 
+        existe.
+        \newline\newline\newline
+
+        \textit{Axioma 7}: Existe al menos un conjunto inductivo.
+    \end{frame}
+
+    \begin{frame}
+        Hasta el momento hemos definido los conjuntos inductivos pero no sabemos que 
+        existe.
+        \newline\newline\newline
+
+        \textit{Axioma 7}: Existe al menos un conjunto inductivo.
+        \[\exists N\, (\emptyset \in N \land \forall x\,(x\in I \rightarrow x\cup \{x\} \in N))\]
+    \end{frame}
+
+    \begin{frame}
+        Hasta el momento hemos definido los conjuntos inductivos pero no sabemos que 
+        existe.
+        \newline\newline\newline
+
+        \textit{Axioma 7}: Existe al menos un conjunto inductivo.
+        \[\exists N\, (\emptyset \in N \land \forall x\,(x\in N \rightarrow x\cup \{x\} \in N))\]
+
+
+        \textit{Nota}: El conjunto asegurado por el axioma no es el conjunto de los
+        números naturales.
+    \end{frame}
+
+    \begin{frame}
+        \textit{Teorema (Números naturales)}: Existe un único conjunto 
+        inductivo que es el mínimo de cualquier conjunto inductivo.
+    \end{frame}
+
+    \begin{frame}
+        \textit{Teorema (Números naturales)}: Existe un único conjunto 
+        inductivo que es el mínimo de cualquier conjunto inductivo.
+        \newline\newline\newline
+
+        \textit{Definición}: Al conjunto asegurado por el teorema anterior
+        le denominamos $\mathbb{N}$.
+    \end{frame}
+
+    \begin{frame}
+        \textit{Teorema (Números naturales)}: Existe un único conjunto 
+        inductivo que es el mínimo de cualquier conjunto inductivo.
+        \newline\newline\newline
+
+        \textit{Definición}: Al conjunto asegurado por el teorema anterior
+        le denominamos $\mathbb{N}$.
+
+
+        \textit{Teorema}: Para todo conjunto inductivo $A$, $\mathbb{N} \subseteq A$. 
+    \end{frame}
+
+    \begin{frame}
+        \textit{Definición}: Decimos que un conjunto $A$ es transitivo, si 
+        \[(\forall a\in A)\, (a \in A \rightarrow a \subseteq A)\]
+    \end{frame}
+
+    \begin{frame}
+        \textit{Definición}: Decimos que un conjunto $A$ es transitivo, si 
+        \[(\forall a\in A)\, (a \in A \rightarrow a \subseteq A)\]
+        \newline\newline\newline
+
+        \textit{Teorema}: Si $A$ es transitivo, entonces $A^+$ es transitivo.
+    \end{frame}
+
+    \begin{frame}
+        \textit{Definición}: Decimos que un conjunto $A$ es transitivo, si 
+        \[(\forall a\in A)\, (a \in A \rightarrow a \subseteq A)\]
+        \newline\newline\newline
+
+        \textit{Teorema}: Si $A$ es transitivo, entonces $A^+$ es transitivo.
+        \newline\newline\newline
+
+        \textit{Teorema}: Si $A$ es transitivo, $\bigcup A^+ = A$
+    \end{frame}
+
+    \begin{frame}
+      \textit{Teorema}: 
+      \begin{itemize}
+        \item Si $n \in \mathbb{N}$ entonces $n = 0$ o $0 \in n$.
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+      \textit{Teorema}: 
+      \begin{itemize}
+        \item Si $n \in \mathbb{N}$ entonces $n = 0$ o $0 \in n$.
+        \item $\mathbb{N}$ es transitivo.
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+      \textit{Teorema}: 
+      \begin{itemize}
+        \item Si $n \in \mathbb{N}$ entonces $n = 0$ o $0 \in n$.
+        \item $\mathbb{N}$ es transitivo.
+        \item $n \in \mathbb{N}$ entonces $n$ es transitivo.
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+      \textit{Teorema}: 
+      \begin{itemize}
+        \item Si $n \in \mathbb{N}$ entonces $n = 0$ o $0 \in n$.
+        \item $\mathbb{N}$ es transitivo.
+        \item $n \in \mathbb{N}$ entonces $n$ es transitivo.
+        \item $n \in \mathbb{N}$ y $n \neq 0$ entonces existe $k \in \mathbb{N}$ tal que $k^+ = n$.
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+      \textit{Teorema}: 
+      \begin{itemize}
+        \item Si $n \in \mathbb{N}$ entonces $n = 0$ o $0 \in n$.
+        \item $\mathbb{N}$ es transitivo.
+        \item $n \in \mathbb{N}$ entonces $n$ es transitivo.
+        \item $n \in \mathbb{N}$ y $n \neq 0$ entonces existe $k \in \mathbb{N}$ tal que $k^+ = n$.
+      \end{itemize}
+
+      \textit{Teorema}: $\mathbb{N}$ cumple los axiomas de Peano.
+    \end{frame}
+    
+    \begin{frame}
+      \textit{Teorema} La pertenecia en $N$ es transitiva y a simétrica.
+    \end{frame}
+
+    \begin{frame}
+      \textit{Teorema} La pertenecia en $N$ es transitiva y a simétrica.
+      \begin{equation*}
+        \begin{aligned}
+          1) n \in m \text{ y } m \in j \rightarrow n \in j
+        \end{aligned}
+      \end{equation*}
+    \end{frame}
+
+    \begin{frame}
+      \textit{Teorema} La pertenecia en $N$ es transitiva y a simétrica.
+      \begin{equation*}
+        \begin{aligned}
+          1) n \in m \text{ y } m \in j \rightarrow n \in j \\
+          2) n \in m \rightarrow m \not\in n
+        \end{aligned}
+      \end{equation*}
+    \end{frame}
+
+    \begin{frame}
+      \textit{Teorema} La pertenecia en $N$ es transitiva y a simétrica.
+      \begin{equation*}
+        \begin{aligned}
+          1) n \in m \text{ y } m \in j \rightarrow n \in j \\
+          2) n \in m \rightarrow m \not\in n
+        \end{aligned}
+      \end{equation*}
+
+      \textit{Nota}: $(N,\, \in)$ es un orden estricto.
+    \end{frame}
+
+    \begin{frame}
+      \textit{Teorema}: Para todo $n, m$ naturales, si $n \in m$ entonces 
+      $n^+ \in m$ o $n^+ = m$.
+    \end{frame}
+
+    \begin{frame}
+      \textit{Definición}: Dados dos conjuntos $A$ y $B$, decimos que $A \ineq B$ si y sólo
+      si $A \in B$ o $A = B$.
+    \end{frame}
+
+    \begin{frame}
+      \textit{Definición}: Dados dos conjuntos $A$ y $B$, decimos que $A \ineq B$ si y sólo
+      si $A \in B$ o $A = B$.
+
+
+      \textit{Teorema}: $(\mathbb{N},\, \ineq)$ es un buen orden.
+    \end{frame}
+\end{document}
