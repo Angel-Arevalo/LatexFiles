@@ -1,0 +1,179 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+\newcommand{\ineq}{%
+  \mathrel{\ooalign{%
+    $\in$\cr
+    \hidewidth\raisebox{-0.6ex}{\rule{0.7em}{0.6pt}}\hidewidth\cr
+  }}}
+\newcommand{\pair}[2]{(#1,\, #2)}
+
+\begin{document}
+  \begin{frame}
+    \textit{Teorema}: Sea $P(n)$ una propiedad tal que 
+      \[[(\forall n \in m)(P(n))] \rightarrow P(m)\]
+
+    entonces $(\forall m \in \mathbb{N})(P(n))$
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $P(n)$ una propiedad tal que 
+      \[[(\forall n \in m)(P(n))] \rightarrow P(m)\]
+
+    entonces $(\forall m \in \mathbb{N})(P(n))$
+    \newline\newline
+
+    Definiendo $H = \{n \in \mathbb{N}: \neg P(n)\}$ se concluye fácilmente.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $P(n)$ una propiedad tal que
+    \begin{itemize}
+      \item $P(0)$
+      \item $[(\forall n \ineq m)(P(n))] \rightarrow P(m^+)$
+    \end{itemize}
+
+    Entonces $P(n)$ es válida para todos los naturales.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $\emptyset \neq B \subseteq \mathbb{N}$, entonces $\bigcap B \in \mathbb{N}$
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $\emptyset \neq B \subseteq \mathbb{N}$, entonces $\bigcap B \in \mathbb{N}$
+    \newline\newline
+    
+    \textit{Teorema}: Sea $B \subseteq \mathbb{N}$, entonces $\bigcup B \in \mathbb{N}$ o $\bigcup B = \mathbb{N}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $\emptyset \neq B \subseteq \mathbb{N}$, entonces $\bigcap B \in \mathbb{N}$
+    \newline\newline
+    
+    \textit{Teorema}: Sea $B \subseteq \mathbb{N}$, entonces $\bigcup B \in \mathbb{N}$ o $\bigcup B = \mathbb{N}$.
+    \newline\newline
+
+    \textit{Teorema}: Todo conjunto no vacío de números naturales acotado superiormente, 
+    tiene máximo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $B \subset \mathbb{N}$ es acotado superiormente, $\bigcup B$ es 
+    el máximo de $B$ y si es diferente de vacío, $\bigcap B$ es el mínimo de $B$ es el mínimo de $B$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $B \subset \mathbb{N}$ es acotado superiormente, $\bigcup B$ es 
+    el máximo de $B$ y si es diferente de vacío, $\bigcap B$ es el mínimo de $B$ es el mínimo de $B$.
+    \newline\newline
+    
+    \textit{Teorema}: Si $0 \neq n \in \mathbb{N}$, entonces $\bigcap n = 0$ y $(\bigcup n)^+ = n$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Decimos que una función $f$ es una sucesión sobre $A$ si
+    Dom$(f) = \mathbb{N}$ y Ran$(f) \subseteq A$. Se dice suseción finita 
+    si Dom$(f) = n$, $n\in \mathbb{N}$ y Ran$(f) \subseteq A$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Decimos que una función $f$ es una sucesión sobre $A$ si
+    Dom$(f) = \mathbb{N}$ y Ran$(f) \subseteq A$. Se dice suseción finita 
+    si Dom$(f) = n$, $n\in \mathbb{N}$ y Ran$(f) \subseteq A$.
+
+
+    Podemos adoptar la siguiente notación para una sucesión:
+    \begin{equation*}
+      \begin{aligned}
+        f &= \{\pair{0}{f(0)}, \pair{1}{f(1)}, \cdots, \pair{n}{f(n)}, \cdots\} \\
+          &= <f_0, f_1, \cdots, f_n, \cdots>
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $A$ un conjunto no vacío, $a \in A$ y $g: \mathbb{N}\times A \to A$,
+    decimos que una función $f: \mathbb{N} \to A$ es una recursión de $\pair{a}{g}$
+    si:
+    
+
+    \begin{itemize}
+      \item $f(0) = a$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $A$ un conjunto no vacío, $a \in A$ y $g: \mathbb{N}\times A \to A$,
+    decimos que una función $f: \mathbb{N} \to A$ es una recursión de $\pair{a}{g}$
+    si:
+    
+
+    \begin{itemize}
+      \item $f(0) = a$.
+      \item $f(n^+) = g(n, f(n))$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $A$ un conjunto no vacío, $a \in A$ y $g: \mathbb{N}\times A \to A$,
+    decimos que una función $f: \mathbb{N} \to A$ es una recursión de $\pair{a}{g}$
+    si:
+    
+
+    \begin{itemize}
+      \item $f(0) = a$.
+      \item $f(n^+) = g(n, f(n))$.
+    \end{itemize}
+
+    Se dice que $h: n\in\mathbb{N} \to A$ es una recursión finita de $\pair{a}{g}$ si 
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $A$ un conjunto no vacío, $a \in A$ y $g: \mathbb{N}\times A \to A$,
+    decimos que una función $f: \mathbb{N} \to A$ es una recursión de $\pair{a}{g}$
+    si:
+    
+
+    \begin{itemize}
+      \item $f(0) = a$.
+      \item $f(n^+) = g(n, f(n))$.
+    \end{itemize}
+
+    Se dice que $h: n\in\mathbb{N} \to A$ es una recursión finita de $\pair{a}{g}$ si 
+
+    \begin{itemize}
+      \item $h(0) = a$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $A$ un conjunto no vacío, $a \in A$ y $g: \mathbb{N}\times A \to A$,
+    decimos que una función $f: \mathbb{N} \to A$ es una recursión de $\pair{a}{g}$
+    si:
+    
+
+    \begin{itemize}
+      \item $f(0) = a$.
+      \item $f(n^+) = g(n, f(n))$.
+    \end{itemize}
+
+    Se dice que $h: n\in\mathbb{N} \to A$ es una recursión finita de $\pair{a}{g}$ si 
+
+    \begin{itemize}
+      \item $h(0) = a$.
+      \item $h(n) = g(n^-, f(n^-))$, siempre que $n^- \neq 0$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Dado $A \neq 0$, $a \in A$ y $g: \mathbb{N} \times A \to A$ y 
+    $f$ una recursión sobre $\pair{a}{g}$, entonces $f|_n$ es 
+    una recursión finita de $\pair{a}{g}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Dados $A \neq 0$, $a \in A$ y $g: \mathbb{N} \times A \to A$
+    entonces para todo $0 \neq n \in \mathbb{N}$ existe 
+    una única recursión finita de $\pair{a}{g}$ con dominio $n$.
+  \end{frame}
+\end{document}
