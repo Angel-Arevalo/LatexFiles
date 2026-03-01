@@ -1,0 +1,232 @@
+\documentclass{beamer}
+\newcommand{\pair}[2]{(#1, \, #2)}
+\newcommand{\ineq}{%
+  \mathrel{\ooalign{%
+    $\in$\cr
+    \hidewidth\raisebox{-0.6ex}{\rule{0.7em}{0.6pt}}\hidewidth\cr
+  }}}
+
+\begin{document}
+  \begin{frame}
+    \textit{Teorema (Recursión simple)}: Sea $A$ no vacío, $a \in A$ y $g: \mathbb{N} \times A \to A$,
+    entonces existe una única recursión para $\pair{a}{g}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Recursión parámétrica)}: Sean $A, P$ conjuntos no vacíos, $h: P \to A$
+    y $g: P \times \mathbb{N} \times A \to A$, entonce esxiste una función tal que 
+    
+    \begin{itemize}
+      \item $f(p, 0) = h(p)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Recursión parámétrica)}: Sean $A, P$ conjuntos no vacíos, $h: P \to A$
+    y $g: P \times \mathbb{N} \times A \to A$, entonce esxiste una función tal que 
+    
+    \begin{itemize}
+      \item $f(p, 0) = h(p)$.
+      \item $f(p, n^+) = g(p, n, f(p, n))$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función identidad $i_\mathbb{N}: \mathbb{N} \to \mathbb{N}$
+    y 
+    
+    \begin{equation*}
+      \begin{aligned}
+        g: \mathbb{N} \times \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
+        g(p, n, r) &\to r^+ 
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función identidad $i_\mathbb{N}: \mathbb{N} \to \mathbb{N}$
+    y 
+    
+    \begin{equation*}
+      \begin{aligned}
+        g: \mathbb{N} \times \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
+        g(p, n, r) &\to r^+ 
+      \end{aligned}
+    \end{equation*}
+
+    Bajo estas condiciones, por el teorema de la recursión parámetrica vemos que existe la 
+    función $+ : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$, que por el teorema cumple que 
+    para todo $p \in \mathbb{N}$:
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función identidad $i_\mathbb{N}: \mathbb{N} \to \mathbb{N}$
+    y 
+    
+    \begin{equation*}
+      \begin{aligned}
+        g: \mathbb{N} \times \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
+        g(p, n, r) &\to r^+ 
+      \end{aligned}
+    \end{equation*}
+
+    Bajo estas condiciones, por el teorema de la recursión parámetrica vemos que existe la 
+    función $+ : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$, que por el teorema cumple que 
+    para todo $p \in \mathbb{N}$:
+
+    \begin{itemize}
+      \item $+(p, 0) = i_\mathbb{N}(p) = p$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función identidad $i_\mathbb{N}: \mathbb{N} \to \mathbb{N}$
+    y 
+    
+    \begin{equation*}
+      \begin{aligned}
+        g: \mathbb{N} \times \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
+        g(p, n, r) &\to r^+ 
+      \end{aligned}
+    \end{equation*}
+
+    Bajo estas condiciones, por el teorema de la recursión parámetrica vemos que existe la 
+    función $+ : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$, que por el teorema cumple que 
+    para todo $p \in \mathbb{N}$:
+
+    \begin{itemize}
+      \item $+(p, 0) = i_\mathbb{N}(p) = p$.
+      \item $+(p, n^+) = g(p, n, +(p, n)) = (+(p, n))^+$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función identidad $i_\mathbb{N}: \mathbb{N} \to \mathbb{N}$
+    y 
+    
+    \begin{equation*}
+      \begin{aligned}
+        g: \mathbb{N} \times \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
+        g(p, n, r) &\to r^+ 
+      \end{aligned}
+    \end{equation*}
+
+    Bajo estas condiciones, por el teorema de la recursión parámetrica vemos que existe la 
+    función $+ : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$, que por el teorema cumple que 
+    para todo $p \in \mathbb{N}$:
+
+    \begin{itemize}
+      \item $+(p, 0) = i_\mathbb{N}(p) = p$.
+      \item $+(p, n^+) = g(p, n, +(p, n)) = (+(p, n))^+$
+    \end{itemize}
+
+    Esta función recibe el nombre de suma y para todo $p, n$ se denota como 
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función identidad $i_\mathbb{N}: \mathbb{N} \to \mathbb{N}$
+    y 
+    
+    \begin{equation*}
+      \begin{aligned}
+        g: \mathbb{N} \times \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
+        g(p, n, r) &\to r^+ 
+      \end{aligned}
+    \end{equation*}
+
+    Bajo estas condiciones, por el teorema de la recursión parámetrica vemos que existe la 
+    función $+ : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$, que por el teorema cumple que 
+    para todo $p \in \mathbb{N}$:
+
+    \begin{itemize}
+      \item $+(p, 0) = i_\mathbb{N}(p) = p$.
+      \item $+(p, n^+) = g(p, n, +(p, n)) = (+(p, n))^+$
+    \end{itemize}
+
+    Esta función recibe el nombre de suma y para todo $p, n$ se denota como 
+    \[+(p, n) = p + n\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función $h: \mathbb{N} \to \mathbb{N}$, definida
+    como $h(n) = 0$ para todo $n \in \mathbb{N}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función $h: \mathbb{N} \to \mathbb{N}$, definida
+    como $h(n) = 0$ para todo $n \in \mathbb{N}$. Tomemos la función 
+    \begin{equation*}
+      \begin{aligned}
+        g: \mathbb{N} \times \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
+        g(p, n, r) &\to r + n 
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función $h: \mathbb{N} \to \mathbb{N}$, definida
+    como $h(n) = 0$ para todo $n \in \mathbb{N}$. Tomemos la función 
+    \begin{equation*}
+      \begin{aligned}
+        g: \mathbb{N} \times \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
+        g(p, n, r) &\to r + n 
+      \end{aligned}
+    \end{equation*}
+
+    Por el teorema de la recursión parámetrica existe la función $\cdot: \mathbb{N} \times \mathbb{N} \to \mathbb{N}$
+    que cumple las condiciones de teorema, es decir:
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función $h: \mathbb{N} \to \mathbb{N}$, definida
+    como $h(n) = 0$ para todo $n \in \mathbb{N}$. Tomemos la función 
+    \begin{equation*}
+      \begin{aligned}
+        g: \mathbb{N} \times \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
+        g(p, n, r) &\to r + p
+      \end{aligned}
+    \end{equation*}
+
+    Por el teorema de la recursión parámetrica existe la función $\cdot: \mathbb{N} \times \mathbb{N} \to \mathbb{N}$
+    que cumple las condiciones de teorema, es decir:
+
+    \begin{itemize}
+      \item $\cdot(p, 0) = h(0) = 0$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Tomemos la función $h: \mathbb{N} \to \mathbb{N}$, definida
+    como $h(n) = 0$ para todo $n \in \mathbb{N}$. Tomemos la función 
+    \begin{equation*}
+      \begin{aligned}
+        g: \mathbb{N} \times \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
+        g(p, n, r) &\to r + p 
+      \end{aligned}
+    \end{equation*}
+
+    Por el teorema de la recursión parámetrica existe la función $\cdot: \mathbb{N} \times \mathbb{N} \to \mathbb{N}$
+    que cumple las condiciones de teorema, es decir:
+
+    \begin{itemize}
+      \item $\cdot(p, 0) = h(0) = 0$.
+      \item $\cdot(p, n^+) = g(p, n, \cdot(p, n)) = \cdot(p, n) + p$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Para todo $n, m$ naturales, se cumple que 
+    \[n \ineq m \iff (\exists k \in \mathbb{N})(n + k = m)\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Dado un conjunto $A$, definimos suc$(A)$ como 
+    \[\text{suc}(A) := \bigcup_{n \in \mathbb{N}}\, ^n A\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Recursión completa)}: Sea $B$ no vacío, $g: \text{suc}(B) \to B$, entonces existe una 
+    única función $f: \mathbb{N} \to B$ tal que:
+    \[f(n) = g(f|_{n})\]
+  \end{frame}
+\end{document}
