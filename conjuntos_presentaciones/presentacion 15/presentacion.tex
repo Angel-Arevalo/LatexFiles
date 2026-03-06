@@ -1,0 +1,254 @@
+\documentclass{beamer}
+\newcommand{\pair}[2]{(#1,\, #2)}
+\usepackage{amssymb}
+
+\begin{document}
+
+  \begin{frame}
+    Consideremos la siguiente relación:
+  \end{frame}
+
+  \begin{frame}
+    Consideremos la siguiente realción:
+
+    \[\pair{a}{b} \equiv \pair{c}{d} \iff a + d = b + c\]
+  \end{frame}
+
+  \begin{frame}
+    Consideremos la siguiente relación:
+
+    \[\pair{a}{b} \equiv \pair{c}{d} \iff a + d = b + c\]
+
+    Esto define una relación de equivalencia sobre $\mathbb{N} \times \mathbb{N}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Denotamos $\mathbb{Z}$ como la partición definida por la 
+    relación de equivalencia presentada anteriormente.
+  \end{frame}
+
+  \begin{frame}
+    Ahora tomamos las siguientes función:
+  \end{frame}
+
+  \begin{frame}
+    Ahora tomamos las siguientes función:
+
+    \begin{equation*}
+      \begin{aligned}
+        + : \mathbb{Z} \times \mathbb{Z} &\to \mathbb{Z} \\
+        [\pair{a}{b}] + [\pair{c}{d}] &\to [\pair{a+c}{b+d}]
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    Ahora tomamos las siguientes función:
+
+    \begin{equation*}
+      \begin{aligned}
+        + : \mathbb{Z} \times \mathbb{Z} &\to \mathbb{Z} \\
+        ([\pair{a}{b}], [\pair{c}{d}]) &\to [\pair{a+c}{b+d}] \\
+      \end{aligned}
+    \end{equation*}
+    \newline\newline
+    \begin{equation*}
+      \begin{aligned}
+        \cdot: \mathbb{Z} \times \mathbb{Z} &\to \mathbb{Z} \\
+        ([\pair{a}{b}], [\pair{c}{d}]) &\to [\pair{ac + bd}{ad + bc}]
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: La suma y multiplicación no depende de los representantes de la clase.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: La suma y multiplicación no depende de los representantes de la clase.
+    \newline\newline
+
+    \textit{Teorema}: La suma es un grupo abeliano y la multiplicación cumple
+    conmutatividad, asociatividad, posee elemento neutro y se distribuye en la suma.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Para todo número entero, $w$, existe un natural $n$ tal que
+
+      \[w = [\pair{n}{0}] \lor w = [\pair{0}{n}]\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Para todo número entero, $w$, existe un natural $n$ tal que
+
+    \[w = [\pair{n}{0}] \lor w = [\pair{0}{n}]\]
+    \newline\newline
+
+    \textit{Definición}: Notamos $0 = [\pair{0}{0}]$, $n = [\pair{n}{0}]$
+    y $-n = [(0, n)]$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Para todo entero, $-n = -1\cdot n$.
+  \end{frame}
+
+ 
+  \begin{frame}
+    \textit{Teorema}: Para todo entero, $-n = -1\cdot n$.
+    \newline\newline
+
+    \textit{Definición}: Denotamos el conjunto de enteros positivos como 
+    \[ \mathbb{Z}^+ := \{x \in \mathbb{N}: (\exists n\in \mathbb{N})(x = [\pair{n}{0}])\}\]
+  \end{frame} 
+
+  \begin{frame}
+    \textit{Teorema}: Para todo entero, $-n = -1\cdot n$.
+    \newline\newline
+
+    \textit{Definición}: Denotamos el conjunto de enteros positivos como 
+    \[ \mathbb{Z}^+ := \{x \in \mathbb{N}: (\exists n\in \mathbb{N})(x = [\pair{n}{0}])\}\]
+    \newline\newline
+
+    \textit{Definición}: Denotamos el siguiente conjunto como los naturales enteros
+      \[\mathbb{N}_\mathbb{Z} := \mathbb{Z}^+ \cup \{0\}\]
+  \end{frame} 
+
+  \begin{frame}
+    \textit{Teorema}: Dados $a, b \in \mathbb{Z}$, decimos que 
+    \[a \leq b \iff b - a \in \mathbb{Z}^+\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Dados $a, b \in \mathbb{Z}$, decimos que 
+    \[a \leq b \iff b - a \in \mathbb{N}_\mathbb{Z}\]
+    \newline\newline
+
+    \textit{Teorema}: $\leq$ es una relación de orden lineal sobre $\mathbb{Z}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Con el orden $\leq$, en $\mathbb{Z}$ no hay ni máximo ni 
+    mínimo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Con el orden $\leq$, en $\mathbb{Z}$ no hay ni máximo ni 
+    mínimo.
+    \newline\newline
+
+    \textit{Teorema}: Se cumplen las siguientes propiedades para $a, b, c, d \in \mathbb{Z}$:
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Con el orden $\leq$, en $\mathbb{Z}$ no hay ni máximo ni 
+    mínimo.
+    \newline\newline
+
+    \textit{Teorema}: Se cumplen las siguientes propiedades para $a, b, c, d \in \mathbb{Z}$:
+    \begin{itemize}
+      \item $a \leq b \iff a + c \leq b + c$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Con el orden $\leq$, en $\mathbb{Z}$ no hay ni máximo ni 
+    mínimo.
+    \newline\newline
+
+    \textit{Teorema}: Se cumplen las siguientes propiedades para $a, b, c, d \in \mathbb{Z}$:
+    \begin{itemize}
+      \item $a \leq b \iff a + c \leq b + c$.
+      \item $a \leq b \iff ad \leq bd$ siempre que $0 < d$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: No existe una cota superior para $\mathbb{N}_\mathbb{Z}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Todo subconjunto de $\mathbb{Z}$ acotado superiormente, tiene máximo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Todo subconjunto de $\mathbb{Z}$ acotado superiormente, tiene máximo.
+    \newline\newline
+
+    \textit{Teorema}: Todo subconjunto de $\mathbb{Z}$ acotado inferiormente, tiene mínimo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Dados $a \in \mathbb{Z}$ y $b \in \mathbb{Z}^+$, entonces 
+    existen únicos $p \in \mathbb{Z}$ y $0 \leq r < b$ tal que 
+    \[a = qb + r\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Decimos que $a|b$ si y sólo si al dividir $b$ en $a$, el 
+    residuo es $0$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Decimos que $a|b$ si y sólo si al dividir $b$ en $a$, el 
+    residuo es $0$.
+    \newline\newline
+
+    \textit{Definición}: Decimos que $a$ es el mínimo común multiplo 
+    de $b$ y $c$ si se cumple que:
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Decimos que $a|b$ si y sólo si al dividir $b$ en $a$, el 
+    residuo es $0$.
+    \newline\newline
+
+    \textit{Definición}: Decimos que $a$ es el mínimo común multiplo 
+    de $b$ y $c$ si se cumple que:
+    \begin{itemize}
+      \item $a|b$ y $a|c$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Decimos que $a|b$ si y sólo si al dividir $b$ en $a$, el 
+    residuo es $0$.
+    \newline\newline
+
+    \textit{Definición}: Decimos que $a$ es el máximo común divisor 
+    de $b$ y $c$ si se cumple que:
+    \begin{itemize}
+      \item $a|b$ y $a|c$.
+      \item Si existe $z$ tal que $z|b$ y $z|c$ entonces $z|a$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Decimos que $a|b$ si y sólo si al dividir $b$ en $a$, el 
+    residuo es $0$.
+    \newline\newline
+
+    \textit{Definición}: Decimos que $a$ es el máximo común divisor 
+    de $b$ y $c$ si se cumple que:
+    \begin{itemize}
+      \item $a|b$ y $a|c$.
+      \item Si existe $z$ tal que $z|b$ y $z|c$ entonces $z|a$.
+    \end{itemize}
+
+    \textit{Teorema}: Todo producto de $m$ enteros positivos es divisible
+    por $m!$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Bezout)}: El máximo común divisor de $a$ y $b$ puede escribirse 
+    como combinación líneal de $a$ y $b$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Bezout)}: El máximo común divisor de $a$ y $b$ puede escribirse 
+    como combinación líneal de $a$ y $b$.
+    \newline\newline
+
+    \textit{Teorema (Euclides)}: Dados $a,b$ enteros, si $a = bq + r$, entonces el máximo
+    común divisor entre $a$ y $b$ es igual que el de $b$ y $r$.
+  \end{frame}
+\end{document}
