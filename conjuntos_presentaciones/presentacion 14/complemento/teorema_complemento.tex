@@ -1,0 +1,47 @@
+\documentclass{article}
+\newcommand{\pair}[2]{(#1, \, #2)}
+\newcommand{\ineq}{%
+  \mathrel{\ooalign{%
+    $\in$\cr
+    \hidewidth\raisebox{-0.6ex}{\rule{0.7em}{0.6pt}}\hidewidth\cr
+  }}}
+
+\begin{document}
+  Antes de iniciar, recalcalcar que la definición de natural se toma bajo el supuesto:
+
+  \begin{itemize}
+    \item $x$ es transitivo.
+    \item $\pair{x}{\in}$ es un orden estricto y total  en $x$.
+    \item Todo subconjunto no vacío de $x$ tiene máximo y mínimo.
+  \end{itemize}
+
+  También debemos considerar el axioma del ínfinito para asegurar que existe al menos 
+  un conjunto transitivo.
+  \newline\newline
+
+
+  \textit{Teorema}: Si $x$ es natural y $A$ es un conjunto inductivo, $x \in A$.
+  \newline\newline
+
+  Por ser $A$ inductivo sabemos que $\emptyset \in A$. Supongamos que existe 
+  un natural $x$ tal que $x \not\in A$ y tomemos $x\setminus A$. Si este conjunto es 
+  vacío, es decir, $x\setminus A = \emptyset$, se puede decir que $A \subseteq x$
+  y como $\emptyset \in A$, $A$ es un subconjunto no vacío de $x$, entonces 
+  $A$ debería tener un máximo $m \in A$, pero como $A$ es inductivo, $m^+ \in A$, 
+  contradiciendo así que $m$ sea máximo.
+  \newline\newline
+
+
+  Con esto último, se concluye que $x \setminus A \neq \emptyset$. Este es un subconjunto de $x$ no vacío,
+  entonces tiene mínimo, denotemoslo $y$. Es decir, si $z \in y$, entonces $z \in A$.
+  De esto, $y \neq \emptyset$. Llamamos $d$ el máximo elemento menor que $y$ (¿Por qué se puede esto?)
+  y sabemos inmediatamente que $d \in A$.
+  \newline\newline
+
+
+  Como $y$ es natural, entonces $d \subseteq y$ y $\{d\} \subseteq y$, entonces $d^+ \subseteq y$.
+  Si $z \in y$, entonces $z \ineq d$, luego $z \in d^+$, concluyendo así que 
+  $d^+ = y$, pero como $d \in A$, entonces $y = d^+ \in A$, lo cual es una clara 
+  contradicción. El único supuesto que hicimos es que $x \not\in A$, luego concluimos
+  que $x \in A$.
+\end{document}

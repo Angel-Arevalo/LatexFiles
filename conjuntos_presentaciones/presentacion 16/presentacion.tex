@@ -1,0 +1,131 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+\newcommand{\pair}[2]{(#1,\, #2)}
+
+\begin{document}
+
+  \begin{frame}
+    Consideremos la siguiente relación sobre $\mathbb{Z} \times \mathbb{Z}^+$.
+  \end{frame}
+
+  \begin{frame}
+    Consideremos la siguiente relación sobre $\mathbb{Z} \times \mathbb{Z}^+$.
+
+    \[\pair{x}{y} \equiv \pair{z}{w} \iff x \cdot w = z \cdot y\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: La relación definida anteriormente es una relación 
+    de equivalencia sobre $\mathbb{Z} \times \mathbb{Z}^+$.
+
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: La relación definida anteriormente es una relación 
+    de equivalencia sobre $\mathbb{Z} \times \mathbb{Z}^+$.
+    \newline\newline
+
+    \textit{Definición}: A la partición asegurada por la relación de equivalencia 
+    definida anteriormente, la denotamos $\mathbb{Q} = \{[\pair{x}{y}]: \pair{x}{y} \in \mathbb{Z} \times \mathbb{Z}^+\}$.
+  \end{frame}
+
+  \begin{frame}
+    Ahora consideramos las siguientes operaciones binarias:
+  \end{frame}
+
+  \begin{frame}
+    Ahora consideramos las siguientes operaciones binarias:
+
+    \begin{equation*}
+      \begin{aligned}
+        +: \mathbb{Q} \times \mathbb{Q} &\to \mathbb{Q}: \\
+        \pair{\pair{x}{y}}{\pair{w}{z}} &\to \pair{x \cdot z + w \cdot y}{y \cdot z}
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    Ahora consideramos las siguientes operaciones binarias:
+
+    \begin{equation*}
+      \begin{aligned}
+        +: \mathbb{Q} \times \mathbb{Q} &\to \mathbb{Q}: \\
+        \pair{[\pair{x}{y}]}{[\pair{w}{z}]} &\to [\pair{x \cdot z + w \cdot y}{y \cdot z}]\\
+        \cdot : \mathbb{Q} \times \mathbb{Q} &\to \mathbb{Q}: \\
+        \pair{[\pair{x}{y}]}{[\pair{w}{z}]} &\to []\pair{x \cdot w}{y \cdot z}]
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Las funciones definidas anteriormente no dependen del elemento 
+    escogido.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Las funciones definidas anteriormente no dependen del elemento 
+    escogido.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Las funciones definidas anteriormente no dependen del elemento 
+    escogido.
+    \newline\newline
+
+    \textit{Definición}: Denotamos el conjunto de los racionales positivos
+    como $\mathbb{Q}^+ = \{\frac{a}{b} \in \mathbb{Q}:  a \in \mathbb{Z}^+\}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Definimos la siguiente relación sobre 
+    los números racionales:
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Definimos la siguiente relación sobre 
+    los números racionales:
+
+    \[x \leq y \iff y - x \in \mathbb{Q}^+\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sean $x, y, z, w \in \mathbb{Q}$, entonces se tienen las siguientes propiedades:
+
+    \begin{itemize}
+      \item Si $x \leq y$ entonces $x + z \leq x + y$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sean $x, y, z, w \in \mathbb{Q}$, entonces se tienen las siguientes propiedades:
+
+    \begin{itemize}
+      \item Si $x \leq y$ entonces $x + z \leq x + y$.
+      \item Si $x \leq y$ y $w \leq z$, entonces $x + w \leq y + z$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sean $x, y, z, w \in \mathbb{Q}$, entonces se tienen las siguientes propiedades:
+
+    \begin{itemize}
+      \item Si $x \leq y$ entonces $x + z \leq x + y$.
+      \item Si $x \leq y$ y $w \leq z$, entonces $x + w \leq y + z$.
+      \item Si $x \leq y$ y $z \in \mathbb{Q}^+$, entonces $xz \leq yz$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Para todo par de números racionales, $x$ e $y$, tal que
+    $x < y$, entonces existe un racional $r$ tal que $x < r < y$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Para todo par de números racionales, $x$ e $y$, tal que
+    $x < y$, entonces existe un racional $r$ tal que $x < r < y$.
+    \newline\newline
+
+    \textit{Teorema}: Para todo racional $x \in \mathbb{Q}$ e $y \in \mathbb{Q}^+$, 
+    existe un número $n$ entero tal que $x \leq ny$.
+  \end{frame}
+\end{document}
