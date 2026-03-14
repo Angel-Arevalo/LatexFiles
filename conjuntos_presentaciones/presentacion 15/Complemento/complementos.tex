@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{amssymb}
+\newcommand{\pair}[2]{(#1,\, #2)}
+\newcommand{\g}[2]{\textit{gcd}\pair{#1}{#2}}
+\newcommand{\m}[1]{\textit{max}(#1)}
+
+\begin{document}
+
+  \textit{Teorema}: Sean $a, b \in \mathbb{Z}$. $c = \g{a}{b}$ si y sólo si 
+  $c = \m{H}$, donde $H$ es el conjunto de todos los divisores comunes entre 
+  $a$ y $b$.
+  \newline\newline
+
+  Supongamos que $c = \g{a}{b}$. Sea $d \in H$, entonces $d|a$ y $d|b$, por la segunda 
+  propiedad del máximo común divisor, concluimos que $d|c$, luego $d \leq c$, 
+  concluyendo que $c = \m{H}$.
+  \newline\newline
+
+  Consideremos $c = \m{H}$, entonces $c|a$ y $c|b$, luego $c|\g{a}{b}$, entonces 
+  $c \leq \g{a}{b}$.
+  \newline
+  Sabemos que $\g{a}{b} = ax + by$, para algún par $x, y \in \mathbb{Z}$. Por ser el máximo
+  común divisor, entonces $\g{a}{b}|a$ y $\g{a}{b}|b$, luego $\g{a}{b} \leq c$.
+  \newline
+
+  De estos dos argumentos se deduce inmediatamente que $c = \g{a}{b}$.
+  \newline\newline
+
+  \textit{Teorema}: Sean $a, b \in \mathbb{Z}$, $a = qb + r$, con $0 \leq r < b$,
+  entonces $\g{a}{b} = \g{b}{r}$.
+  \newline\newline
+
+  Si $k = \g{a}{b}$. Como $a = bq + r$, entonces $a - bq = r$, y como 
+  $k|a$ y $k|b$, entonces $k|r$ y $k|b$, luego $k | \g{b}{r}$ y $k \leq \g{b}{r}$.
+  \newline
+
+  Si $p = \g{b}{r}$. De nuevo, $a = bq + r$ y como $p|b$ y $p|r$, entonces 
+  $p|b$ y $p|a$, entonces $p|\g{a}{b}$ y $p \leq \g{a}{b}$.
+  \newline\newline
+
+  De esto se concluye que $\g{a}{b} = \g{b}{r}$ de forma directa.
+
+\end{document}
