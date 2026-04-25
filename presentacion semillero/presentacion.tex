@@ -1,0 +1,174 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+  \begin{frame}
+    \begin{center}
+      \Huge \textbf{Sección 1.3}\\
+      \vspace{0.5cm}
+      \Large Funciones Submodulares
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Definiciones Básicas}
+    Sea E un conjunto finito y $f:2^{E}\rightarrow\mathbb{R}$ una función.
+    
+    \vspace{0.5cm}
+    \begin{itemize}[<+->]
+      \item Se dice \textbf{submodular} si: \\
+            $f(A)+f(B)\ge f(A\cup B)+f(A\cap B)$ para todo $A, B\subseteq E$.
+      \item Es \textbf{no decreciente} si: \\
+            para todo $A\subseteq B\subseteq E$, se cumple $f(A)\le f(B)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Polimatroides}
+    El par $(E, f)$ es un \textbf{polimatroide} si satisface:
+    
+    \vspace{0.5cm}
+    \begin{itemize}[<+->]
+      \item \textbf{(P1)} $f(\emptyset)=0$.
+      \item \textbf{(P2)} $f$ es submodular y no decreciente.
+      \item \textbf{(P3)} $f(A\cup C)+f(B\cup C)\ge f(C)+f(A\cup B\cup C)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \begin{center}
+      \Huge \textbf{Sección 2.2}\\
+      \vspace{0.5cm}
+      \Large FD-relaciones, operadores y funciones submodulares
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Estructuras a partir de funciones}
+    Dada una función submodular no decreciente $f$ sobre un conjunto $E$:
+    
+    \vspace{0.5cm}
+    \begin{itemize}[<+->]
+      \item \textbf{Define una FD-relación:} \\
+            $\mathcal{N}_{f}=\{(I,J)\in2^{E}\times2^{E}:f(I)=f(I\cup J)\}$.
+            \vspace{0.3cm}
+      \item \textbf{Define un operador de clausura:} \\
+            $c_{f}(I)=\{x\in E:f(I)=f(I\cup x)\}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Existencia de funciones}
+    \begin{itemize}[<+->]
+      \item Para cada FD-relación $\mathcal{N}$, existe por lo menos \textbf{una} función submodular $f$, no decreciente a valor entero, tal que $\mathcal{N}=\mathcal{N}_{f}$.
+      \item El conjunto de estas funciones submodulares que definen una misma FD-relación se denota por $\lambda(\mathcal{N})$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \begin{center}
+      \Huge \textbf{Sección 3.1}\\
+      \vspace{0.5cm}
+      \Large Espacios topológicos finitos desde las funciones submodulares
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Condiciones para definir una topología}
+    Para que el operador de clausura $c_f$ defina un espacio topológico, $f$ debe cumplir:
+    
+    \vspace{0.5cm}
+    \begin{itemize}[<+->]
+      \item \textbf{(T4):} Si $f(\emptyset)=f(J)$, entonces $J=\emptyset$.
+      \item \textbf{(T5):} Si $f(\bigcup_{k=1}^{n}I_{k})=f(\bigcup_{k=1}^{n}I_{k}\cup J)$, entonces existe una colección $\{J_{k}\}$ tal que $J=\bigcup J_{k}$ con $f(I_{k})=f(I_{k}\cup J_{k})$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Conceptos Topológicos vía Submodularidad}
+    Sea $f \in \lambda(\mathcal{N}_{\tau})$. Podemos caracterizar los conjuntos así:
+    
+    \vspace{0.5cm}
+    \begin{itemize}[<+->]
+      \item \textbf{Conjunto Cerrado ($F$):} $f(F)=f(F\cup J)$ si y sólo si $J\subseteq F$.
+      \item \textbf{Punto de acumulación ($b$ de $A$):} $f(A)=f(A-\{b\})$.
+      \item \textbf{Punto exterior ($b$ a $A$):} $f(A)<f(A\cup \{b\})$.
+      \item \textbf{Conjunto Denso ($A$):} $f(A)=f(E)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Axiomas de Separación}
+    Los axiomas de separación también se traducen a desigualdades estrictas:
+    
+    \vspace{0.5cm}
+    \begin{itemize}[<+->]
+      \item \textbf{Espacio $T_0$:} Para todo $x, z \in E$, \\ 
+            $f(x)<f(x\cup z)$ \textbf{o} $f(z)<f(x\cup z)$.
+      \item \textbf{Espacio $T_1$:} Para todo $x, z \in E$, \\ 
+            $f(x)<f(x\cup z)$ \textbf{y} $f(z)<f(x\cup z)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \begin{center}
+      \Huge \textbf{Sección 3.2}\\
+      \vspace{0.5cm}
+      \Large Funciones submodulares a valor entero
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Relación con espacios topológicos finitos}
+    Se construyen tres funciones submodulares, no decrecientes a valor entero para estudiar la topología:
+    
+    \vspace{0.5cm}
+    \begin{itemize}[<+->]
+      \item $\mathbf{f_{\mathbb{Z}}(I)}$: Número de conjuntos \textbf{cerrados} que no tienen como subconjunto a $I$.
+      \item $\mathbf{f_{\tau}(I)}$: Número de conjuntos \textbf{abiertos} en la topología que no tienen como subconjunto a $I$.
+      \item $\mathbf{\overline{f}(I)}$: Definida a partir del operador de clausura como $\overline{f}(I)=|c_{\tau}(I)|$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \begin{center}
+      \Huge \textbf{Sección 3.3}\\
+      \vspace{0.5cm}
+      \Large Función de entropía asociada a una topología
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Entropía como Polimatroide}
+    La entropía representa una medida de la incertidumbre y, por tanto, la cantidad de información.
+    
+    \vspace{0.5cm}
+    \begin{itemize}[<+->]
+      \item \textbf{Teorema:} La función de entropía es una función polimatroide.
+      \item Satisface $H(\emptyset)=0$.
+      \item Satisface $H(X,Z)+H(Y,Z)\ge H(Z)+H(X,Y,Z)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Entropía y Topología}
+    Es posible asociar a una FD-relación $\mathcal{N}_{\tau}$ una función de entropía $r_{A}$.
+    
+    \vspace{0.5cm}
+    \begin{itemize}[<+->]
+      \item $r_{A}(I) = -\frac{2S_{I}}{|A|}\ln 2 + \ln|A|$.
+      \item Esta función se construye basándose en el número de elementos en $2^{E}\times2^{E}$ que \textbf{no} pertenecen a la relación $\mathcal{N}_{\tau}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \begin{center}
+      \Huge \textbf{Sección 3.4}\\
+      \vspace{0.5cm}
+      \Large Cálculo en espacios topológicos pequeños
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Aplicación de las funciones}
+    Se calculan los valores de $f_{\mathbb{Z}}$, $f_{\tau}$ y $r_A$ para espacios pequeños:
+    
+    \vspace{0.5cm}
+    \begin{itemize}[<+->]
+      \item Para un conjunto $E=\{a,b\}$ (2 elementos), existen \textbf{3 topologías} diferentes.
+      \item Para un conjunto $E=\{a,b,c\}$ (3 elementos), existen \textbf{9 topologías} diferentes.
+      \item Se valida que las evaluaciones de estas funciones respetan la estructura de la teoría de polimatroides en cada caso posible.
+    \end{itemize}
+  \end{frame}
+
+\end{document}
