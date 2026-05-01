@@ -1,0 +1,82 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+
+\begin{document}
+  
+  \begin{frame}
+    \textit{Definición}: Dados $A, B$ conjuntos, decimos que 
+    $A$ es quipotente a $B$ si existe $f: A \to B$ biyectiva y lo
+    simbolizamos por $A \equiv B$.
+    \newline\newline
+    \pause 
+
+    \textit{Teorema}: Sean $A, B$ conjuntos arbitrarios, entonces
+    \begin{itemize}[<+->]
+      \item $A \equiv A$.
+      \item $A \equiv B \iff B \equiv A$.
+      \item $(A \equiv B \land B \equiv C) \rightarrow A \equiv C$.
+      \item $P(A) \equiv\, ^2 A, 2 \in \mathbb{N}, 2 = \{0, 1\}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: $A \equiv B \rightarrow P(A) \equiv P(B)$.
+    \newline\newline
+    \pause
+
+    \textit{Teorema}: Si $A \equiv D$ y $B \equiv E$, entonces 
+    \begin{itemize}[<+->]
+      \item Si $A \cap B = \emptyset = D \cap E$, entonces $A \cup B \equiv D \cup E$.
+      \item $A \times B \equiv D \times E$.
+      \item $^B A \equiv\, ^E D$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sean $A, B, C$ conjuntos arbitrarios 
+
+    \begin{itemize}[<+->]
+      \item Si $A \cap B = \emptyset$ entonces $^{A \cup B} C \equiv\, ^A C \times\, ^B C$.
+      \item $^A (B \times C) \equiv\, ^A B \times\, ^A C$.
+      \item $^A (^B C) \equiv\, ^{A \times B} C$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Decimos que $A$ es dominado por $B$ si existe 
+    una función inyectiva de $A$ hacia $B$ y se denota por 
+    $A \curlyeqprec B$, si no existe una unción biyectiva de $A$ en 
+    $B$, decimos que la dominancia es estricta y se denota por $A \prec B$.
+    \newline\newline
+    \pause
+    
+    \textit{Teorema}: Sean $A, B, C$ conjuntos: 
+    \pause
+    \begin{itemize}[<+->]
+      \item $A \curlyeqprec A$.
+      \item $A \curlyeqprec P(A)$.
+      \item Si $A \subseteq B$, entonces $A \curlyeqprec B$.
+      \item Si $A \curlyeqprec B$ y $B \curlyeqprec C$ entonces $A \curlyeqprec C$.
+      \item Si $A \curlyeqprec B$ y $B \equiv C$ entonces $A \curlyeqprec C$.
+      \item Si $A \equiv B$ y $B \curlyeqprec C$ entonces $A \curlyeqprec C$.
+      \item $A \curlyeqprec B$ si y sólo si existe $D \subseteq B$ tal que $A \equiv D$.
+      \item $A \equiv B \rightarrow (A \curlyeqprec B \land B \curlyeqprec A)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Cantor)}: Sea $A$ cualquier conjunto. No existe una 
+    función sobreyectiva de $A$ hacia $P(A)$.
+    \newline\newline
+    \pause
+    \textit{Teorema}: Sea $A$ un conjunto y $F: P(A) \to P(A)$ una función
+    creciente:
+    \pause
+
+    \begin{itemize}[<+->]
+      \item $T = \bigcap \{x \subseteq A: F(x) \subseteq x\}$ entonces $F(T) = T$.
+      \item $T' = \bigcup \{x \subseteq A: x \subseteq F(x)\}$ entonces $F(T') = T'$.
+      \item Si $F(y) = y$ entonces $T \subseteq y  \subseteq T'$.
+    \end{itemize}
+  \end{frame}
+\end{document}
