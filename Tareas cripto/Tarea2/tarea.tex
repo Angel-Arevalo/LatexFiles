@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{teal},
+    commentstyle=\color{gray}\itshape,
+    frame=single,
+    showstringspaces=false,
+    breaklines=true
+}
+\begin{document}
+  
+  \section*{Punto 1)}
+    Considere el LFSR cuyo polinomio de retroalimentación es 
+      \[f(x) = x^3 + x^2 + x + 1\]
+
+    Tomando a $S_0 = (1, 0, 0)$ como estado inicial.
+
+    \begin{table}[h]
+    \centering
+      \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Tick $i$} & \textbf{Estado $S_i = (y_{i+2}, y_{i+1}, y_i)$} & \textbf{Salida} \\ \hline
+        0        & (1, 0, 0)                              & 0               \\ \hline
+        1        & (1, 1, 0)                              & 0               \\ \hline
+        2        & (0, 1, 1)                              & 1               \\ \hline
+        3        & (0, 0, 1)                              & 1               \\ \hline
+        4        & (1, 0, 0)                              & 0               \\ \hline
+        5        & (1, 1, 0)                              & 0               \\ \hline
+        6        & (0, 1, 1)                              & 1               \\ \hline
+        7        & (0, 0, 1)                              & 1               \\ \hline
+        8        & (1, 0, 0)                              & 0               \\ \hline
+        9        & (1, 1, 0)                              & 0               \\ \hline
+        10       & (0, 1, 1)                              & 1               \\ \hline
+        11       & (0, 0, 1)                              & 1               \\ \hline
+        12       & (1, 0, 0)                              & 0               \\ \hline
+        13       & (1, 1, 0)                              & 0               \\ \hline
+        14       & (0, 1, 1)                              & 1               \\ \hline
+      \end{tabular}
+    \end{table}
+
+    El periodo de la sucesión es 4 y este no es un polinomio irreducible en $\mathbb{F}_2[x]$,
+    pues el periodo máximo es $7$.
+
+  \section*{Punto 2)}
+    ¿Cuántos pares consecutivos se necesitan para conocer los coeficientes de retroalimentación?
+
+    Si $m$ es el periodo del LFSR, el atacante debe conocer $2m$ pares de texto plano
+    y de texto cifrado, para que con los primeros $m$ pares logre reconstruir el flujo 
+    de la máquina y con los $m$ restantes construya el siguiente sistema:
+
+    \begin{equation*}
+      \begin{aligned}
+        y_m &= c_{n-1} y_{m-1} \oplus c_{n-2} y_{m-2} \oplus \cdots \oplus c_0 y_{m-n} \\
+        &\hspace{0.15cm}\vdots \\
+        y_{2m-1} &= c_{n-1} y_{2m-2} \oplus c_{n-2} y_{2m-3} \oplus \cdots \oplus c_0 y_{2m-n-1}
+      \end{aligned}
+    \end{equation*}
+
+    Y como es un sistema de ecuaciones en un cuerpo finito, tiene al menos una solución.
+
+  \section*{Punto 3)}
+    Para comprobar computacionalmente que el polinomio $f(x) = x^9 + x^4 + 1$ define un LFSR con periodo máximo, ejecutamos el siguiente código en SageMath:
+
+    \begin{lstlisting}
+      F = GF(2)
+      l = F(1)
+      o = F(0)
+
+      key = [l, o, o, o, l, o, o, o, o]
+
+      fill = [l, o, o, o, o, o, o, o, o]
+
+      per = (2**9) - 1
+
+      sec = lfsr_sequence(key, fill, per + 9)
+
+      s_init = sec[:9]
+      siguiente_aparicion = sec[1:].index(s_init[0]) + 1 
+
+      print(f"Longitud teorica del periodo maximo: {per}")
+      if sec[per : per+9] == s_init:
+          print("El estado inicial se repite exactamente despues de 511 ticks.")
+    \end{lstlisting}
+\end{document}
