@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage{booktabs}
+
+\begin{document}
+
+  \section{Punto 1)}
+    Repita el análisis para el caso de 16 S-boxes, cada una tomando 
+    entradas de 4 bits. ¿Cuál es la complejidad del ataque ahora? Repita 
+    el análisis nuevamente con una longitud de bloque de 128 bits y 16 S-boxes
+    que cada una toma una entrada de 8 bits.
+
+    \subsection{Análisis para 16 S-boxes con 4 bits}
+      Tomemos un par $(x, y)$, donde $y$ es la encriptación de $x$, es decir
+
+        \[y = F_{k_1, k_2}(x) = \pi(S(x \oplus k_1)) \oplus k_2\]
+
+      entonces, el espacio total de claves es $2^{128}$ (inicialmente).
+      \newline \newline
+
+      De la ecuación anterior, podemos despejar $k_2 =  \pi(S(x \oplus k_1)) \oplus y$ 
+      y notar inmediatamente que la segunda clave está totalmente determinada 
+      por $(x, y)$ y $k_1$, entonces el espacio de claves se reduce a $2^{64}$.
+      \newline \newline
+
+      Repitiendo el algoritmo de recuperación local, para cada 
+      S-box se hace una búsqueda exaustiva en $\{0, 1\}^4$. Cada 
+      lista tiene $2^4$ posibilidades de entradas, lo que le costaría
+      $16 \cdot 2^4 = 2^8$ operaciones.
+      
+      A continuación, se presenta el resumen
+      \begin{table}[h]
+        \centering
+
+        \vspace{0.2cm}
+        \begin{tabular}{lcc}
+          \toprule
+          Etapa & Tamaño & Tiempo \\
+          \midrule
+          Sin info & $2^{128}$ & --- \\
+          Enumerando en $k_1$ & $2^{64}$ & $2^{64}$ \\
+          Fragmentado & $2^{64}$ & $2^{8}$ \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+
+    \subsection{Análisis para 16 S-boxes con 8 bits}
+      Tomemos un par $(x, y)$, donde $y$ es la encriptación de $x$, es decir
+
+        \[y = F_{k_1, k_2}(x) = \pi(S(x \oplus k_1)) \oplus k_2\]
+
+      entonces, el espacio total de claves es $2^{256}$ (inicialmente).
+      \newline \newline
+
+      De la ecuación anterior, podemos despejar $k_2 =  \pi(S(x \oplus k_1)) \oplus y$ 
+      y notar inmediatamente que la segunda clave está totalmente determinada 
+      por $(x, y)$ y $k_1$, entonces el espacio de claves se reduce a $2^{128}$.
+      \newline \newline
+
+      Repitiendo el algoritmo de recuperación local, para cada 
+      S-box se hace una búsqueda exaustiva en $\{0, 1\}^8$. Cada 
+      lista tiene $2^8$ posibilidades de entradas, lo que le costaría
+      $16 \cdot 2^8 = 2^{12}$ operaciones.
+
+      A continuación, se presenta el resumen
+      \begin{table}[h]
+        \centering
+
+        \vspace{0.2cm}
+        \begin{tabular}{lcc}
+          \toprule
+          Etapa & Tamaño & Tiempo \\
+          \midrule
+          Sin info & $2^{256}$ & --- \\
+          Enumerando en $k_1$ & $2^{128}$ & $2^{128}$ \\
+          Fragmentado & $2^{128}$ & $2^{12}$ \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+
+  \section{Punto 2)}
+    Considere un SPN de dos rondas, el cifrado es de la forma
+      \[F_{k_1, k_2, k_3}(x) = \pi(S(\pi(S(x \oplus k_1)) \oplus k_2)) \oplus k_3\]
+
+    Haga el análisis con SPN de dos rondas con bloques de 64 bits y 
+    S-boxes de 8 bits y construya un ataque que recupere las claves 
+    en un tiempo menor a $2^{192}$.
+
+    Para empezar, vemos que inicialmente, dado un par $(x, y)$, con 
+      \[y = \pi(S(\pi(S(x \oplus k_1)) \oplus k_2)) \oplus k_3\]
+
+    el tamaño de las claves es $2^{192}$ posibles claves.
+
+    De la ecuación del enunciado, vemos que 
+      \[k_3 = \pi(S(\pi(S(x \oplus k_1)) \oplus k_2)) \oplus y\]
+
+
+    El análisis se vuelve bastante complejo al tratar de pensar 
+    cómo actuaría si se itera en forma de bloque en la primera ronda de S-boxes,
+    entonces construimos el siguiente algoritmo:
+    \newline \newline
+
+    Para cada posible clave $b \in \{0, 1\}^{64}$, hacemos 
+    $w = \pi(S(x \oplus k_1))$ y vemos que 
+      \[y = \pi(S(w \oplus k_2)) \oplus k_3\]
+
+    Y una vez tenemos esto, aplicamos el ataque de 8 S-boxes con 
+    $8$ bits cada una, para el cual, en el mejor de los casos, resolviamos en 
+    tiempo, $8 \cdot 2^8 = 2^{11}$, entonces, el tiempo de resolución de esta forma es 
+    $2^{64} \cdot 2^{11} = 2^{75}$ con un tamaño de claves $2^{128}$, pues 
+    son $2^{64}$ posibles iniciales y son $2^{64}$ para cada búsqueda.
+
+    \begin{table}[h]
+      \centering
+
+      \vspace{0.2cm}
+      \begin{tabular}{lcc}
+        \toprule
+        Etapa & Tamaño & Tiempo \\
+        \midrule
+        Sin info & $2^{192}$ & --- \\
+        Enumerando en $k_1$ y $k_2$ & $2^{128}$ & $2^{128}$ \\
+        Fragmentado & $2^{128}$ & $2^{75}$ \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+\end{document}
