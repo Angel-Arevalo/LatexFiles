@@ -23,15 +23,15 @@
     \begin{definicion}
       Sea $S \xrightarrow{f} R$ una función diferenciable entre superficies. 
       Para cada $\phi \in S$, el operador diferencial de $f$ en $\phi$ es la función $d f_\phi$, 
-      que toma a cada vector $v = G'(t_0)$ tangente de una curva $G(t) \subseteq S$ que 
-      pasa por $\phi = G(t_0)$, y lo manda en $\omega = \tau'(t_0)$ donde 
-      $\tau(t) = f(G(t))$.
+      que toma a cada vector $v = \sigma'(t_0)$ tangente de una curva $\sigma(t) \subseteq S$ que 
+      pasa por $\phi = \sigma(t_0)$, y lo manda en $\omega = \tau'(t_0)$ donde 
+      $\tau(t) = f(\sigma(t))$.
  
       \begin{center}
         \begin{equation*}
           \begin{aligned}
             d\, f_\phi: T_\phi(S) &\to T_{f(\phi)}(R) \\
-              v = G'(t_0) &\to \omega = \tau'(t_0);\quad\quad \tau(l) = f(G(l))
+              v = \sigma'(t_0) &\to \omega = \tau'(t_0);\quad\quad \tau(t) = f(\sigma(t))
           \end{aligned}
         \end{equation*}
       \end{center}
@@ -45,33 +45,22 @@
       \begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
 
         \begin{scope}[shift={(0,4)}]
-
           \draw (-2,-1.5) -- (1,-1.5) -- (2,2) -- (-1,2) -- cycle;
           \node at (1.8, 1.8) {$S$};
-
           \draw (0,0) ellipse (0.8 and 1.2);
-
           \draw[thick] (-0.3,-1) to[out=70, in=250] (0.5,1.5);
-
           \fill (0,0) circle (1.5pt) node[right=2pt] {$\phi$};
-
           \draw[->, thick, red] (0,0) -- (-0.2,-0.8) node[right] {$v$};
         \end{scope}
 
         \begin{scope}[shift={(6,4)}]
-
           \draw (-2,-1.5) -- (1,-1.5) -- (2,2) -- (-1,2) -- cycle;
           \node at (1.8, 1.8) {$R$};
-
           \draw (0,0) ellipse (0.8 and 1.2);
-
           \draw[thick] (-0.3,-1) to[out=70, in=250] (0.5,1.5);
-
           \fill (0,0) circle (1.5pt) node[right=2pt] {$f(\phi)$};
-
           \draw[->, thick, red] (0,0) -- (0.6,0.8) node[above right] {$\omega$};
         \end{scope}
-
 
         \begin{scope}[shift={(-5,4.5)}]
           \draw (-1.5,0) -- (1.5,0);
@@ -81,106 +70,216 @@
           \node at (0,0.6) {$J$};
         \end{scope}
 
-
         \begin{scope}[shift={(0,0)}]
-
           \draw[->] (-1.5,0) -- (1.5,0) node[right] {$u$};
           \draw[->] (0,-1.5) -- (0,1.5) node[above] {$v$};
-
           \draw (0,0) ellipse (1 and 1.2);
-
           \draw[thick] (-0.5,-1.2) to[out=70, in=250] (0.5,1.2);
         \end{scope}
 
         \begin{scope}[shift={(6,0)}]
-
           \draw[->] (-1.5,0) -- (1.5,0) node[right] {$\tau$};
           \draw[->] (0,-1.5) -- (0,1.5) node[above] {$s$};
-
           \draw (0,0) ellipse (1 and 1.2);
-
           \draw[thick] (-0.5,-1.2) to[out=70, in=250] (0.5,1.2);
           \fill (0,0) circle (1.5pt) node[below right=1pt] {$\tilde{f}(q)$};
         \end{scope}
 
-        \draw[->] (-4, 4.8) to[bend left=15] node[above] {$G$} (-1.5, 4.8);
-
-        \draw[->, red] (-4.5, 4) to[bend right=20] node[below left] {$\tilde{G}$} (-1.5, 0.5);
-
+        \draw[->] (-4, 4.8) to[bend left=15] node[above] {$\sigma$} (-1.5, 4.8);
+        \draw[->, red] (-4.5, 4) to[bend right=20] node[below left] {$\tilde{\sigma}$} (-1.5, 0.5);
         \draw[->] (2, 4.5) -- (4, 4.5) node[midway, above] {$f$};
-
         \draw[->] (2, 0) -- (4, 0) node[midway, above] {$\tilde{f}$};
-
         \draw[->] (0, 1.5) -- (0, 2.3) node[midway, right] {$\alpha$};
-
         \draw[->] (6, 1.5) -- (6, 2.3) node[midway, right] {$\beta$};
 
       \end{tikzpicture}
     \end{center}
 
-
     Tomemos $\epsilon > 0$ suficientemente pequeño, tal que en $(t_0 - \epsilon, t_0 + \epsilon)$ están
     definidas todas las siguientes funciones:
     \begin{equation*}
       \begin{aligned}
-        \tilde{G}(l) &= \alpha^{-1} (G(l)) = (u(l), v(l)) \in U\quad\quad\quad &(U, \alpha) = \text{ corta en } \phi \\
-        \tilde{f}(u, v) &= \beta^{-1} (f(\alpha(u, v))) = (\tau(u, v), S(u, v)) \in V \quad\quad\quad &(V, \beta) = \text{ "}\quad\text{"} f(\phi)
+        \tilde{\sigma}(t) &= \alpha^{-1} (\sigma(t)) = (u(t), v(t)) \in U\quad\quad\quad &(U, \alpha) = \text{ carta en } \phi \\
+        \tilde{f}(u, v) &= \beta^{-1} (f(\alpha(u, v))) = (\tau(u, v), S(u, v)) \in V \quad\quad\quad &(V, \beta) = \text{ carta en } f(\phi)
       \end{aligned}
     \end{equation*}
 
     Entonces,
 
-
     \begin{empheq}{align*}
-        \tilde{\tau}(l) &= \beta^{-1}(\tau(l)) = \text{escritura local de } \tau(t) = f(G(l)) \\
-        &= \beta^{-1}\, f\, G(l) = \beta^{-1}\, f\, (\alpha \tilde{G})(l) \\[0.5em] 
-        \Aboxed{\tilde{\tau}(l) &= \tilde{f}(\tilde{G}(l)) = \bigl( \tau(u(l), v(l)), S(u(l), v(l)) \bigr)} 
-        \stepcounter{equation}
+        \tilde{\tau}(t) &= \beta^{-1}(\tau(t)) = \text{escritura local de } \tau(t) = f(\sigma(t)) \\
+        &= \beta^{-1} \circ f \circ \sigma(t) = \beta^{-1} \circ f \circ (\alpha \circ \tilde{\sigma})(t) \\[0.5em] 
+        \Aboxed{\tilde{\tau}(t) &= \tilde{f}(\tilde{\sigma}(t)) = \bigl( \tau(u(t), v(t)), S(u(t), v(t)) \bigr)} 
         \tag{\tagcirculo{i}}
     \end{empheq}
 
-    donde las funciones $\tau(u, v),\quad S(u, v), \quad u(l), \quad v(l)$ son todas diferenciables. En consecuencia; por la regla 
-    de la cadena:
+    donde las funciones $\tau(u, v),\quad S(u, v), \quad u(t), \quad v(t)$ son todas diferenciables. En consecuencia, por la regla de la cadena:
 
-    \[
-      \tilde{\tau}'(t_0) = \left[\tilde{f}(\tilde{G}(t_0))  \right] \cdot \left[\tilde{G}(t_0) \right] = 
-      \left[
-        \begin{aligned}
-          &\tau_u (u_0, v_0) \quad &\tau_v (u_0, v_0) \\
-          &S_u (u_0, v_0) \quad &S_v (u_0, v_0)
-        \end{aligned}
-      \right]
-      \left(
-        \begin{aligned}
+    \begin{equation*}
+      \tilde{\tau}'(t_0) = \left[\tilde{f}_*(\tilde{\sigma}(t_0))\right] \cdot \left[\tilde{\sigma}'(t_0) \right] = 
+      \begin{bmatrix}
+          \tau_u (u_0, v_0) & \tau_v (u_0, v_0) \\
+          S_u (u_0, v_0) & S_v (u_0, v_0)
+      \end{bmatrix}
+      \begin{pmatrix}
           u'(t_0) \\
           v'(t_0)
-        \end{aligned}
-      \right)
+      \end{pmatrix}
       \stepcounter{equation}
       \tag{\tagcirculo{ii}}
-    \]
-  \section{Propiedades del operador diferencial:}
+    \end{equation*}
 
-  \begin{itemize}[label=(\alph*)]
-    \item \underline{$d\, f_\phi$ está bien definida}: Por las igualdades $\tag{\tagcirculo{iv}}$ y $\tag{\tagcirculo{v}}$, $d\, f_\phi(v)$
-      solo depende de $\phi \in S$, la función $f$ y el vector $v \in T_p (S)$; \underline{no} \underline{de} \underline{la} \underline{curva} G(l). En 
-          otras palabras, si $\eta(l)$ es otra curva tal que $\eta'(t_0) = v$ en $\eta(l) = \phi$, entonces 
-          $d\, f_\phi (v) = \left.\frac{d}{d\,l}(f(\eta(l)))\right|_{l = t_0} = \left. \frac{d}{d\, l} (f(G(l))) \right|_{l = t_0}$
-          da lo mismo.
+    Notemos que la matriz Jacobiana de la escritura local 
+    \begin{equation*}
+      A = \left[\tilde{f}_* \right](\tilde{\sigma}(t_0)) = 
+      \begin{bmatrix}
+          \tau_u(u_0, v_0) & \tau_v(u_0, v_0) \\
+          S_u(u_0, v_0) & S_v(u_0, v_0) 
+      \end{bmatrix}
+      \stepcounter{equation}
+      \tag{\tagcirculo{iii}}
+    \end{equation*}
 
-    \item \underline{$d\, f_\phi$ es lineal:} (en $T_p(S)$) Por la estructura local,
-          $d\, f_\phi: T_p(S) \to T_{f(\phi)}(R)$ satisface $d\, f_\phi (v) = A \cdot v$, donde 
-          $A = \left[\tilde{f}_\phi\right](q)$ es la matriz Jacobiana de cualquier 
-          escritura local $\tilde{f} = \beta^{-1} f \alpha$ de $f$ en $q = \alpha^{-1}(\phi)$. Entonces
+    \underline{no depende} de la curva $\sigma(t)$, sino únicamente del punto $\phi \in S$ y la carta $(U, \alpha)$ en $\phi$.
+    La función 
+    \begin{equation*}
+      d\, f_\phi: T_\phi (S) \to T_{f(\phi)}(R)
+    \end{equation*}
 
-          \begin{equation*}
-            \begin{aligned}
-              d\, f_\phi(c \cdot v + \omega) &= A(c \cdot v + \omega) = c(Av) + A\omega \\
-              &= c d\, f_\phi(v) + d\, f_\phi(\omega)
-            \end{aligned}
-          \end{equation*}
+    tiene el siguiente efecto; si $v = (c_1, c_2) \equiv c_1 \alpha_u + c_2 \alpha_v \in T_\phi (S)$ satisface
+    $v = \sigma'(t_0)$ para $\sigma(t) =  \alpha(u(t), v(t))$, es decir 
+    \begin{equation*}
+      v = \sigma'(t_0) = [\alpha_u, \alpha_v] \cdot
+      \begin{pmatrix}
+          u'(t_0) \\
+          v'(t_0)
+      \end{pmatrix} = c_1 \alpha_u + c_2 \alpha_v
+    \end{equation*}
 
-    \item \underline{$d\, f_\phi$} \underline{no} \underline{depende de las cartas y escritura local}: Por 
-          la manera en la que es definido en (1), no se emplea una carta local.
-  \end{itemize}
+    Entonces $\tau(t) = \beta\bigl(\tau(t), S(t)\bigr)$ satisface 
+
+    \begin{equation*}
+      \begin{aligned}
+        \tau'(t_0) &= [\beta_\tau, \beta_S] \cdot 
+        \begin{pmatrix}
+            \tau'(t_0) \\
+            S'(t_0)
+        \end{pmatrix}
+        = \begin{bmatrix}
+            \tau_u & \tau_v \\
+            S_u & S_v
+        \end{bmatrix}
+        (u_0, v_0)\cdot 
+        \begin{pmatrix}
+            u'(t_0) \\
+            v'(t_0)
+        \end{pmatrix} \\
+        &= [\beta_\tau, \beta_S] A
+        \begin{pmatrix}
+            c_1 \\
+            c_2
+        \end{pmatrix}
+      \end{aligned}
+    \end{equation*}
+
+    \underline{En resumen:} el diferencial se escribe localmente de este modo:
+    \begin{equation*}
+      \begin{aligned}
+        d\, f_\phi &: T_\phi(S) \to T_{f(\phi)}(R) \\
+        v &= c_1\alpha_u + c_2\alpha_v \to \omega = (c_1 \tau_u + c_2 \tau_v)\beta_\tau + (c_1 S_u + c_2 S_v)\beta_S
+      \end{aligned} 
+      \stepcounter{equation}
+      \tag{\tagcirculo{iv}} 
+    \end{equation*}
+    Si $\mathcal{B}_\phi = \{\alpha_u, \alpha_v\}$ y $\mathcal{B}_{f(\phi)} = \{\beta_\tau, \beta_S\}$, entonces 
+    \begin{equation*}
+      d\, f_\phi (c_1, c_2) = A 
+      \begin{pmatrix}
+        c_1 \\
+        c_2
+      \end{pmatrix} 
+      \quad\quad
+      d\, f_\phi(\vec{v})= A \vec{v}
+      \stepcounter{equation}
+      \tag{\tagcirculo{v}}
+    \end{equation*}
+
+    \section{Propiedades del operador diferencial:}
+
+    \begin{enumerate}[label=(\alph*)]
+      \item \underline{$d\, f_\phi$ está bien definida}: Por las igualdades \tagcirculo{iv} y \tagcirculo{v}, $d\, f_\phi(v)$
+        solo depende de $\phi \in S$, la función $f$ y el vector $v \in T_p (S)$; \underline{no} \underline{de} \underline{la} \underline{curva} $\sigma(t)$. En 
+        otras palabras, si $\eta(t)$ es otra curva tal que $\eta'(t_0) = v$ en $\eta(t_0) = \phi$, entonces 
+        $d\, f_\phi (v) = \left.\frac{d}{d\,t}(f(\eta(t)))\right|_{t = t_0} = \left. \frac{d}{d\, t} (f(\sigma(t))) \right|_{t = t_0}$
+        da lo mismo.
+
+      \item \underline{$d\, f_\phi$ es lineal:} (en $T_p(S)$) Por la estructura local,
+        $d\, f_\phi: T_p(S) \to T_{f(\phi)}(R)$ satisface $d\, f_\phi (v) = A \cdot v$, donde 
+        A = $[\tilde{f}_*](q)$ es la matriz Jacobiana de cualquier 
+        escritura local $\tilde{f} = \beta^{-1} \circ f \circ \alpha$ de $f$ en $q = \alpha^{-1}(\phi)$. Entonces
+
+        \begin{equation*}
+          \begin{aligned}
+            d\, f_\phi(c \cdot v + \omega) &= A(c \cdot v + \omega) = c(Av) + A\omega \\
+            &= c\, d\, f_\phi(v) + d\, f_\phi(\omega)
+          \end{aligned}
+        \end{equation*}
+
+      \item \underline{$d\, f_\phi$ no depende de las cartas y escritura local}: Por 
+        la manera en la que es definido en la sección 1.1, no se emplea una carta local.
+        
+      \item \underline{Composición}:
+      \vspace{1em}
+        \begin{center}
+          \begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+
+            \begin{scope}[shift={(0,0)}]
+              \draw[thick] (-1.5,-1) .. controls (-0.5,-1.2) and (0.5,-1) .. (1,-1) -- (1.5,1) .. controls (0.5,1.2) and (-0.5,1) .. (-1,1) -- cycle;
+              \node at (-1.2, 1.2) {$S$};
+              \draw[thick] (-0.3,-0.5) to[out=60, in=240] (0.5,0.7);
+              \fill (0.1,0.1) circle (1.5pt) node[right=2pt] {$\phi$};
+            \end{scope}
+
+            \begin{scope}[shift={(4.5,0)}]
+              \draw[thick] (-1.5,-1) .. controls (-0.5,-1.2) and (0.5,-1) .. (1,-1) -- (1.5,1) .. controls (0.5,1.2) and (-0.5,1) .. (-1,1) -- cycle;
+              \node at (1.2, 1.2) {$R$};
+              \draw[thick] (-0.3,-0.5) to[out=60, in=240] (0.5,0.7);
+              \fill (0.1,0.1) circle (1.5pt) node[right=2pt] {$f(\phi)$};
+            \end{scope}
+
+            \begin{scope}[shift={(9,0)}]
+              \draw[thick] (-1.5,-1) .. controls (-0.5,-1.2) and (0.5,-1) .. (1,-1) -- (1.5,1) .. controls (0.5,1.2) and (-0.5,1) .. (-1,1) -- cycle;
+              \node at (1.2, 1.2) {$Q$};
+              \draw[thick] (-0.3,-0.5) to[out=60, in=240] (0.5,0.7);
+              \fill (0.1,0.1) circle (1.5pt) node[right=2pt] {$g(f(\phi))$};
+            \end{scope}
+
+            \draw[->] (1.7, 0) -- (2.8, 0) node[midway, above] {$f$};
+            \draw[->] (6.2, 0) -- (7.3, 0) node[midway, above] {$g$};
+
+          \end{tikzpicture}
+        \end{center}
+    \end{enumerate}
+    
+    Supongamos que $S \xrightarrow{f} R \xrightarrow{g} Q$ es una composición de funciones diferenciables entre superficies 
+    tal que $g(f(\phi))$ está definida en un entorno de $\phi \in S$. Si $\sigma(t) = \alpha(u(t), v(t))$ es una curva con $\sigma(t_0) = \phi$ 
+    y $v = \sigma'(t_0) \in T_\phi (S)$, entonces $\tau(t) = f(\sigma(t))$ es una curva en $f(\phi)$ con $\tau(t_0) = f(\phi)$, donde 
+    $\omega = \tau'(t_0) \in T_{f(\phi)}(R)$, tal que $\omega = \tau'(t_0) = d\, f_\phi(v)$ por definición. Asimismo, sea 
+    $\gamma(t) = g(\tau(t)) = g(f(\sigma(t)))$ la curva en $g(f(\phi)) \in Q$.
+
+    Tenemos que $\theta = \gamma'(t_0) \in T_{g(f(\phi))}(Q)$ y, por definición, 
+    \begin{equation*}
+      \theta = \gamma'(t_0) = d\, g_{f(\phi)}(\omega) = d\, g_{f(\phi)}\left(d\, f_\phi(v)\right)
+    \end{equation*}
+
+    Pero asimismo, también tenemos por definición que $\theta = d(g \circ f)_\phi (v)$. En resumen:
+    \begin{equation*}
+       d(g \circ f)_\phi (v) = d\, g_{f(\phi)}\left(d\, f_\phi(v)\right)
+    \end{equation*}
+    
+    Por la arbitrariedad de $v \in T_\phi(S)$ se deduce que:
+
+    \begin{empheq}[box=\fbox]{align*}
+      d(g \circ f)_\phi \equiv d\, g_{f(\phi)} \circ d\, f_\phi
+    \end{empheq}
 \end{document}
