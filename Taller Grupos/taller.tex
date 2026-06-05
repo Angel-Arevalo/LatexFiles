@@ -83,4 +83,112 @@
     Finalmente, sabemos que tanto $\mathbb{Z}_2$ y $\mathbb{Z}_n$ son grupos abelianos, pero $D_n$ no 
     es un grupo abeliano, concluyendo así que el producto semidirecto de grupos abelianos no es, necesariamente, 
     abeliano.
+
+  \section{Punto 2)}
+    Sean $p$ y $q$ dos primos con $p < q$ y $p|(q - 1)$. Demuestre que, a menos de isomorfismos, hay solo dos 
+    grupos de orden $pq: \mathbb{Z}_p \times \mathbb{Z}_q$ y $\mathbb{Z}_p \Join \mathbb{Z}_q$.
+
+    Llamemos $G$ el grupo de orden $pq$ que cumple las demás condiciones.
+    Usando el teorema de Sylow, sabemos que existen subgrupos de orden $p$ y de orden $q$. Por este teorema 
+    también sabemos que $n_p$, la cantidad de subgrupos de orden $p$ cumple que 
+
+    \begin{equation*}
+      \begin{aligned}
+        n_p \equiv 1 &\mod p \\
+        n_p &| q
+      \end{aligned}
+    \end{equation*}
+
+    Similarmente para $n_q$:
+
+    \begin{equation*}
+      \begin{aligned}
+        n_q \equiv 1 &\mod q \\
+        n_q &| p
+      \end{aligned}
+    \end{equation*}
+
+    Como $n_q | p$, entonces $n_q = 1 \lor\, n_q = p$. Sabemos que 
+    $n_q = 1, 1 + q, 1 + 2q, ...$ entonces $p$ debería ser alguno de esos valores, si no es $1$
+    se contradice, pues cualquiera de los otros valores haría que $p > q$ pero se está asumiendo 
+    lo contrario; entonces, $n_q = 1$, por lo tanto, solo hay un subgrupo de orden $q$ y por 
+    consecuencias del teorema de Sylow, este grupo es normal en $G$.
+
+    Ahora, para hallar un valor para $n_p$, sabemos que $n_p | q$, luego, $n_p = 1 \,\lor\, n_p = q$, 
+    pero como $n_p = 1, 1 + p, 1 + 2p, ...$ entonces $n_p = 1 \,\lor\, n_p = 1 + kp$, donde 
+    $kp = q - 1$.
+
+    Entonces tenemos asegurada la existencia de un subgrupo $H$ de orden $p$ y de un 
+    subgrupo $K$ de orden $q$, con $K \trianglelefteq G$. Supongamos que $n_p = 1$ y 
+    tomemos el homomorfismo trivial 
+    entre $H$ y Aut$(K)$, entonces el producto semidirecto $H \Join K$ es $H \times K$. 
+    Vamos a demostrar que esto define un isomorfismo con $G$.
+
+    Como $H \cap K = \{e\}$ y ambos son normales (sumimos que $n_p = 1$). Sean 
+    $h \in H$ y $k \in K$. Demostraremos que $hk = kh$ (equivalente a mostrar que $hkh^{-1}k^{-1} = e$).
+
+
+    Como $hkh^{-1} \in K$, por ser $K$ normal, entonces $hkh^{-1}k^{-1} \in K$, similarmente, 
+    $kh^{-1}k^{-1} \in H$ y por lo tanto $hkh^{-1}k^{-1} \in H$, luego, $hkh^{-1}k^{-1} = e$ o 
+    lo que es lo mismo, $hk = kh$. Definimos la siguiente función:
+    \[
+      \begin{aligned}
+        \Psi: H \times K &\to G \\
+        (h, k) &\to hk
+      \end{aligned}
+    \]
+
+    Esto define un homomorfismo, pues $\Psi(h h_1, k k_1) = h h_1 k k_1 = h k h_1 k_1 = \Psi(h, k) \Psi(h_1, k_1)$. 
+    Y como $\Psi(\{e\} \times K) = K$, entonces es un isomorfismo sobreyectivo (basta hallar la imagen de un
+    elemento de $H$ para concluir que se llena todo $G$) e inyectivo, pues tanto la llegada como la salida
+    mide $pq$, entonces, $G \equiv H \times K \equiv \mathbb{Z}_p \times \mathbb{Z}_q$.
+
+
+    Ahora analicemos el caso en el que $n_p = q$. En este caso, $H$ ya no es normal.
+
+
+    Si $H$ actua por conjugación en $K$, entonces sabemos que existe un homomorfismo 
+    $\phi$ entre $H$ y Aut$(K)$, además de que Aut$(K) \equiv$ Aut$(\mathbb{Z}_q) \equiv \mathbb{Z}_{q-1}$
+    . Se puede decir que existe un homomorfismo $\psi$ entre $H$ y $\mathbb{Z}_{q-1}$. 
+
+
+    Este homomorfismo es no trivial, porque si no lo fuera, caeriamos en el caso anterior. 
+
+    Sabemos que ker$(\psi)$ es un subgrupo de $H$, luego hay dos posibilidades, ker$(\psi) = \{e\} \lor H$, 
+    en el segundo caso sería absurdo, pues asumimos que $\psi$ es no trivial, luego, es un homomorfismo 
+    inyectivo e Im$(\psi)$ es un subgrupo de orden $p$ de $\mathbb{Z}_{q-1}$, es decir, 
+    existe un subgrupo de orden $p$ de $\mathbb{Z}_{q-1}$ (llamemoslo $R_p$).
+
+    Por el teorema de Cauchy, sabemos que existe al menos un elemento de orden $p$ y 
+    como $\mathbb{Z}_{q - 1}$ es cíclico, entonces existe un único subgrupo de orden 
+    $p$ de $\mathbb{Z}_{p-1}$, luego, no importa cual sea $H$, siempre se mapea al mismo subconjunto de $\mathbb{Z}_{q-1}$, 
+    luego, el homomorfismo $\psi$ es el mismo salvo equivalencias.
+
+    Ahora vamos a ver que $G \equiv H \Join K$. Tomemos la siguiente función:
+    \[
+      \begin{aligned}
+        \Psi: H \Join K &\to G \\
+        (h, k) &\to kh 
+      \end{aligned}
+    \]
+
+    Como $K$ es normal en $G$, entonces $HK = KH$ es un subgrupo de $G$, es mas, 
+    $G = HK$, luego, todo elemento de $G$ tiene la forma $kh$, por lo tanto, $\Psi$ es sobre.
+
+    Vamos a probar que es un homomorfismo:
+
+    \[
+      \begin{aligned}
+        \Psi((h, k)(h_1, k_1)) &= \Psi((hh_1, k\psi(h)(k_1))) \\
+        &= k \psi(h)(k_1))hh_1 \\
+        &= k h k_1 h^{-1} h h_1 \\
+        &= k h k_1 h_1 \\
+        &= \Psi(h, k) \Psi(h_1, k_1)
+      \end{aligned}
+    \]
+    
+
+    Si $\Psi(h, k) = e$, entonces $h = k^-1$, pero como $H \cap K = \{e\}$, necesariamente $h = e = k$.
+
+    Luego, $G \equiv H \Join K \equiv \mathbb{Z}_p \Join \mathbb{Z}_q$, sin importar cual sea $H$.
 \end{document}
