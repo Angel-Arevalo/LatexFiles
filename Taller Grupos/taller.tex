@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\begin{document}
+
+  \section{Punto 1)}
+    Demuestre que $D_n = \mathbb{Z}_2 \Join \mathbb{Z}_n$ encontrando el isomorfismo 
+    $\phi$ correcto. Deduzca que el producto semidirecto de grupos abelianos no es abeliano.
+
+    Vamos a deducir qué propiedades debería de cumplir $\phi$ para concluir el 
+    isomorfismo entre $D_n$ y el producto semidirecto.
+
+    Si es un homomorfismo, se debe seguir inmediatamente que $\phi(0) = I_{\mathbb{Z}_n}$ y 
+    de la propiedad 2 enunciada, se debe seguir que $h k h^{-1} = \phi(h)(k)$. 
+
+    Como los únicos elementos de $\mathbb{Z}_2$ son $0, 1$ y ya tenemos el valor de 
+    $\phi$ en $0$, entonces la propiedad enunciada arriba se debe seguir para para 
+    $1$, pero como queremos un isomorfismo con $D_n$, entonces podríamos decir que 
+    $1$ sería el equivalente a la reflexión. 
+
+    Así mismo, el $1'$ de $\mathbb{Z}_n$ sería el equivalente a la rotación de $D_n$. En 
+    términos de parejas ordenadas, $s \sim (1, 0)$ y $r \sim (0, 1)$. 
+
+    Como sabemos que $s r^j s = r^{-j}$, entonces se define
+    \begin{equation*}
+      \begin{aligned}
+        \phi(1): \mathbb{Z}_n &\to \mathbb{Z}_n \\
+        k &\to n - k 
+      \end{aligned}
+    \end{equation*}
+    
+    Básicamente, es el isomorfismo que toma un elemento y lo envía a su inverso.
+
+
+    Debemos verificar que $\phi$ sea un homomorfismo, es decir, que $\phi(x + y) = \phi(x) \circ \phi(y)$.
+
+    \begin{enumerate}[label=(\alph*)]
+      \item Si $x \neq y$: Entonces alguno de los dos es el $0$ de $\mathbb{Z}_2$, luego, 
+            $\phi(x + y) = \phi(y)$ o $\phi(x + y) = \phi(x)$, en cualquier caso, se cumple,
+            pues el contrarío sería la función identidad y se concluiría que 
+            $\phi(x + y) = \phi(x) \circ \phi(y)$.
+
+      \item Si $x = y$, entonces $x + y = 0$. Si $x = 0$, es inmediato. Si $x = 1$, entonces 
+            bastaría probar que $\phi(1) \circ \phi(1) = I_{\mathbb{Z}_n}$. 
+            $(\phi(1) \circ \phi(1)) (k) = \phi(1)(\phi(1)(k)) = \phi(1)(n-k) = k$, concluyendo así que 
+            $\phi(x + y) = \phi(x) \circ \phi(y)$.
+    \end{enumerate}
+
+    Con todo esto, vamos a ver ahora si que $D_n \equiv \mathbb{Z}_2 \Join \mathbb{Z}_n$.
+
+    Definimos la siguiente función:
+    \begin{equation*}
+      \begin{aligned}
+        \Psi: D_n &\to \mathbb{Z}_2 \Join \mathbb{Z}_n \\
+        s^i \cdot r^j &\to (i, \phi(i)(j))
+      \end{aligned}
+    \end{equation*}
+
+    Verifiquemos que esta es un isomorfismo. Primero, verifiquemos que $\Psi(s^i r^j) = \Psi(s^i) \Psi(r^j)$.
+
+    \begin{equation*}
+      \begin{aligned}
+        \Psi(s^i r^j) &= (i, \phi(i)(j)) \\
+        \Psi(s^i) \Psi(r^j) &= (i, \phi(i)(0)) \cdot (0, \phi(0)(j)) \\
+        &= (i, 0) \cdot (0, j) \\
+        &= (i + 0, 0 + \phi(i)(j)) \\
+        &= (i, \phi(i)(j))
+      \end{aligned}
+    \end{equation*}
+
+    Y como todo elemento de $D_n$ tiene esta forma, concluimos que es un homomorfismo sobreyectivo (cualquier 
+    pareja ordenada $(i, k)$ tiene pre-imagen $s^i r^{(\phi(i)^{-1}(k)}$, pues $\Psi(s^i r^{(\phi(i)^{-1}(k)}) = 
+    (i, \phi(i)((\phi(i)^{-1}(k)) = (i, k)$.
+
+
+    Ahora, si $\Psi(s^i r^j) = (0, 0)$, entonces $(i, \phi(i)(j)) = (0, 0)$, luego $i = 0$, entonces 
+    $j = \phi(i)(j) = 0$, entonces es un homomorfismo biyectivo, luego es un isomorfismo.
+\end{document}
