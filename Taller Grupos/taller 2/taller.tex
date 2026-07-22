@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{tikz}
 
 \begin{document}
 
@@ -57,4 +58,85 @@
                      \end{aligned}
                    \end{equation*}
       \end{itemize}
+  
+  \pagebreak
+
+  \section{Punto 3}
+
+    Con el procedimiento mostrado en la guía, divida $a = 9 + 8i$ entre $b = 3 + i$.
+
+
+    A continuación se muestra el análisis geométrico:
+
+
+
+    \begin{tikzpicture}[scale=0.5]
+      \draw[gray!30, step=1, very thin] (-4,-4) grid (16,14);
+
+      \draw[->, thick] (-4.5, 0) -- (16.5, 0) node[right] {$\Re$};
+      \draw[->, thick] (0, -4.5) -- (0, 14.5) node[above] {$\Im$};
+
+      \foreach \x in {-4,...,16} {
+        \foreach \y in {-4,...,14} {
+          \fill[gray!40] (\x, \y) circle (1.6pt);
+        }
+      }
+      \begin{scope}
+        \clip (-4,-4) rectangle (16,14);
+
+        \foreach \m in {-3,...,6} {
+          \draw[gray!50, dashed, thin] ({- \m - 30}, {3*\m - 10}) -- ({- \m + 30}, {3*\m + 10});
+        }
+
+        \foreach \k in {-3,...,7} {
+          \draw[gray!50, dashed, thin] ({3*\k + 10}, {\k - 30}) -- ({3*\k - 10}, {\k + 30});
+        }
+      \end{scope}
+
+      \begin{scope}
+        \clip (-4, -4) rectangle (16, 14);
+
+        \foreach \m in {-5,...,8} {
+          \foreach \n in {-5,...,8} {
+            \fill[blue] ({3*\m - \n}, {\m + 3*\n}) circle (2.5pt);
+          }
+        }
+      \end{scope}
+
+      \draw[blue, dashed, thick] (0, 0) circle (3.16);
+      \draw[blue, dashed, thick] (9, 8) circle (3.16);
+
+      \draw[->, thick, blue] (0, 0) -- (3, 1) node[above right] {$b = 3 + i$};
+      \draw[->, thick, dashed, blue] (0, 0) -- (-1, 3) node[above left] {$ib$};
+      \draw[->, thick, dashed, blue] (0, 0) -- (-3, -1) node[above left] {$-b$};
+      \draw[->, thick, dashed, blue] (0, 0) -- (1, -3) node[below right] {$-ib$};
+
+      \fill[red] (9, 8) circle (4pt) node[above, text=red] {$a$};
+
+      \draw[->, thick, blue] (3, 1) -- (2, 4) node[above left] {$b + bi$};
+      \draw[->, thick, blue] (2, 4) -- (5, 5) node[above left] {$2b + bi$};
+      \draw[->, thick, blue] (5, 5) -- (8, 6) node[below right] {$3b + bi$};
+
+      \draw[->, thick, blue] (8, 6) -- (7, 9) node[below left] {$3b + 2bi$};
+      \draw[->, thick, blue] (7, 9) -- (10, 10) node[above right] {$4b + 2bi$};
+      \draw[->, thick, blue] (10, 10) -- (11, 7) node[below right] {$4b + bi$};
+
+      \draw[->, thick, red] (8, 6) -- (9, 8);
+      \draw[-, thick, red] (7, 9) -- (9, 8);
+      \draw[-, thick, red] (10, 10) -- (9, 8);
+      \draw[-, thick, red] (11, 7) -- (9, 8);
+    \end{tikzpicture}
+
+    Vemos entonces lo siguiente:
+
+    \begin{equation*}
+      \begin{aligned}
+        (3 + i)(3 + i) + 1 + 2i &= 9 + 3i + 3i - 1 + 1 + 2i &= 9 + 8i \\
+        (3 + i)(3 + 2i) + 2 - i &= 9 + 6i + 3i - 2 + 2 - i  &= 9 + 8i \\
+        (3 + i)(4 + 2i) -1 - 2i &= 12 + 6i + 4i - 2 - 1 -2i &= 9 + 8i \\
+        (3 + i)(4 + i) -2 + i   &= 12 + 3i + 4i -1 - 2 + i  &= 9 + 8i
+      \end{aligned}
+    \end{equation*}
+
+    La norma de $b$ es 10, la norma de cualquier residuo de lo vistos anteriormente es 5.
 \end{document}
