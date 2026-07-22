@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\begin{document}
+
+  \section{Punto 1}
+    Considere el anillo $\mathbb{Z}[i]$. Asuma que las unidades de $\mathbb{Z}[i]$ son 
+    $\pm 1$ y $\pm i$.
+
+    \subsection{Subpunto a)}
+      Sea $\pi \in \mathbb{Z}[i]$ un elemento primo. Demuestre que $\pi$ y $\overline{\pi}$ 
+      son asociados si y solo si $\pi$ es asociado a un entero primo o $\pi \overline{\pi} = 2$.
+
+
+      Empecemos asumiendo que $\pi$ y $\overline{\pi}$ son asociados, es decir, que si $\pi = a + b i$, entonces 
+      \[a + b i = u \cdot (a - bi)\text{ con } u \in \{\pm 1, \pm i\}\]
+
+      Analicemos cada posible valor de $u$: 
+
+      \begin{itemize}
+
+        \item Cuando $u = 1$: $a + bi = a - bi$, luego $b = 0$, entonces $a$ es primo en $\mathbb{Z}$ 
+          por ser $\pi$ primo en $\mathbb{Z}[i]$ y son asociados ($a = 1\cdot \pi$).
+
+        \item Cuando $u = -1$: $a + bi = -a + bi$, entonces $a = 0$ y por el mismo razonamiento anterior, 
+              $b$ es primo por ser $\pi$ primo y son asociados ($b = -i \pi$).
+
+        \item Cuando $u = i$: $a + bi = i(a - bi) = ia + b$, entonces $b = a$, luego $\pi = a(1 + i)$. 
+              Como $\pi$ es primo y $1 + i$ no es una unidad, entonces $a$ lo es, luego 
+
+              \[
+                a(1 + i) a (1 - i) = a^2 (1 - i + i + 1) = 2
+              \]
+
+        \item Si $u = -i$: $a + bi = -i(a - bi) = -ia - b$, luego $b = -a$, resultando en que 
+              $\pi = a(1 - i)$ y como $\pi$ es primo, entonces $a$ es unidad, resultado en el mismo 
+              razonamiento que en el item anterior.
+      \end{itemize}
+
+      con esto concluimos lo solicitado por la primera implicación.
+
+      Ahora vamos a sumir que $\pi$ es asocidado a un primo o $\pi \overline{pi} = 2$.
+
+      \begin{itemize}
+        \item Si $\pi$ es asociado a un primo entero, entonces $\pi = u p$, luego $\overline{\pi} = \overline{u} p$, 
+              si $u$ no es entero, entonces $\pi = -\overline{\pi}$, si $u = \pm i$ y $\pi = \overline{\pi}$ 
+              si $u = \pm 1$
+
+            \item  Si $\pi \overline{\pi} = 2$, entonces $a^2 + b^2 = 2$, entonces $a, b \in \{\pm 1\}$, se verifican
+                   para los 4 casos:
+
+                   \begin{equation*}
+                     \begin{aligned}
+                       (\pi = 1 + i & \iff & \overline{\pi} = 1 - i) & \Rightarrow &  i\overline{\pi} = \pi \\
+                       (\pi = -1 + i & \iff & \overline{\pi} = -1 - i) & \Rightarrow &  -i\overline{\pi} = \pi \\
+                     \end{aligned}
+                   \end{equation*}
+      \end{itemize}
+\end{document}
