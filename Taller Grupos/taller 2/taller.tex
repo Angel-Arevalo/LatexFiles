@@ -58,7 +58,25 @@
                      \end{aligned}
                    \end{equation*}
       \end{itemize}
-  
+
+    \subsection{Subpunto b)}
+      Sea $p \in \mathbb{Z}$ un primo. Demuestre que $p$ es primo en $\mathbb{Z}[i]$ o 
+      $p = \pi \overline{\pi}$ con $\pi$ primo en $\mathbb{Z}[i]$.
+
+      Si $p$ no se puede reducir, entonces sería primo en $\mathbb{Z}[i]$ por ser este un anillo euclidiano.
+
+
+      Si por el contrario, $p = ab$ sin ser unidad alguno de ellos, entonces 
+      \[
+        N(p) = N(a)N(b) \Rightarrow p^2 = N(a)N(b)
+      \]
+
+      Pero como $N(a), N(b) > 1$ (por no ser unidades), entonces $N(a) = p = N(b)$, luego 
+      $p = N(a)$, pero la norma de $\mathbb{Z}[i]$ es $a \overline{a}$, entonces 
+      \[
+        p = a \overline{a}
+      \]
+
   \pagebreak
 
   \section{Punto 3}
@@ -139,7 +157,7 @@
       La idea, es que siempre existen multiplos de $b$ dentro del circulo de rádio $|b|$, siendo $|\cdot|$ 
       la norma compleja.
 
-      Si $a' = a + bi$, $b' = c + di$, sabemos que en la divición de complejos, existen $x, y$ reales
+      Si $a' = a + bi$, $b' = c + di$, sabemos que en la división de complejos, existen $x, y$ reales
       de tal modo que $\frac{a + bi}{c + di} = x + yi$. Como el cociente debe ser un entero de Gauss,
       escogemos $e, f$ enteros de tal modo que $|x - e| < \frac{1}{2}$ y $|y - f| < \frac{1}{2}$ (los
       enteros más cercanos en la recta real a cada número). 
@@ -155,4 +173,52 @@
 
       Luego, $N(\frac{a'}{b'} - (e + fi)) \leq \frac{1}{2}$, entonces $N(a' - b'(e + fi)) \leq \frac{1}{2}N(b') \leq N(b')$, 
       luego, $a' = b'(e + fi) + r$, donde $r = a' - b'(e + fi)$.
+
+    \subsection{Subpunto c)}
+      Usando un análisis geométrico similar al del taller, muestre que $\mathbb{Z}[\sqrt{-6}]$ no es 
+      un anillo euclidiano.
+
+      Para este ejemplo, tomamos $b = 5 + 2 \sqrt{-6}$ y el punto $a = 15$. Se puede ver 
+      que no hay multiplos de $b$ dentro del circulo al rededor de $a$, por lo tanto no es posible 
+      hacer la división, por no tener un residuo con menor norma.
+
+      \begin{tikzpicture}[scale=0.3, yscale={sqrt(6)}]
+        \draw[gray!30, step=1, very thin] (-13,-4) grid (23,7);
+        \draw[->, thick] (-13, 0) -- (23.5, 0) node[right] {$\Re$};
+        \draw[->, thick] (0, -4) -- (0, 7.5) node[above] {$\Im$};
+
+        \begin{scope}
+          \clip (-13,-4) rectangle (23, 7.3);
+
+          \foreach \n in {-4,...,4} {
+            \draw[gray!50, dashed, thin]
+              ({-12*\n - 5*10}, {5*\n - 2*10}) -- ({-12*\n + 5*10}, {5*\n + 2*10});
+          }
+
+          \foreach \m in {-2,...,8} {
+            \draw[gray!50, dashed, thin] 
+              ({5*\m + 12*10}, {2*\m - 5*10}) -- ({5*\m - 12*10}, {2*\m + 5*10});
+          }
+
+          \foreach \m in {-1,...,5} {
+            \foreach \n in {-2,...,2} {
+              \node[circle, fill=blue, inner sep=1.8pt] at ({5*\m - 12*\n}, {5*\n + 2*\m}) {};
+            }
+          }
+
+          \node[circle, fill=red, inner sep=1.8pt] at (15, 0) {};
+
+          \node[blue, above right, font=\small] at (15, 0) {$a = 15$};
+
+          \draw[red, dashed, thick] (15, 0) circle [x radius=7, y radius=2.857];
+
+          \node[blue, below right] at (17, -3) {$(17,-3)$};
+          \node[blue, above left] at (10, 4) {$(10,4)$};
+          \node[blue, above left] at (22, -1) {$(22, -1)$};
+
+
+          \draw[->, thick, blue] (0, 0) -- (5, 2) node[above right] {$5 + 2\sqrt{-6}$};
+          \draw[->, thick, blue] (0, 0) -- (-12, 5) node[above right] {$\sqrt{-6}b$};
+        \end{scope}
+      \end{tikzpicture}
 \end{document}
