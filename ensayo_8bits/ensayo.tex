@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{url}
+
+\begin{document}
+
+  \section{Punto flotante de 8 bits}
+
+    Para los números de punto flotante de 32 y 64 bits existe una
+    definición exacta dada por el estándar IEEE 754. FP8, en cambio, no
+    forma parte de ese estándar; la propuesta más difundida es un formato
+    de intercambio con dos codificaciones, E4M3 y E5M2, 
+    también recogido en la especificación OFP8
+    del Open Compute Project. En la notación E$x$M$y$,
+    $x$ es el número de bits del exponente e $y$ el de la mantisa, y hay
+    además 1 bit de signo.
+
+    \subsection{Formatos}
+
+      Ambos formatos ocupan 8 bits y difieren en cómo los reparten. E4M3
+      destina más bits a la mantisa y por tanto tiene mayor precisión; E5M2
+      destina más bits al exponente y por tanto tiene mayor rango dinámico.
+      Otra diferencia es el tratamiento de los valores especiales: E5M2
+      sigue las convenciones de IEEE 754 (con $\pm\infty$ y varios NaN),
+      mientras que E4M3 prescinde de los infinitos y reserva un único patrón
+      de mantisa para NaN, lo que le permite ampliar su rango máximo.
+
+      \begin{center}
+        \begin{tabular}{lcc}
+          \toprule
+          & E4M3 & E5M2 \\
+          \midrule
+          Bits (signo/exponente/mantisa) & 1/4/3 & 1/5/2 \\
+          Sesgo del exponente & 7 & 15 \\
+          Infinitos & no & sí \\
+          Menor positivo (subnormal) & $2^{-9}$ & $2^{-16}$ \\
+          Mayor valor finito & 448 & 57344 \\
+          Error relativo máximo de redondeo & $6.25\,\%$ & $12.5\,\%$ \\
+          \bottomrule
+        \end{tabular}
+      \end{center}
+
+    \subsection{Uso de esta representación por los desarrolladores de DeepSeek}
+
+      En el informe técnico de DeepSeek-V3 \cite{deepseek2024v3}, sus
+      desarrolladores describen un esquema de entrenamiento de
+      \emph{precisión mixta} en FP8, que validaron por primera vez en un
+      modelo de escala muy grande. La idea central es que las operaciones
+      que concentran el cómputo se ejecutan en 8 bits, mientras que unas
+      pocas operaciones sensibles conservan formatos más anchos (BF16 o
+      FP32). A continuación se resume qué formato se usa en cada parte del
+      cálculo y qué se obtiene con cada elección.
+
+      \subsubsection{E4M3 en todas las multiplicaciones matriciales}
+
+        En una capa lineal intervienen tres multiplicaciones matriciales
+        (GEMM): la pasada hacia adelante (\texttt{Fprop}), la
+        retropropagación respecto a la activación (\texttt{Dgrad}) y la
+        retropropagación respecto a los pesos (\texttt{Wgrad}). DeepSeek
+        ejecuta las tres en FP8, con entradas en E4M3 y salidas en BF16 o
+        FP32 \cite{deepseek2024v3}. Los beneficios que reportan son:
+
+        \begin{itemize}
+          \item \emph{Velocidad:} en teoría, el cómputo se duplica
+            respecto al que se obtendría con BF16.
+
+          \item \emph{Precisión:} E4M3 tiene 3 bits de mantisa frente a los
+            2 de E5M2, es decir, un error relativo máximo de redondeo de
+            $6.25\,\%$ en lugar de $12.5\,\%$.
+
+        \end{itemize}
+
+      \subsubsection{Por qué no se usa E5M2}
+
+        Los esquemas híbridos de trabajos previos emplean E4M3 en
+        \texttt{Fprop} y E5M2 en \texttt{Dgrad} y \texttt{Wgrad}
+        \cite{deepseek2024v3,micikevicius2022fp8}. La ventaja de E5M2 es
+        su rango dinámico (hasta 57344, frente a 448 de E4M3), útil para
+        valores con una distribución muy dispersa, a costa de una
+        mantisa más corta. DeepSeek toma la decisión contraria, que el
+        informe resume como priorizar la mantisa sobre el exponente: usa
+        E4M3 en todos los tensores para ganar precisión. En el esquema
+        descrito, E5M2 no se emplea en ninguna de las tres GEMM; aparece
+        solo como la alternativa que se descarta.
+
+        Los autores atribuyen la viabilidad de esta elección al escalado
+        de grano fino, que se explica a continuación: al escalar grupos
+        pequeños de elementos, los grupos comparten de hecho un exponente,
+        lo que mitiga el rango limitado de E4M3.
+
+      \subsubsection{Partes que se mantienen en mayor precisión}
+
+        No todo pasa a 8 bits. El informe indica que se conserva BF16 o
+        FP32 en el módulo de embeddings, la cabeza de salida, los módulos
+        de \emph{gating} de la mezcla de expertos (MoE), las operaciones de
+        normalización y los operadores de atención. Además, los pesos
+        maestros y los gradientes de los pesos se guardan en FP32, y los
+        dos momentos del optimizador AdamW en BF16 \cite{deepseek2024v3}.
+        El beneficio buscado es la estabilidad numérica del entrenamiento;
+        el costo en memoria de estos componentes se reduce repartiéndolos
+        entre los procesos de paralelismo de datos.
+
+      \subsubsection{Almacenamiento y comunicación}
+
+        Los formatos de 8 bits también se usan fuera de las GEMM para
+        ahorrar memoria y ancho de banda \cite{deepseek2024v3}:
+
+        \begin{itemize}
+          \item Las activaciones que necesita \texttt{Wgrad} se guardan
+            en FP8, y las entradas de la función SwiGLU en la MoE también,
+            recalculando su salida en la pasada hacia atrás.
+          \item Como excepción, las entradas de la capa lineal posterior a
+            la atención usan un formato propio E5M6 (12 bits), porque
+            también intervienen en la retropropagación de la atención y son
+            sensibles a la precisión.
+          \item En la comunicación de la MoE, la activación previa a las
+            proyecciones de expansión se cuantiza a FP8 antes del
+            \emph{dispatch}, lo que reduce el tráfico entre nodos; la
+            operación de \emph{combine}, en cambio, se mantiene en BF16
+            para preservar la precisión.
+        \end{itemize}
+
+      \subsubsection{Evolución posterior: escalas UE8M0}
+
+        En la versión DeepSeek-V3.1, la ficha del modelo indica que el
+        entrenamiento usó el formato de escala UE8M0 FP8 en pesos y
+        activaciones, por compatibilidad con los formatos de microescalado
+        \cite{deepseek2025v31}. UE8M0 no codifica los datos sino los
+        factores de escala: es un formato sin signo, con 8 bits de
+        exponente y ninguno de mantisa, de modo que solo representa
+        potencias de dos y cada escala ocupa un byte. Esto continúa una
+        línea ya presente en V3, donde algunos factores de escala se
+        restringían a potencias enteras de dos \cite{deepseek2024v3}.
+
+
+      Como resumen, en el esquema descrito E4M3 aparece en todos los
+      cálculos en 8 bits de las GEMM y E5M2 no se utiliza. La mayor
+      precisión de E4M3 se compensa con el escalado por grupos y con la
+      acumulación en FP32, y las partes más sensibles permanecen en
+      formatos más anchos.
+
+  \begin{thebibliography}{9}
+
+    \bibitem{micikevicius2022fp8}
+      P.~Micikevicius, D.~Stosic, N.~Burgess, M.~Cornea, P.~Dubey,
+      R.~Grisenthwaite, S.~Ha, A.~Heinecke, P.~Judd, J.~Kamalu, et~al.
+      \emph{FP8 Formats for Deep Learning}. arXiv:2209.05433, 2022.
+
+    \bibitem{ocp2023fp8}
+      Open Compute Project.
+      \emph{OCP 8-bit Floating Point Specification (OFP8), Revision 1.0}, 2023.
+
+    \bibitem{deepseek2024v3}
+      DeepSeek-AI.
+      \emph{DeepSeek-V3 Technical Report}. arXiv:2412.19437, 2024.
+
+    \bibitem{deepgemm}
+      DeepSeek-AI.
+      \emph{DeepGEMM}. Repositorio de código,
+      \url{https://github.com/deepseek-ai/DeepGEMM}.
+
+    \bibitem{deepseek2025v31}
+      DeepSeek-AI.
+      \emph{DeepSeek-V3.1} (ficha del modelo). Hugging Face, 2025.
+      \url{https://huggingface.co/deepseek-ai/DeepSeek-V3.1}.
+
+  \end{thebibliography}
+
+\end{document}
