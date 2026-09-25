@@ -1,0 +1,173 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\begin{document}
+
+  \begin{frame}
+    \textit{Propiedades de los Números Reales}
+    \newline\newline
+
+    Toda la teoría a desarrollar se basa en las propiedades fundamentales
+    de los números reales:
+    \newline
+    \begin{itemize}[<+->]
+      \item Todo subconjunto no vacío y acotado superiormente tiene supremo.
+      \item Estructura de campo ordenado.
+    \end{itemize}
+  \end{frame}
+
+
+  \begin{frame}
+    \textit{Definición}: Sea $X \neq \emptyset$. Una función 
+    $d: X \times X \to \mathbb{R}^+$ es una \textbf{métrica} en 
+    $X$ si satisface para todo $x, y, z \in X$:
+    \newline
+
+    \begin{itemize}[<+->]
+      \item $d(x, y) = 0 \iff x = y$.
+      \item $d(x, y) = d(y, x)$.
+      \item $d(x, y) \leq d(x, z) + d(z, y)$.
+    \end{itemize}
+
+    \pause
+    \vspace{0.5em}
+    El par $(X, d)$ se denomina \textbf{espacio métrico}.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $E$ un espacio vectorial real. 
+    Una \textbf{norma} sobre $E$ es una función $\|\cdot\|: E \to \mathbb{R}$ 
+    que satisface para todo $v, w \in E$ y $\lambda \in \mathbb{R}$:
+    \newline
+
+    \begin{itemize}[<+->]
+      \item $\|v\| \geq 0$, y $\|v\| = 0 \iff v = 0$.
+      \item $\|\lambda v\| = |\lambda|\|v\|$.
+      \item $\|v + w\| \le \|v\| + \|w\|$.
+    \end{itemize}
+
+    \pause
+    \vspace{0.5em}
+    \textit{Teorema}: Toda norma $\|\cdot\|$ induce una 
+    métrica en $E$ definida por $d(v, w) = \|v - w\|$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico, $x_0 \in X$ y $r > 0$.
+    \newline
+
+    \begin{itemize}[<+->]
+      \item Se define la \textbf{bola abierta} centrada en $x_0$ de radio $r$ como:
+            \[ B(x_0, r) = \{x \in X: d(x, x_0) < r\} \]
+      \item Un conjunto $U \subseteq X$ es \textbf{abierto} si
+            para todo $x \in U$ existe $r > 0$ tal que $B(x, r) \subseteq U$.
+      \item Un conjunto $F \subseteq X$ es \textbf{cerrado} si su 
+            complemento $X \setminus F$ es abierto.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Propiedades de Abiertos y Cerrados)}:
+    \newline
+
+    \begin{itemize}[<+->]
+      \item $\emptyset$ y $X$ son conjuntos abiertos y cerrados.
+      \item La unión arbitraria de conjuntos abiertos es abierta.
+      \item La intersección finita de conjuntos abiertos es abierta.
+      \item La intersección arbitraria de conjuntos cerrados es cerrada.
+      \item La unión finita de conjuntos cerrados es cerrada.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico y $A \subseteq X$.
+    \newline
+    \begin{itemize}[<+->]
+      \item Un punto $a \in A$ es \textbf{interior} a $A$
+            si existe $r > 0$ tal que $B(a, r) \subseteq A$.
+      \item El \textbf{interior} de $A$, denotado por
+            $\operatorname{Int}(A)$, es el conjunto de todos los 
+            puntos interiores de $A$.
+    \end{itemize}
+
+    \pause
+
+    \vspace{0.5em}
+    \textit{Teorema}: Para todo $A \subseteq X$:
+    \[ \operatorname{Int}(A) = \bigcup_{\substack{U \subseteq A \\ U \text{ abierto}}} U \]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico y $A \subseteq X$.
+    \newline
+
+    \begin{itemize}[<+->]
+      \item Un punto $x \in X$ es un \textbf{punto de acumulación} 
+            de $A$ si para todo $\epsilon > 0$:
+            \[ B(x, \epsilon) \cap (A \setminus \{x\}) \neq \emptyset \]
+      \item El conjunto de todos los puntos de acumulación de $A$
+            se denota por $A'$ y se llama \textbf{conjunto derivado}.
+    \end{itemize}
+
+    \pause
+
+    \vspace{0.5em}
+    \textit{Teorema}: Un conjunto $A \subseteq X$ es cerrado si y solo si $A' \subseteq A$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: La \textbf{clausura} (o cierre) de 
+                $A \subseteq X$, denotada por $\overline{A}$, se define como:
+    \[ \overline{A} = A \cup A' \]
+
+    \pause
+
+    \textit{Teorema}: Para todo $A \subseteq X$:
+    \newline
+    \begin{itemize}[<+->]
+      \item $x \in \overline{A} \iff \forall \epsilon > 0,
+            \, B(x, \epsilon) \cap A \neq \emptyset$.
+      \item $\overline{A}$ es un conjunto cerrado.
+      \item $A$ es cerrado $\iff A = \overline{A}$.
+      \item $\overline{A} = 
+             \displaystyle\bigcap_{\substack{F \supseteq A \\ F \text{ cerrado}}} F$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Identidades de Dualidad)}:
+    \newline\newline
+    Dado $(X, d)$ un espacio métrico y $A \subseteq X$,
+    el interior y la clausura se relacionan mediante el complemento:
+    \newline
+
+    \begin{itemize}[<+->]
+      \item $\operatorname{Int}(A) = X \setminus \overline{X \setminus A}$
+      \item $\overline{A} = X \setminus \operatorname{Int}(X \setminus A)$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico y $A \subseteq X$.
+    \newline
+
+    \begin{itemize}[<+->]
+      \item La \textbf{frontera} de $A$, denotada por $\partial A$, se define como:
+            \[ \partial A = \overline{A} \cap \overline{X \setminus A} \]
+      \item Un conjunto $A$ es \textbf{denso} en $X$ si $\overline{A} = X$.
+    \end{itemize}
+
+    \pause
+    \vspace{0.5em}
+    \textit{Teorema}:
+    \newline
+
+    \begin{itemize}[<+->]
+      \item $\overline{A} = \operatorname{Int}(A) \cup \partial A$.
+      \item $A$ es abierto $\iff \partial A \subseteq X \setminus A$.
+      \item $A$ es cerrado $\iff \partial A \subseteq A$.
+    \end{itemize}
+  \end{frame}
+
+\end{document}

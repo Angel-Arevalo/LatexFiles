@@ -1,0 +1,186 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\begin{document}
+
+  \begin{frame}
+    \frametitle{Definiciones basicas}
+    \textit{Definición}: Un contexto formal es
+    una terna $C = (O, P, R)$ donde $O$ es un
+    conjunto de objetos, $P$ es un conjunto
+    de atributos y $R \subseteq O \times P$
+    es una relación binaria.
+
+    \bigskip
+    \pause
+
+    \textit{Definición}: Dado un conjunto
+    $A \subseteq P$, definimos:
+
+    \pause
+    \begin{itemize}[<+->]
+      \item $A^\perp = \{x \in O : \forall a \in A,
+        (x,a) \in R\}$ como la extensión de $A$.
+      \item $A^{\perp\dagger} = (A^\perp)^\dagger$
+        como la clausura intencional de $A$.
+      \item Decimos que $A$ es un \textit{intento}
+        si $A = A^{\perp\dagger}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Implicaciones}
+    \textit{Definición}: Una implicación sobre
+    $P$ es una expresión $A \Rightarrow B$, con
+    $A, B \subseteq P$.
+
+    \bigskip
+    \pause
+
+    \textit{Teorema}: El contexto $C$ satisface
+    $A \Rightarrow B$ (escrito $C \models A \Rightarrow B$)
+    si y sólo si:
+
+    \pause
+    \begin{itemize}[<+->]
+      \item $A^\perp \subseteq B^\perp$.
+      \item $B \subseteq A^{\perp\dagger}$.
+      \item La implicación $A \Rightarrow A^{\perp\dagger}$
+        tiene toda la información de $A$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Pseudo-intentos}
+    \textit{Definición}: Un conjunto $P \subseteq P$
+    se llama \textit{pseudo-intento} si cumple:
+
+    \bigskip
+    \pause
+
+    \begin{itemize}[<+->]
+      \item $P \neq P^{\perp\dagger}$
+        ($P$ no es cerrado).
+      \item Para todo pseudo-intento $Q \subset P$,
+        se cumple que $Q^{\perp\dagger} \subseteq P$.
+    \end{itemize}
+
+    \bigskip
+    \pause
+
+    \textit{Observación}: Son premisas mínimas que
+    generan clausuras sin redundancia.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Base de Guigues-Duquenne}
+    \textit{Definición}: La \textit{Base de GD} de un
+    contexto $C$ es el conjunto:
+
+    \[
+      \mathcal{B} = \{P \Rightarrow P^{\perp\dagger} :
+      P \text{ es pseudo-intento}\}
+    \]
+
+    \bigskip
+    \pause
+
+    \textit{Teorema}: La base $\mathcal{B}$ cumple:
+
+    \pause
+    \begin{itemize}[<+->]
+      \item \textit{Validez}: Toda implicación en
+        $\mathcal{B}$ se cumple en $C$.
+      \item \textit{Completitud}: Toda regla válida
+        en $C$ se deduce de $\mathcal{B}$.
+      \item \textit{Minimalidad}: Es la base con el
+        menor número de reglas posible.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo: contexto}
+    Sea $C = (O, P, R)$ con objetos $O = \{1, 2, 3\}$
+    y atributos $P = \{a, b, c, d\}$:
+
+    \bigskip
+    \pause
+
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Objeto} & \textbf{a} & \textbf{b} &
+        \textbf{c} & \textbf{d} \\ \hline
+        1 & $\times$ & $\times$ & & \\ \hline
+        2 & & $\times$ & $\times$ & \\ \hline
+        3 & $\times$ & $\times$ & $\times$ & $\times$ \\ \hline
+      \end{tabular}
+    \end{center}
+
+    \pause
+    \begin{itemize}[<+->]
+      \item Objeto 1: $\{a, b\}$.
+      \item Objeto 2: $\{b, c\}$.
+      \item Objeto 3: $\{a, b, c, d\}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo: calculos}
+    Calculamos clausuras para hallar pseudo-intentos:
+
+    \bigskip
+    \pause
+
+    \begin{itemize}[<+->]
+      \item \textbf{Vacio $\emptyset$}: \\
+        $\emptyset^{\perp\dagger} = \{a,b\} \cap \{b,c\}
+        \cap \{a,b,c,d\} = \{b\}$. \\
+        Como $\emptyset \neq \{b\}$, es pseudo-intento. \\
+        $$\text{Regla 1: } \emptyset \Rightarrow \{b\}$$
+
+      \item \textbf{Conjunto $\{b, d\}$}: \\
+        Contiene a $\emptyset^{\perp\dagger} = \{b\}$. \\
+        $\text{Clausura} = \{a, b, c, d\}$. \\
+        Como $\{b,d\} \neq \{a,b,c,d\}$, es pseudo-intento. \\
+        $$\text{Regla 2: } \{b, d\} \Rightarrow \{a, c, d\}$$
+
+      \item \textbf{Conjunto $\{a, b, c\}$}: \\
+        Contiene a $\{b\}$. \\
+        $\text{Clausura} = \{a, b, c, d\}$. \\
+        Es pseudo-intento. \\
+        $$\text{Regla 3: } \{a, b, c\} \Rightarrow \{d\}$$
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo: resultado}
+    La base obtenida es:
+
+    \[
+      \mathcal{B} = \{
+        \emptyset \Rightarrow \{b\}, \,
+        \{b, d\} \Rightarrow \{a, c, d\}, \,
+        \{a, b, c\} \Rightarrow \{d\}
+      \}
+    \]
+
+    \bigskip
+    \pause
+
+    \textit{Significado}:
+
+    \pause
+    \begin{itemize}[<+->]
+      \item $\emptyset \Rightarrow \{b\}$: Todos los objetos
+        tienen el atributo $b$.
+      \item $\{b, d\} \Rightarrow \{a, c, d\}$: Tener $b$ y $d$
+        implica tener todos los demas.
+      \item $\{a, b, c\} \Rightarrow \{d\}$: Tener $a,b,c$
+        implica tener $d$.
+      \item Resume todas las reglas sin repetirlas.
+    \end{itemize}
+  \end{frame}
+
+\end{document}
