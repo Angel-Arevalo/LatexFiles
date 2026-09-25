@@ -15,18 +15,99 @@
     \bigskip
     \pause
 
-    \textit{Definición}: Dado un conjunto
-    $A \subseteq P$, definimos:
+    \textit{Definición}: Para $A \subseteq P$ y $X\subseteq O$,
+    definimos dos operadores (conexión de Galois):
 
     \pause
     \begin{itemize}[<+->]
-      \item $A^\perp = \{x \in O : \forall a \in A,
-        (x,a) \in R\}$ como la extensión de $A$.
-      \item $A^{\perp\dagger} = (A^\perp)^\dagger$
-        como la clausura intencional de $A$.
+      \item $A^\downarrow = \{x \in O : \forall a \in A,
+        (x,a) \in R\}$, la \textbf{extensión} de $A$.
+      \item $X^\uparrow = \{a \in P : \forall x \in X,
+        (x,a) \in R\}$, la \textbf{intensión} de $X$.
+      \item $A^{\downarrow\uparrow} = (A^\downarrow)^\uparrow$
+        es la \textbf{clausura intencional} de $A$.
       \item Decimos que $A$ es un \textit{intento}
-        si $A = A^{\perp\dagger}$.
+        si $A = A^{\downarrow\uparrow}$.
     \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo: vehiculos}
+    Consideremos un contexto de vehículos con
+    objetos $O = \{1, 2, 3, 4\}$ y atributos
+    $P = \{\text{Motor}, \text{Ruedas}, \text{Vuela}\}$:
+
+    \bigskip
+    \pause
+
+    \begin{center}
+      \small
+      \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Objeto} & \textbf{Motor} &
+        \textbf{Ruedas} & \textbf{Vuela} \\ \hline
+        1 (Auto) & $\times$ & $\times$ & \\ \hline
+        2 (Moto) & $\times$ & $\times$ & \\ \hline
+        3 (Avion) & $\times$ & $\times$ & $\times$ \\ \hline
+        4 (Bici) & & $\times$ & \\ \hline
+      \end{tabular}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo: extension}
+    Sea el conjunto $A = \{\text{Motor}\}$.
+
+    \bigskip
+    \pause
+
+    Para hallar la extensión $A^\downarrow$:
+    \pause
+    \begin{itemize}[<+->]
+      \item Buscamos los objetos (filas) que
+        tienen $\times$ en Motor.
+      \item Objeto 1 (Auto): Sí.
+      \item Objeto 2 (Moto): Sí.
+      \item Objeto 3 (Avion): Sí.
+      \item Objeto 4 (Bici): No.
+    \end{itemize}
+
+    \bigskip
+    \pause
+
+    La extensión (conjunto de índices) es:
+    \[
+      A^\downarrow = \{1, 2, 3\}
+    \]
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ejemplo: clausura}
+    Para hallar la clausura intencional $A^{\downarrow\uparrow}$:
+
+    \bigskip
+    \pause
+
+    \begin{itemize}[<+->]
+      \item Revisamos los atributos que comparten
+        los objetos de $A^\downarrow = \{1, 2, 3\}$.
+      \item Objeto 1 tiene: Motor, Ruedas.
+      \item Objeto 2 tiene: Motor, Ruedas.
+      \item Objeto 3 tiene: Motor, Ruedas, Vuela.
+      \item Atributos comunes: Motor, Ruedas.
+    \end{itemize}
+
+    \bigskip
+    \pause
+
+    Resultado:
+    \[
+      A^{\downarrow\uparrow} = \{\text{Motor}, \text{Ruedas}\}
+    \]
+
+    \pause
+    Como $\{\text{Motor}\} \neq \{\text{Motor}, \text{Ruedas}\}$,
+    $\{\text{Motor}\}$ no es un intento.
   \end{frame}
 
   \begin{frame}
@@ -44,44 +125,115 @@
 
     \pause
     \begin{itemize}[<+->]
-      \item $A^\perp \subseteq B^\perp$.
-      \item $B \subseteq A^{\perp\dagger}$.
-      \item La implicación $A \Rightarrow A^{\perp\dagger}$
-        tiene toda la información de $A$.
+      \item $A^\downarrow \subseteq B^\downarrow$,
+      \item o, equivalentemente, $B \subseteq A^{\downarrow\uparrow}$.
     \end{itemize}
+
+    \bigskip
+    \pause
+
+    \textit{Observación} (no es una tercera condición del
+    teorema, sino una motivación aparte): entre todas las
+    implicaciones con antecedente $A$, la más informativa es
+    $A \Rightarrow A^{\downarrow\uparrow}$, ya que su conclusión
+    es la mayor posible.
   \end{frame}
 
   \begin{frame}
     \frametitle{Pseudo-intentos}
-    \textit{Definición}: Un conjunto $P \subseteq P$
+    \textit{Definición}: Un conjunto $Q \subseteq P$
     se llama \textit{pseudo-intento} si cumple:
 
     \bigskip
     \pause
 
     \begin{itemize}[<+->]
-      \item $P \neq P^{\perp\dagger}$
-        ($P$ no es cerrado).
-      \item Para todo pseudo-intento $Q \subset P$,
-        se cumple que $Q^{\perp\dagger} \subseteq P$.
+      \item $Q \neq Q^{\downarrow\uparrow}$
+        ($Q$ no es cerrado).
+      \item Para todo pseudo-intento $R \subset Q$,
+        se cumple que $R^{\downarrow\uparrow} \subseteq Q$.
     \end{itemize}
 
     \bigskip
     \pause
 
-    \textit{Observación}: Son premisas mínimas que
-    generan clausuras sin redundancia.
+    \textit{Observación}: Son antecedentes mínimos que,
+    junto con sus clausuras, generan todas las
+    implicaciones del contexto sin redundancia.
   \end{frame}
 
   \begin{frame}
-    \frametitle{Base de Guigues-Duquenne}
-    \textit{Definición}: La \textit{Base de GD} de un
-    contexto $C$ es el conjunto:
+    \frametitle{Nodos de no-redundancia (Guigues-Duquenne, 1986)}
+    Esta es la construcción \emph{original} de Guigues y Duquenne,
+    anterior a la de Ganter y a la de Ganter-Wille.
+
+    \bigskip
+    \pause
+
+    \textit{Idea}: dado $B \subseteq P$, su \textbf{saturación}
+    $\widetilde{B}$ se obtiene añadiendo, de forma iterativa,
+    las clausuras $R^{\downarrow\uparrow}$ de aquellos subconjuntos
+    propios $R \subset B$ que ya producen una implicación
+    (es decir, $R$ es a su vez saturado y no cerrado), hasta que
+    el conjunto deja de crecer.
+
+    \bigskip
+    \pause
+
+    \textit{Definición}: $B \subseteq P$ es un
+    \textbf{nodo de no-redundancia (NRN)} si:
+    \begin{itemize}[<+->]
+      \item $B = \widetilde{B}$ (ya está saturado), y
+      \item $B \neq B^{\downarrow\uparrow}$ (no es un intento).
+    \end{itemize}
+
+    \pause
+    Un NRN es \textbf{mínimo} (el conjunto de todos ellos se
+    denota $\mathcal{N}_0$) si ningún subconjunto propio suyo con
+    la misma clausura es también saturado.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Base de Guigues-Duquenne (definición original)}
+    \textit{Definición}: La base de Guigues-Duquenne de un
+    contexto $C$ es:
 
     \[
-      \mathcal{B} = \{P \Rightarrow P^{\perp\dagger} :
-      P \text{ es pseudo-intento}\}
+      \mathcal{B}_{GD} = \{B \Rightarrow B^{\downarrow\uparrow}\setminus B :
+      B \in \mathcal{N}_0\}
     \]
+
+    \bigskip
+    \pause
+
+    \textit{Teorema} (Guigues-Duquenne, 1986): $\mathcal{B}_{GD}$
+    es sólida, completa y no-redundante.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Base via pseudo-intentos (Ganter / Ganter-Wille)}
+    \textit{Definición}: La misma idea, formulada de forma
+    equivalente a partir de pseudo-intentos:
+
+    \[
+      \mathcal{B} = \{Q \Rightarrow Q^{\downarrow\uparrow}\setminus Q :
+      Q \text{ es pseudo-intento}\}
+    \]
+
+    \bigskip
+    \pause
+
+    \textit{Resultado clave} (Dubois, Medina y Prade, 2024):
+    \[
+      \mathcal{N}_0 = \{\text{pseudo-intentos de } C\},
+      \quad\text{luego}\quad
+      \mathcal{B}_{GD} = \mathcal{B}.
+    \]
+    Es decir: la definición original de Guigues-Duquenne (vía
+    nodos de no-redundancia mínimos) y la de Ganter-Wille (vía
+    pseudo-intentos, la más usada en la literatura) producen
+    \emph{exactamente la misma base}, aunque esto no era obvio
+    a partir de sus definiciones.
 
     \bigskip
     \pause
@@ -94,8 +246,9 @@
         $\mathcal{B}$ se cumple en $C$.
       \item \textit{Completitud}: Toda regla válida
         en $C$ se deduce de $\mathcal{B}$.
-      \item \textit{Minimalidad}: Es la base con el
-        menor número de reglas posible.
+      \item \textit{No-redundancia}: Ninguna implicación
+        de $\mathcal{B}$ puede eliminarse sin perder la
+        completitud.
     \end{itemize}
   \end{frame}
 
@@ -135,16 +288,16 @@
 
     \begin{itemize}[<+->]
       \item \textbf{Vacio $\emptyset$}: \\
-        $\emptyset^{\perp\dagger} = \{a,b\} \cap \{b,c\}
+        $\emptyset^{\downarrow\uparrow} = \{a,b\} \cap \{b,c\}
         \cap \{a,b,c,d\} = \{b\}$. \\
         Como $\emptyset \neq \{b\}$, es pseudo-intento. \\
         $$\text{Regla 1: } \emptyset \Rightarrow \{b\}$$
 
       \item \textbf{Conjunto $\{b, d\}$}: \\
-        Contiene a $\emptyset^{\perp\dagger} = \{b\}$. \\
+        Contiene a $\emptyset^{\downarrow\uparrow} = \{b\}$. \\
         $\text{Clausura} = \{a, b, c, d\}$. \\
         Como $\{b,d\} \neq \{a,b,c,d\}$, es pseudo-intento. \\
-        $$\text{Regla 2: } \{b, d\} \Rightarrow \{a, c, d\}$$
+        $$\text{Regla 2: } \{b, d\} \Rightarrow \{a, c\}$$
 
       \item \textbf{Conjunto $\{a, b, c\}$}: \\
         Contiene a $\{b\}$. \\
@@ -161,7 +314,7 @@
     \[
       \mathcal{B} = \{
         \emptyset \Rightarrow \{b\}, \,
-        \{b, d\} \Rightarrow \{a, c, d\}, \,
+        \{b, d\} \Rightarrow \{a, c\}, \,
         \{a, b, c\} \Rightarrow \{d\}
       \}
     \]
@@ -175,8 +328,8 @@
     \begin{itemize}[<+->]
       \item $\emptyset \Rightarrow \{b\}$: Todos los objetos
         tienen el atributo $b$.
-      \item $\{b, d\} \Rightarrow \{a, c, d\}$: Tener $b$ y $d$
-        implica tener todos los demas.
+      \item $\{b, d\} \Rightarrow \{a, c\}$: Tener $b$ y $d$
+        implica tener también $a$ y $c$ (es decir, tenerlo todo).
       \item $\{a, b, c\} \Rightarrow \{d\}$: Tener $a,b,c$
         implica tener $d$.
       \item Resume todas las reglas sin repetirlas.
