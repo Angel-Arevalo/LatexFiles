@@ -1,0 +1,146 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\begin{document}
+
+  \begin{frame}
+    \textit{Capítulo 3: Compacidad y Conexidad}
+    \newline\newline
+
+    En este capítulo se estudian las propiedades topológicas e intrínsecas de los espacios métricos:
+    \newline
+    \begin{itemize}[<+->]
+      \item \textbf{Compacidad}: Generalización de los intervalos cerrados y acotados.
+      \item \textbf{Conexidad}: Caracterización de conjuntos que no pueden dividirse en partes separadas.
+      \item \textbf{El conjunto de Cantor}: Ejemplo fundamental de conjunto compacto, perfecto, no numerable y con interior vacío.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición (Propiedad $T_2$ de Hausdorff)}: Sea $(X, d)$ un espacio métrico. Dados $x, y \in X$ con $x \neq y$, existen abiertos $U, V \subseteq X$ disjuntos ($U \cap V = \emptyset$) tales que $x \in U$ e $y \in V$.
+    \newline\newline
+
+    \pause
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico. Un subconjunto $E \subseteq X$ es \textbf{acotado} si existe $M > 0$ tal que $d(x, y) \leq M$ para todo $x, y \in E$.
+    \newline\newline
+
+    \pause
+    \textit{Observación}: Equivalentemente, $E$ es acotado si existe una bola abierta tal que $E \subseteq B(x_0, r)$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico y $A \subseteq X$.
+    \newline
+
+    \begin{itemize}[<+->]
+      \item Una familia $\mathfrak{U} = \{U_\alpha\}_{\alpha \in J}$ es un \textbf{cubrimiento por abiertos} para $A$ si cada $U_\alpha$ es abierto en $X$ y $A \subseteq \bigcup_{\alpha \in J} U_\alpha$.
+      \item Un conjunto $K \subseteq X$ es \textbf{compacto} si para todo cubrimiento por abiertos $\mathfrak{U} = \{U_\alpha\}_{\alpha \in J}$ de $K$, existen finitos índices $\alpha_1, \dots, \alpha_n \in J$ tales que:
+            \[ K \subseteq \bigcup_{j=1}^n U_{\alpha_j} \]
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición (Propiedades de Conjuntos Compactos)}:
+    \newline
+
+    \begin{itemize}[<+->]
+      \item Todo conjunto compacto $K \subseteq X$ es cerrado y acotado.
+      \item Si $K \subseteq X$ es compacto y $F \subseteq K$ es cerrado en $X$, entonces $F$ es compacto.
+      \item Si $K \subseteq X$ es compacto y $F \subseteq X$ es cerrado, entonces $K \cap F$ es compacto en $X$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición (Propiedad de Intersección Finita)}: Un espacio métrico $(X, d)$ es compacto si y solo si para toda familia de conjuntos cerrados $\{F_\alpha\}_{\alpha \in J}$ con la propiedad de intersección finita se cumple que:
+    \[ \bigcap_{\alpha \in J} F_\alpha \neq \emptyset \]
+
+    \pause
+    \vspace{0.5em}
+    \textit{Teorema (Cantor)}: Sea $\{K_n\}_{n \in \mathbb{N}}$ una familia de subconjuntos compactos no vacíos de $X$ tales que $K_0 \supseteq K_1 \supseteq K_2 \supseteq \cdots$. Entonces:
+    \[ \bigcap_{n=0}^\infty K_n \neq \emptyset \]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Sea $(X, d)$ un espacio métrico y $K \subseteq X$ compacto.
+    \newline\newline
+
+    Si $E \subseteq K$ es un conjunto infinito, entonces $E$ tiene al menos un punto de acumulación en $K$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Borel-Lebesgue)}: Todo intervalo cerrado y acotado $[a, b]$ en $(\mathbb{R}, |\cdot|)$ es compacto.
+    \newline\newline
+
+    \pause
+    \textit{Teorema}: Toda $d$-celda $[a_1, b_1] \times \cdots \times [a_d, b_d]$ en $(\mathbb{R}^d, \|\cdot\|_2)$ es compacta.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Heine-Borel)}: Para un subconjunto $K \subseteq \mathbb{R}^d$ del espacio euclídeo, las siguientes afirmaciones son equivalentes:
+    \newline
+
+    \begin{itemize}[<+->]
+      \item $K$ es compacto.
+      \item $K$ es cerrado y acotado.
+      \item Cada subconjunto infinito de $K$ tiene un punto de acumulación en $K$.
+    \end{itemize}
+
+    \pause
+    \vspace{0.5em}
+    \textit{Corolario (Weierstrass)}: Todo subconjunto infinito y acotado $E \subseteq \mathbb{R}^d$ tiene un punto de acumulación en $\mathbb{R}^d$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico.
+    \newline
+
+    \begin{itemize}[<+->]
+      \item Dos subconjuntos no vacíos $A, B \subseteq X$ están \textbf{separados} si $A \cap \overline{B} = \overline{A} \cap B = \emptyset$.
+      \item La pareja $(A, B)$ es una \textbf{separación} de $C \subseteq X$ si $C = A \cup B$ y $A, B$ están separados.
+      \item Un conjunto $C \subseteq X$ es \textbf{conexo} si no admite separaciones. En caso contrario, se dice \textbf{disconexo}.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Un espacio métrico $(X, d)$ es conexo si y solo si sus únicos subconjuntos abiertos y cerrados a la vez son $\emptyset$ y $X$.
+    \newline\newline
+
+    \pause
+    \textit{Teorema}: Un conjunto $E \subseteq \mathbb{R}$ es conexo si y solo si es un intervalo.
+    \newline\newline
+
+    \pause
+    \textit{Corolario}: Los únicos subconjuntos de $\mathbb{R}$ que son abiertos y cerrados a la vez son $\mathbb{R}$ y $\emptyset$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico y $A \subseteq X$.
+    \newline
+
+    \begin{itemize}[<+->]
+      \item Un punto $x \in A$ es un \textbf{punto aislado} de $A$ si $x \notin A'$, es decir, existe $\epsilon > 0$ tal que $B(x, \epsilon) \cap A = \{x\}$.
+      \item Un conjunto $A$ se dice \textbf{discreto} si todos sus puntos son aislados.
+      \item Un subconjunto $P \subseteq X$ es \textbf{perfecto} si es cerrado y cada uno de sus puntos es un punto de acumulación de $P$ ($P = P'$).
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición (Conjunto Ternario de Cantor)}:
+    \newline
+    Sea $I_0 = [0, 1]$. Removiendo sucesivamente los medios tercios abiertos $J_l$, el conjunto de Cantor $C$ se define como:
+    \[ C = \bigcap_{n=0}^\infty I_n = [0, 1] \setminus \bigcup_{l=2}^\infty J_l \]
+
+    \pause
+    \vspace{0.5em}
+    \textit{Teorema}: El conjunto $C$ es un conjunto de Cantor, esto es:
+    \newline
+    \begin{itemize}[<+->]
+      \item Es compacto en $\mathbb{R}$.
+      \item Tiene interior vacío ($\operatorname{Int}(C) = \emptyset$).
+      \item Es perfecto (no tiene puntos aislados).
+      \item Es no numerable.
+    \end{itemize}
+  \end{frame}
+
+\end{document}
