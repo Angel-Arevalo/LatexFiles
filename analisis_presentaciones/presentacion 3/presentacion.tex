@@ -1,0 +1,258 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+
+\begin{document}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico. Decimos que la sucesión
+    $\{x_n\}_{n \in \mathbb{N}}$ converge a $x \in X$ si para cada $\epsilon > 0$
+    existe $N = N(\epsilon) \in \mathbb{N}$ tal que $d(x_n, x) < \epsilon$ para todo
+    $n \geq N$, y lo simbolizamos por $\lim_{n \to +\infty} x_n = x$ o $x_n \to x$.
+    \newline\newline
+    \pause
+
+    \textit{Observación}: $\lim_{n \to +\infty} x_n = x$ en $(X, d)$ si y sólo si
+    $\lim_{n \to +\infty} d(x_n, x) = 0$ en $(\mathbb{R}, |\cdot|)$.
+    \newline\newline
+    \pause
+
+    \textit{Teorema}: Sea $x = \{x_n\}_{n \in \mathbb{N}}$ una sucesión en $(X, d)$.
+    \begin{itemize}[<+->]
+      \item Si $x$ converge, entonces su límite es único.
+      \item Si $x$ converge, entonces es acotada.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Caracterización de puntos de acumulación)}: Sea $(X, d)$ un
+    espacio métrico, $A \subseteq X$ y $a \in X$. Son equivalentes:
+    \pause
+    \begin{itemize}[<+->]
+      \item $a \in A'$.
+      \item Cada vecindad de $a$ contiene infinitos puntos de $A$.
+      \item $a$ es el límite de una sucesión en $A \setminus \{a\}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Sea $\{x_n = (a_{1,n}, \dots, a_{d,n})\}_{n \in \mathbb{N}}$
+    una sucesión en $(\mathbb{R}^d, \|\cdot\|_2)$. Entonces
+    $x_n \to x = (a_1, \dots, a_d)$ si y sólo si $a_{j,n} \to a_j$ para todo
+    $j = 1, \dots, d$.
+    \newline\newline
+    \pause
+
+    \textit{Proposición}: Sean $\{a_n\}_{n \in \mathbb{N}}, \{b_n\}_{n \in \mathbb{N}}$
+    sucesiones en $\mathbb{R}$ con $a_n \to a$ y $b_n \to b$, entonces
+    \pause
+    \begin{itemize}[<+->]
+      \item $|a_n| \to |a|$.
+      \item $a_n \pm b_n \to a \pm b$.
+      \item $a_n b_n \to ab$.
+      \item $a_n / b_n \to a / b$, si $b_n \neq 0$ para todo $n$ y $b \neq 0$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Sean $\{a_n\}_{n \in \mathbb{N}}, \{b_n\}_{n \in \mathbb{N}},
+    \{x_n\}_{n \in \mathbb{N}}$ sucesiones en $\mathbb{R}$.
+    \pause
+    \begin{itemize}[<+->]
+      \item Si $0 \leq a_n \leq b_n$ para todo $n \geq N_0$ y $b_n \to 0$, entonces
+      $a_n \to 0$.
+      \item (Límites encajados) Si $a_n \leq x_n \leq b_n$ para todo $n \geq N_0$ y
+      $a_n \to a$, $b_n \to a$, entonces $x_n \to a$.
+      \item (Límites y desigualdades) Si $a_n \leq b_n$ para todo $n \geq N_0$,
+      $a_n \to a$ y $b_n \to b$, entonces $a \leq b$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Sea $p > 0$ y $a \in \mathbb{R}$, entonces
+    \pause
+    \begin{itemize}[<+->]
+      \item $\lim_{n \to +\infty} p^{1/n} = 1$.
+      \item $\lim_{n \to +\infty} n^{1/n} = 1$.
+      \item $\lim_{n \to +\infty} \frac{n^a}{(1 + p)^n} = 0$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Decimos que una sucesión $\{a_n\}_{n \in \mathbb{N}}$ en
+    $\mathbb{R}$ es
+    \begin{itemize}[<+->]
+      \item monótona creciente (estrictamente creciente) si $a_n \leq a_{n+1}$
+      ($a_n < a_{n+1}$) para todo $n$.
+      \item monótona decreciente (estrictamente decreciente) si
+      $a_{n+1} \leq a_n$ ($a_{n+1} < a_n$) para todo $n$.
+    \end{itemize}
+    \pause
+
+    \textit{Teorema}: Sea $\{a_n\}_{n \in \mathbb{N}}$ monótona creciente. Entonces
+    la sucesión converge si y sólo si es acotada superiormente, y en este caso
+    $\lim_{n \to +\infty} a_n = \sup \{a_m : m \in \mathbb{N}\}$.
+    Si es monótona decreciente, converge si y sólo si es acotada inferiormente y
+    el límite es el ínfimo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Decimos que $\{a_n\}_{n \in \mathbb{N}}$ en $\mathbb{R}$
+    tiende a $+\infty$ si para cada $M > 0$ existe $N \in \mathbb{N}$ tal que
+    $a_n > M$ para todo $n \geq N$, y tiende a $-\infty$ si para cada $M > 0$
+    existe $N \in \mathbb{N}$ tal que $a_n < -M$ para todo $n \geq N$.
+    \newline\newline
+    \pause
+
+    \textit{Observación}:
+    \begin{itemize}[<+->]
+      \item $a_n \to +\infty$ si y sólo si $-a_n \to -\infty$.
+      \item Si $a_n > 0$ salvo finitos índices, $a_n \to +\infty$ si y sólo si
+      $1/a_n \to 0$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Stolz-Cesàro)}: Sean $\{a_n\}_{n \in \mathbb{N}},
+    \{b_n\}_{n \in \mathbb{N}}$ sucesiones en $\mathbb{R}$ con
+    $\{b_n\}_{n \in \mathbb{N}}$ estrictamente creciente y $b_n \to +\infty$.
+    Entonces
+    \[
+      \lim_{n \to +\infty} \frac{a_{n+1} - a_n}{b_{n+1} - b_n} = L
+      \rightarrow \lim_{n \to +\infty} \frac{a_n}{b_n} = L.
+    \]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico. Una sucesión
+    $\{x_n\}_{n \in \mathbb{N}}$ en $X$ es de Cauchy si para cada $\epsilon > 0$
+    existe $N \in \mathbb{N}$ tal que $d(x_n, x_m) < \epsilon$ para todo
+    $n, m \geq N$. Decimos que $(X, d)$ es completo si toda sucesión de Cauchy en
+    $X$ converge a algún punto de $X$.
+    \newline\newline
+    \pause
+
+    \textit{Proposición}: Si $\{x_n\}_{n \in \mathbb{N}}$ es convergente, entonces
+    es de Cauchy.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $(X, d)$ un espacio métrico y $E \subseteq X$, el
+    diámetro de $E$ es $\operatorname{diam} E = \sup_{x, y \in E} d(x, y)$.
+    \newline\newline
+    \pause
+
+    \textit{Observación}: $E$ es acotado si y sólo si $\operatorname{diam} E$ es
+    finito, y si $A \subseteq B$ entonces
+    $\operatorname{diam} A \leq \operatorname{diam} B$.
+    \newline\newline
+    \pause
+
+    \textit{Lema}: $\{x_n\}_{n \in \mathbb{N}}$ es de Cauchy si y sólo si
+    $\operatorname{diam} E_n \to 0$, donde $E_n = \{x_k : k \geq n\}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $(X, d)$ un espacio métrico.
+    \pause
+    \begin{itemize}[<+->]
+      \item Si $E \subseteq X$, entonces
+      $\operatorname{diam} \overline{E} = \operatorname{diam} E$.
+      \item Si $\{K_n\}_{n \in \mathbb{N}}$ son compactos no vacíos con
+      $K_0 \supseteq K_1 \supseteq \cdots$ y $\operatorname{diam} K_n \to 0$,
+      entonces $\bigcap_{n=0}^{\infty} K_n$ consiste en un único punto.
+      \item Si en $\mathbb{R}$ tenemos $I_0 \supseteq I_1 \supseteq \cdots$ con
+      $I_n = [a_n, b_n]$ y $b_n - a_n \to 0$, entonces
+      $\bigcap_{n=0}^{\infty} I_n$ es un único punto.
+    \end{itemize}
+    \pause
+
+    \textit{Teorema}:
+    \begin{itemize}[<+->]
+      \item Todo espacio métrico compacto es completo.
+      \item $(\mathbb{R}^d, \|\cdot\|_2)$ es completo.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $x: \mathbb{N} \to X$ una sucesión. Una subsucesión
+    de $x$ es $x \circ \sigma = \{x_{\sigma(n)}\}_{n \in \mathbb{N}}$, donde
+    $\sigma: \mathbb{N} \to \mathbb{N}$ es estrictamente creciente, y la
+    denotamos por $\{x_{n_k}\}_{k \in \mathbb{N}}$ con $n_0 < n_1 < \cdots$.
+    \newline\newline
+    \pause
+
+    \textit{Proposición}: Si $x = \{x_n\}_{n \in \mathbb{N}}$ converge, entonces
+    toda subsucesión de $x$ converge al mismo valor.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}:
+    \begin{itemize}[<+->]
+      \item Si $(X, d)$ es compacto, toda sucesión en $X$ tiene una subsucesión
+      convergente.
+      \item (Bolzano-Weierstrass) En $(\mathbb{R}^d, \|\cdot\|_2)$ toda sucesión
+      acotada tiene una subsucesión convergente.
+    \end{itemize}
+    \pause
+
+    \textit{Definición}: Dada $x = \{x_n\}_{n \in \mathbb{N}}$ en $(X, d)$, sea
+    \[
+      E_x = \{y \in X : \text{existe } \{x_{n_k}\}_{k \in \mathbb{N}}
+      \text{ tal que } x_{n_k} \to y\}.
+    \]
+    \pause
+
+    \textit{Observación}: $E_x$ es cerrado en $X$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $x = \{x_n\}_{n \in \mathbb{N}}$ en $\mathbb{R}$ y
+    $\tilde{E}_x$ el conjunto de límites de subsucesiones de $x$ en
+    $\overline{\mathbb{R}} = \mathbb{R} \cup \{\pm\infty\}$. Definimos
+    \[
+      \limsup_{n \to +\infty} x_n = \sup \tilde{E}_x, \quad
+      \liminf_{n \to +\infty} x_n = \inf \tilde{E}_x.
+    \]
+    \pause
+
+    \textit{Observación}:
+    $\liminf_{n \to +\infty} x_n = -\limsup_{n \to +\infty} (-x_n)$.
+    \newline\newline
+    \pause
+
+    \textit{Proposición}: $x_n \to x$ si y sólo si
+    $\limsup_{n \to +\infty} x_n = \liminf_{n \to +\infty} x_n = x$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $x = \{x_n\}_{n \in \mathbb{N}}$ en $\mathbb{R}$. Entonces
+    $x^* = \limsup_{n \to +\infty} x_n$ es el único elemento de
+    $\overline{\mathbb{R}}$ tal que
+    \pause
+    \begin{itemize}[<+->]
+      \item $x^* \in \tilde{E}_x$.
+      \item Si $x^* < y$, existe $N \in \mathbb{N}$ tal que $x_n < y$ para todo
+      $n \geq N$.
+    \end{itemize}
+    \pause
+    Y $x_* = \liminf_{n \to +\infty} x_n$ es el único elemento de
+    $\overline{\mathbb{R}}$ tal que
+    \pause
+    \begin{itemize}[<+->]
+      \item $x_* \in \tilde{E}_x$.
+      \item Si $y < x_*$, existe $N \in \mathbb{N}$ tal que $y < x_n$ para todo
+      $n \geq N$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $\{x_n\}_{n \in \mathbb{N}}$ en $\mathbb{R}$, entonces
+    \pause
+    \begin{itemize}[<+->]
+      \item $\limsup_{n \to +\infty} x_n = \lim_{k \to +\infty} \sup_{n \geq k} x_n
+      = \inf_{k \in \mathbb{N}} \sup_{n \geq k} x_n$.
+      \item $\liminf_{n \to +\infty} x_n = \lim_{k \to +\infty} \inf_{n \geq k} x_n
+      = \sup_{k \in \mathbb{N}} \inf_{n \geq k} x_n$.
+    \end{itemize}
+  \end{frame}
+\end{document}
