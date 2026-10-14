@@ -8,127 +8,188 @@
 
     \begin{itemize}
       \item Interés compuesto
-      \item Valor futuro y valor presente
-      \item Tasas de interés y tasas equivalentes
+      \item Valor futuro
+      \item Valor presente
+      \item Tasas de interés
       \item Flujo de caja
-      \item Equivalencia financiera y ecuación de valor
-      \item Tasa de interés variable
-      \item Sustitución y refinanciación de obligaciones
+      \item Equivalencia financiera
+      \item Tasa de interés que cambia
+      \item Cambiar una deuda por otra
     \end{itemize}
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: En el interés compuesto, los intereses generados en cada
-    periodo se suman al capital y producen, a su vez, intereses en los periodos
-    siguientes. A este proceso se le llama capitalización.
+    \textit{Definición}: En el interés compuesto, los intereses que se ganan en
+    cada periodo se suman al capital, y en el siguiente periodo esos intereses
+    también ganan intereses.
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: En el interés compuesto, los intereses generados en cada
-    periodo se suman al capital y producen, a su vez, intereses en los periodos
-    siguientes. A este proceso se le llama capitalización.
+    \textit{Definición}: En el interés compuesto, los intereses que se ganan en
+    cada periodo se suman al capital, y en el siguiente periodo esos intereses
+    también ganan intereses.
     \newline\newline
 
-    Sean $P$ el capital inicial, $i$ la tasa de interés por periodo y $n$ el
+    Sean $P$ el dinero inicial, $i$ la tasa de interés por periodo y $n$ el
     número de periodos.
   \end{frame}
 
   \begin{frame}
-    Sean $P$ el capital inicial, $i$ la tasa de interés por periodo y $n$ el
+    Sean $P$ el dinero inicial, $i$ la tasa de interés por periodo y $n$ el
     número de periodos.
 
     \begin{equation*}
       \begin{aligned}
-        F_1 &= P + Pi = P(1+i) \\
-        F_2 &= P(1+i) + P(1+i)i = P(1+i)^2 \\
+        \text{Después de 1 periodo:} \quad & P(1+i) \\
+        \text{Después de 2 periodos:} \quad & P(1+i)^2 \\
         &\;\;\vdots \\
-        F_n &= P(1+i)^n
+        \text{Después de } n \text{ periodos:} \quad & P(1+i)^n
       \end{aligned}
     \end{equation*}
   \end{frame}
 
   \begin{frame}
-    \textit{Fórmula}: El valor futuro de un capital $P$ después de $n$ periodos
-    a la tasa $i$ es
+    \textit{Definición}: El valor futuro es cuánto vale, más adelante, una
+    cantidad de dinero que hoy tenemos invertida.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: El valor futuro es cuánto vale, más adelante, una
+    cantidad de dinero que hoy tenemos invertida.
+    \newline\newline
+
+    \textit{Fórmula}: Si hoy tenemos $P$, dentro de $n$ periodos a la tasa $i$
+    tendremos
     \[F = P(1+i)^n\]
   \end{frame}
 
   \begin{frame}
-    \textit{Fórmula}: El valor futuro de un capital $P$ después de $n$ periodos
-    a la tasa $i$ es
-    \[F = P(1+i)^n\]
+    \textit{Definición}: El valor presente es cuánto vale hoy una cantidad de
+    dinero que se va a recibir (o a pagar) más adelante.
+  \end{frame}
 
+  \begin{frame}
+    \textit{Definición}: El valor presente es cuánto vale hoy una cantidad de
+    dinero que se va a recibir (o a pagar) más adelante.
+    \newline\newline
+
+    La pregunta es: ¿cuánto debo tener hoy para llegar a $F$ dentro de $n$
+    periodos?
+  \end{frame}
+
+  \begin{frame}
+    Partimos de la fórmula del valor futuro y despejamos $P$:
+
+    \begin{equation*}
+      \begin{aligned}
+        F &= P(1+i)^n \\
+        P &= \frac{F}{(1+i)^n} \\
+        P &= F(1+i)^{-n}
+      \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
     \textit{Fórmula}: El valor presente de una cantidad $F$ que se recibe dentro
     de $n$ periodos es
     \[P = F(1+i)^{-n}\]
+
+    Llevar un valor al presente se llama descontar.
   \end{frame}
 
   \begin{frame}
-    \textit{Fórmula}: El valor futuro de un capital $P$ después de $n$ periodos
-    a la tasa $i$ es
-    \[F = P(1+i)^n\]
+    \textit{Ejemplo}: Con una tasa del $2\%$ mensual, ¿cuánto vale hoy \$ 1.000
+    que se recibirán dentro de 1 mes y dentro de 2 meses?
 
-    \textit{Fórmula}: El valor presente de una cantidad $F$ que se recibe dentro
-    de $n$ periodos es
-    \[P = F(1+i)^{-n}\]
-
-    El dinero tiene valor en el tiempo: llevar un valor al futuro es
-    capitalizar y llevarlo al presente es descontar.
+    \begin{equation*}
+      \begin{aligned}
+        \text{1 mes:} \quad & P = \frac{1.000}{1{,}02} \approx 980{,}39
+      \end{aligned}
+    \end{equation*}
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Una tasa del $j\%$ m.v. (mensual vencida) es una tasa
-    que se aplica cada mes y cuyos intereses se causan al final de cada mes.
+    \textit{Ejemplo}: Con una tasa del $2\%$ mensual, ¿cuánto vale hoy \$ 1.000
+    que se recibirán dentro de 1 mes y dentro de 2 meses?
+
+    \begin{equation*}
+      \begin{aligned}
+        \text{1 mes:} \quad & P = \frac{1.000}{1{,}02} \approx 980{,}39 \\
+        \text{2 meses:} \quad & P = \frac{1.000}{1{,}02^2} \approx 961{,}17
+      \end{aligned}
+    \end{equation*}
+
+    Entre más lejos está el pago, menos vale hoy.
+  \end{frame}
+
+  \begin{frame}
+    Cuando hay varios pagos, el valor presente es la suma del valor presente de
+    cada uno:
+    \[P = C_1(1+i)^{-n_1} + C_2(1+i)^{-n_2} + \cdots + C_k(1+i)^{-n_k}\]
+
+    donde $C_j$ es el pago que ocurre en el periodo $n_j$.
+  \end{frame}
+
+  \begin{frame}
+    Si hoy se deposita una cantidad $X$ y más adelante se hacen retiros, lo que
+    se deposita hoy debe ser igual a la suma de lo que valen hoy esos retiros:
+
+    \begin{equation*}
+      X = VP_{\text{Mes 5}} + VP_{\text{Mes 8}} + VP_{\text{Mes 12}} + VP_{\text{Mes 18}}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    Si hoy se deposita una cantidad $X$ y más adelante se hacen retiros, lo que
+    se deposita hoy debe ser igual a la suma de lo que valen hoy esos retiros:
+
+    \begin{equation*}
+      X = VP_{\text{Mes 5}} + VP_{\text{Mes 8}} + VP_{\text{Mes 12}} + VP_{\text{Mes 18}}
+    \end{equation*}
+
+    Cada $VP$ es el valor presente de un pago $C$ que ocurre en el mes $n$:
+    \[VP_{\text{Mes } n} = C\,(1+i)^{-n}\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Una tasa del $j\%$ m.v. significa mensual vencida: el
+    interés se cobra cada mes, al final del mes.
     \newline\newline
 
-    El periodo de la tasa debe coincidir con la unidad en que se mide el
-    tiempo: si la tasa es mensual, $n$ se cuenta en meses.
+    Por ejemplo, una tasa del $2\%$ m.v. es un interés del $2\%$ cada mes.
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Una tasa del $j\%$ m.v. (mensual vencida) es una tasa
-    que se aplica cada mes y cuyos intereses se causan al final de cada mes.
+    \textit{Definición}: Una tasa del $j\%$ m.v. significa mensual vencida: el
+    interés se cobra cada mes, al final del mes.
     \newline\newline
 
-    El periodo de la tasa debe coincidir con la unidad en que se mide el
-    tiempo: si la tasa es mensual, $n$ se cuenta en meses.
+    Por ejemplo, una tasa del $2\%$ m.v. es un interés del $2\%$ cada mes.
     \newline\newline
 
-    Si $i$ es la tasa mensual, la tasa nominal anual capitalizable mensualmente
-    es $12i$.
+    La tasa y el tiempo deben estar en la misma unidad: si la tasa es mensual,
+    el tiempo se cuenta en meses (1 año son 12 meses).
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Dos tasas con periodos distintos son equivalentes si
-    producen el mismo valor futuro sobre un mismo capital y en el mismo tiempo.
+    \textit{Definición}: Dos tasas son equivalentes si dan el mismo resultado
+    en el mismo tiempo.
     \newline\newline
 
-    Si $i_1$ se capitaliza $m_1$ veces y $i_2$ se capitaliza $m_2$ veces al año,
-    \[(1+i_1)^{m_1} = (1+i_2)^{m_2}\]
+    Una tasa mensual $i$ equivale a una tasa anual de
+    \[(1+i)^{12} - 1\]
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Dos tasas con periodos distintos son equivalentes si
-    producen el mismo valor futuro sobre un mismo capital y en el mismo tiempo.
-    \newline\newline
-
-    Si $i_1$ se capitaliza $m_1$ veces y $i_2$ se capitaliza $m_2$ veces al año,
-    \[(1+i_1)^{m_1} = (1+i_2)^{m_2}\]
-
-    En particular, la tasa efectiva anual de una tasa mensual $i$ es
-    \[i_{ea} = (1+i)^{12} - 1\]
+    \textit{Definición}: Un flujo de caja es un dibujo, sobre una línea de
+    tiempo, de los ingresos (dinero que entra) y los egresos (dinero que sale)
+    de una operación financiera.
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Un diagrama de flujo de caja (línea de tiempo) es la
-    representación, sobre un eje de tiempo, de los ingresos y egresos de una
-    operación financiera.
-  \end{frame}
-
-  \begin{frame}
-    \textit{Definición}: Un diagrama de flujo de caja (línea de tiempo) es la
-    representación, sobre un eje de tiempo, de los ingresos y egresos de una
-    operación financiera.
+    \textit{Definición}: Un flujo de caja es un dibujo, sobre una línea de
+    tiempo, de los ingresos (dinero que entra) y los egresos (dinero que sale)
+    de una operación financiera.
 
     \begin{center}
       \begin{tikzpicture}[scale=0.9]
@@ -144,151 +205,150 @@
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Un diagrama de flujo de caja (línea de tiempo) es la
-    representación, sobre un eje de tiempo, de los ingresos y egresos de una
-    operación financiera.
+    \textit{Definición}: Un flujo de caja es un dibujo, sobre una línea de
+    tiempo, de los ingresos (dinero que entra) y los egresos (dinero que sale)
+    de una operación financiera.
 
     \begin{itemize}
-      \item El momento $t = 0$ corresponde a ``hoy''.
-      \item Las flechas indican el sentido del flujo (ingreso o egreso).
+      \item El momento $t = 0$ es ``hoy''.
+      \item Flecha hacia arriba: dinero que entra.
+      \item Flecha hacia abajo: dinero que sale.
       \item Cada pago se ubica en el periodo en que ocurre.
     \end{itemize}
   \end{frame}
 
   \begin{frame}
     \textit{Definición}: Dos conjuntos de pagos son equivalentes a la tasa $i$ si,
-    llevados a una misma fecha, tienen el mismo valor. Esa fecha se llama fecha
-    focal.
+    al llevarlos a una misma fecha, valen lo mismo. Esa fecha se llama fecha
+    focal (fecha de comparación).
   \end{frame}
 
   \begin{frame}
     \textit{Definición}: Dos conjuntos de pagos son equivalentes a la tasa $i$ si,
-    llevados a una misma fecha, tienen el mismo valor. Esa fecha se llama fecha
-    focal.
+    al llevarlos a una misma fecha, valen lo mismo. Esa fecha se llama fecha
+    focal (fecha de comparación).
     \newline\newline
 
-    Un pago $C$ que ocurre en el periodo $t$ tiene, en la fecha focal $f$, el
-    valor
+    Un pago $C$ que ocurre en el periodo $t$ vale, en la fecha focal $f$,
     \[C(1+i)^{f-t}\]
   \end{frame}
 
   \begin{frame}
     \textit{Definición}: Dos conjuntos de pagos son equivalentes a la tasa $i$ si,
-    llevados a una misma fecha, tienen el mismo valor. Esa fecha se llama fecha
-    focal.
+    al llevarlos a una misma fecha, valen lo mismo. Esa fecha se llama fecha
+    focal (fecha de comparación).
     \newline\newline
 
-    Un pago $C$ que ocurre en el periodo $t$ tiene, en la fecha focal $f$, el
-    valor
+    Un pago $C$ que ocurre en el periodo $t$ vale, en la fecha focal $f$,
     \[C(1+i)^{f-t}\]
 
-    \textit{Ecuación de valor}: En la fecha focal, la suma de los valores de las
-    obligaciones es igual a la suma de los valores de los pagos.
+    \textit{Ecuación de valor}: En la fecha focal, lo que se debe vale lo mismo
+    que lo que se paga.
   \end{frame}
 
   \begin{frame}
-    \textit{Teorema}: Con una tasa de interés compuesto constante, la solución de
-    una ecuación de valor no depende de la fecha focal elegida.
+    \textit{Dato importante}: Si la tasa no cambia, el resultado es el mismo
+    sin importar qué fecha focal se escoja.
     \newline\newline
 
-    Se escoge la fecha que simplifique las potencias, por ejemplo la fecha del
-    pago desconocido.
+    Conviene escoger la fecha que haga más fáciles las cuentas, por ejemplo
+    la fecha del pago que no conocemos.
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Cuando la tasa de interés cambia durante la operación, se
-    aplica cada tasa en su respectivo tramo de tiempo.
+    \textit{Definición}: Cuando la tasa de interés cambia durante la operación,
+    se usa cada tasa en el tiempo que le corresponde.
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Cuando la tasa de interés cambia durante la operación, se
-    aplica cada tasa en su respectivo tramo de tiempo.
+    \textit{Definición}: Cuando la tasa de interés cambia durante la operación,
+    se usa cada tasa en el tiempo que le corresponde.
     \newline\newline
 
-    Si la tasa es $i_1$ durante $n_1$ periodos e $i_2$ durante $n_2$ periodos,
+    Si la tasa es $i_1$ durante $n_1$ periodos y luego $i_2$ durante $n_2$
+    periodos,
     \[F = P(1+i_1)^{n_1}(1+i_2)^{n_2}\]
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Cuando la tasa de interés cambia durante la operación, se
-    aplica cada tasa en su respectivo tramo de tiempo.
+    \textit{Definición}: Cuando la tasa de interés cambia durante la operación,
+    se usa cada tasa en el tiempo que le corresponde.
     \newline\newline
 
-    Si la tasa es $i_1$ durante $n_1$ periodos e $i_2$ durante $n_2$ periodos,
+    Si la tasa es $i_1$ durante $n_1$ periodos y luego $i_2$ durante $n_2$
+    periodos,
     \[F = P(1+i_1)^{n_1}(1+i_2)^{n_2}\]
 
-    Para el valor presente, se descuenta tramo a tramo:
+    Para el valor presente, se descuenta por tramos:
     \[P = F(1+i_2)^{-n_2}(1+i_1)^{-n_1}\]
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Sustituir (o refinanciar) una obligación es reemplazar un
-    conjunto de pagos por otro equivalente, con nuevos montos y nuevas fechas.
+    \textit{Definición}: Sustituir (o refinanciar) una deuda es cambiar sus pagos
+    por otros que valgan lo mismo, con otros montos y otras fechas.
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Sustituir (o refinanciar) una obligación es reemplazar un
-    conjunto de pagos por otro equivalente, con nuevos montos y nuevas fechas.
+    \textit{Definición}: Sustituir (o refinanciar) una deuda es cambiar sus pagos
+    por otros que valgan lo mismo, con otros montos y otras fechas.
 
     \begin{itemize}
-      \item La obligación original se valora con su tasa.
+      \item La deuda original se calcula con su tasa.
     \end{itemize}
   \end{frame}
 
   \begin{frame}
-    \textit{Definición}: Sustituir (o refinanciar) una obligación es reemplazar un
-    conjunto de pagos por otro equivalente, con nuevos montos y nuevas fechas.
+    \textit{Definición}: Sustituir (o refinanciar) una deuda es cambiar sus pagos
+    por otros que valgan lo mismo, con otros montos y otras fechas.
 
     \begin{itemize}
-      \item La obligación original se valora con su tasa.
-      \item Los nuevos pagos se valoran con la tasa del nuevo acuerdo, que puede
+      \item La deuda original se calcula con su tasa.
+      \item Los pagos nuevos se calculan con la tasa del nuevo acuerdo, que puede
       ser distinta.
-      \item Ambos valores se igualan en una misma fecha focal.
+      \item Los dos valores se igualan en una misma fecha focal.
     \end{itemize}
   \end{frame}
 
   \begin{frame}
-    \textit{Planteamiento}: Cuando un pago es desconocido, se expresa en función
-    de una incógnita y se plantea la ecuación de valor. Algunas relaciones
-    frecuentes son:
+    \textit{Planteamiento}: Cuando no conocemos un pago, le ponemos una letra
+    (incógnita) y armamos la ecuación de valor. Algunas relaciones frecuentes:
 
     \begin{itemize}
-      \item Un pago es una fracción del valor de contado: $C = pV$.
+      \item Un pago es una parte del valor de contado: $C = pV$.
     \end{itemize}
   \end{frame}
 
   \begin{frame}
-    \textit{Planteamiento}: Cuando un pago es desconocido, se expresa en función
-    de una incógnita y se plantea la ecuación de valor. Algunas relaciones
-    frecuentes son:
+    \textit{Planteamiento}: Cuando no conocemos un pago, le ponemos una letra
+    (incógnita) y armamos la ecuación de valor. Algunas relaciones frecuentes:
 
     \begin{itemize}
-      \item Un pago es una fracción del valor de contado: $C = pV$.
+      \item Un pago es una parte del valor de contado: $C = pV$.
       \item Pagos iguales: $C_1 = C_2 = C$.
-      \item Pagos en progresión geométrica de razón $r$: $C_k = r\,C_{k-1}$.
-      \item Un saldo final igual al depósito inicial.
+      \item Cada pago es una parte del anterior: $C_k = r\,C_{k-1}$.
+      \item El saldo final es igual al depósito inicial.
     \end{itemize}
   \end{frame}
 
   \begin{frame}
     \textit{Interpretación}: El resultado de una ecuación de valor es un valor
-    en la fecha focal elegida y debe leerse en el contexto del problema.
+    en la fecha focal que escogimos, y hay que leerlo según el problema.
 
     \begin{itemize}
-      \item Verificar que el periodo de la tasa y el del tiempo coincidan.
+      \item Revisar que la tasa y el tiempo estén en la misma unidad.
     \end{itemize}
   \end{frame}
 
   \begin{frame}
     \textit{Interpretación}: El resultado de una ecuación de valor es un valor
-    en la fecha focal elegida y debe leerse en el contexto del problema.
+    en la fecha focal que escogimos, y hay que leerlo según el problema.
 
     \begin{itemize}
-      \item Verificar que el periodo de la tasa y el del tiempo coincidan.
+      \item Revisar que la tasa y el tiempo estén en la misma unidad.
       \item Un valor presente debe ser menor que el valor futuro
       correspondiente.
-      \item Indicar qué representa el resultado: cuánto, en qué fecha y a qué
-      tasa.
+      \item Decir qué significa el resultado: cuánto dinero, en qué fecha y a
+      qué tasa.
     \end{itemize}
   \end{frame}
 \end{document}
