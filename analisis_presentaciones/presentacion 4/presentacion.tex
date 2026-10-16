@@ -1,0 +1,421 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+
+\begin{document}
+
+  \begin{frame}
+    \textit{Definición}: Sea $\{a_n\}_{n \in \mathbb{N}}$ una sucesión en
+    $\mathbb{R}$ y $s_n = a_0 + a_1 + \cdots + a_n$ sus sumas parciales.
+    Decimos que la serie $\sum_{n=0}^{\infty} a_n$ converge a $s$ si
+    $\lim_{n \to +\infty} s_n = s$, y escribimos $\sum_{n=0}^{\infty} a_n = s$.
+    \newline\newline
+    \pause
+
+    \textit{Observación}: Si $\sum_{n=0}^{\infty} a_n$ converge a $s$, entonces
+    \begin{itemize}[<+->]
+      \item $s = s_m + \sum_{n=m+1}^{\infty} a_n$, para todo $m$.
+      \item $\lim_{m \to +\infty} \sum_{n=m}^{\infty} a_n = 0$.
+    \end{itemize}
+    \vspace{0.3cm}
+    \pause
+
+    \textit{Proposición}: Si $\sum_{n=0}^{\infty} a_n$ converge, entonces
+    $\lim_{n \to +\infty} a_n = 0$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item (Serie armónica) $\sum_{n=1}^{\infty} \frac{1}{n}$ diverge,
+        aunque $\frac{1}{n} \to 0$.
+      \item (Serie geométrica) $\sum_{n=0}^{\infty} a^n$ converge si y solo si
+        $|a| < 1$, y
+        $\sum_{n=m}^{\infty} c\,a^n = \frac{c\,a^m}{1-a}$, para $|a|<1$, $c \in \mathbb{R}$.
+      \item (Serie telescópica) $b_0 + \sum_{n=1}^{\infty} (b_n - b_{n-1})$
+        converge si y solo si $\lim_{n \to +\infty} b_n$ existe, y dicho límite
+        es su suma.
+      \item (Términos positivos) Si $a_n \geq 0$ para todo $n$, la serie
+        $\sum_{n=0}^{\infty} a_n$ converge si y solo si $\{s_n\}_{n \in \mathbb{N}}$
+        es acotada superiormente.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición (Criterio de Cauchy)}: La serie $\sum_{n=0}^{\infty} a_n$
+    converge si y solo si para todo $\epsilon > 0$ existe $N \in \mathbb{N}$ tal que
+    \[
+      \Big| \sum_{j=n}^{m} a_j \Big| < \epsilon, \quad \text{para todo } m \geq n \geq N.
+    \]
+    \pause
+
+    \textit{Definición}: La serie $\sum_{n=0}^{\infty} a_n$ se dice absolutamente
+    convergente si la serie $\sum_{n=0}^{\infty} |a_n|$ converge.
+    \newline\newline
+    \pause
+
+    \textit{Proposición}: Si una serie converge absolutamente, entonces converge.
+  \end{frame}
+
+
+  \begin{frame}
+    \textit{Teorema (Comparación)}: Asuma que $0 \leq a_n \leq b_n$, para todo
+    $n \geq N_0$.
+    \begin{itemize}[<+->]
+      \item Si $\sum_{n=0}^{\infty} b_n$ converge, entonces $\sum_{n=0}^{\infty} a_n$ converge.
+      \item Si $\sum_{n=0}^{\infty} a_n$ diverge, entonces $\sum_{n=0}^{\infty} b_n$ diverge.
+    \end{itemize}
+    \vspace{0.3cm}
+    \pause
+
+    \textit{Corolario (Paso al límite)}: Suponga que $a_n, b_n > 0$ para todo
+    $n \geq N_0$.
+    \begin{itemize}[<+->]
+      \item Si $\lim_{n \to +\infty} \frac{a_n}{b_n} = c > 0$, entonces
+        $\sum a_n$ converge si y solo si $\sum b_n$ converge.
+      \item Si $\lim_{n \to +\infty} \frac{a_n}{b_n} = 0$ y $\sum b_n$ converge,
+        entonces $\sum a_n$ converge.
+      \item Si $\lim_{n \to +\infty} \frac{a_n}{b_n} = +\infty$ y $\sum b_n$ diverge,
+        entonces $\sum a_n$ diverge.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Condensación)}: Sea $\{a_n\}_{n \in \mathbb{N}^+}$ una
+    sucesión monótona decreciente de términos positivos. Entonces
+    $\sum_{n=1}^{\infty} a_n$ converge si y solo si
+    $\sum_{n=0}^{\infty} 2^n a_{2^n}$ converge. Además
+    \[
+      \sum_{n=1}^{\infty} a_n \leq \sum_{n=0}^{\infty} 2^n a_{2^n} \leq 2 \sum_{n=1}^{\infty} a_n.
+    \]
+    \pause
+
+    \textit{Ejemplo (Función zeta de Riemann)}: La serie
+    $\sum_{n=1}^{\infty} \frac{1}{n^p}$ converge si y solo si $p > 1$. Así
+    \[
+      \zeta(s) := \sum_{n=1}^{\infty} \frac{1}{n^s}, \quad s > 1.
+    \]
+    \pause
+    \textit{Observación (Problema de Basilea)}:
+    $\zeta(2) = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots = \frac{\pi^2}{6}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Desigualdad de Cauchy--Schwarz)}: Asuma que las series
+    $\sum_{n=0}^{\infty} a_n^2$ y $\sum_{n=0}^{\infty} b_n^2$ convergen. Entonces
+    $\sum_{n=0}^{\infty} a_n b_n$ converge absolutamente y
+    \[
+      \sum_{n=0}^{\infty} |a_n b_n| \leq
+      \Big( \sum_{n=0}^{\infty} a_n^2 \Big)^{1/2}
+      \Big( \sum_{n=0}^{\infty} b_n^2 \Big)^{1/2}.
+    \]
+    \pause
+
+    \textit{Observación}:
+    \begin{itemize}[<+->]
+      \item Si $\sum_{n=1}^{\infty} a_n$ converge, $a_n > 0$ y
+        $r_n = a_n + a_{n+1} + \cdots$, entonces $A_n = a_n/\sqrt{r_n}$ cumple
+        que $\sum_{n=1}^{\infty} A_n$ converge y $\frac{A_n}{a_n} \to +\infty$.
+      \item Si $\sum_{n=1}^{\infty} d_n$ diverge, $d_n > 0$ y
+        $s_n = d_1 + \cdots + d_n$, entonces $D_n = d_n/s_n$ cumple que
+        $\sum_{n=1}^{\infty} D_n$ diverge y $\frac{D_n}{d_n} \to 0$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: El número de Euler es
+    $e := \sum_{n=0}^{\infty} \frac{1}{n!}$.
+    \newline\newline
+    \pause
+
+    \textit{Observación}: Si $s_n = \sum_{j=0}^{n} \frac{1}{j!}$, entonces
+    \begin{itemize}[<+->]
+      \item $s_n < 3$, para todo $n$.
+      \item $0 < e - s_n < \frac{1}{n \cdot n!}$.
+    \end{itemize}
+    \vspace{0.3cm}
+    \pause
+
+    \textit{Teorema}:
+    \begin{itemize}[<+->]
+      \item $e = \lim_{n \to +\infty} \left( 1 + \frac{1}{n} \right)^n$.
+      \item $e$ es un número irracional.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Criterio de la raíz)}: Dada la serie $\sum_{n=0}^{\infty} a_n$,
+    considere $\alpha = \limsup_{n \to +\infty} \sqrt[n]{|a_n|}$.
+    \begin{itemize}[<+->]
+      \item Si $\alpha < 1$, la serie converge absolutamente.
+      \item Si $\alpha > 1$, la serie diverge.
+      \item Si $\alpha = 1$, el criterio no da información sobre la convergencia.
+    \end{itemize}
+    \vspace{0.3cm}
+    \pause
+
+    \textit{Teorema (Criterio del cociente)}: Considere la serie
+    $\sum_{n=0}^{\infty} a_n$ y asuma que existe $N_0 \in \mathbb{N}$ tal que
+    $a_n \neq 0$, para $n \geq N_0$.
+    \begin{itemize}[<+->]
+      \item Si $\limsup_{n \to +\infty} \left| \frac{a_{n+1}}{a_n} \right| < 1$,
+        la serie converge absolutamente.
+      \item Si $1 < \liminf_{n \to +\infty} \left| \frac{a_{n+1}}{a_n} \right|$,
+        la serie diverge.
+      \item Si $\liminf_{n \to +\infty} \left| \frac{a_{n+1}}{a_n} \right| \leq 1
+        \leq \limsup_{n \to +\infty} \left| \frac{a_{n+1}}{a_n} \right|$,
+        el criterio no decide.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sea $\{c_n\}_{n \in \mathbb{N}}$ una sucesión de números
+    reales positivos. Entonces
+    \[
+      \liminf_{n \to +\infty} \frac{c_{n+1}}{c_n} \leq
+      \liminf_{n \to +\infty} \sqrt[n]{c_n} \leq
+      \limsup_{n \to +\infty} \sqrt[n]{c_n} \leq
+      \limsup_{n \to +\infty} \frac{c_{n+1}}{c_n}.
+    \]
+    \pause
+    En particular, si $\lim_{n \to +\infty} \frac{c_{n+1}}{c_n} = c$, entonces
+    $\lim_{n \to +\infty} \sqrt[n]{c_n} = c$.
+    \newline\newline
+    \pause
+
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item $\lim_{n \to +\infty} \sqrt[n]{n} = 1$.
+      \item $\lim_{n \to +\infty} \frac{n}{\sqrt[n]{n!}} = e$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Una serie de potencias es una serie de la forma
+    $\sum_{n=0}^{\infty} a_n (x - x_0)^n$, donde $a_n, x, x_0 \in \mathbb{R}$.
+    El valor $x_0$ se conoce como el centro de la serie.
+    \newline\newline
+    \pause
+
+    \textit{Teorema (Fórmula de Hadamard)}: La serie de potencias
+    $\sum_{n=0}^{\infty} a_n (x - x_0)^n$ converge absolutamente si
+    $|x - x_0| < R$ y diverge si $|x - x_0| > R$, donde
+    \[
+      R = \frac{1}{\alpha}, \quad \alpha = \limsup_{n \to +\infty} \sqrt[n]{|a_n|}.
+    \]
+    \pause
+    \begin{itemize}[<+->]
+      \item Si $\alpha = 0$, entonces $R = +\infty$.
+      \item $R$ es el radio de convergencia y $(x_0 - R, x_0 + R)$ el intervalo
+        de convergencia.
+      \item Si $a_n \neq 0$ a partir de algún $N$ y
+        $\lim_{n \to +\infty} \left| \frac{a_{n+1}}{a_n} \right| = \beta$, entonces
+        $R = 1/\beta$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: El producto de Cauchy de las series
+    $\sum_{n=0}^{\infty} a_n$ y $\sum_{n=0}^{\infty} b_n$ es
+    \[
+      \Big( \sum_{n=0}^{\infty} a_n \Big) \cdot \Big( \sum_{n=0}^{\infty} b_n \Big)
+      := \sum_{n=0}^{\infty} c_n, \quad c_n = \sum_{j=0}^{n} a_j b_{n-j}.
+    \]
+    \pause
+
+    \textit{Teorema (Mertens)}: Suponga que $\sum_{n=0}^{\infty} a_n$ y
+    $\sum_{n=0}^{\infty} b_n$ convergen a $s$ y $t$, respectivamente. Si
+    $\sum_{n=0}^{\infty} a_n$ converge absolutamente, entonces su producto de
+    Cauchy $\sum_{n=0}^{\infty} c_n$ converge a $st$.
+    \newline\newline
+    \pause
+
+    \textit{Ejemplo (Función exponencial)}:
+    $e^x := \sum_{n=0}^{\infty} \frac{x^n}{n!}$ converge para todo $x \in \mathbb{R}$ y
+    \begin{itemize}[<+->]
+      \item $e^x > 1 + x$, para $x > 0$.
+      \item $e^{x+y} = e^x \cdot e^y$, para $x, y \in \mathbb{R}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Lema (Sumas por partes)}: Dadas $\{a_n\}_{n \in \mathbb{N}}$,
+    $\{b_n\}_{n \in \mathbb{N}}$, sea $s_n = \sum_{k=0}^{n} a_k$, con $s_{-1} = 0$.
+    Entonces, para $0 \leq p \leq q$,
+    \[
+      \sum_{n=p}^{q} a_n b_n = \sum_{n=p}^{q-1} s_n (b_n - b_{n+1}) + s_q b_q - s_{p-1} b_p.
+    \]
+    \pause
+
+    \textit{Teorema (Dirichlet)}: Suponga que las sumas parciales $s_n$ de
+    $\sum_{n=0}^{\infty} a_n$ son acotadas. Si $b_0 \geq b_1 \geq b_2 \geq \cdots$ y
+    $\lim_{n \to +\infty} b_n = 0$, entonces $\sum_{n=0}^{\infty} a_n b_n$ converge.
+    \newline\newline
+    \pause
+
+    \textit{Teorema (Leibniz)}: Dados $b_n \geq 0$, la serie alternante
+    $\sum_{n=0}^{\infty} (-1)^n b_n$ converge si $b_0 \geq b_1 \geq b_2 \geq \cdots$ y
+    $\lim_{n \to +\infty} b_n = 0$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Si $\sum_{n=0}^{\infty} a_n$ converge, pero
+    $\sum_{n=0}^{\infty} |a_n|$ diverge, decimos que la serie converge
+    condicionalmente.
+    \newline\newline
+    \pause
+
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item $\sum_{n=0}^{\infty} \frac{(-1)^n}{n+1} = 1 - \frac{1}{2} + \frac{1}{3} - \cdots = \ln 2$,
+        y converge condicionalmente.
+      \item $\sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1} = 1 - \frac{1}{3} + \frac{1}{5} - \cdots = \frac{\pi}{4}$,
+        y converge condicionalmente.
+      \item La hipótesis de decrecimiento en Leibniz es necesaria:
+        $b_n = \frac{1}{\sqrt{n} + (-1)^n} \to 0$, pero
+        $\sum_{n=2}^{\infty} (-1)^n b_n$ diverge.
+      \item El producto de Cauchy de $\sum_{n=0}^{\infty} \frac{(-1)^n}{\sqrt{n+1}}$
+        consigo misma diverge.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Una reordenación de $\sum_{n=0}^{\infty} a_n$ es una serie
+    de la forma $\sum_{n=0}^{\infty} a_{\sigma(n)}$, donde
+    $\sigma: \mathbb{N} \to \mathbb{N}$ es una biyección.
+    \newline\newline
+    \pause
+
+    \textit{Teorema}: Si $\sum_{n=0}^{\infty} a_n$ converge absolutamente, toda
+    reordenación $\sum_{n=0}^{\infty} a_{\sigma(n)}$ también converge, y todas
+    convergen al mismo valor.
+    \newline\newline
+    \pause
+
+    \textit{Teorema (Riemann)}: Si $\sum_{n=0}^{\infty} a_n$ converge
+    condicionalmente y $\alpha \in \mathbb{R} \cup \{\pm\infty\}$, existe una
+    reordenación $\sum_{n=0}^{\infty} a_{\sigma(n)}$ que converge a $\alpha$.
+    \newline\newline
+    \pause
+
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item $1 + \frac{1}{3} - \frac{1}{2} + \frac{1}{5} + \frac{1}{7} - \frac{1}{4} + \cdots = \frac{3}{2} \ln 2$.
+      \item El conjunto $S(\mathbb{N})$ de biyecciones $\sigma: \mathbb{N} \to \mathbb{N}$
+        no es contable.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $A$ un conjunto infinito contable y
+    $\{a_p \in \mathbb{R} : p \in A\}$. La serie $\sum_{p \in A} a_p$ es sumable a
+    $s \in \mathbb{R}$ si para todo $\epsilon > 0$ existe $I_0(\epsilon) \subseteq A$
+    finito tal que para todo $I$ finito con $I_0(\epsilon) \subseteq I \subseteq A$,
+    \[
+      \Big| \sum_{p \in I} a_p - s \Big| < \epsilon.
+    \]
+    \pause
+
+    \textit{Proposición}: Sea $A$ un conjunto infinito contable. Son equivalentes:
+    \begin{itemize}[<+->]
+      \item $\sum_{p \in A} a_p$ es sumable.
+      \item Existe una biyección $\sigma: \mathbb{N}^+ \to A$ tal que
+        $\sum_{j=1}^{\infty} a_{\sigma(j)}$ es absolutamente convergente.
+      \item Para toda biyección $\sigma: \mathbb{N}^+ \to A$, la serie
+        $\sum_{j=1}^{\infty} a_{\sigma(j)}$ es absolutamente convergente.
+      \item $\sum_{p \in A} |a_p|$ es sumable.
+    \end{itemize}
+    \onslide<+->{En los tres primeros casos el valor de las sumas coincide.}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Corolario}: Sea $A$ infinito numerable. Si $|a_p| \leq b_p$ para todo
+    $p \in A$, salvo un número finito de índices, y $\sum_{p \in A} b_p$ es sumable,
+    entonces $\sum_{p \in A} a_p$ es sumable.
+    \newline\newline
+    \pause
+
+    \textit{Proposición (Series por bloques)}: Sea $A$ infinito numerable y
+    $\sum_{p \in A} a_p$ sumable a $s$. Si $\{A_n\}_{n \in \mathbb{N}}$ es una
+    partición de $A$, entonces cada $\sum_{p \in A_n} a_p$ es sumable, digamos a
+    $b_n$, y $\sum_{n=0}^{\infty} b_n = s$.
+    \newline\newline
+    \pause
+
+    \textit{Ejemplo}: Si $\sum_{n=0}^{\infty} a_n$ converge absolutamente,
+    \[
+      \sum_{n=0}^{\infty} a_n = \sum_{n=0}^{\infty} a_{2n} + \sum_{n=0}^{\infty} a_{2n+1},
+      \qquad
+      \sum_{n=0}^{\infty} a_n = \sum_{j=0}^{k-1} \sum_{n=0}^{\infty} a_{nk+j}.
+    \]
+    \pause
+    Por ejemplo, $\sum_{n=0}^{\infty} \frac{1}{(2n+1)^2} = \frac{\pi^2}{8}$ y
+    $\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^2} = \frac{\pi^2}{12}$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplo}: Si $\sum_{n=1}^{\infty} a_n$ y $\sum_{n=1}^{\infty} b_n$
+    convergen absolutamente a $s$ y $t$, entonces
+    $\sum_{(n,m) \in (\mathbb{N}^+)^2} a_n b_m$ es sumable a $s \cdot t$.
+    En particular,
+    \[
+      \sum_{(n,m) \in \mathbb{N}^2} x^n y^m = \frac{1}{(1-x)(1-y)}, \quad |x|, |y| < 1.
+    \]
+    \pause
+
+    \textit{Definición (Función zeta de Riemann doble)}:
+    \[
+      \zeta(s, s') := \sum_{1 \leq m < n} \frac{1}{n^s m^{s'}}, \quad s \geq 2,\ s' \geq 1.
+    \]
+    \pause
+
+    \textit{Propiedades}:
+    \begin{itemize}[<+->]
+      \item (Fórmula de reflexión)
+        $\zeta(s)\zeta(s') = \zeta(s, s') + \zeta(s', s) + \zeta(s + s')$, para $s, s' > 1$.
+      \item $\zeta(2)^2 = 2\zeta(2,2) + \zeta(4)$.
+      \item (Euler) $\zeta(2,1) = \zeta(3)$.
+      \item (Euler) $\sum_{n=1}^{\infty} \frac{1}{n^2}\left(1 + \frac{1}{2} + \cdots + \frac{1}{n}\right) = 2\zeta(3)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema (Tannery)}: Considere $s(n) = \sum_{j=0}^{\infty} f_j(n)$, suma
+    finita o serie convergente, donde $n \in \mathbb{N}$. Si para cada $j$
+    \begin{itemize}[<+->]
+      \item $\lim_{n \to +\infty} f_j(n) = f_j$ existe,
+      \item $|f_j(n)| \leq M_j$ y la serie $\sum_{j=0}^{\infty} M_j$ converge,
+    \end{itemize}
+    \onslide<+->{entonces $\lim_{n \to +\infty} s(n) = \sum_{j=0}^{\infty} f_j$.}
+    \newline\newline
+    \pause
+
+    \textit{Observación}: En particular, si $m(n) \to +\infty$,
+    \[
+      \lim_{n \to +\infty} \sum_{j=0}^{m(n)} f_j(n) = \sum_{j=0}^{\infty} \lim_{n \to +\infty} f_j(n).
+    \]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item $\lim_{n \to +\infty} \left( 1 + \frac{x}{n} \right)^n = e^x$, para
+        todo $x \in \mathbb{R}$.
+      \item (Problema de Basilea)
+        $\sum_{n=0}^{\infty} \frac{1}{(2n+1)^2} = \frac{\pi^2}{8}$ y por tanto
+        $\zeta(2) = \frac{\pi^2}{6}$.
+    \end{itemize}
+    \vspace{0.3cm}
+    \pause
+
+    \textit{Proposición}: Sea $\{a_{j,k}\}_{j,k \in \mathbb{N}}$ una sucesión doble
+    de números reales. Si cada $M_j = \sum_{k=0}^{\infty} |a_{j,k}|$ converge y
+    $\sum_{j=0}^{\infty} M_j$ converge, entonces
+    \[
+      \sum_{j=0}^{\infty} \sum_{k=0}^{\infty} a_{j,k} = \sum_{k=0}^{\infty} \sum_{j=0}^{\infty} a_{j,k}.
+    \]
+    \pause
+    \textit{Ejemplo}: Las hipótesis son necesarias: si $a_{j,k} = 2^{k-j}$ para
+    $j > k$, $a_{j,j} = -1$ y $a_{j,k} = 0$ para $j < k$, las sumas iteradas
+    valen $-2$ y $0$.
+  \end{frame}
+\end{document}
