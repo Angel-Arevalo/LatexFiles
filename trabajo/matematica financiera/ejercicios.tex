@@ -1,0 +1,318 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+\definecolor{primary}{RGB}{30, 58, 138}
+\definecolor{secondary}{RGB}{15, 118, 110}
+\definecolor{accent}{RGB}{180, 83, 9}
+\definecolor{darkgray}{RGB}{51, 65, 85}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+\begin{center}
+
+{\huge \textbf{\color{primary} Guía Práctica: Planteamiento de Ecuaciones de Valor}}\\[6pt privileges]
+{\large \color{secondary} Ejercicios Progresivos para el Desarrollo de la Intuición Financiera}\\[4pt]
+\small \color{darkgray} Cátedra de Matemáticas Financieras -- Equivalencia de Flujos de Caja
+\end{center}
+
+\vspace{0.2cm}
+\hrule height 1pt
+\vspace{0.4cm}
+
+\section*{\color{primary} 1. Marco Metodológico General}
+
+Para la correcta formulación de una ecuación de valor en interés compuesto, el estudiante debe seguir rigurosamente los siguientes tres pasos:
+\begin{enumerate}[leftmargin=*, label=\bfseries Paso \arabic*:]
+    \item \textbf{Construcción del Diagrama de Tiempo-Valor:} Representar las deudas u obligaciones originales en la parte superior del eje temporal y los pagos propuestos o refinanciados en la parte inferior.
+    \item \textbf{Elección de la Fecha Focal ($t_f$):} Fijar un punto común de comparación en la línea de tiempo. Recordar el principio cardinal: \textit{Valores monetarios en distintas fechas no se pueden sumar ni restar directamente}.
+    \item \textbf{Formulación del Principio de Equivalencia Financiera:}
+    \[
+    \sum \text{Deudas en } t_f = \sum \text{Pagos en } t_f
+    \]
+    \begin{itemize}[label=$\rightarrow$]
+        \item Mover un flujo al \textbf{futuro} ($t_{\text{origen}} < t_f$): Capitalizar $\Rightarrow \text{Flujo} \cdot (1 + i)^n$
+        \item Mover un flujo al \textbf{presente/pasado} ($t_{\text{origen}} > t_f$): Descontar $\Rightarrow \dfrac{\text{Flujo}}{(1 + i)^n} = \text{Flujo} \cdot (1 + i)^{-n}$
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\section*{\color{primary} 2. Nivel 1: Ejercicios Fáciles (Fundamentos y Pago Único)}
+
+\subsection*{\color{secondary} Ejercicio 1: Sustitución de deudas por un pago único futuro (Estimar $X$)}
+\textbf{Enunciado:} Un comerciante tiene dos deudas pendientes: una de \$5.000 con vencimiento en el mes 3 y otra de \$8.000 con vencimiento en el mes 9. Acuerda con su acreedor saldar ambas deudas mediante un único pago $X$ en el mes 12. La tasa de interés de la operación es del 2\% mensual.
+
+\textbf{Análisis de datos:}
+\begin{itemize}
+    \item \textbf{Deudas:} \$5.000 en $t=3$; \$8.000 en $t=9$.
+    \item \textbf{Pagos:} $X$ en $t=12$.
+    \item \textbf{Tasa:} $i = 0,02$ mensual.
+\end{itemize}
+
+\textbf{Planteamiento de Ecuaciones de Valor:}
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Con Fecha Focal en $t_f = 12$ (Capitalización a Valor Futuro):}
+    \[
+    5.000(1 + 0,02)^{12-3} + 8.000(1 + 0,02)^{12-9} = X
+    \]
+    \[
+    \mathbf{5.000(1 + 0,02)^9 + 8.000(1 + 0,02)^3 = X}
+    \]
+
+    \item \textbf{Con Fecha Focal en $t_f = 0$ (Descuento a Valor Presente):}
+    \[
+    \mathbf{\frac{5.000}{(1 + 0,02)^3} + \frac{8.000}{(1 + 0,02)^9} = \frac{X}{(1 + 0,02)^{12}}}
+    \]
+\end{enumerate}
+
+\textbf{Propósito pedagógico:} Comprender que cambiar la fecha focal no altera el valor del pago $X$, solo la escala temporal de la ecuación.
+
+\vspace{0.2cm}
+
+\subsection*{\color{secondary} Ejercicio 2: Determinación del Valor de Contado / Cuota Inicial (Estimar $V_0$)}
+\textbf{Enunciado:} Se adquiere una maquinaria industrial acordando el siguiente plan de pagos: una cuota inicial hoy ($t=0$) correspondiente al 20\% del valor de contado $V_0$, un pago de \$12.000 en el mes 4 y un pago final de \$18.000 en el mes 8. Si la tasa de interés aplicada es del 1,5\% mensual, plantee la ecuación para determinar el valor de contado $V_0$.
+
+\textbf{Análisis de datos:}
+\begin{itemize}
+    \item \textbf{Deuda (Valor de contado):} $V_0$ en $t=0$.
+    \item \textbf{Pagos:} $0,20 V_0$ en $t=0$; \$12.000 en $t=4$; \$18.000 en $t=8$.
+    \item \textbf{Tasa:} $i = 0,015$ mensual.
+\end{itemize}
+
+\textbf{Planteamiento de Ecuaciones de Valor:}
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Con Fecha Focal en $t_f = 0$:}
+    \[
+    V_0 = 0,20 V_0 + \frac{12.000}{(1 + 0,015)^4} + \frac{18.000}{(1 + 0,015)^8}
+    \]
+    Agrupando términos semejantes de la incógnita $V_0$:
+    \[
+    \mathbf{0,80 V_0 = \frac{12.000}{(1 + 0,015)^4} + \frac{18.000}{(1 + 0,015)^8}}
+    \]
+\end{enumerate}
+
+\textbf{Propósito pedagógico:} Identificar la deuda neta no financiada ($0,80 V_0$) al descontar la cuota inicial inmediatamente.
+
+\vspace{0.2cm}
+
+\subsection*{\color{secondary} Ejercicio 3: Cálculo de saldo final de liquidación (Estimar pago $X$ intermedio)}
+\textbf{Enunciado:} Un préstamo de \$30.000 otorgado hoy ($t=0$) debe cancelarse con tres abonos: un pago de \$10.000 en el mes 2, un pago de \$12.000 en el mes 5 y un pago final $X$ en el mes 9. La tasa pactada es del 1,8\% mensual.
+
+\textbf{Análisis de datos:}
+\begin{itemize}
+    \item \textbf{Deuda:} \$30.000 en $t=0$.
+    \item \textbf{Pagos:} \$10.000 en $t=2$; \$12.000 en $t=5$; $X$ en $t=9$.
+    \item \textbf{Tasa:} $i = 0,018$ mensual.
+\end{itemize}
+
+\textbf{Planteamiento de Ecuaciones de Valor:}
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Con Fecha Focal en $t_f = 9$:}
+    \[
+    \mathbf{30.000(1 + 0,018)^9 = 10.000(1 + 0,018)^7 + 12.000(1 + 0,018)^4 + X}
+    \]
+\end{enumerate}
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\section*{\color{primary} 3. Nivel 2: Ejercicios Medios (Cuotas Múltiples, Períodos de Gracia y Proporciones)}
+
+\subsection*{\color{secondary} Ejercicio 4: Financiación con cuotas iguales y período de gracia (Estimar cuota $R$)}
+\textbf{Enunciado:} Una empresa obtiene un crédito por \$50.000 en $t=0$. Se pacta un período de gracia de 3 meses durante el cual no se realizan pagos pero se devengan intereses. La deuda se cancelará mediante dos cuotas iguales de valor $R$ en los meses 6 y 12. Tasa de interés: 2\% mensual.
+
+\textbf{Análisis de datos:}
+\begin{itemize}
+    \item \textbf{Deuda:} \$50.000 en $t=0$.
+    \item \textbf{Pagos:} $R$ en $t=6$; $R$ en $t=12$.
+    \item \textbf{Tasa:} $i = 0,02$ mensual.
+\end{itemize}
+
+\textbf{Planteamiento de Ecuaciones de Valor:}
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Con Fecha Focal en $t_f = 0$:}
+    \[
+    \mathbf{50.000 = \frac{R}{(1 + 0,02)^6} + \frac{R}{(1 + 0,02)^{12}}}
+    \]
+
+    \item \textbf{Con Fecha Focal en $t_f = 12$:}
+    \[
+    \mathbf{50.000(1 + 0,02)^{12} = R(1 + 0,02)^6 + R}
+    \]
+\end{enumerate}
+
+\textbf{Propósito pedagógico:} Demostrar que en el método de ecuación de valor global, el período de gracia queda incorporado implícitamente al llevar las cuotas $R$ al momento $t=0$ o la deuda a $t=12$.
+
+\vspace{0.2cm}
+
+\subsection*{\color{secondary} Ejercicio 5: Unificación de pasivos con pagos en proporción escalonada (Estimar base $X$)}
+\textbf{Enunciado:} Una corporación debe \$15.000 a 2 meses, \$25.000 a 6 meses y \$40.000 a 10 meses. Propone reestructurar sus compromisos en tres pagos programados de la siguiente forma: un pago $X$ en el mes 4, un pago equivalente a $1,5X$ en el mes 8, y un pago equivalente a $2X$ en el mes 12. Si la tasa de interés es del 2,2\% mensual, plantee la ecuación para determinar la base $X$.
+
+\textbf{Análisis de datos:}
+\begin{itemize}
+    \item \textbf{Deudas:} \$15.000 en $t=2$; \$25.000 en $t=6$; \$40.000 en $t=10$.
+    \item \textbf{Pagos propuestos:} $X$ en $t=4$; $1,5X$ en $t=8$; $2X$ en $t=12$.
+    \item \textbf{Tasa:} $i = 0,022$ mensual.
+\end{itemize}
+
+\textbf{Planteamiento de Ecuaciones de Valor:}
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Con Fecha Focal en $t_f = 12$:}
+    \[
+    15.000(1+0,022)^{10} + 25.000(1+0,022)^6 + 40.000(1+0,022)^2 = X(1+0,022)^8 + 1,5X(1+0,022)^4 + 2X
+    \]
+    Factorizando la variable $X$ en el lado derecho:
+    \[
+    \mathbf{\sum \text{Deudas}(t=12) = X \left[ (1+0,022)^8 + 1,5(1+0,022)^4 + 2 \right]}
+    \]
+\end{enumerate}
+
+\textbf{Propósito pedagógico:} Agrupar incógnitas vinculadas algebraicamente ($X, 1.5X, 2X$) dentro del planteamiento temporal.
+
+\vspace{0.2cm}
+
+\subsection*{\color{secondary} Ejercicio 6: Comparación de refinanciación con abono parcial (Estimar valor restante $X$)}
+\textbf{Enunciado:} Se otorga un crédito de \$70.000 en $t=0$. En el mes 5 el deudor realiza un abono de \$30.000. Se pacta que el saldo restante se liquidará con un pago de $X$ en el mes 10. Durante los primeros 5 meses la tasa de interés es del 1,5\% mensual, y del mes 6 al 10 aumenta al 2,0\% mensual. Plantee la ecuación en la fecha focal $t_f = 10$.
+
+\textbf{Análisis de datos:}
+\begin{itemize}
+    \item \textbf{Deuda inicial:} \$70.000 en $t=0$.
+    \item \textbf{Pagos:} \$30.000 en $t=5$; $X$ en $t=10$.
+    \item \textbf{Tasas:} $i_1 = 0,015$ (meses 1 a 5); $i_2 = 0,020$ (meses 6 a 10).
+\end{itemize}
+
+\textbf{Planteamiento de Ecuaciones de Valor:}
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Con Fecha Focal en $t_f = 10$:}
+    \begin{itemize}
+        \item La deuda de \$70.000 debe recorrer 5 meses a $i_1$ y luego 5 meses a $i_2$:
+        \[
+        \text{Valor de la deuda en } t=10: \quad 70.000(1 + 0,015)^5 (1 + 0,020)^5
+        \]
+        \item El pago de \$30.000 realizado en $t=5$ solo recorre los 5 meses finales a la tasa $i_2$:
+        \[
+        \text{Valor del abono en } t=10: \quad 30.000(1 + 0,020)^5
+        \]
+    \end{itemize}
+    \[
+    \mathbf{70.000(1 + 0,015)^5 (1 + 0,020)^5 = 30.000(1 + 0,020)^5 + X}
+    \]
+\end{enumerate}
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\section*{\color{primary} 4. Nivel 3: Ejercicios Difíciles (Tiempo Incógnito, Tasas Escalonadas y Penalizaciones)}
+
+\subsection*{\color{secondary} Ejercicio 7: Determinación del plazo o fecha equivalente (Estimar mes $n$)}
+\textbf{Enunciado:} Una persona posee dos deudas: \$20.000 con vencimiento en el mes 4 y \$35.000 con vencimiento en el mes 10. Desea consolidar ambas obligaciones mediante un pago único de \$60.000. Si la tasa de interés aplicable es del 1,8\% mensual, plantee la ecuación de valor que permite despejar el tiempo $n$ (en meses) en que debe realizarse dicho pago.
+
+\textbf{Análisis de datos:}
+\begin{itemize}
+    \item \textbf{Deudas:} \$20.000 en $t=4$; \$35.000 en $t=10$.
+    \item \textbf{Pago equivalente:} \$60.000 en $t=n$ (incógnita en el exponente).
+    \item \textbf{Tasa:} $i = 0,018$ mensual.
+\end{itemize}
+
+\textbf{Planteamiento de Ecuaciones de Valor:}
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Con Fecha Focal en $t_f = 0$ (Recomendada para despejar tiempo $n$):}
+    \[
+    \frac{20.000}{(1 + 0,018)^4} + \frac{35.000}{(1 + 0,018)^{10}} = \frac{60.000}{(1 + 0,018)^n}
+    \]
+    Expresado en notación de exponentes negativos:
+    \[
+    \mathbf{20.000(1 + 0,018)^{-4} + 35.000(1 + 0,018)^{-10} = 60.000(1 + 0,018)^{-n}}
+    \]
+\end{enumerate}
+
+\textbf{Propósito pedagógico:} Mostrar cómo las ecuaciones de valor sirven de fundamento para aplicar logaritmos al resolver problemas de tiempo equivalente.
+
+\vspace{0.2cm}
+
+\subsection*{\color{secondary} Ejercicio 8: Múltiples tramos de tasa de interés y pagos diferidos en proporción (Estimar $X$ y $3X$)}
+\textbf{Enunciado:} Un préstamo empresarial de \$120.000 desembolsado en $t=0$ se acuerda saldar con un abono de \$40.000 en el mes 6, un pago $X$ en el mes 10 y un pago final de $3X$ en el mes 15. Las condiciones de la tasa de interés varían con el tiempo según la política monetaria:
+\begin{itemize}
+    \item Del mes 1 al 6: 1,2\% mensual.
+    \item Del mes 7 al 12: 1,8\% mensual.
+    \item Del mes 13 al 15: 2,4\% mensual.
+\end{itemize}
+Plantee la ecuación de valor con fecha focal en $t_f = 15$.
+
+\textbf{Análisis de datos e itinerario de flujos hasta $t_f = 15$:}
+\begin{itemize}
+    \item \textbf{Deuda inicial (\$120.000 en $t=0$):} Recorre 6 meses al 1,2\%, 6 meses al 1,8\% y 3 meses al 2,4\%.
+    \[
+    \text{Valor de Deuda en } t=15 = 120.000(1 + 0,012)^6 (1 + 0,018)^6 (1 + 0,024)^3
+    \]
+    \item \textbf{Abono de \$40.000 (hecho en $t=6$):} Recorre 6 meses al 1,8\% y 3 meses al 2,4\%.
+    \[
+    \text{Valor de Abono en } t=15 = 40.000(1 + 0,018)^6 (1 + 0,024)^3
+    \]
+    \item \textbf{Pago $X$ (hecho en $t=10$):} Le faltan 2 meses del segundo tramo (al 1,8\%) y 3 meses del último tramo (al 2,4\%).
+    \[
+    \text{Valor de $X$ en } t=15 = X(1 + 0,018)^2 (1 + 0,024)^3
+    \]
+    \item \textbf{Pago $3X$ (hecho en $t=15$):} Ya se encuentra en la fecha focal $\Rightarrow 3X$.
+\end{itemize}
+
+\textbf{Ecuación de Equivalencia Final ($t_f = 15$):}
+\[
+\mathbf{120.000(1,012)^6 (1,018)^6 (1,024)^3 = 40.000(1,018)^6 (1,024)^3 + X(1,018)^2 (1,024)^3 + 3X}
+\]
+
+\vspace{0.2cm}
+
+\subsection*{\color{secondary} Ejercicio 9: Reestructuración por mora con penalización y nuevo plan de cuotas}
+\textbf{Enunciado:} Un compromiso financiero de \$150.000 contratado originalmente en $t=0$ debía cancelarse con dos cuotas iguales de \$75.000 en los meses 6 y 12 a una tasa pactada del 1,5\% mensual. En el mes 6, el deudor incumple el pago de la primera cuota y solicita una refinanciación. 
+
+El acreedor acepta bajo las siguientes reglas:
+\begin{enumerate}[label=\roman*)]
+    \item Se evalúa el saldo acumulado total de la deuda al mes 6.
+    \item Se aplica una multa por mora del 4\% sobre el saldo total acumulado a esa fecha.
+    \item El saldo refinanciado (deuda acumulada con sanción) se liquidará mediante un abono inmediato en el mes 6 de \$30.000 y el resto en dos pagos iguales de valor $R$ en los meses 9 y 14, ajustando la tasa de interés al 2,0\% mensual a partir del mes 6.
+\end{enumerate}
+Plantee la ecuación de valor para calcular la nueva cuota $R$ fijando la fecha focal en el mes $t_f = 6$.
+
+\textbf{Desglose por etapas en $t_f = 6$:}
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Monto acumulado de la deuda inicial a $t=6$:}
+    \[
+    D_6 = 150.000(1 + 0,015)^6
+    \]
+    \item \textbf{Monto acumulado total con penalización por mora (+4\%):}
+    \[
+    D_6^{\text{mora}} = 150.000(1 + 0,015)^6 \times 1,04
+    \]
+    \item \textbf{Ecuación de equivalencia para la refinanciación en $t_f = 6$:}
+    Los nuevos pagos en $t_f = 6$ son: el abono de \$30.000 en $t=6$, la cuota $R$ descontada 3 meses (del mes 9 al 6) y la cuota $R$ descontada 8 meses (del mes 14 al 6) a la nueva tasa del 2,0\% mensual ($i = 0,02$).
+    \[
+    150.000(1 + 0,015)^6 (1,04) = 30.000 + \frac{R}{(1 + 0,02)^3} + \frac{R}{(1 + 0,02)^8}
+    \]
+    \item \textbf{Ecuación simplificada despejando el abono inicial:}
+    \[
+    \mathbf{150.000(1 + 0,015)^6 (1,04) - 30.000 = R \left[ (1 + 0,02)^{-3} + (1 + 0,02)^{-8} \right]}
+    \]
+\end{enumerate}
+
+\textbf{Propósito pedagógico:} Este ejercicio integra evaluación de pasivos acumulados, recargos porcentuales e indemnizaciones por mora dentro del marco formal de equivalencia financiera.
+
+\vspace{0.4cm}
+\hrule
+\vspace{0.2cm}
+\begin{center}
+\small \color{darkgray} Fin de la Guía de Ejercicios -- Cátedra de Matemáticas Financieras
+\end{center}
+
+\end{document}

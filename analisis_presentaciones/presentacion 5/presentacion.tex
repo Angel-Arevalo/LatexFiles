@@ -1,0 +1,406 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\begin{document}
+
+  \begin{frame}
+    \textit{Definición}: Sean $(X, d)$ y $(Y, d')$ espacios métricos, 
+    $E \subseteq X$, $x_0 \in E'$ y $f: E \to Y$ una aplicación. Decimos 
+    que $q \in Y$ es el límite de $f(x)$ cuando $x$ tiende a $x_0$, y se 
+    simboliza por $\lim_{x \to x_0} f(x) = q$, si para todo $\epsilon > 0$ 
+    existe $\delta > 0$ tal que
+    \begin{center}
+      si $x \in E$ y $0 < d(x, x_0) < \delta$, entonces $d'(f(x), q) < \epsilon$.
+    \end{center}
+    \pause
+
+    En términos de bolas abiertas: $B_d(x_0, \delta) \cap E \subseteq 
+    f^{-1}(B_{d'}(q, \epsilon))$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Bajo las condiciones de la definición anterior,
+    $\lim_{x \to x_0} f(x) = q$ si y sólo si $\lim_{n \to +\infty} f(x_n) = q$ 
+    para toda sucesión $\{x_n\}_{n \in \mathbb{N}^+} \subseteq E \setminus \{x_0\}$ 
+    tal que $x_n \to x_0$ si $n \to +\infty$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Sean $(X, d)$ y $(Y, d')$ espacios métricos y $x_0 \in X$.
+    \begin{itemize}[<+->]
+      \item Dados $f: E \subseteq X \to Y$ y $x_0 \in E'$, si $q = \lim_{x \to x_0} f(x)$ 
+      existe, entonces es único.
+      \item Si $f, g: X \to \mathbb{R}$, $\lim_{x \to x_0} f(x) = A$ y 
+      $\lim_{x \to x_0} g(x) = B$, entonces
+      $\lim_{x \to x_0} f(x) \pm g(x) = A \pm B$, 
+      $\lim_{x \to x_0} f(x) \cdot g(x) = A \cdot B$ y 
+      $\lim_{x \to x_0} \frac{f(x)}{g(x)} = \frac{A}{B}$ si $B \neq 0$.
+      \item Si $\gamma = (f_1, \ldots, f_d): X \to \mathbb{R}^d$, entonces 
+      $\lim_{x \to x_0} \gamma(x) = (A_1, \ldots, A_d)$ si y sólo si 
+      $\lim_{x \to x_0} f_j(x) = A_j$, para $j = 1, \ldots, d$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Sean $f: E \subseteq X \to Y$ y $g: F \subseteq Y \to Z$ 
+    con $f(E) \subseteq F$, $x_0 \in E'$, $q \in F'$, $f(x) \to q$ si $x \to x_0$ 
+    y $g(y) \to z$ si $y \to q$.
+    \pause
+    \begin{itemize}[<+->]
+      \item Si existe una vecindad $U \subseteq X$ de $x_0$ tal que $f(x) \neq q$ 
+      para $x \in U \cap E$, entonces $g(f(x)) \to z$ cuando $x \to x_0$.
+      \item En otro caso, $\lim_{x \to x_0} g(f(x))$ puede o no existir. En caso 
+      de existir, su valor debe ser $g(q)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición (Criterio de Cauchy)}: Sea $f: E \subseteq X \to Y$, 
+    $x_0 \in E'$ y $(Y, d')$ completo. Entonces $\lim_{x \to x_0} f(x)$ existe si y 
+    sólo si para todo $\epsilon > 0$ existe $\delta > 0$ tal que para todo 
+    $x, y \in B_d(x_0, \delta)$ se verifica que $d'(f(x), f(y)) < \epsilon$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplo}: Sea $E = \{1/n : n \in \mathbb{N}^+\}$ y $f: E \to \mathbb{R}$ dada 
+    por $f(1/n) = 1/n!$. Entonces $E' = \{0\}$ y $f(x) \to 0$ si $x \to 0$.
+    \newline\newline
+    \pause
+
+    \textit{Ejemplo}: La función $f: \mathbb{R} \to \mathbb{R}$ dada por
+    \[
+      f(x) = \begin{cases} x & \text{si } x \in \mathbb{Q}, \\ 0 & \text{si } x \notin \mathbb{Q}, \end{cases}
+    \]
+    sólo posee límite en $x_0 = 0$ y $\lim_{x \to 0} f(x) = 0$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplo}: La función $g: \mathbb{R}^2 \setminus \{(0,0)\} \to \mathbb{R}$ 
+    dada por $g(x, y) = \dfrac{xy}{\sqrt{x^2 + y^2}}$ satisface $g(x, y) \to 0$ si 
+    $(x, y) \to (0, 0)$.
+    \newline\newline
+    \pause
+
+    \textit{Ejemplo}: La función $F: \mathbb{R}^2 \setminus \{(0,0)\} \to \mathbb{R}$ 
+    dada por $F(x, y) = \dfrac{xy}{x^2 + y^2}$ no tiene límite cuando 
+    $(x, y) \to (0, 0)$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sean $(X, d)$ y $(Y, d')$ espacios métricos, 
+    $f: E \subseteq X \to Y$ y $x_0 \in E'$. Decimos que $f$ es continua en $x_0$ 
+    si para todo $\epsilon > 0$ existe $\delta > 0$ tal que
+    \begin{center}
+      si $x \in E$ y $d(x, x_0) < \delta$, entonces $d'(f(x), f(x_0)) < \epsilon$.
+    \end{center}
+    \pause
+
+    Diremos que $f$ es continua en $C \subseteq X$ si lo es en cada punto de $C$.
+    \newline\newline
+    \pause
+
+    Si $x_0 \in E \setminus E'$ (punto aislado), toda $f$ es continua en $x_0$. Si 
+    $x_0 \in E \cap E'$, $f$ es continua en $x_0$ si y sólo si 
+    $\lim_{x \to x_0} f(x) = f(x_0)$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Sean $(X, d)$ y $(Y, d')$ espacios métricos.
+    \begin{itemize}[<+->]
+      \item $f: X \to Y$ es continua si y sólo si para cada $V \subseteq Y$ abierto, 
+      $f^{-1}(V) \subseteq X$ es abierto en $X$.
+      \item $f: X \to Y$ es continua si y sólo si para cada $C \subseteq Y$ cerrado, 
+      $f^{-1}(C) \subseteq X$ es cerrado en $X$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item La aplicación identidad $\mathrm{id}: (X, d) \to (X, d)$ y las 
+      aplicaciones constantes son continuas.
+      \item Si $f: X \to Y$ y $g: Y \to Z$ son continuas, entonces $g \circ f$ es continua. 
+      Si $f$ es continua en $x_0$ y $g$ es continua en $f(x_0)$, entonces $g \circ f$ es 
+      continua en $x_0$.
+      \item Si $(E, \|\cdot\|)$ es un espacio normado, entonces $\|\cdot\|: E \to \mathbb{R}$ 
+      es continua. En particular, $|\cdot|: \mathbb{R} \to \mathbb{R}$ es continua.
+      \item Si $f, g: X \to \mathbb{R}$ son continuas en $x_0$, también lo son $f + g$, 
+      $f \cdot g$ y $f/g$ (si $g(x_0) \neq 0$).
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item Las proyecciones $\pi_j: \mathbb{R}^d \to \mathbb{R}$, $\pi_j(x) = x_j$, son 
+      continuas. Todo polinomio es continuo en $\mathbb{R}^d$ y toda función racional es 
+      continua donde el denominador no se anula.
+      \item (Conjuntos de nivel) Si $f: X \to \mathbb{R}$ es continua, entonces 
+      $f^{-1}(c) = \{x \in X : f(x) = c\}$ es cerrado en $X$.
+      \item Una curva $\gamma = (f_1, \ldots, f_d): X \to \mathbb{R}^d$ es continua si y 
+      sólo si cada componente $f_j$ lo es.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $f: X \to Y$ es continua entre espacios métricos y 
+    $K \subseteq X$ es compacto, entonces $f(K)$ es compacto.
+    \newline\newline
+    \pause
+
+    \textit{Corolario}: Si $f: X \to \mathbb{R}^d$ es continua y $X$ es un espacio 
+    métrico compacto, entonces $f(X)$ es cerrado y acotado.
+    \newline\newline
+    \pause
+
+    \textit{Teorema (del valor extremo)}: Si $f: X \to \mathbb{R}$ es continua y $X$ es 
+    un espacio métrico compacto, existen $x_0, x_1 \in X$ tales que
+    \[
+      \inf_{x \in X} f(x) = f(x_0), \qquad \sup_{x \in X} f(x) = f(x_1),
+    \]
+    es decir, $f(x_0) \leq f(x) \leq f(x_1)$ para todo $x \in X$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $f: X \to Y$ es continua entre espacios métricos y 
+    $C \subseteq X$ es conexo, entonces $f(C)$ es conexo.
+    \newline\newline
+    \pause
+
+    \textit{Teorema (del valor intermedio)}: Si $I \subseteq \mathbb{R}$ es un intervalo 
+    y $f: I \to \mathbb{R}$ es continua, entonces $f(I)$ es un intervalo. En particular, 
+    si $I = [a, b]$ y $f(a) < c < f(b)$, entonces existe $x_0 \in (a, b)$ tal que 
+    $f(x_0) = c$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item Todo polinomio de grado impar con coeficientes reales tiene al menos una 
+      raíz real.
+      \item (Puntos fijos) Toda función continua $f: [0, 1] \to [0, 1]$ tiene un punto 
+      fijo, es decir, existe $x_0 \in [0, 1]$ tal que $f(x_0) = x_0$.
+      \item (Teorema del punto fijo de Brouwer) Una función continua $f: K \to K$ definida 
+      en un conjunto $K \subseteq \mathbb{R}^d$ compacto y convexo tiene un punto fijo.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Un conjunto $C \subseteq \mathbb{R}^d$ es conexo por caminos si 
+    para cada par de puntos $x_0, x_1 \in C$ existe una curva continua 
+    $\gamma: [0, 1] \to C$ tal que $\gamma(0) = x_0$ y $\gamma(1) = x_1$.
+    \newline\newline
+    \pause
+
+    \textit{Teorema}: Sea $\emptyset \neq U \subseteq \mathbb{R}^d$ abierto. Entonces $U$ es 
+    conexo si y sólo si es conexo por caminos.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $f: X \to Y$ una aplicación entre espacios métricos 
+    $(X, d)$ y $(Y, d')$. Decimos que $f$ es uniformemente continua en $E \subseteq X$ 
+    si para todo $\epsilon > 0$ existe $\delta = \delta(\epsilon) > 0$ tal que para todo 
+    $x_0, x \in E$,
+    \begin{center}
+      si $d(x, x_0) < \delta$, entonces $d'(f(x), f(x_0)) < \epsilon$.
+    \end{center}
+    \pause
+
+    \textit{Definición}: $f: X \to Y$ es de Lipschitz si existe $K > 0$ tal que
+    \[
+      d'(f(x), f(x_0)) \leq K \cdot d(x, x_0), \quad \text{para todo } x, x_0 \in X.
+    \]
+    Toda función de Lipschitz es uniformemente continua.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item Toda función afín $f(x) = ax + b$ es de Lipschitz con $K = |a|$. También lo 
+      son $f(x) = |x|$ y la norma $\|\cdot\|: E \to \mathbb{R}$ (con $K = 1$).
+      \item $f(x) = \sqrt{x}$ es uniformemente continua en $[0, +\infty)$ pero no es de 
+      Lipschitz.
+      \item $f(x) = \cos(x)$ y $g(x) = \sin(x)$ son de Lipschitz con $K = 1$.
+      \item $f(x) = x^2$ no es uniformemente continua en $\mathbb{R}$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: En un espacio métrico $(X, d)$, si $A \subseteq X$ y $x \in X$, 
+    la distancia de $x$ a $A$ es $\mathrm{dist}(x, A) = \inf_{a \in A} d(x, a)$.
+    \newline\newline
+    \pause
+
+    \textit{Proposición}: $\mathrm{dist}(\cdot, A): X \to \mathbb{R}$ satisface
+    \[
+      |\mathrm{dist}(x, A) - \mathrm{dist}(y, A)| \leq d(x, y),
+    \]
+    y por tanto es de Lipschitz con $K = 1$.
+    \newline\newline
+    \pause
+
+    \textit{Proposición}: Si $K \subseteq X$ es compacto, para cada $x_0 \in X$ existe 
+    $x_1 \in K$ tal que $\mathrm{dist}(x_0, K) = d(x_0, x_1)$. Si $A \subseteq \mathbb{R}^d$ 
+    es cerrado, para cada $x \in \mathbb{R}^d$ existe $y \in A$ tal que 
+    $\mathrm{dist}(x, A) = \|x - y\|_2$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Una aplicación $f: X \to Y$ es uniformemente continua en 
+    $E \subseteq X$ si y sólo si para todo par de sucesiones $\{x_n\}_{n \in \mathbb{N}}$, 
+    $\{y_n\}_{n \in \mathbb{N}}$ en $E$ tales que $d(x_n, y_n) \to 0$, se sigue que 
+    $d'(f(x_n), f(y_n)) \to 0$ cuando $n \to +\infty$.
+    \newline\newline
+    \pause
+
+    \textit{Teorema}: Si $f: X \to Y$ es una aplicación continua entre espacios métricos 
+    y $X$ es compacto, entonces $f$ es uniformemente continua.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición (Límites laterales)}: Dada $f: (a, b) \to \mathbb{R}$ y 
+    $x_0 \in (a, b)$, el límite a derecha de $f$ en $x_0$ es $f(x_0^+) := 
+    \lim_{x \to x_0^+} f(x)$ si para todo $\epsilon > 0$ existe $\delta > 0$ tal que
+    \[
+      \text{si } x_0 < x < x_0 + \delta, \text{ entonces } |f(x) - f(x_0^+)| < \epsilon.
+    \]
+    \pause
+    De la misma forma, el límite a izquierda es $f(x_0^-) := \lim_{x \to x_0^-} f(x)$ si 
+    para todo $\epsilon > 0$ existe $\delta > 0$ tal que
+    \[
+      \text{si } x_0 - \delta < x < x_0, \text{ entonces } |f(x) - f(x_0^-)| < \epsilon.
+    \]
+    \pause
+    $\lim_{x \to x_0} f(x)$ existe si y sólo si $f(x_0^+)$, $f(x_0^-)$ existen y 
+    $f(x_0^+) = f(x_0^-) = \lim_{x \to x_0} f(x)$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Sea $f: I \to \mathbb{R}$ definida en un intervalo $I$. Un punto 
+    $x_0 \in I$ donde $f$ no es continua es una discontinuidad de $f$.
+    \begin{itemize}[<+->]
+      \item $x_0$ es una discontinuidad simple (o de primer tipo) si $f(x_0^+)$ y 
+      $f(x_0^-)$ existen. De lo contrario, es de segundo tipo.
+      \item El valor $f(x_0^+) - f(x_0^-)$ se llama el salto de $f$ en $x_0$.
+      \item $S_f := \{x \in I : f \text{ es discontinua en } x\}$ denota el conjunto de 
+      discontinuidades de $f$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item La parte entera $f(x) = \lfloor x \rfloor$ y la parte fraccionaria 
+      $g(x) = \{x\} = x - \lfloor x \rfloor$ tienen discontinuidades simples en cada 
+      $n \in \mathbb{Z}$.
+      \item $f(x) = \sin(1/x)$ si $x \neq 0$, $f(0) = 0$, no tiene límites laterales en 
+      $0$. En cambio, $g(x) = x \sin(1/x)$ si $x \neq 0$, $g(0) = 0$, es continua en $0$.
+      \item La función de Dirichlet $1_{\mathbb{Q}}$ no es continua en ningún punto de 
+      $\mathbb{R}$, y $g(x) = x \cdot 1_{\mathbb{Q}}(x)$ sólo es continua en $x = 0$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplo (Función de Thomae)}: $f: (0, 1) \to \mathbb{R}$ definida por
+    \[
+      f(x) = \begin{cases} \dfrac{1}{q} & \text{si } x = \dfrac{p}{q}, \; p, q \in \mathbb{N}^+ 
+      \text{ primos relativos}, \\[2mm] 0 & \text{si } x \text{ es irracional.} \end{cases}
+    \]
+    Satisface $\lim_{x \to x_0} f(x) = 0$ para todo $x_0 \in (0, 1)$. Por tanto, $f$ es 
+    continua en los irracionales de $(0, 1)$ y discontinua en $\mathbb{Q} \cap (0, 1)$.
+  \end{frame}
+
+  \begin{frame}
+    También se definen
+    \[
+      \lim_{x \to x_0} f(x) = \pm\infty, \qquad \lim_{x \to x_0^{\pm}} f(x) = \pm\infty, 
+      \qquad \lim_{x \to \pm\infty} f(x) = L \in \mathbb{R} \cup \{\pm\infty\}.
+    \]
+    \pause
+    \textit{Ejemplos}:
+    \[
+      \lim_{x \to +\infty} \frac{1}{x} = 0, \quad \lim_{x \to 0^+} \frac{1}{x} = +\infty, 
+      \quad \lim_{x \to 0} \ln|x| = -\infty, \quad \lim_{x \to \pi/2^-} \tan(x) = +\infty.
+    \]
+    \pause
+    \textit{Ejemplo (Teorema de los números primos)}: Si 
+    $\pi(x) = \sum_{p \in \mathbb{P}, \, p \leq x} 1$, entonces
+    \[
+      \lim_{x \to +\infty} \frac{\pi(x)}{x / \ln(x)} = 1.
+    \]
+    Como consecuencia, el conjunto $F(\mathbb{P}) = \{p/q \in \mathbb{Q}^+ : p, q \in \mathbb{P}\}$ 
+    de cocientes entre números primos es denso en $\mathbb{R}^+$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Una función $f: (a, b) \to \mathbb{R}$ es monótona creciente 
+    (resp. decreciente) si $x \leq y$ implica $f(x) \leq f(y)$ (resp. $f(y) \leq f(x)$). 
+    Si las desigualdades son estrictas, se dice que $f$ es estrictamente monótona.
+    \newline\newline
+    \pause
+
+    \textit{Teorema}: Sea $f: (a, b) \to \mathbb{R}$ monótona creciente.
+    \pause
+    \begin{itemize}[<+->]
+      \item Si $a < x < b$, entonces
+      $\displaystyle\sup_{a < t < x} f(t) = f(x^-) \leq f(x) \leq f(x^+) = \inf_{x < t < b} f(t)$. 
+      En particular, $f$ sólo tiene singularidades de primer tipo.
+      \item Si $f$ es acotada inferiormente en $(a, a + r)$ (resp. superiormente en 
+      $(b - r, b)$), entonces $f(a^+) = \inf_{a < t < a + r} f(t)$ (resp. 
+      $f(b^-) = \sup_{b - r < t < b} f(t)$).
+      \item Si $a < x < y < b$, entonces $f(x^+) \leq f(y^-)$.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \textit{Teorema}: Si $f: (a, b) \to \mathbb{R}$ es monótona creciente o decreciente, 
+    entonces su conjunto de discontinuidades $S_f$ es finito o contable.
+    \newline\newline
+    \pause
+
+    \textit{Ejemplo}: Sea $I \subseteq \mathbb{R}$ un intervalo y $f: I \to \mathbb{R}$ 
+    estrictamente monótona. Entonces $f: I \to J = f(I)$ es biyectiva y, si $f$ es continua, 
+    $f^{-1}: J \to I$ también es continua.
+    \newline\newline
+    \pause
+
+    \textit{Nota}: En general, si $f: X \to Y$ es continua y biyectiva entre espacios 
+    métricos, su inversa $f^{-1}: Y \to X$ puede no ser continua.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Dada una función acotada $f: [a, b] \to \mathbb{R}$ y 
+    $B(x_0, r) = (x_0 - r, x_0 + r)$, la oscilación de $f$ en $B(x_0, r)$ es
+    \[
+      \mathrm{osc}(f, x_0, r) := \sup_{t, s \in [a, b] \cap B(x_0, r)} |f(t) - f(s)|,
+    \]
+    y la oscilación de $f$ en $x_0$ es
+    \[
+      \mathrm{osc}(f, x_0) := \lim_{r \to 0^+} \mathrm{osc}(f, x_0, r) = \inf_{r > 0} \mathrm{osc}(f, x_0, r).
+    \]
+    \pause
+    \textit{Proposición}: Si $f: [a, b] \to \mathbb{R}$ es acotada y $x_0 \in [a, b]$, 
+    entonces $f$ es continua en $x_0$ si y sólo si $\mathrm{osc}(f, x_0) = 0$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Ejemplos}:
+    \begin{itemize}[<+->]
+      \item Para $f(x) = \sin(1/x)$ si $x \neq 0$ y $f(0) = 0$, se tiene $\mathrm{osc}(f, 0) = 2$.
+      \item Para la función de Dirichlet, $\mathrm{osc}(1_{\mathbb{Q}}, x_0) = 1$ para todo 
+      $x_0 \in \mathbb{R}$.
+    \end{itemize}
+    \pause
+    \vspace{3mm}
+    Dado $\epsilon > 0$, sea $A_{f, \epsilon} := \{x \in [a, b] : \mathrm{osc}(f, x) \geq \epsilon\}$. Entonces
+    \[
+      S_f = \bigcup_{\epsilon > 0} A_{f, \epsilon} = \bigcup_{n \in \mathbb{N}^+} A_{f, 1/n}.
+    \]
+    \pause
+    \textit{Lema}: Si $f: [a, b] \to \mathbb{R}$ es acotada, para todo $\epsilon > 0$ el 
+    conjunto $A_{f, \epsilon}$ es cerrado. Por tanto, $S_f$ es una unión contable de 
+    conjuntos cerrados.
+  \end{frame}
+
+\end{document}
