@@ -1,0 +1,237 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2cm]{geometry}
+
+\pagestyle{empty}
+\renewcommand{\proofname}{Demostración}
+\emergencystretch=2em
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\renewcommand{\labelenumi}{\alph{enumi})}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+
+\begin{document}
+
+  \textbf{6.1.6.} Sea $d\ge 2$, $Y$ un espacio métrico y $f:\R^d\setminus\{0\}\to Y$ una aplicación. 
+  Demostrar que $\lim_{x\to 0}f(x)=q$ si y solo si para toda curva $\gamma:[0,1]\to\R^d\setminus\{0\}$ tal que
+  $\lim_{t\to 0}\gamma(t)=0$, se verifica que $\lim_{t\to 0}f(\gamma(t))=q$.
+
+  \begin{proof}
+  La implicación ($\Rightarrow$) vale para cualquier aplicación $\gamma$ con las propiedades del enunciado. En la implicación ($\Leftarrow$)
+  la curva que se construye es continua en $(0,1]$ (no puede serlo en $t=0$, pues $\gamma(0)\neq 0$ mientras que $\gamma(t)\to 0$ si $t\to 0$).
+
+  ($\Rightarrow$) Suponga que $\lim_{x\to 0}f(x)=q$ y sea $\gamma$ como en el enunciado. Dado $\epsilon>0$, sea $\delta>0$ tal que si
+  $0<\norm{x}<\delta$, entonces $d'(f(x),q)<\epsilon$. Como $\gamma(t)\to 0$ si $t\to 0$, existe $\eta>0$ tal que $\norm{\gamma(t)}<\delta$ si $0<t<\eta$. 
+  Además $\gamma(t)\neq 0$ para todo $t$, así que $0<\norm{\gamma(t)}<\delta$ y por tanto $d'(f(\gamma(t)),q)<\epsilon$ si $0<t<\eta$. Esto 
+  demuestra que $\lim_{t\to 0}f(\gamma(t))=q$.
+
+  ($\Leftarrow$) Procedemos por contrarrecíproco. Suponga que $\lim_{x\to 0}f(x)=q$ no es válido. Por el Teorema 6.1, existe una sucesión $\{x_n\}_{n\in\N^+}\subseteq\R^d\setminus\{0\}$ tal que $x_n\to 0$ pero $f(x_n)\not\to q$ si $n\to+\infty$. Para cada $n\in\N^+$ sea $r_n=\max\{\norm{x_n},\norm{x_{n+1}}\}$, de modo que $r_n\to 0$.
+
+  \emph{Paso 1: caminos entre $x_n$ y $x_{n+1}$.} Para cada $n$ construimos una aplicación continua $p_n:[0,1]\to\R^d\setminus\{0\}$ tal que $p_n(0)=x_n$, $p_n(1)=x_{n+1}$ y $\norm{p_n(s)}\le r_n$ para todo $s\in[0,1]$.
+
+  Si $0$ no pertenece al segmento que une a $x_n$ con $x_{n+1}$, tome $p_n(s)=(1-s)x_n+sx_{n+1}$. Entonces $p_n(s)\neq 0$ y $\norm{p_n(s)}\le(1-s)\norm{x_n}+s\norm{x_{n+1}}\le r_n$.
+
+  Si $0$ pertenece a dicho segmento, existe $s_0\in[0,1]$ con $(1-s_0)x_n+s_0x_{n+1}=0$. Como $x_n,x_{n+1}\neq 0$, se tiene $s_0\neq 0,1$ y así $x_{n+1}=-c\,x_n$ con $c=(1-s_0)/s_0>0$. Como $d\ge 2$, el complemento ortogonal de la recta $\R x_n$ tiene dimensión $d-1\ge 1$, de modo que existe $w_n\in\R^d$ ortogonal a $x_n$ con $\norm{w_n}=\norm{x_n}$. Entonces $w_n$ también es ortogonal a $x_{n+1}$. Defina
+  \[
+  p_n(s)=\begin{cases}
+  (1-2s)\,x_n+2s\,w_n, & 0\le s\le \tfrac12,\\[2pt]
+  (2-2s)\,w_n+(2s-1)\,x_{n+1}, & \tfrac12\le s\le 1.
+  \end{cases}
+  \]
+  Ambas expresiones valen $w_n$ en $s=\tfrac12$, así que $p_n$ es continua. Por el Teorema de Pitágoras, para $u\in[0,1]$,
+  \[
+  \norm{(1-u)x_n+u\,w_n}^2=\big((1-u)^2+u^2\big)\norm{x_n}^2,\qquad
+  \norm{(1-u)w_n+u\,x_{n+1}}^2=(1-u)^2\norm{x_n}^2+u^2\norm{x_{n+1}}^2 .
+  \]
+  Como $u$ y $1-u$ no se anulan simultáneamente y $(1-u)^2+u^2\le 1$, ambos valores son positivos y a lo sumo $r_n^2$. Así $p_n(s)\neq 0$ y $\norm{p_n(s)}\le r_n$.
+
+  \emph{Paso 2: la curva.} Fije $v\in\R^d\setminus\{0\}$ y defina $\gamma(0)=v$ y, para $n\in\N^+$ y $t\in[\frac1{n+1},\frac1n]$,
+  \[
+  \gamma(t)=p_n\big(n+1-n(n+1)t\big).
+  \]
+  Si $t=\frac1n$ el argumento es $0$ y $\gamma(t)=x_n$; si $t=\frac1{n+1}$ el argumento es $1$ y $\gamma(t)=x_{n+1}$. Por tanto, en el extremo común $t=\frac1{n+1}$ de dos intervalos consecutivos las dos definiciones coinciden, $\gamma$ está bien definida en $(0,1]=\bigcup_{n}[\frac1{n+1},\frac1n]$ con valores en $\R^d\setminus\{0\}$, y $\gamma(1/n)=x_n$. Como cada punto de $(0,1]$ tiene una vecindad que interseca solo una cantidad finita de estos intervalos y $\gamma$ es continua en cada uno de ellos, $\gamma$ es continua en $(0,1]$.
+
+  \emph{Paso 3: conclusión.} Si $t\in[\frac1{n+1},\frac1n]$, entonces $\norm{\gamma(t)}\le r_n$. Dado $\epsilon>0$, como $r_n\to 0$ existe $N$ con $r_n<\epsilon$ si $n\ge N$, y así $\norm{\gamma(t)}<\epsilon$ si $0<t\le 1/N$. Por tanto $\lim_{t\to 0}\gamma(t)=0$. Sin embargo, si $\lim_{t\to 0}f(\gamma(t))=q$, el Teorema 6.1 aplicado a la sucesión $t_n=1/n\to 0$ daría $f(x_n)=f(\gamma(1/n))\to q$, lo cual es falso. Por tanto, $\gamma$ es una curva para la cual no se verifica la condición del enunciado.
+  \end{proof}
+
+  \textbf{6.2.4.} Sea $(X,d)$ un espacio métrico y $f:X\to\R$ continua. Demostrar que si $f(x_0)>0$, para algún $x_0\in X$, existe una vecindad $U\subseteq X$ de $x_0$ tal que $f(x)>0$, para todo $x\in U$.
+
+  \begin{proof}
+  El conjunto $(0,+\infty)$ es abierto en $\R$. Por el Teorema 6.2 (1), $U=f^{-1}((0,+\infty))$ es abierto en $X$. Además $x_0\in U$ porque $f(x_0)>0$, y por definición $f(x)>0$ para todo $x\in U$.
+  \end{proof}
+
+  \textbf{6.2.5.} Sean $f,g:X\to\R$ continuas. Probar que el conjunto $\{x\in X\mid f(x)=g(x)\}$ es cerrado, y que los conjuntos $\{x\in X\mid f(x)>g(x)\}$ y $\{x\in X\mid f(x)<g(x)\}$ son abiertos. Además, mostrar que las funciones $F_1,F_2:X\to\R$ dadas por
+  \[
+  F_1(x)=\max\{f(x),g(x)\},\qquad F_2(x)=\min\{f(x),g(x)\},
+  \]
+  son continuas.
+
+  \begin{proof}
+  Por el Ejemplo 6.2.4, $h=f-g$ es continua. Entonces
+  \[
+  \{f=g\}=h^{-1}(\{0\}),\qquad \{f>g\}=h^{-1}((0,+\infty)),\qquad \{f<g\}=h^{-1}((-\infty,0)).
+  \]
+  Como $\{0\}$ es cerrado en $\R$, el primer conjunto es cerrado por el Teorema 6.2 (2) (Ejemplo 6.2.6). Como $(0,+\infty)$ y $(-\infty,0)$ son abiertos en $\R$, los otros dos son abiertos por el Teorema 6.2 (1).
+
+  Para el máximo y el mínimo, note que para $a,b\in\R$,
+  \[
+  \max\{a,b\}=\frac{a+b+|a-b|}{2},\qquad \min\{a,b\}=\frac{a+b-|a-b|}{2}.
+  \]
+  Por tanto
+  \[
+  F_1=\tfrac12\,(f+g+|f-g|),\qquad F_2=\tfrac12\,(f+g-|f-g|).
+  \]
+  El valor absoluto es continuo (Ejemplo 6.2.3) y $f-g$ es continua, así que $|f-g|$ es continua por el Ejemplo 6.2.2. Como las funciones constantes son continuas y $C^0(X)$ es cerrado bajo sumas y productos (Ejemplo 6.2.4), $F_1$ y $F_2$ son continuas.
+  \end{proof}
+
+  \textbf{6.2.6.} Sean $f,g,h:\R\to\R$ tales que
+  \[
+  \lim_{x\to 0}f(x)=\lim_{x\to 0}g(x)=\alpha\in\R,\qquad\text{y}\qquad 0\le h(x)\le 1,\ \text{para todo }x\in\R.
+  \]
+  Demostrar que
+  \[
+  \lim_{x\to 0}\big(h(x)f(x)+(1-h(x))g(x)\big)=\alpha.
+  \]
+
+  \begin{proof}
+  Como $h(x)+(1-h(x))=1$, para todo $x\in\R$ se tiene
+  \[
+  h(x)f(x)+(1-h(x))g(x)-\alpha=h(x)\big(f(x)-\alpha\big)+(1-h(x))\big(g(x)-\alpha\big).
+  \]
+  Como $0\le h(x)\le 1$ y $0\le 1-h(x)\le 1$,
+  \[
+  \big|h(x)f(x)+(1-h(x))g(x)-\alpha\big|\le |f(x)-\alpha|+|g(x)-\alpha|.
+  \]
+  Sea $\epsilon>0$. Por hipótesis existen $\delta_1,\delta_2>0$ tales que $|f(x)-\alpha|<\epsilon/2$ si $0<|x|<\delta_1$ y $|g(x)-\alpha|<\epsilon/2$ si $0<|x|<\delta_2$. Si $\delta=\min\{\delta_1,\delta_2\}$ y $0<|x|<\delta$, la desigualdad anterior da
+  \[
+  \big|h(x)f(x)+(1-h(x))g(x)-\alpha\big|<\frac\epsilon2+\frac\epsilon2=\epsilon.
+  \]
+  Esto concluye la prueba. Note que no se requiere ninguna hipótesis sobre el comportamiento de $h$ cerca de $0$.
+  \end{proof}
+
+  \textbf{6.2.8.} Sea $f:\R\to\R$ una función y asuma que existe al menos un $x_0\in\R$ donde $f$ es continua. Si suponemos que
+  \[
+  f(x+y)=f(x)+f(y),\qquad\text{para todo }x,y\in\R,
+  \]
+  demostrar que existe $a\in\R$ tal que $f(x)=ax$.
+
+  \begin{proof}
+  \emph{Paso 1: $f(0)=0$.} Con $x=y=0$ se obtiene $f(0)=2f(0)$, es decir $f(0)=0$.
+
+  \emph{Paso 2: $f$ es continua en $0$.} Sea $\epsilon>0$. Por la continuidad de $f$ en $x_0$ existe $\delta>0$ tal que si $|h|<\delta$, entonces $|f(x_0+h)-f(x_0)|<\epsilon$. Por aditividad, $f(x_0+h)-f(x_0)=f(h)=f(h)-f(0)$. Así, $|h|<\delta$ implica $|f(h)-f(0)|<\epsilon$.
+
+  \emph{Paso 3: $f(q)=aq$ para todo $q\in\Q$, con $a=f(1)$.} Por inducción, $f(nx)=nf(x)$ para todo $n\in\N$ y $x\in\R$: el caso $n=0$ es el Paso 1 y $f((n+1)x)=f(nx)+f(x)=(n+1)f(x)$. Además $f(x)+f(-x)=f(0)=0$, así que $f(-x)=-f(x)$, y por tanto $f(mx)=mf(x)$ para todo $m\in\mathbb Z$. Si $n\in\N^+$, entonces $nf(x/n)=f(x)$, es decir $f(x/n)=f(x)/n$. Si $q=m/n$ con $m\in\mathbb Z$ y $n\in\N^+$, entonces
+  \[
+  f(q)=f\Big(m\cdot\frac1n\Big)=m\,f\Big(\frac1n\Big)=\frac mn\,f(1)=aq.
+  \]
+
+  \emph{Paso 4: $f(x)=ax$ para todo $x\in\R$.} Sea $x\in\R$. Por la densidad de $\Q$ en $\R$ existe una sucesión $\{q_n\}_{n\in\N^+}\subseteq\Q$ con $q_n\to x$. Entonces $x-q_n\to 0$ y, como $f$ es continua en $0$ (Paso 2) y $f(0)=0$,
+  \[
+  f(x)-aq_n=f(x)-f(q_n)=f(x-q_n)\longrightarrow f(0)=0\qquad\text{si }n\to+\infty.
+  \]
+  Como $aq_n\to ax$, se concluye que $f(x)=ax$.
+  \end{proof}
+
+  \textbf{6.3.2.} Aplicar el Teorema del valor intermedio para demostrar las siguientes afirmaciones:
+  \begin{enumerate}
+  \item Si $f:[a,b]\to[a,b]$ es continua, existe $x_0\in[a,b]$, tal que $f(x_0)=x_0$.
+  \item Si $f:[a,b]\to[0,1]$ es continua, existe $x_0\in[a,b]$ tal que $f(x_0)=\dfrac{f(a)+f(b)}{2}$.
+  \item Si $f:[0,1]\to\R$ es continua y $f(0)=f(1)$, existe $x_0\in[0,1]$ tal que $f(x_0)=f(x_0+1/2)$.
+  \item Si $f:[0,1]\to\R$ es continua y $f(0)=f(1)$, existe $x_0\in[0,1]$ tal que $f(x_0)=f(x_0+1/3)$.
+  \item Generalizar estos resultados para $n\in\N^+$ con $n\ge 2$.
+  \end{enumerate}
+
+  \begin{proof}
+  En todos los casos usamos el Teorema 6.6: si $I$ es un intervalo y $\varphi:I\to\R$ es continua, entonces $\varphi(I)$ es un intervalo, y por tanto contiene a todo número comprendido entre dos de sus valores.
+
+  \begin{enumerate}
+  \item La función $h(x)=f(x)-x$ es continua en $[a,b]$ (Ejemplo 6.2.4). Como $f(a),f(b)\in[a,b]$, se tiene $h(a)=f(a)-a\ge 0$ y $h(b)=f(b)-b\le 0$. Entonces $h([a,b])$ es un intervalo que contiene a $h(b)\le 0\le h(a)$, y así $0\in h([a,b])$: existe $x_0\in[a,b]$ con $h(x_0)=0$, es decir $f(x_0)=x_0$.
+
+  \item El conjunto $f([a,b])$ es un intervalo que contiene a $f(a)$ y a $f(b)$. El número $\frac{f(a)+f(b)}2$ está comprendido entre $f(a)$ y $f(b)$, así que pertenece a $f([a,b])$.
+
+  \item Sea $g(x)=f(x+1/2)-f(x)$, $x\in[0,1/2]$, que es continua por los Ejemplos 6.2.2 y 6.2.4. Como $f(0)=f(1)$,
+  \[
+  g(0)=f(1/2)-f(0),\qquad g(1/2)=f(1)-f(1/2)=f(0)-f(1/2)=-g(0).
+  \]
+  El intervalo $g([0,1/2])$ contiene a $g(0)$ y a $-g(0)$, luego contiene a $0$. Existe entonces $x_0\in[0,1/2]$ con $f(x_0+1/2)=f(x_0)$.
+
+  \item Sea $g(x)=f(x+1/3)-f(x)$, $x\in[0,2/3]$, continua como en el caso anterior. Entonces
+  \[
+  g(0)+g\big(\tfrac13\big)+g\big(\tfrac23\big)=\big(f(\tfrac13)-f(0)\big)+\big(f(\tfrac23)-f(\tfrac13)\big)+\big(f(1)-f(\tfrac23)\big)=f(1)-f(0)=0.
+  \]
+  Sean $m$ y $M$ el mínimo y el máximo de $\{g(0),g(1/3),g(2/3)\}$. Como la suma es cero, $3m\le 0\le 3M$, es decir $m\le 0\le M$. El intervalo $g([0,2/3])$ contiene a $m$ y a $M$, luego contiene a $0$. Existe entonces $x_0\in[0,2/3]$ con $f(x_0+1/3)=f(x_0)$.
+
+  \item Sea $n\ge 2$. Si $f:[0,1]\to\R$ es continua y $f(0)=f(1)$, entonces existe $x_0\in[0,1-1/n]$ tal que $f(x_0)=f(x_0+1/n)$. En efecto, sea $g(x)=f(x+1/n)-f(x)$, $x\in[0,1-1/n]$, que es continua. Por ser una suma telescópica,
+  \[
+  \sum_{k=0}^{n-1}g\Big(\frac kn\Big)=\sum_{k=0}^{n-1}\Big(f\Big(\frac{k+1}n\Big)-f\Big(\frac kn\Big)\Big)=f(1)-f(0)=0.
+  \]
+  Si $m$ y $M$ son el mínimo y el máximo de $\{g(k/n):k=0,\dots,n-1\}$, entonces $nm\le 0\le nM$, y como $g([0,1-1/n])$ es un intervalo que contiene a $m$ y a $M$, contiene a $0$.
+  \end{enumerate}
+  \end{proof}
+
+  \textbf{6.3.3.} Mostrar que si $f:\R\to\Q$ es continua, entonces es constante.
+
+  \begin{proof}
+  Por el Teorema 6.6, $f(\R)$ es un intervalo contenido en $\Q$. Suponga que $f$ no es constante: existen $x,y\in\R$ con $u=f(x)<v=f(y)$ (intercambiando los papeles de $x$ e $y$ si es necesario). Sea $c=u+\dfrac{v-u}{\sqrt2}$. Entonces $u<c<v$, y $c$ es irracional: de lo contrario $\sqrt2=\dfrac{v-u}{c-u}$ sería racional, pues $u,v,c\in\Q$ y $c\neq u$. Como $f(\R)$ es un intervalo que contiene a $u$ y a $v$, se tendría $c\in f(\R)\subseteq\Q$, lo cual es absurdo. Por tanto $f$ es constante.
+  \end{proof}
+
+  \textbf{6.3.9.} Demostrar que un conjunto $K\subseteq\R^d$ es compacto si y solo si cada función continua $f:K\to\R$ es acotada.
+
+  \begin{proof}
+  ($\Rightarrow$) Si $K$ es compacto y $f:K\to\R$ es continua, por el Teorema 6.3 $f(K)\subseteq\R$ es compacto, y por el Corolario 6.1 es cerrado y acotado. En particular $f$ es acotada.
+
+  ($\Leftarrow$) Suponga que toda función continua $f:K\to\R$ es acotada. Por el Teorema de Heine-Borel basta ver que $K$ es acotado y cerrado.
+
+  \emph{$K$ es acotado.} La función $x\mapsto\norm{x}_2$ es continua en $\R^d$ (Ejemplo 6.2.3), luego su restricción a $K$ también lo es. Por hipótesis es acotada: existe $M>0$ con $\norm{x}_2\le M$ para todo $x\in K$.
+
+  \emph{$K$ es cerrado.} Suponga que no lo es. Entonces existe un punto límite $x_0$ de $K$ con $x_0\notin K$. Considere $g:K\to\R$ dada por $g(x)=\norm{x-x_0}_2$, que es continua por los Ejemplos 6.2.2 y 6.2.3, y satisface $g(x)>0$ para todo $x\in K$ porque $x_0\notin K$. Por el Ejemplo 6.2.4, $f=1/g:K\to\R$ es continua. Por hipótesis $f$ es acotada: existe $M>0$ con $\dfrac{1}{\norm{x-x_0}_2}\le M$, es decir, $\norm{x-x_0}_2\ge 1/M$ para todo $x\in K$. Esto dice que $B_{\norm{\cdot}_2}(x_0,1/M)\cap K=\emptyset$, lo cual contradice que $x_0$ sea un punto límite de $K$. Por tanto $K$ es cerrado.
+  \end{proof}
+
+  \textbf{6.4.4.} Sea $A\subseteq\R^d$ y $f:A\to\R$ uniformemente continua allí. Las siguientes afirmaciones se verifican:
+  \begin{enumerate}
+  \item Si $A$ es acotado, entonces $f$ es acotada.
+  \item $f$ se extiende continuamente a $\overline{A}$. En efecto, para cada $a\in A'$, $\lim_{x\to a}f(x)$ existe.
+  \end{enumerate}
+  Emplear estas propiedades para comprobar que $f(x)=1/x^n$, $n\in\N^+$, y $g(x)=\sin(1/x)$ no son uniformemente continuas en $(0,a]$, con $a>0$.
+
+  \begin{proof}
+  \begin{enumerate}
+  \item Suponga que $A$ es acotado y $f$ no es acotada. Reemplazando $f$ por $-f$ si es necesario (que también es uniformemente continua), podemos suponer que $f$ no es acotada superiormente. Fije $a_1\in A$. Dado $a_n\in A$, como $f(A)$ no es acotado superiormente existe $a_{n+1}\in A$ con $f(a_{n+1})>f(a_n)+1$. Esto define una sucesión $\{a_n\}_{n\in\N^+}\subseteq A$ tal que $f(a_{n+1})>f(a_n)+1$ para todo $n$, y por tanto $f(a_m)>f(a_n)+1$ si $m>n$.
+
+  Como $A$ es acotado, $\{a_n\}$ es acotada, y por el Teorema de Bolzano-Weierstrass existe una subsucesión $c_k=a_{n_k}$ convergente. Como $n_{k+1}>n_k$, se tiene $|f(c_{k+1})-f(c_k)|>1$ para todo $k$. Sea $b_k=c_{k+1}$. Si $c_k\to c$, entonces $\norm{c_k-b_k}\le\norm{c_k-c}+\norm{c-c_{k+1}}\to 0$. Por la Proposición 6.4, $|f(c_k)-f(b_k)|\to 0$, lo cual contradice que $|f(c_k)-f(b_k)|>1$ para todo $k$. Por tanto $f$ es acotada.
+
+  \item \emph{Existencia del límite.} Sea $a\in A'$. Existe una sucesión $\{a_n\}_{n\in\N^+}\subseteq A\setminus\{a\}$ con $a_n\to a$. Veamos que $\{f(a_n)\}$ es de Cauchy. Dado $\epsilon>0$, sea $\delta>0$ asociado a $\epsilon$ por la continuidad uniforme de $f$. Como $\{a_n\}$ es convergente, es de Cauchy, y existe $N$ tal que $\norm{a_n-a_m}<\delta$ si $n,m\ge N$; luego $|f(a_n)-f(a_m)|<\epsilon$ para estos valores. Como $\R$ es completo, $f(a_n)\to b$ para algún $b\in\R$.
+
+  Sea ahora $\{x_n\}_{n\in\N^+}\subseteq A\setminus\{a\}$ con $x_n\to a$. Entonces $\norm{x_n-a_n}\le\norm{x_n-a}+\norm{a-a_n}\to 0$, y por la Proposición 6.4, $f(x_n)-f(a_n)\to 0$. Así $f(x_n)=f(a_n)+\big(f(x_n)-f(a_n)\big)\to b$. Por el Teorema 6.1, $\lim_{x\to a}f(x)=b$.
+
+  \emph{La extensión es continua.} Recuerde que $\overline{A}=A\cup A'$. Defina $F:\overline{A}\to\R$ por $F(x)=f(x)$ si $x\in A$ y $F(x)=\lim_{t\to x}f(t)$ si $x\in\overline{A}\setminus A\subseteq A'$. Veamos que $F$ es uniformemente continua, y en particular continua. Dado $\epsilon>0$, sea $\delta>0$ asociado a $\epsilon/2$ por la continuidad uniforme de $f$. Sean $x,y\in\overline{A}$ con $\norm{x-y}<\delta$. Elija sucesiones $\{x_n\},\{y_n\}\subseteq A$ con $x_n\to x$, $y_n\to y$ y $f(x_n)\to F(x)$, $f(y_n)\to F(y)$: si $x\in A$ tome $x_n=x$ para todo $n$; si $x\in\overline{A}\setminus A$ tome $x_n\in A$ con $x_n\to x$ (necesariamente $x_n\neq x$) y use el Teorema 6.1; lo mismo para $y$. Como $\norm{x_n-y_n}\to\norm{x-y}<\delta$, para $n$ grande $\norm{x_n-y_n}<\delta$ y así $|f(x_n)-f(y_n)|<\epsilon/2$. Al hacer $n\to+\infty$ se obtiene $|F(x)-F(y)|\le\epsilon/2<\epsilon$. Como $F|_A=f$, $F$ es una extensión continua de $f$ a $\overline{A}$.
+  \end{enumerate}
+
+  \emph{Las funciones $1/x^n$ y $\sin(1/x)$.} Sea $A=(0,a]$, que es acotado, y $0\in A'$.
+
+  Para $f(x)=1/x^n$: si $k\in\N^+$ y $k\ge 1/a$, entonces $1/k\in A$ y $f(1/k)=k^n\ge k$. Así $f$ no es acotada en $A$ y, por (a), no es uniformemente continua en $(0,a]$.
+
+  Para $g(x)=\sin(1/x)$: considere $x_k=\dfrac{1}{k\pi}$ y $y_k=\dfrac{1}{2\pi k+\pi/2}$, que pertenecen a $A$ para $k$ grande y tienden a $0$. Se tiene $g(x_k)=\sin(k\pi)=0$ y $g(y_k)=\sin(2\pi k+\pi/2)=1$. Si $g$ fuera uniformemente continua en $A$, por (b) existiría $\lim_{x\to 0}g(x)$, y por el Teorema 6.1 los límites de $g(x_k)$ y $g(y_k)$ coincidirían, es decir $0=1$, lo cual es absurdo. Por tanto $g$ no es uniformemente continua en $(0,a]$.
+  \end{proof}
+
+  \textbf{6.4.7.} Una función $f:\R\to\R$ se dice periódica de periodo $p>0$ si $f(x+p)=f(x)$, para todo $x\in\R$. Demostrar que si $f$ es continua y periódica de periodo $p$, entonces $f$ es uniformemente continua.
+
+  \begin{proof}
+  De $f(x+p)=f(x)$ para todo $x$ se sigue, por inducción y aplicando la relación a $x-p$, que $f(x+kp)=f(x)$ para todo $x\in\R$ y $k\in\mathbb Z$.
+
+  La restricción de $f$ al compacto $[0,2p]$ es continua, y por el Teorema 6.7 es uniformemente continua allí. Sea $\epsilon>0$ y $\delta_0>0$ tal que si $x',y'\in[0,2p]$ y $|x'-y'|<\delta_0$, entonces $|f(x')-f(y')|<\epsilon$. Sea $\delta=\min\{\delta_0,p\}$.
+
+  Sean $x,y\in\R$ con $|x-y|<\delta$; por simetría suponga $x\le y$. Sea $k=\lfloor x/p\rfloor$ y $x'=x-kp$, $y'=y-kp$. Entonces $0\le x'<p$ y $x'\le y'<x'+\delta\le x'+p<2p$, de modo que $x',y'\in[0,2p]$ y $|x'-y'|=|x-y|<\delta_0$. Por la periodicidad,
+  \[
+  |f(x)-f(y)|=|f(x')-f(y')|<\epsilon.
+  \]
+  Como $\delta$ solo depende de $\epsilon$, $f$ es uniformemente continua en $\R$.
+  \end{proof}
+
+\end{document}
