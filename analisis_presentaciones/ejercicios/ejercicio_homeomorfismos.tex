@@ -1,0 +1,146 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2cm]{geometry}
+
+\pagestyle{empty}
+\renewcommand{\proofname}{Demostración}
+\emergencystretch=2em
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\renewcommand{\labelenumi}{\alph{enumi})}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+
+\begin{document}
+
+\textbf{Ejercicio 4, numeral 8.} Sea $f:(E_1,d_1)\to(E_2,d_2)$ una función continua y biyectiva. Demostrar que, si $E_1$ es compacto, entonces $f^{-1}$ es continua.
+
+\begin{proof}
+Sea $C\subseteq E_1$ cerrado. Como $E_1$ es compacto, $C$ es compacto. Por continuidad, $f(C)$ es compacto en $E_2$ y, por tanto, cerrado en $E_2$. Ahora bien, la preimagen de $C$ bajo $f^{-1}:E_2\to E_1$ es
+\[
+(f^{-1})^{-1}(C)=f(C).
+\]
+Así, la preimagen de todo cerrado de $E_1$ mediante $f^{-1}$ es cerrada en $E_2$. Esto prueba que $f^{-1}$ es continua.
+\end{proof}
+
+\textbf{Ejercicio 4, numeral 13.} Considere los subconjuntos del plano
+\[
+\begin{aligned}
+X&=\{(x,y)\in\R^2:x^2+y^2=1\},\\
+Y&=\{(x,y)\in\R^2:a^2x^2+b^2y^2=1\},\quad a,b\ne0,\\
+Z&=\{(x,y)\in\R^2:x^2-y^2=1\},\\
+W&=\{(x,y)\in\R^2:x^2=y\}.
+\end{aligned}
+\]
+Determinar cuáles de estos conjuntos son homeomorfos.
+
+\begin{proof}
+La aplicación $T:X\to Y$, definida por $T(x,y)=(x/a,y/b)$, es biyectiva y continua, y su inversa $T^{-1}(u,v)=(au,bv)$ es continua. Por tanto, $X$ e $Y$ son homeomorfos.
+
+La aplicación $h:\R\to W$, $h(t)=(t,t^2)$, es un homeomorfismo, pues su inversa es la restricción a $W$ de la proyección $(x,y)\mapsto x$. Por tanto, $W$ es conexo y no compacto.
+
+El conjunto $Z$ no es conexo: es la unión de los conjuntos no vacíos y disjuntos $Z\cap\{x>0\}$ y $Z\cap\{x<0\}$, ambos abiertos en $Z$. En cambio, $X$ e $Y$ son conexos, y $W$ también lo es. Por tanto, $Z$ no es homeomorfo a ninguno de ellos.
+
+Finalmente, $X$ e $Y$ son compactos por ser cerrados y acotados en $\R^2$, mientras que $W$ no es acotado y, por tanto, no es compacto. Puesto que los homeomorfismos preservan compacidad, $W$ no es homeomorfo a $X$ ni a $Y$. En consecuencia, entre los cuatro conjuntos, únicamente $X$ e $Y$ son homeomorfos.
+\end{proof}
+
+\textbf{Ejercicio 4, numeral 14.} Con la métrica euclidiana, demostrar que $[a,b]$ no es homeomorfo a una bola abierta $B(c,r)$ de $\R^2$, donde $a<b$ y $r>0$.
+
+\begin{proof}
+El intervalo $[a,b]$ es compacto en $\R$. Si existiera un homeomorfismo $f:[a,b]\to B(c,r)$, su imagen $B(c,r)$ sería compacta, pues la imagen continua de un compacto es compacta. Sin embargo, $B(c,r)$ no es cerrada en $\R^2$ y, en consecuencia, no es compacta. Esto es una contradicción.
+\end{proof}
+
+\textbf{Ejercicio 4, numeral 17.} Sea $0<a<1$ y, para cada $n\in\N$ con $n\ge1$, defina $f_n:[0,a]\to\R$ por $f_n(x)=x^n$. Demostrar que $(f_n)$ converge uniformemente. ¿Es válido el resultado si $a=1$?
+
+\begin{proof}
+Si $0<a<1$, para todo $x\in[0,a]$ se cumple
+\[
+0\le |f_n(x)|=x^n\le a^n.
+\]
+Como $a^n\to0$, dado $\varepsilon>0$ existe $N\in\N$ tal que $a^n<\varepsilon$ para todo $n\ge N$. Luego $|f_n(x)-0|<\varepsilon$ para todo $x\in[0,a]$ y todo $n\ge N$. Por lo tanto, $f_n\to0$ uniformemente.
+
+En $[0,1]$, el límite puntual es
+\[
+f(x)=\begin{cases}0,&0\le x<1,\\1,&x=1.\end{cases}
+\]
+Cada $f_n$ es continua, pero $f$ no es continua en $1$. Como el límite uniforme de funciones continuas es continuo, la convergencia no puede ser uniforme en $[0,1]$.
+\end{proof}
+
+\textbf{Ejercicio 4, numeral 18.} Dada una función continua $f:\R\to\R$, considere $f_n:\R\to\R$ definida por
+\[
+f_n(x)=f\left(x+\frac1n\right).
+\]
+¿Converge uniformemente la sucesión $(f_n)$?
+
+\begin{proof}
+Por continuidad de $f$, para cada $x\in\R$ se tiene $f(x+1/n)\to f(x)$. Así, $f_n\to f$ puntualmente.
+
+No obstante, la convergencia no tiene por qué ser uniforme. Para $f(x)=x^2$ se obtiene
+\[
+|f_n(x)-f(x)|=\left|\frac{2x}{n}+\frac1{n^2}\right|.
+\]
+Para cada $n$ esta expresión no está acotada cuando $x$ recorre $\R$. Por tanto, $(f_n)$ no converge uniformemente en general.
+
+Si además $f$ es uniformemente continua, entonces sí hay convergencia uniforme: dado $\varepsilon>0$, existe $\delta>0$ tal que $|f(u)-f(v)|<\varepsilon$ siempre que $|u-v|<\delta$. Basta escoger $N$ de modo que $1/N<\delta$; para $n\ge N$ y todo $x\in\R$ se tiene
+\[
+\left|f\left(x+\frac1n\right)-f(x)\right|<\varepsilon.
+\]
+\end{proof}
+
+\textbf{Ejercicio 4, numeral 19.} Sea $(f_n)$ una sucesión de funciones acotadas $f_n:E_1\to E_2$, donde $(E_2,d_2)$ es un espacio métrico. Si $f_n$ converge uniformemente a $f:E_1\to E_2$, demostrar que $f$ es acotada.
+
+\begin{proof}
+Por convergencia uniforme, existe $N\in\N$ tal que
+\[
+d_2(f_N(x),f(x))<1\qquad\text{para todo }x\in E_1.
+\]
+Fijemos $y_0\in E_2$. Como $f_N$ es acotada, existe $M>0$ tal que $d_2(f_N(x),y_0)\le M$ para todo $x\in E_1$. Por la desigualdad triangular,
+\[
+d_2(f(x),y_0)\le d_2(f(x),f_N(x))+d_2(f_N(x),y_0)<1+M.
+\]
+Por tanto, $f$ es acotada.
+\end{proof}
+
+\textbf{Quiz 12, numeral 2.} Determinar si existe un homeomorfismo entre $\R^n$ y una bola cerrada de $\R^n$, con $n\ge1$.
+
+\begin{proof}
+No existe. Toda bola cerrada de radio finito en $\R^n$ es compacta, mientras que $\R^n$ no es compacto. Si ambos espacios fueran homeomorfos, la continuidad de un homeomorfismo de la bola cerrada sobre $\R^n$ implicaría que $\R^n$ es compacto, lo cual es falso.
+\end{proof}
+
+\textbf{Quiz 13, numeral 1.} Para cada $n\in\N$, considere $f_n:\R\to\R$ dada por
+\[
+f_n(x)=\begin{cases}1,&n\le x<n+1,\\0,&\text{en otro caso.}\end{cases}
+\]
+Determinar si $(f_n)$ converge uniformemente.
+
+\begin{proof}
+Para cada $x\in\R$ fijo, existe $N>x$ tal que si $n\ge N$, entonces $x<n$ y $f_n(x)=0$. Por ello $f_n(x)\to0$ para todo $x\in\R$.
+
+Sin embargo, para todo $n$ se cumple $f_n(n)=1$, de modo que
+\[
+\sup_{x\in\R}|f_n(x)-0|=1.
+\]
+Este supremo no tiende a cero, así que la convergencia no es uniforme.
+\end{proof}
+
+\textbf{Quiz 13, numeral 5.} Sean $(f_n)$ y $(g_n)$ sucesiones de funciones reales que convergen uniformemente en un conjunto $E$ a $f$ y $g$, respectivamente. Demostrar que $(f_n+g_n)$ converge uniformemente a $f+g$.
+
+\begin{proof}
+Sea $\varepsilon>0$. Por convergencia uniforme, existen $N_1,N_2\in\N$ tales que
+\[
+|f_n(x)-f(x)|<\frac{\varepsilon}{2}\quad(n\ge N_1),\qquad
+|g_n(x)-g(x)|<\frac{\varepsilon}{2}\quad(n\ge N_2)
+\]
+para todo $x\in E$. Si $N=\max\{N_1,N_2\}$, para $n\ge N$ y todo $x\in E$ se tiene
+\[
+|(f_n+g_n)(x)-(f+g)(x)|\le |f_n(x)-f(x)|+|g_n(x)-g(x)|<\varepsilon.
+\]
+Por lo tanto, $f_n+g_n\to f+g$ uniformemente.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,202 @@
+\documentclass{beamer}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\begin{document}
+  \begin{frame}
+    Consideremos una función $f:(E_1,d_1)\to(E_2,d_2)$ entre espacios métricos.
+  \end{frame}
+
+  \begin{frame}
+    Consideremos una función $f:(E_1,d_1)\to(E_2,d_2)$ entre espacios métricos.
+
+    La continuidad y la biyectividad de $f$ no implican que $f^{-1}$ sea continua.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Dados dos espacios métricos $(E_1,d_1)$ y $(E_2,d_2)$, una función $f:E_1\to E_2$ es un homeomorfismo si es biyectiva y tanto $f$ como $f^{-1}$ son continuas.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Dados dos espacios métricos $(E_1,d_1)$ y $(E_2,d_2)$, una función $f:E_1\to E_2$ es un homeomorfismo si es biyectiva y tanto $f$ como $f^{-1}$ son continuas.
+
+    \textit{Definición}: Si existe un homeomorfismo entre $E_1$ y $E_2$, se dice que son homeomorfos y se escribe $E_1\cong E_2$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Un homeomorfismo $f:E_1\to E_2$ es una isometría si para todo $x,y\in E_1$ se cumple
+    \[d_1(x,y)=d_2(f(x),f(y)).\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Corolario}: Si $f:(E_1,d_1)\to(E_2,d_2)$ y $g:(E_2,d_2)\to(E_3,d_3)$ son homeomorfismos, entonces $g\circ f$ también es un homeomorfismo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Corolario}: Si $f:(E_1,d_1)\to(E_2,d_2)$ y $g:(E_2,d_2)\to(E_3,d_3)$ son homeomorfismos, entonces $g\circ f$ también es un homeomorfismo.
+
+    \[(g\circ f)^{-1}=f^{-1}\circ g^{-1}.\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Dados $p,q\in\mathbb{R}^n$ y $r,s>0$, las bolas abiertas $B(p,r)$ y $B(q,s)$ son homeomorfas.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Dados $p,q\in\mathbb{R}^n$ y $r,s>0$, las bolas abiertas $B(p,r)$ y $B(q,s)$ son homeomorfas.
+
+    \[T:B(p,r)\to B(q,s),\qquad T(x)=\frac{s}{r}(x-p)+q.\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Sea $S^m=\{x\in\mathbb{R}^{m+1}:\|x\|=1\}$ y $p=(0,\ldots,0,1)$. Entonces $S^m\setminus\{p\}$ es homeomorfo a $\mathbb{R}^m$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Sea $S^m=\{x\in\mathbb{R}^{m+1}:\|x\|=1\}$ y $p=(0,\ldots,0,1)$. Entonces $S^m\setminus\{p\}$ es homeomorfo a $\mathbb{R}^m$.
+
+    \[\pi(x)=\frac{(x_1,\ldots,x_m)}{1-x_{m+1}}.\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: El espacio euclidiano $\mathbb{R}^m$ es homeomorfo a $B(0,1)$ mediante
+    \[f(x)=\frac{x}{1+\|x\|},\qquad f^{-1}(y)=\frac{y}{1-\|y\|}.\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Corolario}: $\mathbb{R}^m$ es homeomorfo a $B(p,r)$ para todo $p\in\mathbb{R}^m$ y todo $r>0$.
+  \end{frame}
+
+  \begin{frame}
+    Consideremos un conjunto $E_1$, un espacio métrico $(E_2,d_2)$ y una sucesión de funciones $f_n:E_1\to E_2$.
+  \end{frame}
+
+  \begin{frame}
+    Consideremos un conjunto $E_1$, un espacio métrico $(E_2,d_2)$ y una sucesión de funciones $f_n:E_1\to E_2$.
+
+    \textit{Definición}: $f_n$ converge puntualmente a $f:E_1\to E_2$ si $f_n(x)\to f(x)$ para todo $x\in E_1$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: La convergencia puntual $f_n\to f$ equivale a
+    \[(\forall x\in E_1)(\forall\varepsilon>0)(\exists N\in\mathbb{N})
+    (\forall n\geq N)\quad d_2(f_n(x),f(x))<\varepsilon.\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: La sucesión $(f_n)$ converge uniformemente a $f:E_1\to E_2$ si, para todo $\varepsilon>0$, existe $N\in\mathbb{N}$ tal que para todo $x\in E_1$ y todo $n\geq N$, se tiene $d_2(f_n(x),f(x))<\varepsilon$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: La sucesión $(f_n)$ converge uniformemente a $f:E_1\to E_2$ si, para todo $\varepsilon>0$, existe $N\in\mathbb{N}$ tal que para todo $x\in E_1$ y todo $n\geq N$, se tiene $d_2(f_n(x),f(x))<\varepsilon$.
+
+    \[f_n\xrightarrow{u} f.\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: La convergencia uniforme equivale a
+    \[(\forall\varepsilon>0)(\exists N\in\mathbb{N})
+    (\forall x\in E_1)(\forall n\geq N)\quad
+    d_2(f_n(x),f(x))<\varepsilon.\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Una sucesión $(f_n)$ es uniformemente de Cauchy si para todo $\varepsilon>0$ existe $N\in\mathbb{N}$ tal que para todo $x\in E_1$ y cualesquiera $m,n\geq N$,
+    \[d_2(f_n(x),f_m(x))<\varepsilon.\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Si $(E_2,d_2)$ es completo, una sucesión de funciones $f_n:E_1\to E_2$ converge uniformemente a alguna función $f:E_1\to E_2$ si y solo si es uniformemente de Cauchy.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Sean $(E_1,d_1)$ y $(E_2,d_2)$ espacios métricos. Si cada $f_n:E_1\to E_2$ es continua y $f_n\xrightarrow{u}f$, entonces $f$ es continua.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Lema}: Si $f,g:E_1\to E_2$ son continuas, entonces la función
+  \end{frame}
+
+  \begin{frame}
+    \textit{Lema}: Si $f,g:E_1\to E_2$ son continuas, entonces la función
+
+    \[h:E_1\to\mathbb{R},\qquad h(x)=d_2(f(x),g(x))\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Lema}: Si $f,g:E_1\to E_2$ son continuas, entonces la función
+
+    \[h:E_1\to\mathbb{R},\qquad h(x)=d_2(f(x),g(x))\]
+
+    es continua.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Denotamos por $C(E_1,E_2)$ el conjunto de todas las funciones continuas de $E_1$ en $E_2$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Denotamos por $C(E_1,E_2)$ el conjunto de todas las funciones continuas de $E_1$ en $E_2$.
+
+    Si $E_1$ es compacto, definimos
+    \[d(f,g)=\max_{x\in E_1}d_2(f(x),g(x)).\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Si $E_1$ es compacto, $(C(E_1,E_2),d)$ es un espacio métrico, donde
+    \[d(f,g)=\max_{x\in E_1}d_2(f(x),g(x)).\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Denotamos por $B(E_1,E_2)$ el conjunto de todas las funciones acotadas de $E_1$ en $E_2$.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Denotamos por $B(E_1,E_2)$ el conjunto de todas las funciones acotadas de $E_1$ en $E_2$.
+
+    \textit{Proposición}: Si $f,g\in B(E_1,E_2)$, entonces existe
+    \[\sup_{x\in E_1}d_2(f(x),g(x)).\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Para $f,g\in B(E_1,E_2)$, consideremos
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Para $f,g\in B(E_1,E_2)$, consideremos
+
+    \[d(f,g)=\sup_{x\in E_1}d_2(f(x),g(x)).\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Para $f,g\in B(E_1,E_2)$, consideremos
+
+    \[d(f,g)=\sup_{x\in E_1}d_2(f(x),g(x)).\]
+
+    \textit{Proposición}: $(B(E_1,E_2),d)$ es un espacio métrico.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Sea $(f_n)$ una sucesión en $B(E_1,E_2)$ y $f\in B(E_1,E_2)$. Entonces
+    \[d(f_n,f)\longrightarrow 0\quad\Longleftrightarrow\quad f_n\xrightarrow{u}f.\]
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Una sucesión $(f_n)$ en $B(E_1,E_2)$ es de Cauchy respecto a la métrica $d$ si y solo si es uniformemente de Cauchy.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Proposición}: Si $(E_2,d_2)$ es completo, entonces $(B(E_1,E_2),d)$ es un espacio métrico completo.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Denotamos por $BC(E_1,E_2)$ el conjunto de funciones de $E_1$ en $E_2$ que son acotadas y continuas.
+  \end{frame}
+
+  \begin{frame}
+    \textit{Definición}: Denotamos por $BC(E_1,E_2)$ el conjunto de funciones de $E_1$ en $E_2$ que son acotadas y continuas.
+
+    \textit{Proposición}: $BC(E_1,E_2)$ es cerrado en $(B(E_1,E_2),d)$.
+  \end{frame}
+
+\end{document}
